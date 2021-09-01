@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { login } from '../actions';
 
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import FormInput from '../components/FormInput';
 
