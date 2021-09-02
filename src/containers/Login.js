@@ -51,7 +51,7 @@ function Login(props) {
   return (
     <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
       <h1 className='f1'>Login</h1>
-      <form>
+      <form style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
         <FormInput name='email' type='email' placeholder='email' handleChange={handleChange} required/>
         <FormInput name='password' type='password' placeholder='password' handleChange={handleChange} required/>
       </form>

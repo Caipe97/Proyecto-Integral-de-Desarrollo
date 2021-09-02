@@ -3,3 +3,106 @@ h1 {
   font-weight: 200;
   color: #0ccac4;
 }
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+
+  grid-template-areas:
+    'header header button'
+    'contenido contenido sidebar'
+    'widget1 widget2 sidebar'
+    'footer footer footer';
+  /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
+  a cada parte de la pagina web */
+}
+
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.contenedor .widget1 {
+  grid-area: widget1;
+}
+.contenedor .widget2 {
+  grid-area: widget2;
+}
+.contenedor .header {
+  background: #12203e;
+  grid-area: header;
+  align-content: space-between;
+
+  /* grid-column-start:1;
+  grid-column-end: 4; */
+  /* sino podes indicar con end -1 si no sabes las columnas q hiciste en grid */
+}
+
+.contenedor .contenido {
+  grid-area: contenido;
+  /* grid-column:  span 2; */
+}
+
+.contenedor .sidebar {
+  grid-column: 3/4;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  grid-area: sidebar;
+  /* grid-row:span 2; */
+}
+
+.contenedor .widget1,
+.contenedor .widget2 {
+  height: 100px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor .footer {
+  background: #12203e;
+  color: #fff;
+  grid-area: footer;
+  /* grid-column: span 3; */
+}
+/* cuando baje de 768 la dimension va a cambiar de las componentes */
+/* @media (max-width:768px){
+  .contenedor{
+    background: #000;
+  }
+  .contenedor .contenido{
+    grid-column: 1/-1;
+  }
+  .contenedor .sidebar{
+    grid-column: 1/-1;
+  }
+  .contenedor .widget1{
+    grid-column: span 2;
+  }
+} */
+/* lo comentado es con media query */
+
+@media (max-width: 768px) {
+  .contenedor {
+    grid-template-areas:
+      'header header button'
+      'contenido contenido contenido'
+      'sidebar sidebar sidebar'
+      'widget1 widget1 widget1 '
+      'widget2 widget2 widget2 '
+      'footer footer footer';
+  }
+}
+/* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */

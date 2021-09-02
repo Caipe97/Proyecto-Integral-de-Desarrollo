@@ -53,7 +53,7 @@ function Register(props) {
   return (
     <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
       <h1 className='f1'>Register</h1>
-      <form>
+      <form style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
         <FormInput name='name' type='name' placeholder='name' handleChange={handleChange} required/>
         <FormInput name='surname' type='surname' placeholder='surname' handleChange={handleChange} required/>
         <FormInput name='email' type='email' placeholder='email' handleChange={handleChange} required/>
