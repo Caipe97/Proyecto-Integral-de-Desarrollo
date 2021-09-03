@@ -1,8 +1,7 @@
-import React from 'react';;
+import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory, Link } from "react-router-dom";
 import logo from '../images/logo_small.png';
-
 import './App.css';
 
 const mapStateToProps = (state) => {

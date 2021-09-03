@@ -10,10 +10,10 @@ import {
 
 
 
-// // export const setSearchField = (text) => ({ 
-// //   type: CHANGE_SEARCHFIELD, 
-// //   payload: text 
-// // })
+// export const setSearchField = (text) => ({ 
+//   type: CHANGE_SEARCHFIELD, 
+//   payload: text 
+// })
 
 export const login = (email, password) => (dispatch) => {
   dispatch({ type: LOGIN_OR_REGISTER_PENDING });
