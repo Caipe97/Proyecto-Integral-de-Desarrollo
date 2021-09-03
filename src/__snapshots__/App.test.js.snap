@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render App component 1`] = `
+<div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/login"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/resetPassword"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/register"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/profile"
+    />
+  </Switch>
+</div>
+`;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';;
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
