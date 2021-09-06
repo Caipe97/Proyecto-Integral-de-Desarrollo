@@ -1,6 +1,10 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import './App.css';
+import logo from '../images/logo_small.png';
+import logo2 from '../images/phone.png';
+
+
 
 function Home() {
   let history = useHistory();
