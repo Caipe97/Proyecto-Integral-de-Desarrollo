@@ -13,7 +13,7 @@ h1 {
   grid-template-rows: repeat(4, auto);
 
   grid-template-areas:
-    'header header button'
+    'header header header'
     'contenido contenido sidebar'
     'widget1 widget2 sidebar'
     'footer footer footer';
@@ -97,7 +97,7 @@ h1 {
 @media (max-width: 768px) {
   .contenedor {
     grid-template-areas:
-      'header header button'
+      'header header header'
       'contenido contenido contenido'
       'sidebar sidebar sidebar'
       'widget1 widget1 widget1 '
@@ -106,3 +106,52 @@ h1 {
   }
 }
 /* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  /* background: red;
+  color: white; */
+}
+
+/* Screen Reset */
+
+.contenedorReset {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+
+  grid-template-areas:
+    'headerReset headerReset headerReset'
+    'contenidoReset contenidoReset contenidoReset'
+    'footer footer footer';
+
+  /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
+  a cada parte de la pagina web y bueno eso */
+}
+
+.contenedorReset .contenidoReset {
+  grid-area: contenidoReset;
+  /* grid-column:  span 2; */
+}
+.contenedorReset .headerReset{
+  grid-area: headerReset;
+  background: #12203e;
+  align-content: space-between;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.contenedorReset .footerReset{
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  background: #12203e;
+  color: #fff;
+  grid-area: footer;
+}
