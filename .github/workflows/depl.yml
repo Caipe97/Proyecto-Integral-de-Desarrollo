@@ -13,5 +13,5 @@ jobs:
           node-version: '16.x'
       - name: Install dependencies
         run: npm install
-      - name: Run tests and Coverage
-        run: npm test -- --coverage --watchAll
+      - name: Run tests
+        run: npm test -- --coverage --watchAll --exit
