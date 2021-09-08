@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render Footer component 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    style={
+      Object {
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="box"
+    >
+      <h3>
+        Copyright 2021 JMA Group Ltd.
+      </h3>
+      <div
+        className="box"
+      >
+        <img
+          alt="imagen phone"
+          src="phone.png"
+          style={
+            Object {
+              "height": 40,
+              "width": 40,
+            }
+          }
+        />
+        <h3
+          style={
+            Object {
+              "marginLeft": "5px",
+              "marginTop": "9%",
+            }
+          }
+        >
+          4568-9430
+        </h3>
+      </div>
+    </div>
+  </div>
+</footer>
+`;
