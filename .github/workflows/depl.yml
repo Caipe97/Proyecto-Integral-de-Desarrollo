@@ -1,17 +1,55 @@
-name: Prueba Github Actions
+# name: Prueba Github Actions
+
+# on: [push]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '16.x'
+#       - name: Install dependencies
+#         run: npm install
+#       - name: Run tests and coverage
+#         run: jest --coverage && coveralls < coverage/lcov.info
 
 on: [push]
 
+name: build
+
 jobs:
-  build:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test_number:
+          - 1
+          - 2
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          version: 10.x
+      - run: npm install
+      - run: make test-coverage-${{ matrix.test_number }}
+      - name: Coveralls
+        uses: coverallsapp/github-action@v1.1.0
+        env:
+          NODE_COVERALLS_DEBUG: 1
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel: true
+          flag-name: run-${{ matrix.test_number }}
+
+  finish:
+    needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@v1.1.0
         with:
-          node-version: '16.x'
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests and coverage
-        run: npm test -- --coverage --watchAll=false
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
