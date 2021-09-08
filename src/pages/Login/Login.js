@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../actions';
-import { useHistory } from "react-router-dom";
-import FormInput from '../components/FormInput';
-import './App.css';
-import logo from '../images/logo_small.png';
-import logo1 from '../images/avatar.png';
-import logo2 from '../images/phone.png';
+import { login } from '../../store/actions';
+import { useHistory, Link } from "react-router-dom";
+import FormInput from '../../components/FormInput';
+import '../App/App.css';
+import logo1 from '../../images/avatar.png';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +15,10 @@ const mapStateToProps = (state) => {
     surname: state.userDataReducer.surname,
     email: state.userDataReducer.email,
     password: state.userDataReducer.password,
+    gender: state.userDataReducer.gender,
+    birthday: state.userDataReducer.birthday,
+    weight: state.userDataReducer.weight,
+    height: state.userDataReducer.height,
     isPending: state.userDataReducer.isPending
   }
 }
@@ -31,6 +35,7 @@ function Login(props) {
     password: ''
   });
 
+  console.log(props)
   let history = useHistory();
   
   const handleChange = event => {
@@ -49,16 +54,7 @@ function Login(props) {
   
   return (
     <div className="contenedor">
-      <header className="header">
-        <div style={{ width: '100%', position: 'relative' }}>
-          <div className="box" style={{}}>
-            <img src={logo} alt="imagen tracking" style={{ width: 100 }} />
-          </div>
-          <div className="box" style={{ position: 'absolute', right: '30px', }}>
-            <button type="button" onClick={() => history.push("/")}>Go to Home</button>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       <div className="contenido">
         <h1>Contenido</h1>
@@ -81,9 +77,10 @@ function Login(props) {
             <FormInput name='email' type='email' placeholder='email' handleChange={handleChange} required />
             <FormInput name='password' type='password' placeholder='password' handleChange={handleChange} required />
           </form>
-          <button onClick={handleSubmit}>Login</button>
-
-          <button type="button" onClick={() => history.push("/register")}>Go to Register</button>
+          <button onClick={handleSubmit} style={{margin: '10px'}}>Login</button>
+          <p>Todavia no tenes una cuenta?
+            <Link to="/register" style={{color: 'black'}}>Registrate</Link>
+          </p>
         </div>
       </div>
       <div className="widget1">
@@ -93,17 +90,7 @@ function Login(props) {
         <h3>Tracking semanal</h3>
         <img src="https://www.zohowebstatic.com/sites/default/files/column-chart.jpg" alt="imagen tracking" style={{ width: 100, height: 50 }} />
       </div>
-      <footer className="footer">
-        <div style={{ width: '100%', position: 'relative' }}>
-          <div className="box" style={{ width: '50%' }}>
-            <h3>Copyright 2021 JMA Group Ltd.</h3>
-          </div>
-          <div className="box" style={{ position: 'absolute', right: '50px' }}>
-            <img src={logo2} alt="imagen phone" style={{ width: 40, height: 40 }} />
-            <h3 style={{ marginTop: '-5px' }}>4568-9430</h3>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
 
   );

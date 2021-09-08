@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory, Link } from "react-router-dom";
-import logo from '../images/logo_small.png';
-import './App.css';
-import logo1 from '../images/analystic.png';
-import logo2 from '../images/phone.png';
-import './App.css';
+import '../App/App.css';
+import logo1 from '../../images/analystic.png';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +13,10 @@ const mapStateToProps = (state) => {
     surname: state.userDataReducer.surname,
     email: state.userDataReducer.email,
     password: state.userDataReducer.password,
+    gender: state.userDataReducer.gender,
+    birthday: state.userDataReducer.birthday,
+    weight: state.userDataReducer.weight,
+    height: state.userDataReducer.height,
     isPending: state.userDataReducer.isPending
   }
 }
@@ -29,32 +32,10 @@ const mapStateToProps = (state) => {
 
 function Profile(props) {
   let history = useHistory();
-  
   return (
-    // <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
-    //   <button type="button" onClick={() => history.push("/")}>Go Home</button>
-    //   <h1 className='f1'>Profile</h1>
-    //   <h2>id: {props.id}</h2>
-    //   <h2>Name: {props.name}</h2>
-    //   <h2>surname: {props.surname}</h2>
-    //   <h2>Email: {props.email}</h2>
-    //   <h2>Password: {props.password}</h2>
-    //   <h2>IsPending: {(props.isPending).toString()}</h2>
 
-
-    // </div>
     <div className="contenedor">
-      <header className="header">
-      <div style={{width:'100%',position:'relative'}}> 
-      <div className="box" style={{}}>
-          <img src={logo} alt="imagen tracking" style={{width: 100}} />
-          </div>
-          <div className="box" style={{  position:'absolute',right:'30px'}}>
-          <button type="button" onClick={() => history.push("/")}>Log out</button>
-      </div>
-      </div>
-      </header>
-      
+      <Header userId={props.id}/>
 
       <div className="contenido"> 
         <h1>Contenido</h1>
@@ -67,14 +48,18 @@ function Profile(props) {
     <div className="sidebar">
       <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
       <h1 className='f1'>Perfil</h1>
-      <h2>id: {props.id}</h2>
+      <h2>Id: {props.id}</h2>
       <h2>Name: {props.name}</h2>
-      <h2>surname: {props.surname}</h2>
+      <h2>Surname: {props.surname}</h2>
       <h2>Email: {props.email}</h2>
-      <h2 style={{fontWeight:100}}>Password: {props.password}</h2>            
+      <h2 style={{color: 'red'}}>Password: {props.password}</h2>            
       {/* PASS WORD HIDE */}
-      <h2>IsPending: {(props.isPending).toString()}</h2>
+      <h2>Gender: {props.gender}</h2>
+      <h2>Birthday: {props.birthday}</h2>
+      <h2>Weight: {props.weight}</h2>
+      <h2>Height: {props.height}</h2>
       <Link to="/resetPassword" style={{color: 'black'}}>Reset your password</Link>
+      <button type="button" onClick={() => history.push("/records")}>Go to Records</button>
   </div>
     </div>
     <div className="widget1">
@@ -85,18 +70,7 @@ function Profile(props) {
       <h3>Tracking semanal</h3>
       <img src="https://www.zohowebstatic.com/sites/default/files/column-chart.jpg" alt="imagen tracking" style={{width: 100, height: 50}} />
     </div>
-    <footer className="footer">
-     
-      <div style={{width:'100%',position:'relative'}}> 
-      <div className="box" style={{width:'50%'}}>
-      <h3>Copyright 2021 JMA Group Ltd.</h3>
-          </div>
-          <div className="box" style={{  position:'absolute',right:'50px'}}>
-          <img src={logo2} alt="imagen phone" style={{width: 40,height:40}} />
-          <h3 style={{marginTop:'-5px'}}>4568-9430</h3>
-      </div>
-      </div>
-    </footer>
+    <Footer/>
   </div>
 
   );
