@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRegister: (name, surname, email, password) => dispatch(register(name, surname, email, password))
+    onRegister: (name, surname, email, password, gender, birthday, weight, height) => dispatch(register(name, surname, email, password, gender, birthday, weight, height))
   }
 }
 

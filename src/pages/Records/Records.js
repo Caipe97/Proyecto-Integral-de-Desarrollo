@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddRecord: (email, password) => dispatch(addRecord(email, password))
+    onAddRecord: (id, foodName, gramAmount, dateEaten) => dispatch(addRecord(id, foodName, gramAmount, dateEaten))
   }
 }
 
@@ -40,7 +40,7 @@ function Records(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // props.onAddRecord(foodName, gramAmount, dateEaten);
+    props.onAddRecord(props.id,state.foodName, state.gramAmount, state.dateEaten);
     setState({foodName: '', gramAmount: '', dateEaten: ''});
   };
   
@@ -68,7 +68,7 @@ function Records(props) {
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
             <FormInput name='foodName' type='foodName' placeholder='foodName' handleChange={handleChange} required />
             <FormInput name='gramAmount' type='gramAmount' placeholder='gramAmount' handleChange={handleChange} required />
-            <FormInput name='date' type='date' placeholder='date' handleChange={handleChange} required />
+            <FormInput name='dateEaten' type='date' placeholder='dateEaten' handleChange={handleChange} required />
           </form>
           <button onClick={handleSubmit} style={{margin: '10px'}}>Records</button>
           <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>

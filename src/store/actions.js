@@ -34,6 +34,7 @@ export const login = (email, password) => (dispatch) => {
 }
 
 export const register = (name, surname, email, password, gender, birthday, weight, height) => (dispatch) => {
+  console.log(name, surname, email, password, gender, birthday, weight, height)
   dispatch({ type: LOGIN_OR_REGISTER_PENDING });
   fetch(`https://jma-test-app.herokuapp.com/api/users/register`, {
     method: 'POST',
@@ -66,12 +67,14 @@ export const resetPassword = (id, password) => (dispatch) => {
     .catch(error => dispatch({ type: RESET_PASSWORD_FAILED, payload: error }))
 }
 
-export const addRecord = (foodName, gramAmount, dateEaten) => (dispatch) => {
+export const addRecord = (id, foodName, gramAmount, dateEaten) => (dispatch) => {
+  console.log(id, foodName, gramAmount, dateEaten)
   dispatch({ type: ADD_RECORD_PENDING });
-  fetch(`https://jma-test-app.herokuapp.com/api/users/`, {
+  fetch(`https://jma-test-app.herokuapp.com/api/records`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
+      userID: id,
       foodName: foodName,
       gramAmount: gramAmount,
       dateEaten: dateEaten
