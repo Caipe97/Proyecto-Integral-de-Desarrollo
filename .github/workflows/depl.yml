@@ -3,7 +3,7 @@ name: Prueba Github Actions
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +23,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   finish:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls Finished
