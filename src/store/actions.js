@@ -1,4 +1,6 @@
 import {
+  LOGOUT,
+
   LOGIN_OR_REGISTER_PENDING,
   LOGIN_OR_REGISTER_SUCCESS,
   LOGIN_OR_REGISTER_FAILED,
@@ -9,15 +11,20 @@ import {
 
   ADD_RECORD_PENDING,
   ADD_RECORD_SUCCESS,
-  ADD_RECORD_FAILED
+  ADD_RECORD_FAILED,
+
+  GET_RECORDS_FROM_USER_PENDING,
+  GET_RECORDS_FROM_USER_SUCCESS,
+  GET_RECORDS_FROM_USER_FAILED,
+
+  DELETE_RECORD_PENDING,
+  DELETE_RECORD_SUCCESS,
+  DELETE_RECORD_FAILED
  } from './constants'
 
-
-
-// export const setSearchField = (text) => ({ 
-//   type: CHANGE_SEARCHFIELD, 
-//   payload: text 
-// })
+export const logout = () => ({ 
+  type: LOGOUT
+})
 
 export const login = (email, password) => (dispatch) => {
   dispatch({ type: LOGIN_OR_REGISTER_PENDING });
@@ -34,7 +41,6 @@ export const login = (email, password) => (dispatch) => {
 }
 
 export const register = (name, surname, email, password, gender, birthday, weight, height) => (dispatch) => {
-  console.log(name, surname, email, password, gender, birthday, weight, height)
   dispatch({ type: LOGIN_OR_REGISTER_PENDING });
   fetch(`https://jma-test-app.herokuapp.com/api/users/register`, {
     method: 'POST',
@@ -82,4 +88,25 @@ export const addRecord = (id, foodName, gramAmount, dateEaten) => (dispatch) => 
     .then(response => response.json())
     .then(recordsData => dispatch({ type: ADD_RECORD_SUCCESS, payload: recordsData }))
     .catch(error => dispatch({ type: ADD_RECORD_FAILED, payload: error }))
+}
+
+export const getRecordsFromUser = (id) => (dispatch) => {
+  dispatch({ type: GET_RECORDS_FROM_USER_PENDING });
+  fetch(`https://jma-test-app.herokuapp.com/api/records?userID=${id}`)
+    .then(response => response.json())
+    .then(recordsData => dispatch({ type: GET_RECORDS_FROM_USER_SUCCESS, payload: recordsData }))
+    .catch(error => dispatch({ type: GET_RECORDS_FROM_USER_FAILED, payload: error }))
+}
+
+export const deleteRecord = (id) => (dispatch) => {
+  dispatch({ type: DELETE_RECORD_PENDING });
+  fetch(`https://jma-test-app.herokuapp.com/api/records`, {
+    method: 'DELETE',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      id: id,
+    })})
+  .then(response => response.json())
+  .then(recordsData => dispatch({ type: DELETE_RECORD_SUCCESS, payload: recordsData }))
+  .catch(error => dispatch({ type: DELETE_RECORD_FAILED, payload: error }))
 }

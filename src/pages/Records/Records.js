@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addRecord } from '../../store/actions';
+import { addRecord, deleteRecord } from '../../store/actions';
 import { useHistory } from "react-router-dom";
 import FormInput from '../../components/FormInput';
 import '../App/App.css';
@@ -18,7 +18,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddRecord: (id, foodName, gramAmount, dateEaten) => dispatch(addRecord(id, foodName, gramAmount, dateEaten))
+    onAddRecord: (id, foodName, gramAmount, dateEaten) => dispatch(addRecord(id, foodName, gramAmount, dateEaten)),
+    onDeleteRecord: (id) => dispatch(deleteRecord(id))
+
   }
 }
 
@@ -32,6 +34,7 @@ function Records(props) {
   let history = useHistory();
   
   const handleChange = event => {
+    console.log(event);
     setState({
       ...state,
       [event.target.name]: event.target.value
@@ -43,22 +46,21 @@ function Records(props) {
     props.onAddRecord(props.id,state.foodName, state.gramAmount, state.dateEaten);
     setState({foodName: '', gramAmount: '', dateEaten: ''});
   };
-  
-  console.log(props)
 
   return (
     <div className="contenedor">
-      <Header/>
+      <Header userId={props.id}/>
       <ul>
         {props.records.map((record) => 
-          <div style={{backgroundColor: 'white', width: '100%', marginBottom: '1%', listStyleType: 'none'}}>
-            <li key={record.foodName}>{record.foodName}</li>
+          <div key={record.id} style={{backgroundColor: 'white', width: '100%', marginBottom: '1%', listStyleType: 'none'}}>
+            <li>{record.foodName} {record.gramAmount} {record.dateEaten.substring(0,10)}</li>
+            <button type="button" onClick={() => props.onDeleteRecord(record.id)}>Delete</button>
           </div>
         )}
       </ul>
       <div className="sidebar">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-          <div className="box" style={{}}>
+          <div className="box">
             <img src={logo1} alt="imagen tracking" style={{ width: 100 }} />
           </div>
           <div style={{ marginTop: 45 }}>
@@ -66,9 +68,9 @@ function Records(props) {
           </div>
 
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-            <FormInput name='foodName' type='foodName' placeholder='foodName' handleChange={handleChange} required />
-            <FormInput name='gramAmount' type='gramAmount' placeholder='gramAmount' handleChange={handleChange} required />
-            <FormInput name='dateEaten' type='date' placeholder='dateEaten' handleChange={handleChange} required />
+            <FormInput name='foodName' type='foodName' placeholder='foodName' value={state.foodName} handleChange={handleChange} required />
+            <FormInput name='gramAmount' type='gramAmount' placeholder='gramAmount' value={state.gramAmount}  handleChange={handleChange} required />
+            <FormInput name='dateEaten' type='date' placeholder='dateEaten' value={state.dateEaten} handleChange={handleChange} required />
           </form>
           <button onClick={handleSubmit} style={{margin: '10px'}}>Records</button>
           <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>

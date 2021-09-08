@@ -59,7 +59,7 @@ function Register(props) {
 
   return (
     <div className="contenedorReset">
-    <Header/>
+    <Header userId={props.id}/>
 
      <div className='contenidoReset' style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
      <div className="box">
@@ -70,14 +70,14 @@ function Register(props) {
      </div>
     
       <form style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
-        <FormInput name='name' type='name' placeholder='name' handleChange={handleChange} required/>
-        <FormInput name='surname' type='surname' placeholder='surname' handleChange={handleChange} required/>
-        <FormInput name='email' type='email' placeholder='email' handleChange={handleChange} required/>
-        <FormInput name='password' type='password' placeholder='password' handleChange={handleChange} required/>
-        <FormInput name='gender' type='gender' placeholder='gender' handleChange={handleChange} required/>
-        <FormInput name='birthday' type='date' placeholder='birthday' handleChange={handleChange} required/>
-        <FormInput name='weight' type='weight' placeholder='weight' handleChange={handleChange} required/>
-        <FormInput name='height' type='height' placeholder='height' handleChange={handleChange} required/>
+        <FormInput name='name' type='name' placeholder='name' value={state.name} handleChange={handleChange} required/>
+        <FormInput name='surname' type='surname' placeholder='surname' value={state.surname} handleChange={handleChange} required/>
+        <FormInput name='email' type='email' placeholder='email' value={state.email} handleChange={handleChange} required/>
+        <FormInput name='password' type='password' placeholder='password' value={state.password} handleChange={handleChange} required/>
+        <FormInput name='gender' type='gender' placeholder='gender' value={state.gender} handleChange={handleChange} required/>
+        <FormInput name='birthday' type='date' placeholder='birthday' value={state.birthday} handleChange={handleChange} required/>
+        <FormInput name='weight' type='weight' placeholder='weight' value={state.weight} handleChange={handleChange} required/>
+        <FormInput name='height' type='height' placeholder='height' value={state.height} handleChange={handleChange} required/>
       </form>
       <button onClick={handleSubmit}>Register</button>
       <button type="button" onClick={() => history.push("/")}>Go to Login</button>

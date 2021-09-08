@@ -5,6 +5,7 @@ import '../App/App.css';
 import logo1 from '../../images/analystic.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { getRecordsFromUser } from '../../store/actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -21,14 +22,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     // onGetData: (id) => dispatch(getData(id)),
-//     // onPostData: (title, body, id) => dispatch(postData(title, body, id)),
-//     // onPutData: (id, title, body, id) => dispatch(putData(id, title, body, id)),
-//     // onDeleteData: (id) => dispatch(deleteData(id))
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onGetRecordsFromUser: (id) => dispatch(getRecordsFromUser(id)),
+
+  }
+}
 
 function Profile(props) {
   let history = useHistory();
@@ -59,12 +58,12 @@ function Profile(props) {
       <h2>Weight: {props.weight}</h2>
       <h2>Height: {props.height}</h2>
       <Link to="/resetPassword" style={{color: 'black'}}>Reset your password</Link>
-      <button type="button" onClick={() => history.push("/records")}>Go to Records</button>
+      <button type="button" onClick={() => {props.onGetRecordsFromUser(props.id); history.push("/records")}}>Go to Records</button>
   </div>
     </div>
     <div className="widget1">
       <h3>Calorias</h3>
-      <img src={logo1} alt="imagen calorias" style={{width: 100,height:60}} />
+      <img src={logo1} alt="imagen calorias" style={{width: 100, height:60}} />
     </div>
     <div className="widget2">
       <h3>Tracking semanal</h3>
@@ -76,4 +75,4 @@ function Profile(props) {
   );
 }
 
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

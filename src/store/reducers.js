@@ -1,4 +1,6 @@
 import {
+  LOGOUT,
+
   LOGIN_OR_REGISTER_PENDING,
   LOGIN_OR_REGISTER_SUCCESS,
   LOGIN_OR_REGISTER_FAILED,
@@ -9,7 +11,15 @@ import {
 
   ADD_RECORD_PENDING,
   ADD_RECORD_SUCCESS,
-  ADD_RECORD_FAILED
+  ADD_RECORD_FAILED,
+
+  GET_RECORDS_FROM_USER_PENDING,
+  GET_RECORDS_FROM_USER_SUCCESS,
+  GET_RECORDS_FROM_USER_FAILED,
+
+  DELETE_RECORD_PENDING,
+  DELETE_RECORD_SUCCESS,
+  DELETE_RECORD_FAILED
  } from './constants';
 
 const initialStateUserData = {
@@ -27,6 +37,19 @@ const initialStateUserData = {
 
 export const userDataReducer = (state=initialStateUserData, action={}) => {
   switch (action.type) {
+    case LOGOUT:
+      return {
+        id: 0,
+        name: '',
+        surname: '',
+        email: '',
+        password: '',
+        gender: '',
+        birthday: '',
+        weight: 0,
+        height: 0,
+        isPending: false
+      }
     case LOGIN_OR_REGISTER_PENDING:
       return {
         ...state,
@@ -72,7 +95,7 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
 }
 
 const initialStateRecords = {
-  records: [{foodName: 'milanesa', gramAmount: 15, dateEaten: '2021-09-06'}, {foodName: 'pollo', gramAmount: 10, dateEaten: '2021-09-07'}],
+  records: [],
   isPending: false
 }
 
@@ -84,9 +107,10 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
         isPending: true
       }
     case ADD_RECORD_SUCCESS:
+      console.log("Devolucion del POST: ", action.payload);
       return {
         ...state,
-        records: action.payload.records,
+        records: state.records.concat(action.payload),
         isPending: false
       }
     case ADD_RECORD_FAILED:
@@ -94,6 +118,38 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
         ...state,
         error: action.payload
       }
+      case GET_RECORDS_FROM_USER_PENDING:
+        return {
+          ...state,
+          isPending: true
+        }
+      case GET_RECORDS_FROM_USER_SUCCESS:
+        return {
+          ...state,
+          records: action.payload,
+          isPending: false
+        }
+      case GET_RECORDS_FROM_USER_FAILED:
+        return {
+          ...state,
+          error: action.payload
+        }
+        case DELETE_RECORD_PENDING:
+          return {
+            ...state,
+            isPending: true
+          }
+        case DELETE_RECORD_SUCCESS:
+          console.log(action.payload)
+          return {
+            ...state,
+            isPending: false
+          }
+        case DELETE_RECORD_FAILED:
+          return {
+            ...state,
+            error: action.payload
+          }
     default:
       return state
   }

@@ -29,7 +29,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function ResetPassword(props) {
-  console.log(props)
   let [password, setPassword] = useState('');
   let [message, setMessage] = useState('');
 
@@ -48,7 +47,7 @@ function ResetPassword(props) {
   
   return (
    <div className="contenedorReset">
-     <Header/>
+     <Header userId={props.id}/>
 
    <div className="contenidoReset" style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center',  }}>
       <h1 className='f1'>ResetPassword</h1>

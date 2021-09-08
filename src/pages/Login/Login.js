@@ -35,7 +35,6 @@ function Login(props) {
     password: ''
   });
 
-  console.log(props)
   let history = useHistory();
   
   const handleChange = event => {
@@ -54,7 +53,7 @@ function Login(props) {
   
   return (
     <div className="contenedor">
-      <Header/>
+      <Header userId={props.id}/>
 
       <div className="contenido">
         <h1>Contenido</h1>
@@ -74,8 +73,8 @@ function Login(props) {
           </div>
 
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-            <FormInput name='email' type='email' placeholder='email' handleChange={handleChange} required />
-            <FormInput name='password' type='password' placeholder='password' handleChange={handleChange} required />
+            <FormInput name='email' type='email' placeholder='email' value={state.email} handleChange={handleChange} required />
+            <FormInput name='password' type='password' placeholder='password' value={state.password} handleChange={handleChange} required />
           </form>
           <button onClick={handleSubmit} style={{margin: '10px'}}>Login</button>
           <p>Todavia no tenes una cuenta?
