@@ -44,11 +44,15 @@ function Login(props) {
     })
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    props.onLogin(state.email, state.password);
+    const data = await props.onLogin(state.email, state.password);
     setState({email: '', password: ''});
-    history.push("/profile");
+    if(data){
+      history.push("/profile");
+    } else{
+      console.log("no")
+    }
   };
   
   return (

@@ -58,10 +58,10 @@ function Register(props) {
   };
 
   return (
-    <div className="contenedorReset">
+    <div className="contenedor">
     <Header userId={props.id}/>
 
-     <div className='contenidoReset' style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
+     <div className='contenido' style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
      <div className="box">
          <img src={logo1} alt="imagen tracking" style={{width: 100}} />
      </div>

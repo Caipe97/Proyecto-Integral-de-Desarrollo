@@ -70,6 +70,7 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
         isPending: false
       }
     case LOGIN_OR_REGISTER_FAILED:
+      console.log(action.payload)
       return {
         ...state,
         error: action.payload

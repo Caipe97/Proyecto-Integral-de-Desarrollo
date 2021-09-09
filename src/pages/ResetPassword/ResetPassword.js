@@ -46,10 +46,10 @@ function ResetPassword(props) {
   };
   
   return (
-   <div className="contenedorReset">
+   <div className="contenedor">
      <Header userId={props.id}/>
 
-   <div className="contenidoReset" style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center',  }}>
+   <div className="contenido" style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center',  }}>
       <h1 className='f1'>ResetPassword</h1>
       <form>
         <FormInput name='password' type='password' placeholder='New password' handleChange={handleChange} required/>

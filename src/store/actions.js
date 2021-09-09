@@ -27,14 +27,17 @@ export const logout = () => ({
 })
 
 export const login = (email, password) => (dispatch) => {
-  dispatch({ type: LOGIN_OR_REGISTER_PENDING });
-  fetch(`https://jma-test-app.herokuapp.com/api/users/login`, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      email: email,
-      password: password
-    })})
+    dispatch({ type: LOGIN_OR_REGISTER_PENDING })
+    return(
+      fetch(`https://jma-test-app.herokuapp.com/api/users/login`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      })
+    )
     .then(response => response.json())
     .then(userData => dispatch({ type: LOGIN_OR_REGISTER_SUCCESS, payload: userData }))
     .catch(error => dispatch({ type: LOGIN_OR_REGISTER_FAILED, payload: error }))
