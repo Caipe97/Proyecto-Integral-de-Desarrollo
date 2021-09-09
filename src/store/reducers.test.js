@@ -105,7 +105,7 @@ const pendingStateRecords1 = {
 
 const exampleStateRecords1 = {
     records: [
-        {id: 21, foodName: 'queso', gramAmount: 123, dateEaten: '2021-09-09T00:00:00.000Z', userID: 1}
+        {id: 21, foodName: 'queso', gramAmount: 100, dateEaten: '2021-09-09T00:00:00.000Z', userID: 1}
     ],
     isPending: false
 }
@@ -138,7 +138,7 @@ describe('ADD_RECORD', () => {
             payload: {
                 "id":21,
                 "foodName":"queso",
-                "gramAmount":123,
+                "gramAmount":100,
                 "dateEaten":"2021-09-09T00:00:00.000Z",
                 "userID":1
             }
@@ -174,7 +174,7 @@ describe('GET_RECORDS_FROM_USER', () => {
             payload: [{
                 "id": 21,
                 "foodName": "queso",
-                "gramAmount": 123,
+                "gramAmount": 100,
                 "dateEaten": "2021-09-09T00:00:00.000Z",
                 "userID": 1
             }]
@@ -206,12 +206,12 @@ describe('DELETE_RECORD', () => {
         expect(reducers.recordsReducer(initialStateRecords, {type: DELETE_RECORD_PENDING})).toEqual(pendingStateRecords1);
     })
 
-    // it('should handle DELETE_RECORD_SUCCESS action', () => {
-    //     expect(reducers.recordsReducer(pendingStateRecords2, {
-    //         type: DELETE_RECORD_SUCCESS,
-    //         payload: {id: 22, foodName: 'carne', gramAmount: 150, dateEaten: '2021-09-09T00:00:00.000Z', userID: 1}
-    //     })).toEqual(exampleStateRecords1);
-    // })
+    it('should handle DELETE_RECORD_SUCCESS action', () => {
+        expect(reducers.recordsReducer(pendingStateRecords2, {
+            type: DELETE_RECORD_SUCCESS,
+            payload: {message: 'Record was deleted succesfully', deletedRecordID: 22}
+        })).toEqual(exampleStateRecords1);
+    })
 
     it('should handle DELETE_RECORD_FAILED action', () => {
         expect(reducers.recordsReducer(pendingStateRecords2, {type: DELETE_RECORD_FAILED, payload: 'Error'})).toEqual({...pendingStateRecords2, isPending: false, error: 'Error'});

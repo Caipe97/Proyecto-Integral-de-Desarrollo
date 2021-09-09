@@ -145,6 +145,7 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
         case DELETE_RECORD_SUCCESS:
           return {
             ...state,
+            records: state.records.filter((record) => record.id !== action.payload.deletedRecordID),
             isPending: false
           }
         case DELETE_RECORD_FAILED:
