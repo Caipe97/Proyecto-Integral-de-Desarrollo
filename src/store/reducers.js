@@ -70,10 +70,10 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
         isPending: false
       }
     case LOGIN_OR_REGISTER_FAILED:
-      console.log(action.payload)
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+        isPending: false
       }
     case RESET_PASSWORD_PENDING:
       return {
@@ -88,6 +88,7 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
     case RESET_PASSWORD_FAILED:
       return {
         ...state,
+        isPending: false,
         error: action.payload
       }
     default:
@@ -108,7 +109,6 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
         isPending: true
       }
     case ADD_RECORD_SUCCESS:
-      console.log("Devolucion del POST: ", action.payload);
       return {
         ...state,
         records: state.records.concat(action.payload),
@@ -117,6 +117,7 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
     case ADD_RECORD_FAILED:
       return {
         ...state,
+        isPending: false,
         error: action.payload
       }
       case GET_RECORDS_FROM_USER_PENDING:
@@ -133,6 +134,7 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
       case GET_RECORDS_FROM_USER_FAILED:
         return {
           ...state,
+          isPending: false,
           error: action.payload
         }
         case DELETE_RECORD_PENDING:
@@ -141,7 +143,6 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
             isPending: true
           }
         case DELETE_RECORD_SUCCESS:
-          console.log(action.payload)
           return {
             ...state,
             isPending: false
@@ -149,6 +150,7 @@ export const recordsReducer = (state=initialStateRecords, action={}) => {
         case DELETE_RECORD_FAILED:
           return {
             ...state,
+            isPending: false,
             error: action.payload
           }
     default:
