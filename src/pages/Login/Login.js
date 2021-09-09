@@ -80,17 +80,17 @@ function Login(props) {
             <FormInput name='email' type='email' placeholder='email' value={state.email} handleChange={handleChange} required />
             <FormInput name='password' type='password' placeholder='password' value={state.password} handleChange={handleChange} required />
           </form>
-          <button onClick={handleSubmit} style={{margin: '10px'}}>Login</button>
-          <p>Todavia no tenes una cuenta?
+          <button onClick={handleSubmit} style={{margin: '10px'}}>Iniciar Sesion</button>
+          <p style={{marginBlock: '0em', marginTop: '4%'}}>Todavia no tenes una cuenta?
             <Link to="/register" style={{color: 'black'}}>Registrate</Link>
           </p>
         </div>
       </div>
       <div className="widget1">
-        <h3>Calorias</h3>
+        <h3>Dato1</h3>
       </div>
       <div className="widget2">
-        <h3>Tracking semanal</h3>
+        <h3>Dato2</h3>
         <img src="https://www.zohowebstatic.com/sites/default/files/column-chart.jpg" alt="imagen tracking" style={{ width: 100, height: 50 }} />
       </div>
       <Footer/>

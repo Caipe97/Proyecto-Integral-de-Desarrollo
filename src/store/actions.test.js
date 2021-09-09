@@ -54,11 +54,7 @@ describe("login or register actions", () => {
         expect(action[0]).toEqual(expectedAction);
     });
 
-    it("should create the SUCCESS action after receiving data", () => {
-        // fetchMock.getOnce("https://jsonplaceholder.typicode.com/users", {
-        //   body: { id: 3, name: "John Whatever", email: "johnwhatever@gmail.com" },
-        //   headers: { "content-type": "application/json" },
-        // });
+    it("should create the SUCCESS action after receiving data for register", () => {
         fetch.mockResponseOnce(JSON.stringify({
             id: 1,
             name: 'julian',
@@ -89,23 +85,16 @@ describe("login or register actions", () => {
             }
         ];
 
-        //assert on the response
-        store.dispatch(actions.login())
+        store.dispatch(actions.register())
         .then(() => {
             const actions = store.getActions();
             expect(actions).toEqual(expectedActions);
         });
-
-        //assert on the times called
         expect(fetch.mock.calls.length).toEqual(1);
-        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/login');
+        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/register');
     });
 
-    it("should create the FAILED action when receiving an error", () => {
-        // fetchMock.getOnce("https://jsonplaceholder.typicode.com/users", {
-        //   throws: "ERROR: could not fetch data",
-        //   headers: { "content-type": "application/json" },
-        // });
+    it("should create the FAILED action when receiving an error for register", () => {
         fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
     
         const expectedActions = [
@@ -116,87 +105,298 @@ describe("login or register actions", () => {
         }
         ];
 
-        //assert on the response
+        store.dispatch(actions.register())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/register');
+    });
+
+    it("should create the SUCCESS action after receiving data for login", () => {
+        fetch.mockResponseOnce(JSON.stringify({
+            id: 1,
+            name: 'julian',
+            surname: 'livrone',
+            email: 'julianlivrone@gmail.com',
+            password: 'asd',
+            gender: 'masculino',
+            birthday: '2010-01-21',
+            weight: 90,
+            height: 170,
+        }));
+        
+        const expectedActions = [
+            { type: LOGIN_OR_REGISTER_PENDING },
+            { 
+                type: LOGIN_OR_REGISTER_SUCCESS,
+                payload: {
+                    id: 1,
+                    name: 'julian',
+                    surname: 'livrone',
+                    email: 'julianlivrone@gmail.com',
+                    password: 'asd',
+                    gender: 'masculino',
+                    birthday: '2010-01-21',
+                    weight: 90,
+                    height: 170,
+                },
+            }
+        ];
+
         store.dispatch(actions.login())
         .then(() => {
             const actions = store.getActions();
             expect(actions).toEqual(expectedActions);
         });
-
-        //assert on the times called
         expect(fetch.mock.calls.length).toEqual(1);
         expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/login');
     });
 
-})
- 
-
-
-
-// describe("async actions", () => {
-//   const store = mockStore();
-
-//   beforeEach(() => {
-//     fetch.resetMocks();
-//     store.clearActions();
-//   });
-
-//   it("should create the SUCCESS action after receiving data", () => {
-//     // fetchMock.getOnce("https://jsonplaceholder.typicode.com/users", {
-//     //   body: { id: 3, name: "John Whatever", email: "johnwhatever@gmail.com" },
-//     //   headers: { "content-type": "application/json" },
-//     // });
-//     fetch.mockResponseOnce(JSON.stringify({
-//       id: 3, name: "John Whatever", email: "johnwhatever@gmail.com" 
-//     }));
+    it("should create the FAILED action when receiving an error for login", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
     
-//     const expectedActions = [
-//       { type: REQUEST_ROBOTS_PENDING },
-//       {
-//         type: REQUEST_ROBOTS_SUCCESS,
-//         payload: {
-//           id: 3,
-//           name: "John Whatever",
-//           email: "johnwhatever@gmail.com",
-//         },
-//       }
-//     ];
+        const expectedActions = [
+        { type: LOGIN_OR_REGISTER_PENDING },
+        {
+            type: LOGIN_OR_REGISTER_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
 
-//     //assert on the response
-//     store.dispatch(actions.requestRobots())
-//       .then(() => {
-//         const actions = store.getActions();
-//         expect(actions).toEqual(expectedActions);
-//       });
+        store.dispatch(actions.login())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/login');
+    });
+})
 
-//     //assert on the times called
-//     expect(fetch.mock.calls.length).toEqual(1);
-//     console.log(fetch.mock)
-//   });
- 
-//   it("should create the FAILED action when receiving an error", () => {
-//     // fetchMock.getOnce("https://jsonplaceholder.typicode.com/users", {
-//     //   throws: "ERROR: could not fetch data",
-//     //   headers: { "content-type": "application/json" },
-//     // });
-//     fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
- 
-//     const expectedActions = [
-//       { type: REQUEST_ROBOTS_PENDING },
-//       {
-//         type: REQUEST_ROBOTS_FAILED,
-//         payload: "ERROR: could not fetch data",
-//       }
-//     ];
+describe("reset password actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
 
-//     //assert on the response
-//     store.dispatch(actions.requestRobots())
-//       .then(() => {
-//         const actions = store.getActions();
-//         expect(actions).toEqual(expectedActions);
-//       });
+    it("should handle requesting resetPassword API", () => {
+        const expectedAction = {
+            type: RESET_PASSWORD_PENDING,
+        };
+        store.dispatch(actions.resetPassword());
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
 
-//     //assert on the times called
-//     expect(fetch.mock.calls.length).toEqual(1);
-//   });
-// });
+    it("should create the SUCCESS action after receiving data for resetPassword", () => {
+        fetch.mockResponseOnce(JSON.stringify({id: 1})); //ver que devuelve esta request
+        const expectedActions = [
+            { type: RESET_PASSWORD_PENDING },
+            { 
+                type: RESET_PASSWORD_SUCCESS,
+                payload: {id: 1},
+            }
+        ];
+
+        store.dispatch(actions.resetPassword())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+        
+    });
+
+    it("should create the FAILED action when receiving an error for resetPassword", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+    
+        const expectedActions = [
+        { type: RESET_PASSWORD_PENDING },
+        {
+            type: RESET_PASSWORD_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.resetPassword())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+})
+
+describe("add record actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
+
+    it("should handle requesting addRecord API", () => {
+        const expectedAction = {
+            type: ADD_RECORD_PENDING,
+        };
+        store.dispatch(actions.addRecord());
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should create the SUCCESS action after receiving data for addRecord", () => {
+        fetch.mockResponseOnce(JSON.stringify({id: 31, foodName: 'milas', gramAmount: 100, userID: 2, dateEaten: '2021-09-09T00:00:00.000Z'}));
+
+        const expectedActions = [
+            { type: ADD_RECORD_PENDING },
+            { 
+                type: ADD_RECORD_SUCCESS,
+                payload: {id: 31, foodName: 'milas', gramAmount: 100, userID: 2, dateEaten: '2021-09-09T00:00:00.000Z'},
+            }
+        ];
+
+        store.dispatch(actions.addRecord())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for addRecord", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+    
+        const expectedActions = [
+        { type: ADD_RECORD_PENDING },
+        {
+            type: ADD_RECORD_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.addRecord())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+})
+
+describe("get records from user actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
+
+    it("should handle requesting getRecordsFromUser API", () => {
+        const expectedAction = {
+            type: GET_RECORDS_FROM_USER_PENDING,
+        };
+        store.dispatch(actions.getRecordsFromUser());
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should create the SUCCESS action after receiving data for getRecordsFromUser", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {id: 31, foodName: 'milas', gramAmount: 100, userID: 2, dateEaten: '2021-09-09T00:00:00.000Z'}, 
+            {id: 12, foodName: 'pure', gramAmount: 70, userID: 2, dateEaten: '2021-09-01T00:00:00.000Z'}
+        ]));
+
+        const expectedActions = [
+            { type: GET_RECORDS_FROM_USER_PENDING },
+            { 
+                type: GET_RECORDS_FROM_USER_SUCCESS,
+                payload: [
+                    {id: 31, foodName: 'milas', gramAmount: 100, userID: 2, dateEaten: '2021-09-09T00:00:00.000Z'}, 
+                    {id: 12, foodName: 'pure', gramAmount: 70, userID: 2, dateEaten: '2021-09-01T00:00:00.000Z'}
+                ]
+            }
+        ];
+
+        store.dispatch(actions.getRecordsFromUser())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for getRecordsFromUser", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+    
+        const expectedActions = [
+        { type: GET_RECORDS_FROM_USER_PENDING },
+        {
+            type: GET_RECORDS_FROM_USER_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.getRecordsFromUser())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+})
+
+describe("delete record actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
+
+    it("should handle requesting deleteRecord API", () => {
+        const expectedAction = {
+            type: DELETE_RECORD_PENDING,
+        };
+        store.dispatch(actions.deleteRecord());
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should create the SUCCESS action after receiving data for deleteRecord", () => {
+        fetch.mockResponseOnce(JSON.stringify({id: 31, foodName: 'milas', gramAmount: 100, userID: 2, dateEaten: '2021-09-09T00:00:00.000Z'}));
+
+        const expectedActions = [
+            { type: DELETE_RECORD_PENDING },
+            { 
+                type: DELETE_RECORD_SUCCESS,
+                payload: {id: 31, foodName: 'milas', gramAmount: 100, userID: 2, dateEaten: '2021-09-09T00:00:00.000Z'}
+            }
+        ];
+
+        store.dispatch(actions.deleteRecord())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for deleteRecord", () => {
+        fetch.mockReject(() => Promise.reject("Cannot delete Record with id=17. Maybe Record was not found!"));
+    
+        const expectedActions = [
+        { type: DELETE_RECORD_PENDING },
+        {
+            type: DELETE_RECORD_FAILED,
+            payload: "Cannot delete Record with id=17. Maybe Record was not found!",
+        }
+        ];
+
+        store.dispatch(actions.deleteRecord())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+})

@@ -50,14 +50,17 @@ function Records(props) {
   return (
     <div className="contenedor">
       <Header userId={props.id}/>
-      <ul>
-        {props.records.map((record) => 
-          <div key={record.id} style={{backgroundColor: 'white', width: '100%', marginBottom: '1%', listStyleType: 'none'}}>
-            <li>{record.foodName} {record.gramAmount} {record.dateEaten.substring(0,10)}</li>
-            <button type="button" onClick={() => props.onDeleteRecord(record.id)}>Delete</button>
-          </div>
-        )}
-      </ul>
+      <div className='contenido'>
+        <ul style={{marginBlock: '0em', paddingInlineStart: '1%'}}>
+          {props.records.map((record) => 
+            <div key={record.id} style={{display: 'flex', backgroundColor: 'white', width: '100%', listStyleType: 'none', marginTop: '1%', height: '100%', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between'}}>
+              
+              <li>Alimento: {record.foodName}, gramos: {record.gramAmount}, fecha en que fue comido: {record.dateEaten.substring(0,10)}</li>
+              <button type="button" onClick={() => props.onDeleteRecord(record.id)}>Delete</button>
+            </div>
+          )}
+        </ul>
+      </div>
       <div className="sidebar">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
           <div className="box">
