@@ -7,6 +7,7 @@ import '../App/App.css';
 import logo1 from '../../images/avatar.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import SearchBar from '../../components/SearchBar';
 
 const mapStateToProps = (state) => {
   return {
@@ -66,6 +67,7 @@ function Login(props) {
           <br></br>
           Ut eget quam molestie justo at nibh lacus, euismod purus eu sem sit amet pede. In accumsan orci. Proin aliquam enim ut leo. In hac habitasse platea dictumst. Duis neque ac erat. Integer eros vulputate at, bibendum vel, wisi. Mauris eros diam magna neque, fringilla et, erat. Sed eros. Mauris aliquet quis, justo. Vivamus posuere dui. In congue fringilla id, elementum eleifend, ligula. Ut eget magna. Donec tempus nulla. Aliquam gravida eros sagittis malesuada. Donec nonummy, mi. Donec in faucibus ligula. Ut sit amet, sodales dui at metus.
         </p>
+        <SearchBar/>
       </div>
       <div className="sidebar">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>

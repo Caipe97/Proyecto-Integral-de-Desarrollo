@@ -8,10 +8,12 @@ import Records from '../Records/Records';
 
 import { Switch, Route } from "react-router-dom";
 
+
 function App() {
     return (
       <div>
         <Switch>
+          
           <Route exact path="/" component={Login}/>
           <Route exact path="/resetPassword" component={ResetPassword} />
           <Route exact path="/register" component={Register} />
