@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../store/actions';
 import { useHistory, Link } from "react-router-dom";
-import FormInput from '../../components/FormInput';
 import '../App/App.css';
 import logo1 from '../../images/avatar.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import SearchBar from '../../components/SearchBar';
+import TextField from '@material-ui/core/TextField';
 
 const mapStateToProps = (state) => {
   return {
@@ -55,7 +54,7 @@ function Login(props) {
       console.log("no")
     }
   };
-  
+
   return (
     <div className="contenedor">
       <Header userId={props.id}/>
@@ -67,7 +66,6 @@ function Login(props) {
           <br></br>
           Ut eget quam molestie justo at nibh lacus, euismod purus eu sem sit amet pede. In accumsan orci. Proin aliquam enim ut leo. In hac habitasse platea dictumst. Duis neque ac erat. Integer eros vulputate at, bibendum vel, wisi. Mauris eros diam magna neque, fringilla et, erat. Sed eros. Mauris aliquet quis, justo. Vivamus posuere dui. In congue fringilla id, elementum eleifend, ligula. Ut eget magna. Donec tempus nulla. Aliquam gravida eros sagittis malesuada. Donec nonummy, mi. Donec in faucibus ligula. Ut sit amet, sodales dui at metus.
         </p>
-        <SearchBar/>
       </div>
       <div className="sidebar">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -79,10 +77,10 @@ function Login(props) {
           </div>
 
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-            <FormInput name='email' type='email' placeholder='email' value={state.email} handleChange={handleChange} required />
-            <FormInput name='password' type='password' placeholder='password' value={state.password} handleChange={handleChange} required />
+            <TextField label="Email" name='email' type='email' value={state.email} onChange={handleChange} required/>
+            <TextField label="Password" name='password' type='password' value={state.password} onChange={handleChange} required/>
+            <button onClick={handleSubmit} className='button'>Iniciar Sesion</button>
           </form>
-          <button onClick={handleSubmit} style={{margin: '10px'}}>Iniciar Sesion</button>
           <p style={{marginBlock: '0em', marginTop: '4%'}}>Todavia no tenes una cuenta?
             <Link to="/register" style={{color: 'black'}}>Registrate</Link>
           </p>

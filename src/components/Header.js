@@ -1,9 +1,10 @@
 import React from 'react';
-// import logo from '../images/logo_small.png';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { logout } from '../store/actions';
 import { connect } from 'react-redux';
-import Navigation from './Navigation';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from '../images/logo_small.png';
+
 const mapStateToProps = () => {
   return {}
 }
@@ -17,20 +18,26 @@ const mapDispatchToProps = (dispatch) => {
 const Header = (props) => {
   let history = useHistory();
   return ( 
-  <header className="header">
-    <div style={{ width: '100%', position: 'relative',}}>
-      <div className="box">
-        {/* <img src={logo} alt="imagen tracking" style={{ width: 100 }} /> */}
-        {props.userId > 0 ? <button type="button" onClick={() => {props.onLogout(); history.push("/")}}>Log out</button> : null}
-      </div>
-     
-      <div style={{}}>
-        <Navigation/>
-      </div>
-    </div>
-    
-   
-  </header>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div className="container">
+          <img src={logo} alt="imagen tracking" style={{ width: 100 }} />
+          {props.userId > 0 
+          ? <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto">
+                  <li className="nav-item active">
+                    <Link to="/" className="nav-link">Alimentos</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/create" className="nav-link">Create Note</Link>
+                  </li>
+                  <li>
+                    <button type="button" onClick={() => {props.onLogout(); history.push("/")}}>Log out</button> 
+                  </li>
+              </ul>
+            </div>
+          : null}
+        </div>
+    </nav>
   )
 }
 

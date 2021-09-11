@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { register } from '../../store/actions';
 import { useHistory, Link } from "react-router-dom";
-import FormInput from '../../components/FormInput';
+import TextField from '@material-ui/core/TextField';
 import '../App/App.css';
 import logo1 from '../../images/avatar.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const mapStateToProps = (state) => {
   return {
@@ -36,10 +38,11 @@ function Register(props) {
     email: '',
     password: '',
     gender: '',
-    birthday: '',
     weight: 0,
     height: 0
   });
+
+  let [birthday, setBirthday] = useState('');
 
   let history = useHistory();
 
@@ -52,7 +55,8 @@ function Register(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.onRegister(state.name, state.surname, state.email, state.password, state.gender, state.birthday, state.weight, state.height);
+    const birhtdayString = birthday.toString().substring(4, 24)
+    props.onRegister(state.name, state.surname, state.email, state.password, state.gender, birhtdayString, state.weight, state.height);
     setState({name: '', surname: '', email: '', password: '', gender: '', birthday: '', weight: 0, height: 0});
     history.push("/profile");
   };
@@ -78,16 +82,22 @@ function Register(props) {
           </div>
 
           <form style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100%', flexDirection: 'column'}}>
-            <FormInput name='name' type='name' placeholder='name' value={state.name} handleChange={handleChange} required/>
-            <FormInput name='surname' type='surname' placeholder='surname' value={state.surname} handleChange={handleChange} required/>
-            <FormInput name='email' type='email' placeholder='email' value={state.email} handleChange={handleChange} required/>
-            <FormInput name='password' type='password' placeholder='password' value={state.password} handleChange={handleChange} required/>
-            <FormInput name='gender' type='gender' placeholder='gender' value={state.gender} handleChange={handleChange} required/>
-            <FormInput name='birthday' type='date' placeholder='birthday' value={state.birthday} handleChange={handleChange} required/>
-            <FormInput name='weight' type='weight' placeholder='weight' value={state.weight} handleChange={handleChange} required/>
-            <FormInput name='height' type='height' placeholder='height' value={state.height} handleChange={handleChange} required/>
+            <TextField label="Name" name='name' type='name' value={state.name} onChange={handleChange} required/>
+            <TextField label="Surname" name='surname' type='surname' value={state.surname} onChange={handleChange} required/>
+            <TextField label="Email" name='email' type='email'  value={state.email} onChange={handleChange} required/>
+            <TextField label="Password" name='password' type='password' value={state.password} onChange={handleChange} required/>
+            <TextField label="Gender" name='gender' type='gender' value={state.gender} onChange={handleChange} required/>
+            <DatePicker
+              showTimeSelect
+              selected={birthday}
+              onChange={(date) => setBirthday(date)}
+              dateFormat="dd-MM-yyyy h:mm aa"
+              placeholderText='birthday'
+            />
+            <TextField label="Weight" name='weight' type='weight' value={state.weight} onChange={handleChange} required/>
+            <TextField label="Height" name='height' type='height' value={state.height} onChange={handleChange} required/>
+            <button onClick={handleSubmit} className='button'>Registrarse</button>
           </form>
-          <button onClick={handleSubmit} style={{margin: '10px'}}>Registrarse</button>
           <p style={{marginBlock: '0em', marginTop: '10%'}}>Si ya tenes una cuenta?</p>
           <Link to="/" style={{color: 'black'}}>Login</Link>
         </div>

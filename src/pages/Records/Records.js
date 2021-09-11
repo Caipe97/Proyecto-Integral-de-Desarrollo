@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addRecord, deleteRecord } from '../../store/actions';
 import { useHistory } from "react-router-dom";
-import FormInput from '../../components/FormInput';
+import TextField from '@material-ui/core/TextField';
 import '../App/App.css';
 import logo1 from '../../images/avatar.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import SearchBar from '../../components/SearchBar';
 
 const mapStateToProps = (state) => {
   return {
@@ -54,13 +55,15 @@ function Records(props) {
         <ul style={{marginBlock: '0em', paddingInlineStart: '1%'}}>
           {props.records.map((record) => 
             <div key={record.id} style={{display: 'flex', backgroundColor: 'white', width: '100%', listStyleType: 'none', marginTop: '2%', padding: '2% 0.5%', border: '2px solid grey', borderRadius: 10, height: '100%', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between'}}>
-
               <li>Alimento: {record.foodName}, gramos: {record.gramAmount}, fecha en que fue comido: {record.dateEaten.substring(0,10)}</li>
               <button type="button" onClick={() => props.onDeleteRecord(record.id)}>Delete</button>
             </div>
           )}
         </ul>
+        {/* <SearchBar/> */}
       </div>
+
+      
       <div className="sidebar">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
           <div className="box">
@@ -71,9 +74,9 @@ function Records(props) {
           </div>
 
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-            <FormInput name='foodName' type='foodName' placeholder='foodName' value={state.foodName} handleChange={handleChange} required />
-            <FormInput name='gramAmount' type='gramAmount' placeholder='gramAmount' value={state.gramAmount}  handleChange={handleChange} required />
-            <FormInput name='dateEaten' type='date' placeholder='dateEaten' value={state.dateEaten} handleChange={handleChange} required />
+            <TextField name='foodName' type='foodName' placeholder='foodName' value={state.foodName} handleChange={handleChange} required />
+            <TextField name='gramAmount' type='gramAmount' placeholder='gramAmount' value={state.gramAmount}  handleChange={handleChange} required />
+            <TextField name='dateEaten' type='date' placeholder='dateEaten' value={state.dateEaten} handleChange={handleChange} required />
           </form>
           <button onClick={handleSubmit} style={{margin: '10px'}}>Records</button>
           <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>

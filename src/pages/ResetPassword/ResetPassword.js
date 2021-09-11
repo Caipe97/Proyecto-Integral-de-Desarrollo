@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { resetPassword } from '../../store/actions';
 import { useHistory } from "react-router-dom";
-import FormInput from '../../components/FormInput';
+import TextField from '@material-ui/core/TextField';
 import '../App/App.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -52,7 +52,7 @@ function ResetPassword(props) {
    <div  style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center', width: '100%', marginLeft: '100%' }}>
       <h1 className='f1'>ResetPassword</h1>
       <form>
-        <FormInput name='password' type='password' placeholder='New password' handleChange={handleChange} required/>
+        <TextField name='password' type='password' placeholder='New password' handleChange={handleChange} required/>
       </form>
       <button onClick={handleSubmit}>ResetPassword</button>
       <p style={{color: 'black'}}>{message}</p>

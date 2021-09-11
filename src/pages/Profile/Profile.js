@@ -52,7 +52,7 @@ function Profile(props) {
       <p>Surname: {props.surname}</p>
       <p>Email: {props.email}</p>
       <p>Gender: {props.gender}</p>
-      <p>Birthday: {props.birthday.substring(0,10)}</p>
+      <p>Birthday: {props.birthday}</p>
       <p>Weight: {props.weight}</p>
       <p>Height: {props.height}</p>
       <Link to="/resetPassword" style={{color: 'black', marginBottom: '5%'}}>Reset your password</Link>

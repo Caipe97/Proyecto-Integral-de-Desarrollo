@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './SearchBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DataTable from 'react-data-table-component';
@@ -44,14 +43,13 @@ class SearchBar extends Component {
     columnas:[]
   }
 
-  onChange=async e=>{
-    e.persist();
-    await this.setState({busqueda: e.target.value});
+  onChange = async event=>{
+    event.persist();
+    await this.setState({busqueda: event.target.value});
     this.filtrarElementos();
   }
 
   asignarColumnas=()=>{
-
     const columnas = [
       {
         name: 'ID',
@@ -103,7 +101,7 @@ class SearchBar extends Component {
   componentDidMount(){
     this.crearIndex();
     this.asignarColumnas();
-this.setState({campeones: tablaCampeones});
+    this.setState({campeones: tablaCampeones});
   }
   
 render(){
