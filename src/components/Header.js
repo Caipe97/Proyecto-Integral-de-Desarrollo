@@ -1,19 +1,7 @@
 import React from 'react';
 import { useHistory, Link } from "react-router-dom";
-import { logout } from '../store/actions';
-import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../images/logo_small.png';
-
-const mapStateToProps = () => {
-  return {}
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onLogout: () => dispatch(logout())
-  }
-}
 
 const Header = (props) => {
   let history = useHistory();
@@ -41,4 +29,4 @@ const Header = (props) => {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addRecord, deleteRecord } from '../../store/actions';
+import { addRecord, deleteRecord } from '../../store/records/recordsActions';
 import { useHistory } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import '../App/App.css';
 import logo1 from '../../images/avatar.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { logout } from '../../store/userData/userDataActions';
 import SearchBar from '../../components/SearchBar';
 
 const mapStateToProps = (state) => {
@@ -20,8 +21,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddRecord: (id, foodName, gramAmount, dateEaten) => dispatch(addRecord(id, foodName, gramAmount, dateEaten)),
-    onDeleteRecord: (id) => dispatch(deleteRecord(id))
-
+    onDeleteRecord: (id) => dispatch(deleteRecord(id)),
+    onLogout: () => dispatch(logout())
   }
 }
 
@@ -50,7 +51,7 @@ function Records(props) {
 
   return (
     <div className="contenedor">
-      <Header userId={props.id}/>
+      <Header userId={props.id} onLogout={props.onLogout}/>
       <div className='contenido'>
         <ul style={{marginBlock: '0em', paddingInlineStart: '1%'}}>
           {props.records.map((record) => 
@@ -74,9 +75,9 @@ function Records(props) {
           </div>
 
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-            <TextField name='foodName' type='foodName' placeholder='foodName' value={state.foodName} handleChange={handleChange} required />
-            <TextField name='gramAmount' type='gramAmount' placeholder='gramAmount' value={state.gramAmount}  handleChange={handleChange} required />
-            <TextField name='dateEaten' type='date' placeholder='dateEaten' value={state.dateEaten} handleChange={handleChange} required />
+            <TextField name='foodName' type='foodName' placeholder='foodName' value={state.foodName} onChange={handleChange} required />
+            <TextField name='gramAmount' type='gramAmount' placeholder='gramAmount' value={state.gramAmount}  onChange={handleChange} required />
+            <TextField name='dateEaten' type='date' placeholder='dateEaten' value={state.dateEaten} onChange={handleChange} required />
           </form>
           <button onClick={handleSubmit} style={{margin: '10px'}}>Records</button>
           <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { resetPassword } from '../../store/actions';
+import { resetPassword, logout } from '../../store//userData/userDataActions';
 import { useHistory } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import '../App/App.css';
@@ -24,7 +24,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onResetPassword: (id, password) => dispatch(resetPassword(id, password))
+    onResetPassword: (id, password) => dispatch(resetPassword(id, password)),
+    onLogout: () => dispatch(logout())
   }
 }
 
@@ -47,12 +48,12 @@ function ResetPassword(props) {
   
   return (
    <div className="contenedor">
-     <Header userId={props.id}/>
+     <Header userId={props.id} onLogout={props.onLogout}/>
 
    <div  style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center', width: '100%', marginLeft: '100%' }}>
       <h1 className='f1'>ResetPassword</h1>
       <form>
-        <TextField name='password' type='password' placeholder='New password' handleChange={handleChange} required/>
+        <TextField name='password' type='password' placeholder='New password' onChange={handleChange} required/>
       </form>
       <button onClick={handleSubmit}>ResetPassword</button>
       <p style={{color: 'black'}}>{message}</p>

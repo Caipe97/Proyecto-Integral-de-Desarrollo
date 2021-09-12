@@ -1,11 +1,9 @@
 import React from "react";
-
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import ResetPassword from '../ResetPassword/ResetPassword';
 import Records from '../Records/Records';
-
 import { Switch, Route } from "react-router-dom";
 
 

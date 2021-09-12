@@ -5,7 +5,8 @@ import '../App/App.css';
 import logo1 from '../../images/analystic.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { getRecordsFromUser } from '../../store/actions';
+import { getRecordsFromUser } from '../../store/records/recordsActions';
+import { logout } from '../../store/userData/userDataActions';
 
 const mapStateToProps = (state) => {
   return {
@@ -25,7 +26,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetRecordsFromUser: (id) => dispatch(getRecordsFromUser(id)),
-
+    onLogout: () => dispatch(logout())
   }
 }
 
@@ -34,7 +35,7 @@ function Profile(props) {
   return (
 
     <div className="contenedor">
-      <Header userId={props.id}/>
+      <Header userId={props.id} onLogout={props.onLogout}/>
 
       <div className="contenido"> 
         <h1>Contenido</h1>

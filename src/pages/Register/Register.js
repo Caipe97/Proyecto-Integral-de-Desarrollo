@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { register } from '../../store/actions';
+import { register, logout } from '../../store//userData/userDataActions';
 import { useHistory, Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import '../App/App.css';
@@ -27,7 +27,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRegister: (name, surname, email, password, gender, birthday, weight, height) => dispatch(register(name, surname, email, password, gender, birthday, weight, height))
+    onRegister: (name, surname, email, password, gender, birthday, weight, height) => dispatch(register(name, surname, email, password, gender, birthday, weight, height)),
+    onLogout: () => dispatch(logout())
   }
 }
 
@@ -55,7 +56,7 @@ function Register(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const birhtdayString = birthday.toString().substring(4, 24)
+    const birhtdayString = birthday.toString().substring(4, 24);
     props.onRegister(state.name, state.surname, state.email, state.password, state.gender, birhtdayString, state.weight, state.height);
     setState({name: '', surname: '', email: '', password: '', gender: '', birthday: '', weight: 0, height: 0});
     history.push("/profile");
@@ -63,7 +64,7 @@ function Register(props) {
 
   return (
     <div className="contenedor">
-      <Header userId={props.id}/>
+      <Header userId={props.id} onLogout={props.onLogout}/>
       <div className="contenido">
         <h1>Contenido</h1>
         <p>

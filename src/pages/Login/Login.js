@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../store/actions';
+import { login, logout } from '../../store/userData/userDataActions';
 import { useHistory, Link } from "react-router-dom";
 import '../App/App.css';
 import logo1 from '../../images/avatar.png';
@@ -25,7 +25,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLogin: (email, password) => dispatch(login(email, password))
+    onLogin: (email, password) => dispatch(login(email, password)),
+    onLogout: () => dispatch(logout())
   }
 }
 
@@ -54,10 +55,10 @@ function Login(props) {
       console.log("no")
     }
   };
-
+  
   return (
     <div className="contenedor">
-      <Header userId={props.id}/>
+      <Header userId={props.id} onLogout={props.onLogout}/>
 
       <div className="contenido">
         <h1>Contenido</h1>
