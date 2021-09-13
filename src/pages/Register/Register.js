@@ -113,9 +113,9 @@ function Register(props) {
             <TextField label="Weight" name='weight' type='weight' value={state.weight} onChange={handleChange} required />
             <TextField label="Height" name='height' type='height' value={state.height} onChange={handleChange} required />
             <button onClick={handleSubmit} className='button'>Registrarse</button>
+            <p style={{ marginBlock: '0em', marginTop: '10%' }}>Si ya tenes una cuenta?</p>
+            <Link to="/" style={{ color: 'black' }}>Login</Link>
           </form>
-          <p style={{ marginBlock: '0em', marginTop: '10%' }}>Si ya tenes una cuenta?</p>
-          <Link to="/" style={{ color: 'black' }}>Login</Link>
         </div>
       </div>
       {/* <div className="widget1">

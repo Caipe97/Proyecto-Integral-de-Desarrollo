@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPageLogin tests renders MainPageLogin without crashing 1`] = `
+<div
+  className="contenedorL"
+>
+  <Header
+    onLogout={[MockFunction]}
+  />
+  <div
+    className="contenidoL"
+  >
+    <div
+      className="col1"
+    >
+      <img
+        alt="imagen tracking"
+        src="2pages.jpg"
+        style={
+          Object {
+            "height": 240,
+            "width": 240,
+          }
+        }
+      />
+      <div>
+        <h1
+          style={
+            Object {
+              "left": "30px",
+            }
+          }
+        >
+          Nutriva
+        </h1>
+      </div>
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "textAlign": "center",
+        }
+      }
+    >
+      <p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+  <div
+    className="sidebar"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        className="box"
+        style={Object {}}
+      >
+        <img
+          alt="imagen tracking"
+          src="avatar.png"
+          style={
+            Object {
+              "width": 100,
+            }
+          }
+        />
+      </div>
+      <div
+        style={
+          Object {
+            "marginTop": 45,
+          }
+        }
+      >
+        <h1
+          className="f1"
+        >
+          Login
+        </h1>
+      </div>
+      <form
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(TextField))
+          label="Email"
+          name="email"
+          onChange={[Function]}
+          required={true}
+          type="email"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Password"
+          name="password"
+          onChange={[Function]}
+          required={true}
+          type="password"
+          value=""
+        />
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          Iniciar Sesion
+        </button>
+        <p
+          style={
+            Object {
+              "marginBlock": "0em",
+              "marginTop": "4%",
+            }
+          }
+        >
+          Todavia no tenes una cuenta?
+          <Link
+            style={
+              Object {
+                "color": "black",
+              }
+            }
+            to="/register"
+          >
+            Registrate
+          </Link>
+        </p>
+        <p
+          style={
+            Object {
+              "fontSize": "10px",
+              "marginTop": "4%",
+            }
+          }
+        >
+          Olvidaste la contrasena?
+        </p>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

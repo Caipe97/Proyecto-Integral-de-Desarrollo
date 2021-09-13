@@ -20,8 +20,8 @@ const initialStateUserData = {
     password: '',
     gender: '',
     birthday: '',
-    weight: 0,
-    height: 0,
+    weight: '',
+    height: '',
     isPending: false
 }
 
