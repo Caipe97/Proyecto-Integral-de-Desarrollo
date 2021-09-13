@@ -6,8 +6,10 @@ import logo from '../images/logo_small.png';
 const Header = (props) => {
   let history = useHistory();
   return ( 
+    <div className="header">
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
         <div className="container">
+          
           <img src={logo} alt="imagen tracking" style={{ width: 100 }} />
           {props.userId > 0 
           ? <div className="collapse navbar-collapse" id="navbarNav">
@@ -24,8 +26,11 @@ const Header = (props) => {
               </ul>
             </div>
           : null}
-        </div>
+          </div>
+         
+       
     </nav>
+    </div>
   )
 }
 

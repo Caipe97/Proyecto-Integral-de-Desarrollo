@@ -31,6 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 
 function ResetPassword(props) {
   let [password, setPassword] = useState('');
+  let [passwordR, setPasswordR] = useState('');
   let [message, setMessage] = useState('');
 
   let history = useHistory();
@@ -54,7 +55,9 @@ function ResetPassword(props) {
       <h1 className='f1'>ResetPassword</h1>
       <form>
         <TextField name='password' type='password' placeholder='New password' onChange={handleChange} required/>
+        <TextField name='passwordR' type='password' placeholder='New passwordR' onChange={handleChange} required/>
       </form>
+      <br></br>
       <button onClick={handleSubmit}>ResetPassword</button>
       <p style={{color: 'black'}}>{message}</p>
       <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>

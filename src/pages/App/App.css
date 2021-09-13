@@ -15,18 +15,17 @@ h1 {
   grid-template-areas:
     'header header header'
     'contenido contenido sidebar'
-    'widget1 widget2 sidebar'
+    'widget1 widget2 widget2'
     'footer footer footer';
   /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
   a cada parte de la pagina web y bueno eso */
 }
 
 .contenedor > div,
-.contenedor .header,
 .contenedor .contenido,
 .contenedor .sidebar,
 .contenedor .footer {
-  background: #fff;
+  background: #F5F6F7;
   padding: 20px;
   border-radius: 4px;
 }
@@ -34,11 +33,18 @@ h1 {
 .contenedor .widget1 {
   grid-area: widget1;
 }
+.contenido .col2 {
+  grid-area: col2;
+}
+.contenido .col1 {
+  grid-area: col1;
+}
 .contenedor .widget2 {
   grid-area: widget2;
 }
 .contenedor .header {
-  background: #12203e;
+  /* background: #12203e; */
+  background:#212529;
   grid-area: header;
   align-content: space-between;
 
@@ -49,6 +55,13 @@ h1 {
 
 .contenedor .contenido {
   grid-area: contenido;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, auto);
+  background: #7BA232;
+  grid-template-areas:
+    'col1 col2 col2';
   /* grid-column:  span 2; */
 }
 
@@ -72,7 +85,7 @@ h1 {
 }
 
 .contenedor .footer {
-  background: #12203e;
+  background: #212529;
   color: #fff;
   grid-area: footer;
   /* grid-column: span 3; */
@@ -103,6 +116,13 @@ h1 {
       'widget1 widget1 widget1 '
       'widget2 widget2 widget2 '
       'footer footer footer';
+  }
+  .contenedor .contenido{
+    
+  grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+    'col1 col1 col1'
+    'col2 col2 col2';
   }
 }
 /* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
