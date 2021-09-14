@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login, logout } from '../../store/userData/userDataActions';
-import './Login.css';
-import MainPageLogin from '../../components/MainPageLogin';
+import LoginMainPage from '../../components/LoginMainPage';
 
 const mapStateToProps = (state) => {
   return {
@@ -29,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 class Login extends Component{
   render() {
     return (
-      <MainPageLogin {...this.props}/>
+      <LoginMainPage {...this.props}/>
     );
   }
 }

@@ -4,9 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../images/logo_small.png';
 
 class Header extends Component{
-  constructor(props) {
-    super(props);
-  }
   render() {
     return ( 
       <div className="header">

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MainPageLogin from './MainPageLogin';
+import LoginMainPage from './LoginMainPage';
 import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
 
-describe('MainPageLogin tests', () => {
+describe('LoginMainPage tests', () => {
     const historyMock = { push: jest.fn() };
     const preventDefault = { preventDefault: jest.fn() }
     let wrapper;
@@ -40,11 +40,11 @@ describe('MainPageLogin tests', () => {
             onLogout: jest.fn(),
             preventDefault:  jest.fn()
           };
-        wrapper = shallow(<MainPageLogin {...mockProps} history={historyMock}/>);
+        wrapper = shallow(<LoginMainPage {...mockProps} history={historyMock}/>);
     })
 
     
-    it('renders MainPageLogin without crashing', () => {
+    it('renders LoginMainPage without crashing', () => {
         expect(wrapper).toMatchSnapshot();
     })
     
@@ -112,7 +112,7 @@ describe('MainPageLogin tests', () => {
             onLogin: jest.fn().mockResolvedValueOnce("ERROR: could not fetch data"),
             onLogout: jest.fn()
           };
-        wrapper = shallow(<MainPageLogin {...mockProps} history={historyMock}/>);
+        wrapper = shallow(<LoginMainPage {...mockProps} history={historyMock}/>);
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@gmail.com' } });
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'passwordMala' } });
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);

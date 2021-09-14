@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainPageLogin tests renders MainPageLogin without crashing 1`] = `
+exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
 <div
   className="contenedorL"
 >

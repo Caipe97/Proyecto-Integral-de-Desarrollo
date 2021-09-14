@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import '../pages/Login/Login.css';
 import logo1 from '../images/avatar.png';
 import logo2 from '../images/2pages.jpg';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import TextField from '@material-ui/core/TextField';
 import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
 
-class MainPageLogin extends Component{
+class LoginMainPage extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -32,10 +32,10 @@ class MainPageLogin extends Component{
       if(data.type === LOGIN_OR_REGISTER_SUCCESS){
         this.props.history.push("/profile");
       } else{
-        console.log("no");
+        console.log("Email y/o contraseña incorrectos");
       }
     } else {
-      console.log('No paso!!!!');
+      console.log('No completaste los campos correctamente');
     }
   };
 
@@ -117,4 +117,4 @@ class MainPageLogin extends Component{
   }
 }
 
-export default MainPageLogin
+export default LoginMainPage

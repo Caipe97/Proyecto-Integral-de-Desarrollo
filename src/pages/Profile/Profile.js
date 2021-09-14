@@ -50,17 +50,17 @@ function Profile(props) {
 </div>
         <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
           <div style={{ width: '30%' }}>
-            <div class="row">
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaOne</div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+            <div className="row">
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaOne</div>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
                 <p>AlimentoDos</p>
                 <p>...</p>
               </div>
-              <div class="w-100" ></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+              <div className="w-100" ></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
                 <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
                 <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
 
@@ -68,34 +68,34 @@ function Profile(props) {
             </div>
           </div>
           <div style={{ width: '30%' }}>
-            <div class="row">
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaTwo</div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+            <div className="row">
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaTwo</div>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
                 <p>AlimentoTres</p>
                 <p>...</p>
               </div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
                 <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
                 <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
               </div>
             </div>
           </div>
           <div style={{ width: '30%' }}>
-            <div class="row">
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaThree</div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+            <div className="row">
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaThree</div>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
                 <p>AlimentoDos</p>
                 <p>...</p>
               </div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
-              <div class="w-100"></div>
-              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
+              <div className="w-100"></div>
+              <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
                 <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
                 <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
               </div>

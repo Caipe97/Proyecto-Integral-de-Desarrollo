@@ -67,8 +67,8 @@ function Records(props) {
               </div>
             )}
           </ul> */}
-          <div class="row">
-            <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+          <div className="row">
+            <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
               <div className="comida" style={{ display: 'flex', justifyContent: 'space-around', }}>
                 <div style={{ width: '20%' }}>ALIMENTO1
                 </div>
@@ -90,8 +90,8 @@ function Records(props) {
                 </div>
               </div>
             </div>
-            <div class="w-100"></div>
-            <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+            <div className="w-100"></div>
+            <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
             <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <div style={{ width: '20%' }}>ALIMENTO2
                 </div>
@@ -113,8 +113,8 @@ function Records(props) {
                 </div>
               </div>
             </div>
-            <div class="w-100"></div>
-            <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+            <div className="w-100"></div>
+            <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
             <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <div style={{ width: '20%' }}>ALIMENTO3
                 </div>
@@ -136,8 +136,8 @@ function Records(props) {
                 </div>
               </div>
             </div>
-            <div class="w-100"></div>
-            <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+            <div className="w-100"></div>
+            <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
             <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <div style={{ width: '20%' }}>ALIMENTO4
                 </div>
@@ -174,16 +174,16 @@ function Records(props) {
           <div style={{ marginTop: 45 }}>
             <h1 className='f1'>Comida One</h1>
           </div>
-         <div class="row">
+         <div className="row">
 
-            <div class="w-100"></div>
-            <div class="col" style={{ textAlign: 'center' }}>
+            <div className="w-100"></div>
+            <div className="col" style={{ textAlign: 'center' }}>
               <p>AlimentoDosx3  <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}> - </button></p>
               <p>AlimentoOnex3  <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}> - </button></p>
               <p>...</p>
             </div>
-            <div class="w-100"></div>
-            <div class="col" style={{ textAlign: 'center' }}>Fecha</div>
+            <div className="w-100"></div>
+            <div className="col" style={{ textAlign: 'center' }}>Fecha</div>
 
           </div>
 {/* <p>AlimentoOne x3<button type="button" onClick={() => history.push("/profile")}>-</button>

@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = `
+<div
+  className="contenedorRe"
+>
+  <Header
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    onLogout={[MockFunction]}
+  />
+  <div
+    className="contenidoRe"
+  >
+    <div
+      className="col1"
+    >
+      <img
+        alt="imagen tracking"
+        src="2pages.jpg"
+        style={
+          Object {
+            "height": 240,
+            "width": 240,
+          }
+        }
+      />
+      <h1
+        style={
+          Object {
+            "left": "49%",
+          }
+        }
+      >
+        Nutriva
+      </h1>
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "textAlign": "center",
+        }
+      }
+    >
+      <p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+  <div
+    className="sidebar"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        className="box"
+        style={Object {}}
+      >
+        <img
+          alt="imagen tracking"
+          src="avatar.png"
+          style={
+            Object {
+              "width": 100,
+            }
+          }
+        />
+      </div>
+      <div
+        style={
+          Object {
+            "marginTop": 45,
+          }
+        }
+      >
+        <h1
+          className="f1"
+        >
+          RegisterMainPage
+        </h1>
+      </div>
+      <form
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(TextField))
+          label="Name"
+          name="name"
+          onChange={[Function]}
+          required={true}
+          type="name"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Surname"
+          name="surname"
+          onChange={[Function]}
+          required={true}
+          type="surname"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Email"
+          name="email"
+          onChange={[Function]}
+          required={true}
+          type="email"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Password"
+          name="password"
+          onChange={[Function]}
+          required={true}
+          type="password"
+          value=""
+        />
+        <div
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        >
+          <input
+            id="masculino"
+            name="gender"
+            onChange={[Function]}
+            type="radio"
+            value="M"
+          />
+            
+          <label>
+            Masculino
+          </label>
+            
+          <input
+            id="femenino"
+            name="gender"
+            onChange={[Function]}
+            type="radio"
+            value="F"
+          />
+            
+          <label>
+            Femenino
+          </label>
+        </div>
+        <r
+          allowSameDay={false}
+          customTimeInput={null}
+          dateFormat="dd-MM-yyyy h:mm aa"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          enableTabLoop={true}
+          excludeScrollbar={true}
+          focusSelectedMonth={false}
+          monthsShown={1}
+          name="date"
+          nextMonthButtonLabel="Next Month"
+          nextYearButtonLabel="Next Year"
+          onBlur={[Function]}
+          onCalendarClose={[Function]}
+          onCalendarOpen={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="birthday"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          previousYearButtonLabel="Previous Year"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected=""
+          shouldCloseOnSelect={true}
+          showFourColumnMonthYearPicker={false}
+          showFullMonthYearPicker={false}
+          showMonthYearPicker={false}
+          showPopperArrow={true}
+          showPreviousMonths={false}
+          showQuarterYearPicker={false}
+          showTimeInput={false}
+          showTimeSelect={true}
+          showTwoColumnMonthYearPicker={false}
+          showYearPicker={false}
+          strictParsing={false}
+          timeCaption="Time"
+          timeInputLabel="Time"
+          timeIntervals={30}
+          withPortal={false}
+          yearItemNumber={12}
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Weight"
+          name="weight"
+          onChange={[Function]}
+          required={true}
+          type="weight"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Height"
+          name="height"
+          onChange={[Function]}
+          required={true}
+          type="height"
+          value=""
+        />
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          Registrarse
+        </button>
+        <p
+          style={
+            Object {
+              "marginBlock": "0em",
+              "marginTop": "10%",
+            }
+          }
+        >
+          Si ya tenes una cuenta?
+        </p>
+        <Link
+          style={
+            Object {
+              "color": "black",
+            }
+          }
+          to="/"
+        >
+          Login
+        </Link>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
