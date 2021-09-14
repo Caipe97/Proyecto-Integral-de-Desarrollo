@@ -42,23 +42,29 @@ h1 {
     border-radius: 4px;
   }
   
-
+ th, td {
+    border: 1px solid black;
+  }
+  
+  table {
+    width: 100%;
+  }
   .contenedorPro .sidebarPro .col1{
     grid-column: col1;
-    background: #0ccac4;
+/*     background: #0ccac4; */
   }
   .contenedorPro .sidebarPro .col2{
     grid-column: col2;
     
-    background: red;
+/*     background: red; */
   }
   .contenedorPro .sidebarPro .col3{
     grid-column: col3;
-    background: yellow;
+/*     background: yellow; */
   }
   .contenedorPro .contenidoPro .comida{
     grid-column: comida;
-    background: blue;
+    background: white;
   }
   .contenedorPro .contenidoPro .search{
     grid-column:search;
