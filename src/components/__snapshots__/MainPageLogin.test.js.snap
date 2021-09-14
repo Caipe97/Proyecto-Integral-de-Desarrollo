@@ -5,7 +5,28 @@ exports[`MainPageLogin tests renders MainPageLogin without crashing 1`] = `
   className="contenedorL"
 >
   <Header
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    onLogin={[MockFunction]}
     onLogout={[MockFunction]}
+    preventDefault={[MockFunction]}
+    userDataReducer={
+      Object {
+        "birthday": "",
+        "email": "",
+        "gender": "",
+        "height": "",
+        "id": 0,
+        "isPending": false,
+        "name": "",
+        "password": "",
+        "surname": "",
+        "weight": "",
+      }
+    }
   />
   <div
     className="contenidoL"

@@ -49,7 +49,7 @@ function ResetPassword(props) {
   
   return (
    <div className="contenedor">
-     <Header userId={props.id} onLogout={props.onLogout}/>
+     <Header userId={props.id} onLogout={props.onLogout} history={history}/>
 
    <div  style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center', width: '100%', marginLeft: '100%' }}>
       <h1 className='f1'>ResetPassword</h1>

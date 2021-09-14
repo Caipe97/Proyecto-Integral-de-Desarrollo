@@ -36,7 +36,7 @@ function Profile(props) {
   return (
 
     <div className="contenedorPro">
-      <Header userId={props.id} onLogout={props.onLogout} />
+      <Header userId={props.id} onLogout={props.onLogout} history={history}/>
 
       <div className="contenidoPro">
         {/* <h1>Contenido</h1> */}

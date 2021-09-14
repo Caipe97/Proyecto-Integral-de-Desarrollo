@@ -65,7 +65,7 @@ function Register(props) {
 
   return (
     <div className="contenedorRe">
-      <Header userId={props.id} onLogout={props.onLogout} />
+      <Header userId={props.id} onLogout={props.onLogout} history={history}/>
       <div className="contenidoRe">
         <div className="col1">
         <img src={logo2} alt="imagen tracking" style={{ width:240,height:240 }} />

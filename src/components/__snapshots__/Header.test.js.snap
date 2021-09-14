@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests expect to render Header component to render with signing in 1`] = `
+<div
+  className="header"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-dark bg-dark p-3"
+  >
+    <div
+      className="container"
+    >
+      <img
+        alt="imagen tracking"
+        src="logo_small.png"
+        style={
+          Object {
+            "width": 100,
+          }
+        }
+      />
+      <div
+        className="collapse navbar-collapse"
+        id="navbarNav"
+      >
+        <ul
+          className="navbar-nav ms-auto"
+        >
+          <li
+            className="nav-item active"
+          >
+            <Link
+              className="nav-link"
+              to="/"
+            >
+              Alimentos
+            </Link>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <Link
+              className="nav-link"
+              to="/create"
+            >
+              Create Note
+            </Link>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+              type="button"
+            >
+              Log out
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

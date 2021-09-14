@@ -51,7 +51,7 @@ function Records(props) {
 
   return (
     <div className="contenedorR">
-      <Header userId={props.id} onLogout={props.onLogout} />
+      <Header userId={props.id} onLogout={props.onLogout} history={history}/>
       <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>
       <div className='contenidoR'>
         <div className="col1R" style={{background:'grey',height:'20%'}}>
