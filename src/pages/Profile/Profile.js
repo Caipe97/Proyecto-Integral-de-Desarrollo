@@ -40,19 +40,72 @@ function Profile(props) {
 
       <div className="contenidoPro">
         {/* <h1>Contenido</h1> */}
-        <div className="search">
-          <p>Search</p>
-          <button style={{fontSize:'10px'}} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Agregar Alimento</button>
-        </div>
-        <div className="comida">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-           </p>
+        <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <div style={{ width: '80%' }}>Search</div>
+          <div style={{ width: '10%', }} >
+            <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Agregar Alimento</button>
+
+          </div>
+
+</div>
+        <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <div style={{ width: '30%' }}>
+            <div class="row">
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaOne</div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+                <p>AlimentoDos</p>
+                <p>...</p>
+              </div>
+              <div class="w-100" ></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
+
+              </div>
+            </div>
+          </div>
+          <div style={{ width: '30%' }}>
+            <div class="row">
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaTwo</div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+                <p>AlimentoTres</p>
+                <p>...</p>
+              </div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
+              </div>
+            </div>
+          </div>
+          <div style={{ width: '30%' }}>
+            <div class="row">
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>ComidaThree</div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+                <p>AlimentoDos</p>
+                <p>...</p>
+              </div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
+              <div class="w-100"></div>
+              <div class="col" style={{ border: '1px solid black', textAlign: 'center' }}>
+                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="sidebarPro">
         {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}> */}
-        <div className="col3">
+        <div className="col3" style={{ textAlign: 'center' }}>
           <h1 className='f1'>Perfil</h1>
         </div>
         <div className="col1" style={{height:'100%'}}>
