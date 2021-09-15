@@ -30,21 +30,29 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function ResetPassword(props) {
-  let [password, setPassword] = useState('');
-  let [passwordR, setPasswordR] = useState('');
-  let [message, setMessage] = useState('');
+  // let [password, setPassword] = useState('');
+  // let [passwordR, setPasswordR] = useState('');
+  // let [message, setMessage] = useState('');
+  let [state, setState] = useState({
+    password: '',
+    passwordR: '',
+    message: ''
+  })
 
   let history = useHistory();
   
   const handleChange = event => {
-    setPassword(event.target.value);
+    setState({
+      ...state,
+      [event.target.name]: event.target.value
+    })
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.onResetPassword(props.id, password);
-    setPassword('');
-    setMessage('Contraseña cambiada con exito');
+    props.onResetPassword(props.id, state.password);
+    // setPassword('');
+    // setMessage('Contraseña cambiada con exito');
   };
   
   return (
@@ -59,7 +67,7 @@ function ResetPassword(props) {
       </form>
       <br></br>
       <button onClick={handleSubmit}>ResetPassword</button>
-      <p style={{color: 'black'}}>{message}</p>
+      {/* <p style={{color: 'black'}}>{message}</p> */}
       <button type="button" onClick={() => history.push("/profile")}>Go to Profile</button>
       <button type="button" onClick={() => history.push("/")}>Go to Login</button>
     </div>
