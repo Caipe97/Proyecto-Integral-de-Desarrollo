@@ -15,7 +15,14 @@ exports[`expect to render Footer component 1`] = `
     <div
       className="box"
     >
-      <h3>
+      <h3
+        style={
+          Object {
+            "fontSize": "10px",
+            "marginTop": "2%",
+          }
+        }
+      >
         Copyright 2021 JMA Group Ltd.
       </h3>
       <div
@@ -26,14 +33,15 @@ exports[`expect to render Footer component 1`] = `
           src="phone.png"
           style={
             Object {
-              "height": 40,
-              "width": 40,
+              "height": 30,
+              "width": 30,
             }
           }
         />
         <h3
           style={
             Object {
+              "fontSize": "13px",
               "marginLeft": "5px",
               "marginTop": "9%",
             }

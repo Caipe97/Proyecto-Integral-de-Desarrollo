@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import App from './pages/App/App';
-import { userDataReducer, recordsReducer } from './store/reducers'
+import { userDataReducer } from './store/userData/userDataReducer';
+import { recordsReducer } from './store/records/recordsReducer';
 import { BrowserRouter } from "react-router-dom";
 import './index.css';
 
