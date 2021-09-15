@@ -44,7 +44,7 @@ describe("login or register actions", () => {
 
     it("should create the SUCCESS action after receiving data for register", () => {
         fetch.mockResponseOnce(JSON.stringify({
-            id: 1,
+            userId: 1,
             name: 'julian',
             surname: 'livrone',
             email: 'julianlivrone@gmail.com',
@@ -60,7 +60,7 @@ describe("login or register actions", () => {
             { 
                 type: LOGIN_OR_REGISTER_SUCCESS,
                 payload: {
-                    id: 1,
+                    userId: 1,
                     name: 'julian',
                     surname: 'livrone',
                     email: 'julianlivrone@gmail.com',
@@ -104,7 +104,7 @@ describe("login or register actions", () => {
 
     it("should create the SUCCESS action after receiving data for login", () => {
         fetch.mockResponseOnce(JSON.stringify({
-            id: 1,
+            userId: 1,
             name: 'julian',
             surname: 'livrone',
             email: 'julianlivrone@gmail.com',
@@ -120,7 +120,7 @@ describe("login or register actions", () => {
             { 
                 type: LOGIN_OR_REGISTER_SUCCESS,
                 payload: {
-                    id: 1,
+                    userId: 1,
                     name: 'julian',
                     surname: 'livrone',
                     email: 'julianlivrone@gmail.com',
@@ -180,12 +180,12 @@ describe("reset password actions", () => {
     });
 
     it("should create the SUCCESS action after receiving data for resetPassword", () => {
-        fetch.mockResponseOnce(JSON.stringify({id: 1})); //ver que devuelve esta request
+        fetch.mockResponseOnce(JSON.stringify({userId: 1})); //ver que devuelve esta request
         const expectedActions = [
             { type: RESET_PASSWORD_PENDING },
             { 
                 type: RESET_PASSWORD_SUCCESS,
-                payload: {id: 1},
+                payload: {userId: 1},
             }
         ];
 

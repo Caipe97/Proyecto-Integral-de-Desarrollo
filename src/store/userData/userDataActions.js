@@ -15,7 +15,6 @@ export const logout = () => ({
 })
 
 export const login = (email, password) => (dispatch) => {
-  // console.log(email, password)
   dispatch({ type: LOGIN_OR_REGISTER_PENDING })
   return(
     fetch(`https://jma-test-app.herokuapp.com/api/users/login`, {
@@ -55,10 +54,10 @@ export const register = (name, surname, email, password, gender, birthday, weigh
   .catch(error => dispatch({ type: LOGIN_OR_REGISTER_FAILED, payload: error }))
 }
 
-export const resetPassword = (id, password) => (dispatch) => {
+export const resetPassword = (userId, password) => (dispatch) => {
   dispatch({ type: RESET_PASSWORD_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/users/${id}`, {
+    fetch(`https://jma-test-app.herokuapp.com/api/users?userId=${userId}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

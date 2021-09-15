@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
-
+/* eslint-disable */
 class RegisterMainPage extends Component{
   constructor(props) {
     super(props);
@@ -109,7 +109,7 @@ class RegisterMainPage extends Component{
   render() {
     return (
       <div className="contenedorRe">
-        <Header userId={this.props.id} onLogout={this.props.onLogout} history={this.props.history}/>
+        <Header userId={this.props.userId} onLogout={this.props.onLogout} history={this.props.history}/>
         <div className="contenidoRe">
           <div className="col1">
           <img src={logo2} alt="imagen tracking" style={{ width:240,height:240 }} />

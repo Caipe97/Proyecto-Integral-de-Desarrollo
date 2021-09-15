@@ -8,6 +8,7 @@ import Footer from './Footer';
 import TextField from '@material-ui/core/TextField';
 import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
 
+/* eslint-disable */
 class LoginMainPage extends Component{
   constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class LoginMainPage extends Component{
   }
 
   validatePassword = (password) => {
-    const expression = /(.|\s)*\S(.|\s)*/
+    const expression = /(.|\s)*\S(.|\s)*/ 
     return expression.test(String(password).toLowerCase())
   }
 
@@ -67,7 +68,6 @@ class LoginMainPage extends Component{
           <div>
           <h1 style={{left:'30px'}}>Nutriva</h1>
           </div>
-          
           
           </div>
           

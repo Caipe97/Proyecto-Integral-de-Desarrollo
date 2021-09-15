@@ -5,7 +5,7 @@ import LoginMainPage from '../../components/LoginMainPage';
 
 const mapStateToProps = (state) => {
   return {
-    id: state.userDataReducer.id,
+    userId: state.userDataReducer.userId,
     name: state.userDataReducer.name,
     surname: state.userDataReducer.surname,
     email: state.userDataReducer.email,

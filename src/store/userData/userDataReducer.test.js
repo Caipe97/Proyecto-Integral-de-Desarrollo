@@ -13,7 +13,7 @@ import {
 import * as reducers from './userDataReducer';
 
 const initialStateUserData = {
-    id: 0,
+    userId: 0,
     name: '',
     surname: '',
     email: '',
@@ -31,7 +31,7 @@ const pendingStateUserData = {
 }
 
 const exampleStateUserData = {
-    id: 1,
+    userId: 1,
     name: 'julian',
     surname: 'livrone',
     email: 'julianlivrone@gmail.com',

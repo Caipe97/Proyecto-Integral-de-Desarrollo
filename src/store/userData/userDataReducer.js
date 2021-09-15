@@ -11,7 +11,7 @@ import {
  } from './userDataConstants';
 
 const initialStateUserData = {
-  id: 0,
+  userId: 0,
   name: '',
   surname: '',
   email: '',
@@ -27,7 +27,7 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
   switch (action.type) {
     case LOGOUT:
       return {
-        id: 0,
+        userId: 0,
         name: '',
         surname: '',
         email: '',
@@ -46,7 +46,7 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
     case LOGIN_OR_REGISTER_SUCCESS:
       return {
         ...state,
-        id: action.payload.id,
+        userId: action.payload.userId,
         name: action.payload.name,
         surname: action.payload.surname,
         email: action.payload.email,

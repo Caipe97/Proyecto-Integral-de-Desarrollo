@@ -6,12 +6,13 @@ import './Profile.css';
 //import logo1 from '../../images/analystic.png';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { getRecordsFromUser } from '../../store/records/recordsActions';
+import { getMealsFromUser } from '../../store/meals/mealsActions';
+import { getAllFoods } from'../../store/foods/foodsActions';
 import { logout } from '../../store/userData/userDataActions';
 
 const mapStateToProps = (state) => {
   return {
-    id: state.userDataReducer.id,
+    userId: state.userDataReducer.userId,
     name: state.userDataReducer.name,
     surname: state.userDataReducer.surname,
     email: state.userDataReducer.email,
@@ -26,7 +27,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetRecordsFromUser: (id) => dispatch(getRecordsFromUser(id)),
+    onGetMealsFromUser: (userId) => dispatch(getMealsFromUser(userId)),
+    onGetAllFoods: () => dispatch(getAllFoods()),
     onLogout: () => dispatch(logout())
   }
 }
@@ -36,18 +38,15 @@ function Profile(props) {
   return (
 
     <div className="contenedorPro">
-      <Header userId={props.id} onLogout={props.onLogout} history={history}/>
+      <Header userId={props.userId} onLogout={props.onLogout} history={history}/>
 
       <div className="contenidoPro">
-        {/* <h1>Contenido</h1> */}
         <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
           <div style={{ width: '80%' }}>Search</div>
           <div style={{ width: '10%', }} >
-            <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Agregar Alimento</button>
-
+            <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
           </div>
-
-</div>
+        </div>
         <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
           <div style={{ width: '30%' }}>
             <div className="row">
@@ -61,8 +60,8 @@ function Profile(props) {
               <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
               <div className="w-100"></div>
               <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
-                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
-                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Edit</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Remove</button>
 
               </div>
             </div>
@@ -79,8 +78,8 @@ function Profile(props) {
               <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
               <div className="w-100"></div>
               <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
-                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
-                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Edit</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Remove</button>
               </div>
             </div>
           </div>
@@ -96,8 +95,8 @@ function Profile(props) {
               <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>Fecha</div>
               <div className="w-100"></div>
               <div className="col" style={{ border: '1px solid black', textAlign: 'center' }}>
-                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Edit</button>
-                <button style={{ fontSize: '10px', }} type="button" onClick={() => { props.onGetRecordsFromUser(props.id); history.push("/records") }}>Remove</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Edit</button>
+                <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Remove</button>
               </div>
             </div>
           </div>
