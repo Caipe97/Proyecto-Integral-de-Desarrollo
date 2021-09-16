@@ -24,10 +24,12 @@ class MealsMainPage extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.props.userId, this.state.name, this.state.dateEaten, this.props.currentMeal);
-    this.setState({name: 'Comida', dateEaten: ''})
+    const dateEatenString = this.state.dateEaten.toString().substring(4, 24);
+    this.props.currentMeal.name = this.state.name;
+    this.props.currentMeal.dateEaten = dateEatenString;
+    this.props.onAddMeal(this.props.userId, this.props.currentMeal);
+    this.setState({name: 'Comida', dateEaten: ''});
     this.props.onResetCurrentMeal();
-    // this.props.onAddMeal(this.props.userId, this.state.name, this.state.dateEaten, this.props.currentMeal);
   };
 
   handleChangeDateEaten = date => {
@@ -57,7 +59,7 @@ class MealsMainPage extends Component {
               <div className="w-100"></div>
               <div className="col" style={{ textAlign: 'center' }}>
                 <ul style={{ marginBlock: '0em', paddingInlineStart: '1%' }}>
-                  {this.props.currentMeal.foodsAndQuantity.map((foodAndQuantity) =>
+                  {this.props.currentMeal.FoodList.map((foodAndQuantity) =>
                     <div key={foodAndQuantity.food.foodId}>
                       <li>{foodAndQuantity.quantity} x {foodAndQuantity.food.name} <button type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Delete</button></li>
                     </div>
@@ -72,7 +74,7 @@ class MealsMainPage extends Component {
                   selected={this.state.dateEaten}
                   onChange={(date) => this.handleChangeDateEaten(date)}
                   dateFormat="dd-MM-yyyy h:mm aa"
-                  placeholderText='birthday'
+                  placeholderText='Fecha de consumo'
                 />
               </div>
             </div>

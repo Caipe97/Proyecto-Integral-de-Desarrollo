@@ -49,7 +49,7 @@ class ResetPasswordMainPage extends Component {
       <div className="contenedor">
         <Header userId={this.props.userId} onLogout={this.props.onLogout} history={this.props.history}/>
         <div  style={{background:"#fff",  textAlign: 'center',  alignItems: 'center',  justifyContent: 'center', width: '100%', marginLeft: '100%' }}>
-          <h1 className='f1'>ResetPasswordMainPage</h1>
+          <h1 className='f1'>ResetPassword</h1>
           <form>
             <TextField name='password' type='password' placeholder='New password' onChange={this.handleChange} required/>
             <TextField name='passwordCheck' type='password' placeholder='New password again' onChange={this.handleChange} required/>

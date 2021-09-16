@@ -14,7 +14,11 @@ import {
   
     DELETE_MEAL_PENDING,
     DELETE_MEAL_SUCCESS,
-    DELETE_MEAL_FAILED
+    DELETE_MEAL_FAILED,
+
+    ADD_FOOD_TO_CURRENT_MEAL,
+    REMOVE_FOOD_FROM_CURRENT_MEAL,
+    RESET_CURRENT_MEAL
    } from './mealsConstants'
 
 const mockStore = configureMockStore([thunkMiddleware]);
@@ -30,23 +34,37 @@ describe("add meal actions", () => {
         const expectedAction = {
             type: ADD_MEAL_PENDING,
         };
-        store.dispatch(actions.addMeal());
+        store.dispatch(actions.addMeal(1,{
+            dateEaten: "2021-09-03T00:00:00.000Z",
+            name: 'comidaaaa',
+            FoodList: {
+                quantity: 1, food: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'},
+                quantity: 3, food: {foodId: 2, name: 'Papa', recommendedServing: 200, caloriesPerServing: 100, createdAt: '2021-09-15T20:02:16.490Z'}
+            }}));
         const action = store.getActions();
         expect(action[0]).toEqual(expectedAction);
     });
 
     it("should create the SUCCESS action after receiving data for addMeal", () => {
-        fetch.mockResponseOnce(JSON.stringify({mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'}));
+        fetch.mockResponseOnce(JSON.stringify([
+            {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+        ]));
 
         const expectedActions = [
             { type: ADD_MEAL_PENDING },
             { 
                 type: ADD_MEAL_SUCCESS,
-                payload: {mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'},
+                payload: [
+                    {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+                ],
             }
         ];
 
-        store.dispatch(actions.addMeal())
+        store.dispatch(actions.addMeal(1, {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}))
         .then(() => {
             const actions = store.getActions();
             expect(actions).toEqual(expectedActions);
@@ -65,7 +83,7 @@ describe("add meal actions", () => {
         }
         ];
 
-        store.dispatch(actions.addMeal())
+        store.dispatch(actions.addMeal(1, {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}))
         .then(() => {
             const actions = store.getActions();
             expect(actions).toEqual(expectedActions);
@@ -92,8 +110,9 @@ describe("get meals from user actions", () => {
 
     it("should create the SUCCESS action after receiving data for getMealsFromUser", () => {
         fetch.mockResponseOnce(JSON.stringify([
-            {mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'}, 
-            {mealId: 12, foodName: 'pure', gramAmount: 70, userId: 2, dateEaten: '2021-09-01T00:00:00.000Z'}
+            {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
         ]));
 
         const expectedActions = [
@@ -101,8 +120,9 @@ describe("get meals from user actions", () => {
             { 
                 type: GET_MEALS_FROM_USER_SUCCESS,
                 payload: [
-                    {mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'}, 
-                    {mealId: 12, foodName: 'pure', gramAmount: 70, userId: 2, dateEaten: '2021-09-01T00:00:00.000Z'}
+                    {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
                 ]
             }
         ];
@@ -152,13 +172,21 @@ describe("delete meal actions", () => {
     });
 
     it("should create the SUCCESS action after receiving data for deleteMeal", () => {
-        fetch.mockResponseOnce(JSON.stringify({mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'}));
+        fetch.mockResponseOnce(JSON.stringify([
+            {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+        ]));
 
         const expectedActions = [
             { type: DELETE_MEAL_PENDING },
             { 
                 type: DELETE_MEAL_SUCCESS,
-                payload: {mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'}
+                payload: [
+                    {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+                ]
             }
         ];
 
@@ -188,4 +216,32 @@ describe("delete meal actions", () => {
         });
         expect(fetch.mock.calls.length).toEqual(1);
     });
+})
+
+describe("foods on current meal actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        store.clearActions();
+    });
+
+    it("should handle addFoodToCurrentMeal", () => {
+        const expectedAction = {
+          type: ADD_FOOD_TO_CURRENT_MEAL
+        };
+        expect(actions.addFoodToCurrentMeal()).toEqual(expectedAction);
+      });
+
+      it("should handle removeFoodFromCurrentMeal", () => {
+        const expectedAction = {
+          type: REMOVE_FOOD_FROM_CURRENT_MEAL
+        };
+        expect(actions.removeFoodFromCurrentMeal()).toEqual(expectedAction);
+      });
+
+      it("should handle resetCurrentMeal", () => {
+        const expectedAction = {
+          type: RESET_CURRENT_MEAL
+        };
+        expect(actions.resetCurrentMeal()).toEqual(expectedAction);
+      });
 })

@@ -16,17 +16,16 @@ import {
   RESET_CURRENT_MEAL
  } from './mealsConstants'
 
-export const addMeal = (userId, foodName, gramAmount, dateEaten) => (dispatch) => {
+export const addMeal = (userId, meal) => (dispatch) => {
   dispatch({ type: ADD_MEAL_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals`, {
+    fetch(`https://jma-test-app.herokuapp.com/api/meals?userId=${userId}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        userId: userId,
-        foodName: foodName,
-        gramAmount: gramAmount,
-        dateEaten: dateEaten
+        dateEaten: meal.dateEaten,
+        name: meal.name,
+        FoodList: meal.FoodList
       })
     })
   )

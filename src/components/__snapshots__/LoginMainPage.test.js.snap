@@ -19,11 +19,11 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
         "email": "",
         "gender": "",
         "height": "",
-        "id": 0,
         "isPending": false,
         "name": "",
         "password": "",
         "surname": "",
+        "userId": 0,
         "weight": "",
       }
     }

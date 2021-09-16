@@ -98,7 +98,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
         <h1
           className="f1"
         >
-          RegisterMainPage
+          Register
         </h1>
       </div>
       <form

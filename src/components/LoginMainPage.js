@@ -6,7 +6,6 @@ import logo2 from '../images/2pages.jpg';
 import Header from './Header';
 import Footer from './Footer';
 import TextField from '@material-ui/core/TextField';
-import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
 
 /* eslint-disable */
 class LoginMainPage extends Component{
@@ -30,7 +29,8 @@ class LoginMainPage extends Component{
     if(this.validateAll()) {
       const data = await this.props.onLogin(this.state.email, this.state.password);
       this.setState({email: '', password: ''});
-      if(data.type === LOGIN_OR_REGISTER_SUCCESS){
+      console.log(data)
+      if(data.payload.userId){
         this.props.history.push("/profile");
       } else{
         console.log("Email y/o contraseña incorrectos");

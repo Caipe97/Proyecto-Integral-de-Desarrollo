@@ -138,7 +138,7 @@ class RegisterMainPage extends Component{
               <img src={logo1} alt="imagen tracking" style={{ width: 100 }} />
             </div>
             <div style={{ marginTop: 45 }}>
-              <h1 className='f1'>RegisterMainPage</h1>
+              <h1 className='f1'>Register</h1>
             </div>
   
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import LoginMainPage from './LoginMainPage';
-import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
+import { LOGIN_OR_REGISTER_SUCCESS, LOGIN_OR_REGISTER_FAILED } from '../store/userData/userDataConstants';
 
 describe('LoginMainPage tests', () => {
     const historyMock = { push: jest.fn() };
@@ -10,7 +10,7 @@ describe('LoginMainPage tests', () => {
     const onLoginReturnedDataSuccess = { 
         type: LOGIN_OR_REGISTER_SUCCESS,
         payload: {
-            id: 1,
+            userId: 1,
             name: 'julian',
             surname: 'livrone',
             email: 'julianlivrone@gmail.com',
@@ -25,7 +25,7 @@ describe('LoginMainPage tests', () => {
     beforeEach(() => {
         let mockProps = {
             userDataReducer: {
-                id: 0,
+                userId: 0,
                 name: '',
                 surname: '',
                 email: '',
@@ -70,7 +70,7 @@ describe('LoginMainPage tests', () => {
         expect(historyMock.push.mock.calls[0]).toEqual(['/profile']);
     })
 
-    it('handleSubmit should not push to profile because email is not valid 1', async () => {
+    it('handleSubmit should not push to profile because email is not valuserId 1', async () => {
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@' } });
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'asd' } });
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
@@ -78,7 +78,7 @@ describe('LoginMainPage tests', () => {
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(0);
     })
 
-    it('handleSubmit should not push to profile because email is not valid 2', async () => {
+    it('handleSubmit should not push to profile because email is not valuserId 2', async () => {
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@dsa' } });
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'asd' } });
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
@@ -86,7 +86,7 @@ describe('LoginMainPage tests', () => {
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(0);
     })
 
-    it('handleSubmit should not push to profile because password is not valid 1', async () => {
+    it('handleSubmit should not push to profile because password is not valuserId 1', async () => {
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@gmail.com' } });
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: '' } });
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
@@ -95,9 +95,15 @@ describe('LoginMainPage tests', () => {
     })
 
     it('handleSubmit should not push to profile when cannot fetch userData because email or password are incorrect', async () => {
+        const onLoginReturnedDataFailed = { 
+            type: LOGIN_OR_REGISTER_FAILED,
+            payload: {
+                message: 'No user found with given credentials'
+            }
+        };
         let mockProps = {
             userDataReducer: {
-                id: 0,
+                userId: 0,
                 name: '',
                 surname: '',
                 email: '',
@@ -109,12 +115,12 @@ describe('LoginMainPage tests', () => {
                 isPending: false
             },
             // onLogin: jest.fn().mockRejectedValueOnce("ERROR: could not fetch data"),
-            onLogin: jest.fn().mockResolvedValueOnce("ERROR: could not fetch data"),
+            onLogin: jest.fn().mockResolvedValueOnce(onLoginReturnedDataFailed),
             onLogout: jest.fn()
           };
         wrapper = shallow(<LoginMainPage {...mockProps} history={historyMock}/>);
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@gmail.com' } });
-        wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'passwordMala' } });
+        wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'as' } });
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
         expect(wrapper.instance().props.onLogin).toHaveBeenCalledTimes(1);
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(0);
