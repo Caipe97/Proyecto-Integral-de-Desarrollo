@@ -9,11 +9,16 @@ import {
 
   DELETE_MEAL_PENDING,
   DELETE_MEAL_SUCCESS,
-  DELETE_MEAL_FAILED
+  DELETE_MEAL_FAILED,
+
+  ADD_FOOD_TO_CURRENT_MEAL,
+  REMOVE_FOOD_FROM_CURRENT_MEAL,
+  RESET_CURRENT_MEAL
  } from './mealsConstants';
 
 const initialStateMeals = {
   meals: [],
+  currentMeal: {foodsAndQuantity: []},
   isPending: false
 }
 
@@ -71,7 +76,57 @@ export const mealsReducer = (state=initialStateMeals, action={}) => {
             isPending: false,
             error: action.payload
           }
+        case ADD_FOOD_TO_CURRENT_MEAL:
+          const food = action.payload;
+          const newCurrentMealFoodsAndQuantityAddFood = getNewCurrentMealFoodsAndQuantityAddFood(state.currentMeal.foodsAndQuantity, food);
+          return {
+            ...state,
+            currentMeal: {...state.currentMeal, foodsAndQuantity: newCurrentMealFoodsAndQuantityAddFood}
+          }
+        case REMOVE_FOOD_FROM_CURRENT_MEAL:
+          const foodAndQuantity = action.payload;
+          const newCurrentMealFoodsAndQuantityRemoveFood = getNewCurrentMealFoodsAndQuantityRemoveFood(state.currentMeal.foodsAndQuantity, foodAndQuantity.food);
+          return {
+            ...state,
+            currentMeal: {...state.currentMeal, foodsAndQuantity: newCurrentMealFoodsAndQuantityRemoveFood}
+          }
+        case RESET_CURRENT_MEAL:
+          return {
+            ...state,
+            currentMeal: {foodsAndQuantity: []}
+          }
     default:
       return state
   }
+}
+
+const getNewCurrentMealFoodsAndQuantityAddFood = (currentMealFoodsAndQuantity, food) => {
+  let flag = 0;
+  const copyCurrentMealFoods = currentMealFoodsAndQuantity
+  copyCurrentMealFoods.forEach(foodAndQuantity => {
+    if(food.foodId === foodAndQuantity.food.foodId){
+      foodAndQuantity.quantity++
+      flag++;
+    }
+  });
+  if(flag === 0){
+    copyCurrentMealFoods.push({quantity: 1, food});
+  }
+  return copyCurrentMealFoods;
+}
+
+const getNewCurrentMealFoodsAndQuantityRemoveFood = (currentMealFoodsAndQuantity, food) => {
+  const copyCurrentMealFoods = currentMealFoodsAndQuantity
+  console.log(food)
+  for( let i = 0; i < copyCurrentMealFoods.length; i++){
+    console.log(copyCurrentMealFoods[i].food.foodId, food.foodId)
+    if(copyCurrentMealFoods[i].food.foodId === food.foodId) { 
+      if(copyCurrentMealFoods[i].quantity === 1){
+        copyCurrentMealFoods.splice(i, 1); 
+      } else {
+        copyCurrentMealFoods[i].quantity--;
+      }
+    }
+  }
+  return copyCurrentMealFoods;
 }

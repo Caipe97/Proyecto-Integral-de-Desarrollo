@@ -9,7 +9,11 @@ import {
 
   DELETE_MEAL_PENDING,
   DELETE_MEAL_SUCCESS,
-  DELETE_MEAL_FAILED
+  DELETE_MEAL_FAILED,
+
+  ADD_FOOD_TO_CURRENT_MEAL,
+  REMOVE_FOOD_FROM_CURRENT_MEAL,
+  RESET_CURRENT_MEAL
  } from './mealsConstants'
 
 export const addMeal = (userId, foodName, gramAmount, dateEaten) => (dispatch) => {
@@ -53,3 +57,17 @@ export const deleteMeal = (mealId) => (dispatch) => {
   .then(mealsData => dispatch({ type: DELETE_MEAL_SUCCESS, payload: mealsData }))
   .catch(error => dispatch({ type: DELETE_MEAL_FAILED, payload: error }))
 }
+
+export const addFoodToCurrentMeal = (food) => ({ 
+  type: ADD_FOOD_TO_CURRENT_MEAL,
+  payload: food
+})
+
+export const removeFoodFromCurrentMeal = (food) => ({ 
+  type: REMOVE_FOOD_FROM_CURRENT_MEAL,
+  payload: food
+})
+
+export const resetCurrentMeal = () => ({ 
+  type: RESET_CURRENT_MEAL
+})

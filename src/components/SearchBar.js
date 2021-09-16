@@ -31,7 +31,7 @@ class SearchBar extends Component {
   asignarColumnas=()=>{
     const columnas = [
       {
-        cell:(row) => <button onClick={() => console.log(row)} id={row.foodId}>Agregar</button>,
+        cell:(row) => <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId}>Agregar</button>,
         ignoreRowClick: true,
         allowOverflow: true,
         button: true
