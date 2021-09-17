@@ -92,13 +92,13 @@ function Profile(props) {
   } else{
     return (
       <div className="contenedorPro">
-        <Header userId={props.userId} onLogout={props.onLogout} history={history}/>
+        <Header userId={props.userId} onLogout={props.onLogout} history={history} style={{ background: '#0E4749', paddingTop: '10px', paddingBottom: '10px', top: 0 }}/>
 
-        <div className="contenidoPro">
+        <div className="contenidoPro" style={{backgroundColor:'#B6E052'}}>
           <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
             <div style={{ width: '80%' }}>Search</div>
             <div style={{ width: '10%', }}>
-              <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
+              <button className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
             </div>
           </div>
           <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>

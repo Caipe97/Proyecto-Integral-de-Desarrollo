@@ -44,7 +44,7 @@ h1 {
   }
   .contenedorL .header {
     /* background: #12203e; */
-    background:#212529;
+    background:#0E4749;
     grid-area: header;
     align-content: space-between;
   
@@ -59,7 +59,7 @@ h1 {
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, auto);
-    background: #7BA232;
+    background: #B6E052;
     grid-template-areas:
       'col1 col2 col2';
     /* grid-column:  span 2; */

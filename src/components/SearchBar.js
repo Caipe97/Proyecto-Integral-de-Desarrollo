@@ -31,7 +31,7 @@ class SearchBar extends Component {
   asignarColumnas=()=>{
     const columnas = [
       {
-        cell:(row) => <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId}>Agregar</button>,
+        cell:(row) => <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#EFE7DA'}} className='btn btn--primary btn--s'>Agregar</button>,
         ignoreRowClick: true,
         allowOverflow: true,
         button: true
@@ -80,7 +80,7 @@ class SearchBar extends Component {
   
 render(){
   return (
-    <div className="table-responsive">
+    <div className="table-responsive" >
       <div className="barraBusqueda">
         <input
           type="text"
@@ -89,8 +89,9 @@ render(){
           name="busqueda"
           value={this.state.busqueda}
           onChange={this.onChange}
+          style={{borderRadius:'13px'}}
         />
-        <button type="button" className="btnBuscar" /*onClick={onClear}*/>
+        <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}/*onClick={onClear}*/>
           {" "}
           <FontAwesomeIcon icon={faSearch} />
         </button>

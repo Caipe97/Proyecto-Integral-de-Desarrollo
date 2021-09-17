@@ -8,7 +8,7 @@ import Footer from './Footer';
 import TextField from '@material-ui/core/TextField';
 
 /* eslint-disable */
-class LoginMainPage extends Component{
+class LoginMainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,13 +26,13 @@ class LoginMainPage extends Component{
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    if(this.validateAll()) {
+    if (this.validateAll()) {
       const data = await this.props.onLogin(this.state.email, this.state.password);
-      this.setState({email: '', password: ''});
+      this.setState({ email: '', password: '' });
       console.log(data)
-      if(data.payload.userId){
+      if (data.payload.userId) {
         this.props.history.push("/profile");
-      } else{
+      } else {
         console.log("Email y/o contraseña incorrectos");
       }
     } else {
@@ -41,7 +41,7 @@ class LoginMainPage extends Component{
   };
 
   validateAll = () => {
-    if(this.validateEmail(this.state.email) && this.validatePassword(this.state.password)) {
+    if (this.validateEmail(this.state.email) && this.validatePassword(this.state.password)) {
       return true;
     }
     return false;
@@ -53,39 +53,48 @@ class LoginMainPage extends Component{
   }
 
   validatePassword = (password) => {
-    const expression = /(.|\s)*\S(.|\s)*/ 
+    const expression = /(.|\s)*\S(.|\s)*/
     return expression.test(String(password).toLowerCase())
   }
 
   render() {
     return (
       <div className="contenedorL">
-        <Header {...this.props}/>
+        <Header {...this.props} />
 
         <div className="contenidoL">
           <div className="col1">
-          <img src={logo2} alt="imagen tracking" style={{ width:240,height:240 }} />
-          <div>
-          <h1 style={{left:'30px'}}>Nutriva</h1>
+            <img src={logo2} alt="imagen tracking" style={{ width: 240, height: 240 }} />
+            <div>
+              <h1 style={{ left: '30px',color:'#002626' }}>Nutriva</h1>
+            </div>
+
           </div>
-          
+
+          <div className="col2" style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+            <p >
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+
+              Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.
+
+              Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.
+
+              Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.
+
+              Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.
+
+              Participar proactivamente en el bienestar de las personas en su entorno social y laboral.
+
+              Brindar un servicio único y facilitar las herramientas del éxito.
+            </p>
           </div>
-          
-          <div className="col2" style ={{justifyContent:'center',alignContent:'center',alignItems:'center',textAlign:'center'}}>
-          <p >
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          
-          </p>
-          </div>
-          
+
         </div>
         <div className="sidebar">
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -93,24 +102,24 @@ class LoginMainPage extends Component{
               <img src={logo1} alt="imagen tracking" style={{ width: 100 }} />
             </div>
             <div style={{ marginTop: 45 }}>
-              <h1 className='f1'>Login</h1>
+              <h1 className='f1' style={{color:'#002626'}}>Login</h1>
             </div>
 
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-              <TextField label="Email" name='email' type='email' value={this.state.email} onChange={this.handleChange} required/>
-              <TextField label="Password" name='password' type='password' value={this.state.password} onChange={this.handleChange} required/>
+              <TextField label="Email" name='email' type='email' value={this.state.email} onChange={this.handleChange} required />
+              <TextField label="Password" name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
               <button onClick={this.handleSubmit} className='button'>Iniciar Sesion</button>
-              <p style={{marginBlock: '0em', marginTop: '4%'}}>Todavia no tenes una cuenta?
-                <Link to="/register" style={{color: 'black'}}>Registrate</Link>
+              <p style={{ marginBlock: '0em', marginTop: '4%' }}>Todavia no tenes una cuenta?
+                <Link to="/register" style={{ color: 'black' }}>Registrate</Link>
               </p>
-              <p style={{fontSize:'10px',marginTop:'4%'}}>
+              <p style={{ fontSize: '10px', marginTop: '4%' }}>
                 Olvidaste la contrasena?
               </p>
             </form>
           </div>
         </div>
-      
-        <Footer/>
+
+        <Footer />
       </div>
 
     );

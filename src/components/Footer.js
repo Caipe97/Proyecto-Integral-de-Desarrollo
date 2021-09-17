@@ -2,7 +2,7 @@ import React from 'react';
 import logo2 from '../images/phone.png';
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="footer" style={{background:'#0E4749'}}>
     <div style={{ width: '100%', position: 'relative' }}>
       <div className="box">
         <h3 style={{fontSize:'10px',marginTop:'2%'}}>Copyright 2021 JMA Group Ltd.</h3>
