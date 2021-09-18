@@ -17,7 +17,8 @@ const customStyles = {
 		style: {
 			minHeight: '56px',
       background:'#CCDDE2',
-      borderRadius:'17px'
+      borderRadius:'17px',
+      textShadow: '1px 1px black',
 		},
 	},
 	headRow: {

@@ -9,6 +9,7 @@ import Footer from '../../components/Footer';
 import { getMealsFromUser } from '../../store/meals/mealsActions';
 import { getAllFoods } from'../../store/foods/foodsActions';
 import { logout } from '../../store/userData/userDataActions';
+import CarouselContainer from '../../components/CarouselContainer';
 
 const mapStateToProps = (state) => {
   return {
@@ -51,8 +52,10 @@ function Profile(props) {
               <button  type="button" className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}}  onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
             </div>
           </div>
-          <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
-            {props.meals.map((meal) =>
+          <div className="comida"  style={{borderRadius:'18px'}}
+          // style={{ display: 'flex', justifyContent: 'space-around' }}
+          >
+            {/* {props.meals.map((meal) =>
                 <div key={meal.mealId}>
                     <p>{meal.name}</p>   
                     <p>{meal.dateEaten}</p>
@@ -64,7 +67,9 @@ function Profile(props) {
                       )
                     })}
                 </div>
-            )}
+            )} */}
+            {/* ACA COLOCAR CARUSELL */}
+            <CarouselContainer meals={props.meals}/>
           </div>
         </div>
         <div className="sidebarPro">
