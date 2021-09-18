@@ -68,7 +68,9 @@ h1 {
   }
   .contenedorPro .contenidoPro .search{
     grid-column:search;
-    background: grey;
+    background: #EFE7DA;
+    border-radius:19px;
+    font-style: oblique;
   }
   .contenedorPro .header {
     /* background: #12203e; */

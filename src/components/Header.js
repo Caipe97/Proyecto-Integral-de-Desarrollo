@@ -12,7 +12,7 @@ class Header extends Component {
           <div className="container">
             <img src={logo} alt="imagen tracking" style={{ width: 100 }} />
             {this.props.userId > 0
-              ? <div className="collapse navbar-collapse" id="navbarNav">
+              ? <div className="collapse navbar-collapse" id="navbarNav" style={{height:'23px'}}>
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item">
                     <Link to="/" className="nav-link">Home</Link>
