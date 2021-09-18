@@ -38,7 +38,7 @@ function Profile(props) {
   let history = useHistory();
   useEffect(() => {
     props.onGetMealsFromUser(props.userId)
-  }, [])
+  }, []);
   if(props.meals[0]){
     return (
       <div className="contenedorPro">
@@ -48,7 +48,7 @@ function Profile(props) {
           <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
             <div style={{ width: '80%' }}>Search</div>
             <div style={{ width: '10%', }}>
-              <button style={{ fontSize: '10px', }} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
+              <button  type="button" className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}}  onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
             </div>
           </div>
           <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -98,8 +98,9 @@ function Profile(props) {
           <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
             <div style={{ width: '80%' }}>Search</div>
             <div style={{ width: '10%', }}>
-              <button className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}} type="button" onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
+              <button type="button" className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}} onClick={async () => { await props.onGetAllFoods(); history.push("/meals"); }}>Agregar Alimento</button>
             </div>
+            
           </div>
           <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
             {/* {props.meals.map((meal) =>

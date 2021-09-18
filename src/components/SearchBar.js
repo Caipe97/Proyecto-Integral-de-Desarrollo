@@ -10,7 +10,57 @@ const paginacionOpciones={
   rangeSeparatorText: 'de',
   selectAllRowsItem: true,
   selectAllRowsItemText: 'Todos',
+  
 }
+const customStyles = {
+	header: {
+		style: {
+			minHeight: '56px',
+      background:'#CCDDE2',
+      borderRadius:'17px'
+		},
+	},
+	headRow: {
+		style: {
+      backgroundColor: '#B6E052',
+			// borderTopStyle: 'solid',
+			// borderTopWidth: '1px',
+			// borderTopColor: 'black',
+		},
+	},
+	headCells: {
+		style: {
+			'&:not(:last-of-type)': {
+				// borderRightStyle: 'solid',
+				// borderRightWidth: '1px',
+				// borderRightColor: 'black',
+			},
+		},
+	},
+  pagination: {
+		style: {
+			backgroundColor:'#B6E052'
+		},
+	},
+  row:{
+    pointer:{
+      backgroundColor:'blue'
+    }
+  },
+};
+const conditionalRowStyles = [
+    {
+      when: row => row.caloriesPerServing > 0,
+      style: {
+        backgroundColor: '#B6E052',
+        color: 'black',
+        '&:hover': {
+          cursor: 'pointer',
+        },
+      },
+    },
+  ];
+
 
 class SearchBar extends Component {
   constructor(props) {
@@ -80,8 +130,8 @@ class SearchBar extends Component {
   
 render(){
   return (
-    <div className="table-responsive" >
-      <div className="barraBusqueda">
+    <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
+      <div className="barraBusqueda" style={{backgroundColor:'#B6E052'}}>
         <input
           type="text"
           placeholder="Buscar por name"
@@ -107,6 +157,9 @@ render(){
         noDataComponent={
           <span>No se encontró ningún elemento</span>
         }
+        conditionalRowStyles= {conditionalRowStyles}
+        customStyles={customStyles}
+        pointer
       />
     </div>
   );
