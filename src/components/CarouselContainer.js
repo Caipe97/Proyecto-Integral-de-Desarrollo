@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import Carousel  from 'react-bootstrap/Carousel';
 
 // import image1 from './../assets/images/1.jpg';
 // import image2 from './../assets/images/2.jpg';
@@ -10,10 +10,10 @@ const sum=0;
 const CarouselContainer = (props) => {
     return (
 
-        <Carousel fade={true} pause={false} controls={false} >
+        <Carousel fade={true} pause={false} controls={true} touch={true} >
             {props.meals.map((meal) =>
-                <Carousel.Item interval={3000}>
-
+                <Carousel.Item>
+                   
                     <div className="container" key={meal.mealId} style={{ background: 'lightblue', textAlign: 'center',borderRadius:'10px' }}>
                         <div class="row">
                             <div class="col-md-4 col-lg-12">
@@ -57,11 +57,12 @@ const CarouselContainer = (props) => {
 
                     </div>
 
+{/* 
 
-
-
-
-                </Carousel.Item>
+                    <Carousel.Caption><h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>*/}
+                </Carousel.Item> 
             )}
             {/* <Carousel.Item interval={2000}>
                 <img
