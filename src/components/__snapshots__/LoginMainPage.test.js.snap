@@ -48,6 +48,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
         <h1
           style={
             Object {
+              "color": "#002626",
               "left": "30px",
             }
           }
@@ -75,7 +76,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
         <br />
         <br />
         <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental. Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento. Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio. Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición. Participar proactivamente en el bienestar de las personas en su entorno social y laboral. Brindar un servicio único y facilitar las herramientas del éxito.
       </p>
     </div>
   </div>
@@ -115,6 +116,11 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
       >
         <h1
           className="f1"
+          style={
+            Object {
+              "color": "#002626",
+            }
+          }
         >
           Login
         </h1>

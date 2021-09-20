@@ -3,9 +3,17 @@
 exports[`Header tests expect to render Header component to render with signing in 1`] = `
 <div
   className="header"
+  style={
+    Object {
+      "background": "#0E4749",
+      "paddingBottom": "10px",
+      "paddingTop": "10px",
+      "top": 0,
+    }
+  }
 >
   <nav
-    className="navbar navbar-expand-lg navbar-dark bg-dark p-3"
+    className="navbar sticky-top navbar-expand-lg navbar-dark p-3"
   >
     <div
       className="container"
@@ -22,36 +30,58 @@ exports[`Header tests expect to render Header component to render with signing i
       <div
         className="collapse navbar-collapse"
         id="navbarNav"
+        style={
+          Object {
+            "height": "23px",
+          }
+        }
       >
         <ul
           className="navbar-nav ms-auto"
         >
           <li
-            className="nav-item active"
+            className="nav-item"
           >
             <Link
               className="nav-link"
               to="/"
             >
+              Home
+            </Link>
+          </li>
+          <li
+            className="nav-item active"
+          >
+            <Link
+              className="nav-link"
+              to="/meals"
+            >
               Alimentos
             </Link>
           </li>
           <li
-            className="nav-item"
+            className="nav-item active"
           >
             <Link
               className="nav-link"
-              to="/create"
+              to="/profile"
             >
-              Create Note
+              Profile
             </Link>
           </li>
           <li>
             <button
+              className="btn btn--primary btn--s"
               onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "boxShadow": " 0px 0px 5px 1px black ",
+                }
+              }
               type="button"
             >
-              Log out
+                 Log out
             </button>
           </li>
         </ul>

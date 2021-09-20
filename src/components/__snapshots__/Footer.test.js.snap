@@ -3,6 +3,11 @@
 exports[`expect to render Footer component 1`] = `
 <footer
   className="footer"
+  style={
+    Object {
+      "background": "#0E4749",
+    }
+  }
 >
   <div
     style={
