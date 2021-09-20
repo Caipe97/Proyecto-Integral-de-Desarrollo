@@ -69,7 +69,7 @@ function Profile(props) {
                 </div>
             )} */}
             {/* ACA COLOCAR CARUSELL */}
-            <CarouselContainer meals={props.meals}/>
+            <CarouselContainer meals={props.meals} history={history}/>
           </div>
         </div>
         <div className="sidebarPro">

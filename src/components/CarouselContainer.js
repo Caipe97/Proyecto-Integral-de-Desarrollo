@@ -25,7 +25,7 @@ const CarouselContainer = (props) => {
 
                             <div class="col-md-4 col-lg-12" style={{ position: 'center', width: '30%', textAlign: 'center', margin: 'auto' }}>
                                 <p>Calorias Consumidas</p>
-                                <div class="progress" style={{ position: 'center', margin: 'auto' }}   >
+                                {/* <div class="progress" style={{ position: 'center', margin: 'auto' }}   >
                                     {meal.FoodList.map((FoodListItem) => {
 
                                         array1.push(FoodListItem.food.caloriesPerServing);
@@ -36,8 +36,8 @@ const CarouselContainer = (props) => {
                                         10%
                                         <p>{array1.reduce((a, b) => a + b, 0) / 3000 * 100}%</p>
                                     </div>
-                                    {/* <p>10%</p> */}
-                                </div>
+                                    
+                                </div> */}
                             </div>
                             {/* <div class="col-md-4 col-lg-12">
 
@@ -53,7 +53,7 @@ const CarouselContainer = (props) => {
 
                             </div> */}
                             <div class="col-md-4 col-lg-12" style={{marginTop:'10px',position:'center',marginBottom:'10px'}}>
-                                <ModalJMA foodList={meal.FoodList} nameMeal= {meal.name} fecha={meal.dateEaten}/>
+                                <ModalJMA meal={meal} history={props.history}/>
                             </div>
 
                         </div>
