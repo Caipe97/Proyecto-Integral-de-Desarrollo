@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests expect to render ModalJMA component to render with carouselContainer 1`] = `
+<Fragment>
+  <Button
+    active={false}
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    More information for FoodList
+  </Button>
+  <p />
+  <MyVerticallyCenteredModal
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    onHide={[Function]}
+    show={false}
+  />
+</Fragment>
+`;

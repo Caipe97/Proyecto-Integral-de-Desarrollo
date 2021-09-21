@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal  from 'react-bootstrap/Modal';
 import { Button} from 'react-bootstrap';
 
-const MyVerticallyCenteredModal=(props)=> {
+export const MyVerticallyCenteredModal=(props)=> {
   
     return (
       <Modal
@@ -32,7 +32,7 @@ const MyVerticallyCenteredModal=(props)=> {
                                 }
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button type="button" onClick={props.onHide}>Close</Button>
           <Button onClick={() =>  props.history.push("/meals",{prop1: props.meal})
            
             }>Edit</Button>
