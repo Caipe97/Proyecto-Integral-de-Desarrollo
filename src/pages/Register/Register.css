@@ -1,97 +1,96 @@
 h1 {
-    font-family: 'SEGA LOGO FONT';
-    font-weight: 150;
-    color: #0ccac4;
-  }
-  .contenedorRe {
-    width: 90%;
-    max-width: 1000px;
-    margin: 20px auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, auto);
-  
-    grid-template-areas:
-      'header header header'
-      'contenidoRe contenidoRe sidebar'
-      'widget1 widget2 widget2'
-      'footer footer footer';
-    /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
+  font-family: 'SEGA LOGO FONT';
+  font-weight: 150;
+  color: #0ccac4;
+}
+.contenedorRe {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+
+  grid-template-areas:
+    'header header header'
+    'contenidoRe contenidoRe sidebar'
+    'widget1 widget2 widget2'
+    'footer footer footer';
+  /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
     a cada parte de la pagina web y bueno eso */
-  }
-  
-  .contenedorRe > div,
-  .contenedorRe .contenidoRe,
-  .contenedorRe .sidebar,
-  .contenedorRe .footer {
-    background: #F5F6F7;
-    padding: 20px;
-    border-radius: 4px;
-  }
-  
-  .contenedorRe .widget1 {
-    grid-area: widget1;
-  }
-  .contenidoRe .col2 {
-    grid-area: col2;
-  }
-  .contenidoRe .col1 {
-    grid-area: col1;
-  }
-  .contenedorRe .widget2 {
-    grid-area: widget2;
-  }
-  .contenedorRe .header {
-    /* background: #12203e; */
-    background:#212529;
-    grid-area: header;
-    align-content: space-between;
-  
-    /* grid-column-start:1;
+}
+
+.contenedorRe > div,
+.contenedorRe .contenidoRe,
+.contenedorRe .sidebar,
+.contenedorRe .footer {
+  background: #f5f6f7;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.contenedorRe .widget1 {
+  grid-area: widget1;
+}
+.contenidoRe .col2 {
+  grid-area: col2;
+}
+.contenidoRe .col1 {
+  grid-area: col1;
+}
+.contenedorRe .widget2 {
+  grid-area: widget2;
+}
+.contenedorRe .header {
+  /* background: #12203e; */
+  background: #212529;
+  grid-area: header;
+  align-content: space-between;
+
+  /* grid-column-start:1;
     grid-column-end: 4; */
-    /* sino podes indicar con end -1 si no sabes las columnas q hiciste en grid */
-  }
-  
-  .contenedorRe .contenidoRe {
-    grid-area: contenidoRe;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, auto);
-    background: #7BA232;
-    grid-template-areas:
-      'col1 col2 col2';
-    /* grid-column:  span 2; */
-  }
-  
-  .contenedorRe .sidebar {
-    grid-column: 3/4;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100px;
-    grid-area: sidebar;
-    /* grid-row:span 2; */
-  }
-  
-  .contenedorRe .widget1,
-  .contenedorRe .widget2 {
-    height: 100px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .contenedorRe .footer {
-    background: #212529;
-    color: #fff;
-    grid-area: footer;
-    /* grid-column: span 3; */
-  }
-  /* cuando baje de 768 la dimension va a cambiar de las componentes */
-  /* @media (max-width:768px){
+  /* sino podes indicar con end -1 si no sabes las columnas q hiciste en grid */
+}
+
+.contenedorRe .contenidoRe {
+  grid-area: contenidoRe;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, auto);
+  background: #b6e052;
+  grid-template-areas: 'col1 col2 col2';
+  /* grid-column:  span 2; */
+}
+
+.contenedorRe .sidebar {
+  grid-column: 3/4;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  grid-area: sidebar;
+  /* grid-row:span 2; */
+}
+
+.contenedorRe .widget1,
+.contenedorRe .widget2 {
+  height: 100px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedorRe .footer {
+  background: #212529;
+  color: #fff;
+  grid-area: footer;
+  /* grid-column: span 3; */
+}
+/* cuando baje de 768 la dimension va a cambiar de las componentes */
+/* @media (max-width:768px){
     .contenedorRe{
       background: #000;
     }
@@ -105,100 +104,98 @@ h1 {
       grid-column: span 2;
     }
   } */
-  /* lo comentado es con media query */
-  
-  @media (max-width: 768px) {
-    .contenedorRe {
-      grid-template-areas:
-        'header header header'
-        'contenidoRe contenidoRe contenidoRe'
-        'sidebar sidebar sidebar'
-        'widget1 widget1 widget1 '
-        'widget2 widget2 widget2 '
-        'footer footer footer';
-    }
-    .contenedorRe .contenidoRe{
-      
+/* lo comentado es con media query */
+
+@media (max-width: 768px) {
+  .contenedorRe {
+    grid-template-areas:
+      'header header header'
+      'contenidoRe contenidoRe contenidoRe'
+      'sidebar sidebar sidebar'
+      'widget1 widget1 widget1 '
+      'widget2 widget2 widget2 '
+      'footer footer footer';
+  }
+  .contenedorRe .contenidoRe {
     grid-template-rows: repeat(2, auto);
-      grid-template-areas:
+    grid-template-areas:
       'col1 col1 col1'
       'col2 col2 col2';
-    }
   }
-  /* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
-  
-  .box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: '100%';
-    height: '100%';
-    /* background: red;
+}
+/* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: '100%';
+  height: '100%';
+  /* background: red;
     color: white; */
-  }
-  
-  /* Screen Reset */
-  
-  .contenedorReReset {
-    width: 90%;
-    max-width: 1000px;
-    margin: 20px auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
-  
-    grid-template-areas:
-      'headerReset headerReset headerReset'
-      'contenidoReReset contenidoReReset contenidoReReset'
-      'footer footer footer';
-  
-    /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
+}
+
+/* Screen Reset */
+
+.contenedorReReset {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+
+  grid-template-areas:
+    'headerReset headerReset headerReset'
+    'contenidoReReset contenidoReReset contenidoReReset'
+    'footer footer footer';
+
+  /* DEFINIMOS AREAS entonces tenemos 3 columnas y 4 filas. Luego se le asigna
     a cada parte de la pagina web y bueno eso */
-  }
-  
-  .contenedorReReset .contenidoReReset {
-    grid-area: contenidoReReset;
-    /* grid-column:  span 2; */
-  }
-  .contenedorReReset .headerReset {
-    grid-area: headerReset;
-    background: #12203e;
-    align-content: space-between;
-    padding: 20px;
-    border-radius: 4px;
-  }
-  
-  .contenedorReReset .footerReset {
-    background: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    background: #12203e;
-    color: #fff;
-    grid-area: footer;
-  }
-  
-  .button {
-    width: 140px;
-    height: 45px;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #fff;
-    background-color: hsl(143, 84%, 40%);
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .button:hover {
-    background-color: hsl(143, 84%, 45%);
-    box-shadow: 0px 15px 20px rgba(16, 188, 82, 0.4);
-  }
-  
+}
+
+.contenedorReReset .contenidoReReset {
+  grid-area: contenidoReReset;
+  /* grid-column:  span 2; */
+}
+.contenedorReReset .headerReset {
+  grid-area: headerReset;
+  background: #12203e;
+  align-content: space-between;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.contenedorReReset .footerReset {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  background: #12203e;
+  color: #fff;
+  grid-area: footer;
+}
+
+.button {
+  width: 140px;
+  height: 45px;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: hsl(143, 84%, 40%);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: hsl(143, 84%, 45%);
+  box-shadow: 0px 15px 20px rgba(16, 188, 82, 0.4);
+}

@@ -73,7 +73,8 @@ describe('RegisterMainPage tests', () => {
             gender: 'M',
             birthday: 'Sat Sep 18 2021 11:00:00 GMT-0300 (hora estándar de Argentina)',
             weight: '90',
-            height: '170'
+            height: '170',
+            errorMessage: ''
         });
     })
 
@@ -87,7 +88,8 @@ describe('RegisterMainPage tests', () => {
             gender: '',
             birthday: '',
             weight: '',
-            height: ''
+            height: '',
+            errorMessage: ''
         });
     })
 

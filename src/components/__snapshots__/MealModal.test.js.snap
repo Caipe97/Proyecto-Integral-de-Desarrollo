@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal tests expect to render ModalJMA component to render with carouselContainer 1`] = `
+exports[`Modal tests expect to render MealModal component to render with carouselContainer 1`] = `
 <Fragment>
   <Button
     active={false}
@@ -9,7 +9,7 @@ exports[`Modal tests expect to render ModalJMA component to render with carousel
     type="button"
     variant="primary"
   >
-    More information for FoodList
+    Mas info
   </Button>
   <MyVerticallyCenteredModal
     history={

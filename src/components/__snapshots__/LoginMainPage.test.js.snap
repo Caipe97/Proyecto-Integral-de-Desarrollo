@@ -49,6 +49,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
           style={
             Object {
               "color": "#002626",
+              "fontFamily": "Arial",
               "left": "30px",
             }
           }
@@ -68,15 +69,37 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
         }
       }
     >
+      <br />
+      <br />
+      <br />
+      <h1
+        style={
+          Object {
+            "color": "#002626",
+            "fontFamily": "Arial",
+            "left": "30px",
+          }
+        }
+      >
+        Buscamos
+      </h1>
       <p>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental. Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento. Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio. Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición. Participar proactivamente en el bienestar de las personas en su entorno social y laboral. Brindar un servicio único y facilitar las herramientas del éxito. Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.
+        Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.
+      </p>
+      <p>
+        Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.
+      </p>
+      <p>
+        Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.
+      </p>
+      <p>
+        Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.
+      </p>
+      <p>
+        Participar proactivamente en el bienestar de las personas en su entorno social y laboral.
+      </p>
+      <p>
+        Brindar un servicio único y facilitar las herramientas del éxito.
       </p>
     </div>
   </div>
@@ -94,20 +117,6 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
       }
     >
       <div
-        className="box"
-        style={Object {}}
-      >
-        <img
-          alt="imagen tracking"
-          src="avatar.png"
-          style={
-            Object {
-              "width": 100,
-            }
-          }
-        />
-      </div>
-      <div
         style={
           Object {
             "marginTop": 45,
@@ -119,6 +128,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
           style={
             Object {
               "color": "#002626",
+              "fontFamily": "Arial",
             }
           }
         >
@@ -158,6 +168,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
         >
           Iniciar Sesion
         </button>
+        <p />
         <p
           style={
             Object {

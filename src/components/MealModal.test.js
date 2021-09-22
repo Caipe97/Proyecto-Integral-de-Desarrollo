@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme'; 
-import ModalJMA from './ModalJMA';
-import { MyVerticallyCenteredModal } from './ModalJMA';
+import MealModal from './MealModal';
+import { MyVerticallyCenteredModal } from './MealModal';
 import Modal from 'react-bootstrap/Modal';
 
 describe('Modal tests', () => {
@@ -11,12 +11,11 @@ describe('Modal tests', () => {
     let wrapper;
     let wrapper2;
     beforeEach(() => {
-      
-        wrapper = shallow(<ModalJMA {...mockProps} history={historyMock}></ModalJMA>);
+        wrapper = shallow(<MealModal {...mockProps} history={historyMock}></MealModal>);
         wrapper2 = shallow(<MyVerticallyCenteredModal {...mockProps2}  history={historyMock}/>);
     })
 
-    it('expect to render ModalJMA component to render with carouselContainer', () => {
+    it('expect to render MealModal component to render with carouselContainer', () => {
         expect(wrapper).toMatchSnapshot();
         // expect(wrapper2.find(Modal)).toHaveLength(1);
         expect(wrapper.find(MyVerticallyCenteredModal)).toHaveLength(1);
@@ -24,7 +23,7 @@ describe('Modal tests', () => {
         //expect(wrapper2.instance()).to.be.instanceOf(MyVerticallyCenteredModal);
     })
 
-    it('expect to change when pressing the button in ModalJMA and MyVerticallyCenteredModal', () => {
+    it('expect to change when pressing the button in MealModal and MyVerticallyCenteredModal', () => {
         wrapper.find('[type="button"]').at(0).simulate('click');
         wrapper2.find('[type="button"]').at(0).simulate('click');
         //expect(wrapper.find('[type="button"]').props.onClick).to.have.property('callCount', 1);

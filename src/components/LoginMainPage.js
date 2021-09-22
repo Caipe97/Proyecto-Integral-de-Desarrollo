@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import '../pages/Login/Login.css';
-import logo1 from '../images/avatar.png';
 import logo2 from '../images/2pages.jpg';
 import Header from './Header';
 import Footer from './Footer';
@@ -14,14 +13,16 @@ class LoginMainPage extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   }
 
   handleChange = event => {
     this.setState({
       ...this.state,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      errorMessage: ''
     })
   };
 
@@ -36,10 +37,10 @@ class LoginMainPage extends Component {
       if (data.payload.userId) {
         this.props.history.push("/profile");
       } else {
-        console.log("Email y/o contraseña incorrectos");
+        this.setState({...this.state, errorMessage: 'Email y/o contraseña incorrectos'});
       }
     } else {
-      console.log('No completaste los campos correctamente');
+      this.setState({...this.state, errorMessage: 'No completaste los campos correctamente'});
     }
   };
 
@@ -64,66 +65,51 @@ class LoginMainPage extends Component {
     return (
       <div className="contenedorL">
         <Header {...this.props} />
-
         <div className="contenidoL">
           <div className="col1">
             <img src={logo2} alt="imagen tracking" style={{ width: 240, height: 240 }} />
             <div>
-              <h1 style={{ left: '30px',color:'#002626' }}>Nutriva</h1>
+              <h1 style={{ left: '30px', color:'#002626', fontFamily: 'Arial'}}>Nutriva</h1>
             </div>
 
           </div>
 
           <div className="col2" style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-            <p >
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+
               <br></br>
               <br></br>
               <br></br>
 
-              Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.
+              <h1 style={{ left: '30px', color:'#002626', fontFamily: 'Arial'}}>Buscamos</h1>
 
-              Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.
+              <p>Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.</p>
 
-              Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.
+              <p>Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.</p>
 
-              Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.
+              <p>Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.</p>
 
-              Participar proactivamente en el bienestar de las personas en su entorno social y laboral.
+              <p>Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.</p>
 
-              Brindar un servicio único y facilitar las herramientas del éxito.
+              <p>Participar proactivamente en el bienestar de las personas en su entorno social y laboral.</p>
 
-              Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.
+              <p>Brindar un servicio único y facilitar las herramientas del éxito.</p>
 
-{/* Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.
-
-Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.
-
-Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.
-
-Participar proactivamente en el bienestar de las personas en su entorno social y laboral.
-
-Brindar un servicio único y facilitar las herramientas del éxito. */}
-            </p>
+            
           </div>
 
         </div>
         <div className="sidebar">
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <div className="box" style={{}}>
-              <img src={logo1} alt="imagen tracking" style={{ width: 100 }} />
-            </div>
+
             <div style={{ marginTop: 45 }}>
-              <h1 className='f1' style={{color:'#002626'}}>Login</h1>
+              <h1 className='f1' style={{color:'#002626', fontFamily: 'Arial'}}>Login</h1>
             </div>
 
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
               <TextField label="Email" name='email' type='email' value={this.state.email} onChange={this.handleChange} required />
               <TextField label="Password" name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
               <button onClick={this.handleSubmit} className='button'>Iniciar Sesion</button>
+              <p>{this.state.errorMessage}</p>
               <p style={{ marginBlock: '0em', marginTop: '4%' }}>Todavia no tenes una cuenta?
                 <Link to="/register" style={{ color: 'black' }}>Registrate</Link>
               </p>
@@ -133,7 +119,6 @@ Brindar un servicio único y facilitar las herramientas del éxito. */}
             </form>
           </div>
         </div>
-
         <Footer />
       </div>
 

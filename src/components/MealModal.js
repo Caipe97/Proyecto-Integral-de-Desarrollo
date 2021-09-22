@@ -3,7 +3,6 @@ import Modal  from 'react-bootstrap/Modal';
 import { Button} from 'react-bootstrap';
 
 export const MyVerticallyCenteredModal=(props)=> {
-  console.log(props)
     return (
       <Modal
         {...props}
@@ -17,10 +16,9 @@ export const MyVerticallyCenteredModal=(props)=> {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>{props.meal.dateEaten}</h4>
-          <p>{}</p>
+          <h4>{props.meal.dateEaten.toString().replace('T',' ').substring(0,16)}</h4>
           <p>
-            Acontinuacion se mostrar una lista de los alimentos consumidos durante la comida realizada en el dia seleccionado
+            Alimentos consumidos:
           </p>
           {props.meal.FoodList.map((FoodListItem) => {
               return(
@@ -33,41 +31,30 @@ export const MyVerticallyCenteredModal=(props)=> {
         </Modal.Body>
         <Modal.Footer>
           <Button type="button" onClick={props.onHide}>Cerrar</Button>
-          <Button onClick={() =>  props.history.push("/meals",{prop1: props.meal})}>Editar</Button>
-          <Button onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)}>Eliminar</Button> */
+          <Button onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}}>Editar</Button>
+          <Button onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)}>Eliminar</Button>
         </Modal.Footer>
       </Modal>
     );
   }
   
-const ModalJMA =(props) =>{
+const MealModal =(props) =>{
     const [modalShow, setModalShow] = useState(false);
-    // const handleSubmit = async (event) => {
-    //   event.preventDefault();
-    
-    //     const data = await this.props.onLogin(this.state.email, this.state.password);
-    //     this.setState({ email: '', password: '' });
-    //     console.log(data)
-    //     if (props.mealId) {
-    
-    //     }
-     
-    // };
     return (
       <>
         <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
-          More information for FoodList
+          Mas info
         </Button>
-        {/* <p>{console.log(props)}</p> */}
         <MyVerticallyCenteredModal
           show={modalShow}
           onHide={() => setModalShow(false)}
           meal={props.meal}
           history={props.history}
           onDeleteMeal={props.onDeleteMeal}
+          onUpdateCurrentMealInState={props.onUpdateCurrentMealInState}
         />
       </>
     );
   }
   
-  export default ModalJMA;
+  export default MealModal;

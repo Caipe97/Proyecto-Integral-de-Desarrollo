@@ -51,14 +51,14 @@ describe('LoginMainPage tests', () => {
     it('handleChange should update the state correctly when writing on the inputs', () => {
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@gmail.com' } });
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'asd' } });
-        expect(wrapper.instance().state).toEqual({email: 'julianlivrone@gmail.com', password: 'asd'});
+        expect(wrapper.instance().state).toEqual({email: 'julianlivrone@gmail.com', password: 'asd', errorMessage: ''});
     })
 
     it('handleSubmit should update the state to its initial state (empty)', async () => {
         wrapper.find('[name="email"]').at(0).simulate('change', { target: { name: 'email', value: 'julianlivrone@gmail.com' } });
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'asd' } });
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
-        expect(wrapper.instance().state).toEqual({email: '', password: ''});
+        expect(wrapper.instance().state).toEqual({email: '', password: '', errorMessage: ''});
     })
 
     it('handleSubmit should push to profile when fetching the userData when email and password are correct', async () => {

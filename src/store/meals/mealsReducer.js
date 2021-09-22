@@ -13,7 +13,15 @@ import {
 
   ADD_FOOD_TO_CURRENT_MEAL,
   REMOVE_FOOD_FROM_CURRENT_MEAL,
-  RESET_CURRENT_MEAL
+  RESET_CURRENT_MEAL,
+
+  UPDATE_CURRENT_MEAL_IN_STATE,
+
+  CHANGE_CURRENT_MEAL_NAME_AND_DATE_EATEN,
+
+  UPDATE_CURRENT_MEAL_PENDING,
+  UPDATE_CURRENT_MEAL_SUCCESS,
+  UPDATE_CURRENT_MEAL_FAILED
  } from './mealsConstants';
 
 const initialStateMeals = {
@@ -95,6 +103,36 @@ export const mealsReducer = (state=initialStateMeals, action={}) => {
             ...state,
             currentMeal: {FoodList: []}
           }
+        case CHANGE_CURRENT_MEAL_NAME_AND_DATE_EATEN:
+          const newCurrentMeal = state.currentMeal;
+          newCurrentMeal.name = action.payload.newName;
+          newCurrentMeal.dateEaten = action.payload.newDateEaten;
+          return {
+            ...state,
+            currentMeal: newCurrentMeal
+          }
+        case UPDATE_CURRENT_MEAL_IN_STATE:
+          return {
+            ...state,
+            currentMeal: action.payload
+          }
+          case UPDATE_CURRENT_MEAL_PENDING:
+            return {
+              ...state,
+              isPending: true
+            }
+          case UPDATE_CURRENT_MEAL_SUCCESS:
+            return {
+              ...state,
+              meals: action.payload,
+              isPending: false
+            }
+          case UPDATE_CURRENT_MEAL_FAILED:
+            return {
+              ...state,
+              isPending: false,
+              error: action.payload
+            }
     default:
       return state
   }
