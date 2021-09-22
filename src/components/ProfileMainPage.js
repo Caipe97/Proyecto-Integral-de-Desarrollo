@@ -79,19 +79,6 @@ class ProfileMainPage extends Component{
               
             </div>
             <div className="comida" style={{ display: 'flex', justifyContent: 'space-around' }}>
-              {/* {this.props.meals.map((meal) =>
-                  <div key={meal.mealId}>
-                      <p>{meal.name}</p>   
-                      <p>{meal.dateEaten}</p>
-                      {meal.FoodList.map((FoodListItem) => {
-                        return(
-                          <div key={FoodListItem.food.foodId}>
-                            <p>{FoodListItem.quantity} {FoodListItem.food.name}</p>
-                          </div>
-                        )
-                      })}
-                  </div>
-              )} */}
             </div>
           </div>
           <div className="sidebarPro">
