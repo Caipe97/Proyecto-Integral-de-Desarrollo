@@ -40,7 +40,7 @@ class ProfileMainPage extends Component{
                   </div>
               )} */}
               {/* ACA COLOCAR CARUSELL */}
-              <CarouselContainer meals={this.props.meals} history={this.props.history}/>
+              <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal}/>
             </div>
           </div>
           <div className="sidebarPro">

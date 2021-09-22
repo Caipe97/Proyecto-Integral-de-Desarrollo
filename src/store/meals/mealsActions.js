@@ -44,10 +44,10 @@ export const getMealsFromUser = (userId) => (dispatch) => {
   .catch(error => dispatch({ type: GET_MEALS_FROM_USER_FAILED, payload: error }))
 }
 
-export const deleteMeal = (mealId) => (dispatch) => {
+export const deleteMeal = (mealId, userId) => (dispatch) => {
   dispatch({ type: DELETE_MEAL_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals?mealId=${mealId}`, {
+    fetch(`https://jma-test-app.herokuapp.com/api/meals?mealId=${mealId}&userId=${userId}`, {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'}
     })

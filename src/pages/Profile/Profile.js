@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getMealsFromUser } from '../../store/meals/mealsActions';
+import { getMealsFromUser, deleteMeal } from '../../store/meals/mealsActions';
 import { getAllFoods } from'../../store/foods/foodsActions';
 import { logout } from '../../store/userData/userDataActions';
 import ProfileMainPage from '../../components/ProfileMainPage';
@@ -25,6 +25,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onGetMealsFromUser: (userId) => dispatch(getMealsFromUser(userId)),
     onGetAllFoods: () => dispatch(getAllFoods()),
+    onDeleteMeal: (mealId, userId) => dispatch(deleteMeal(mealId, userId)),
     onLogout: () => dispatch(logout())
   }
 }

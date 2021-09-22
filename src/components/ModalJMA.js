@@ -3,7 +3,7 @@ import Modal  from 'react-bootstrap/Modal';
 import { Button} from 'react-bootstrap';
 
 export const MyVerticallyCenteredModal=(props)=> {
-  
+  console.log(props)
     return (
       <Modal
         {...props}
@@ -23,19 +23,18 @@ export const MyVerticallyCenteredModal=(props)=> {
             Acontinuacion se mostrar una lista de los alimentos consumidos durante la comida realizada en el dia seleccionado
           </p>
           {props.meal.FoodList.map((FoodListItem) => {
-                                    return (
-                                        <div key={FoodListItem.food.foodId} style={{textAlign:'center',top:'3px',background:'#B6E052'}}>
-                                            <p>{FoodListItem.quantity} {FoodListItem.food.name}</p>
-                                        </div>
-                                    );
-                                })
-                                }
+              return(
+                <div key={FoodListItem.food.foodId} style={{textAlign:'center',top:'3px',background:'#B6E052'}}>
+                  <p>{FoodListItem.quantity} {FoodListItem.food.name}</p>
+                </div>
+              );
+            })
+          }
         </Modal.Body>
         <Modal.Footer>
-          <Button type="button" onClick={props.onHide}>Close</Button>
-          <Button onClick={() =>  props.history.push("/meals",{prop1: props.meal})
-           
-            }>Edit</Button>
+          <Button type="button" onClick={props.onHide}>Cerrar</Button>
+          <Button onClick={() =>  props.history.push("/meals",{prop1: props.meal})}>Editar</Button>
+          <Button onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)}>Eliminar</Button> */
         </Modal.Footer>
       </Modal>
     );
@@ -59,12 +58,13 @@ const ModalJMA =(props) =>{
         <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
           More information for FoodList
         </Button>
-        <p>{console.log(props)}</p>
+        {/* <p>{console.log(props)}</p> */}
         <MyVerticallyCenteredModal
           show={modalShow}
           onHide={() => setModalShow(false)}
           meal={props.meal}
           history={props.history}
+          onDeleteMeal={props.onDeleteMeal}
         />
       </>
     );

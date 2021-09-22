@@ -2,16 +2,10 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ModalJMA from './ModalJMA';
 
-// import image1 from './../assets/images/1.jpg';
-// import image2 from './../assets/images/2.jpg';
-// import image3 from './../assets/images/3.jpg';
-const array1 = [];
-// const sum=0;
-
 const CarouselContainer = (props) => {
+    console.log('CARRUSEL', props.onDeleteMeal)
     return (
-
-        <Carousel fade={true} pause={false} controls={true} touch={true} >
+        <Carousel fade={true} pause={false} controls={true} touch={true}>
             {props.meals.map((meal) =>
                 <Carousel.Item>
                     <div className="container" key={meal.mealId} style={{ background: 'lightblue', textAlign: 'center', borderRadius: '10px' }}>
@@ -53,7 +47,7 @@ const CarouselContainer = (props) => {
 
                             </div> */}
                             <div class="col-md-4 col-lg-12" style={{marginTop:'10px',position:'center',marginBottom:'10px'}}>
-                                <ModalJMA meal={meal} history={props.history}/>
+                                <ModalJMA meal={meal} history={props.history} onDeleteMeal={props.onDeleteMeal}/>
                             </div>
 
                         </div>
