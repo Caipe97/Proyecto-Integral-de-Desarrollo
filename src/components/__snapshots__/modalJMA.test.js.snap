@@ -11,7 +11,6 @@ exports[`Modal tests expect to render ModalJMA component to render with carousel
   >
     More information for FoodList
   </Button>
-  <p />
   <MyVerticallyCenteredModal
     history={
       Object {
