@@ -156,7 +156,7 @@ render(){
         fixedHeader
         fixedHeaderScrollHeight="600px"
         noDataComponent={
-          <span>No se encontró ningún elemento</span>
+          <span>No se encontró ningún alimento</span>
         }
         conditionalRowStyles= {conditionalRowStyles}
         customStyles={customStyles}

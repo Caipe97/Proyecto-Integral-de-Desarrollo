@@ -14,6 +14,14 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
   />
   <div
     className="contenidoRe"
+    style={
+      Object {
+        "alignContent": "center",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "textAlign": "center",
+      }
+    }
   >
     <div
       className="col1"
@@ -23,36 +31,15 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
         src="2pages.jpg"
         style={
           Object {
-            "height": 240,
-            "width": 240,
+            "height": 200,
+            "width": 200,
           }
         }
       />
-      <h1
-        style={
-          Object {
-            "color": "#002626",
-            "fontFamily": "Arial",
-            "left": "30px",
-          }
-        }
-      >
-        Nutriva
-      </h1>
     </div>
     <div
-      className="col2"
-      style={
-        Object {
-          "alignContent": "center",
-          "alignItems": "center",
-          "justifyContent": "center",
-          "textAlign": "center",
-        }
-      }
+      className="col3"
     >
-      <br />
-      <br />
       <h1
         style={
           Object {
@@ -68,6 +55,20 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
       <p>
         Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.
       </p>
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "paddingLeft": "10%",
+          "paddingRight": "10%",
+          "textAlign": "center",
+        }
+      }
+    >
       <br />
       <p>
         Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.

@@ -57,10 +57,12 @@ h1 {
   grid-area: contenidoL;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, auto);
   background: #b6e052;
-  grid-template-areas: 'col1 col2 col2';
+  grid-template-areas:
+    'col1 col3'
+    'col2 col2';
   /* grid-column:  span 2; */
 }
 

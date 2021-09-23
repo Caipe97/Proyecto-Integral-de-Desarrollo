@@ -115,33 +115,27 @@ class RegisterMainPage extends Component{
     return (
       <div className="contenedorRe">
         <Header userId={this.props.userId} onLogout={this.props.onLogout} history={this.props.history}/>
-        <div className="contenidoRe">
+        <div className="contenidoRe" style={{justifyContent: 'center', alignContent: 'center', alignItems: 'center', textAlign: 'center'}}>
           <div className="col1">
-          <img src={logo2} alt="imagen tracking" style={{ width:240,height:240 }} />
-          
-          <h1 style={{ left: '30px', color:'#002626', fontFamily: 'Arial'}}>Nutriva</h1>
+            <img src={logo2} alt="imagen tracking" style={{ width: 200, height: 200 }} />
           </div>
-          
-          <div className="col2" style ={{justifyContent:'center',alignContent:'center',alignItems:'center',textAlign:'center'}}>
-          <br></br>
-          <br></br>
-              <h1 style={{ left: '30px', color:'#002626', fontFamily: 'Arial'}}>Buscamos</h1>
-              
-              <br></br>
-              <p>Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.</p>
-              <br></br>
+          <div className="col3">
+            <h1 style={{ left: '30px', color:'#002626', fontFamily: 'Arial'}}>Buscamos</h1>
+            <br></br>
+            <p>Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.</p>
+          </div>
+
+          <div className="col2" style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', textAlign: 'center', paddingLeft: '10%', paddingRight: '10%'}}>
+             <br></br>
               <p>Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.</p>
               <br></br>
               <p>Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.</p>
               <br></br>
-              {/* <p>Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.</p> */}
-
               <p>Participar proactivamente en el bienestar de las personas en su entorno social y laboral.</p>
               <br></br>
               <p>Brindar un servicio único y facilitar las herramientas del éxito.</p>
-
           </div>
-          
+
         </div>
         <div className="sidebar">
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>

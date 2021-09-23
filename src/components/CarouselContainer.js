@@ -32,7 +32,7 @@ const CarouselContainer = (props) => {
         <Carousel responsive={responsive}>
         {props.meals.map((meal, index) =>
             <div className="card-container" key={index}>
-                <div style={{ background: '#CCDDE2', textAlign: 'center', marginLeft: 5, marginRight: 5, borderRadius: 10, paddingBottom: 5}}>
+                <div style={{ background: '#CCDDE2', textAlign: 'center', margin: 5, borderRadius: 10, paddingBottom: 5}}>
                     <div className="img" style={{fontSize: 24}}>
                         <p style={{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{meal.name}</p>
                     </div>
