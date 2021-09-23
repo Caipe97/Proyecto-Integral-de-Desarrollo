@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal tests expect to render MealModal component to render with carouselContainer 1`] = `
+exports[`Modal tests expect t2 1`] = `
 <Fragment>
   <Button
     active={false}
@@ -11,14 +11,90 @@ exports[`Modal tests expect to render MealModal component to render with carouse
   >
     Mas info
   </Button>
-  <MyVerticallyCenteredModal
+  <Modal
+    animation={true}
+    aria-labelledby="contained-modal-title-vcenter"
+    autoFocus={true}
+    backdrop={true}
+    centered={true}
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
     history={
       Object {
         "push": [MockFunction],
       }
     }
-    onHide={[Function]}
+    keyboard={true}
+    onDeleteMeal={
+      Object {
+        "mealId": 1,
+        "userId": 1,
+      }
+    }
+    onUpdateCurrentMealInState={
+      Object {
+        "FoodList": Array [],
+        "dateEaten": "2021-09-09T00:00:00.000Z",
+        "mealId": 1,
+        "name": "comida2",
+      }
+    }
+    restoreFocus={true}
     show={false}
-  />
+    size="lg"
+  >
+    <ModalHeader
+      closeButton={false}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        id="contained-modal-title-vcenter"
+      >
+        comida1
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+      <h4>
+        2021-09-09 00:00
+      </h4>
+      <p>
+        Alimentos consumidos:
+      </p>
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Cerrar
+      </Button>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Editar
+      </Button>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Eliminar
+      </Button>
+    </ModalFooter>
+  </Modal>
 </Fragment>
 `;

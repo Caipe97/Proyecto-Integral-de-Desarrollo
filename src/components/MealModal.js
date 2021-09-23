@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import Modal  from 'react-bootstrap/Modal';
 import { Button} from 'react-bootstrap';
 
-export const MyVerticallyCenteredModal=(props)=> {
+const MealModal =(props) =>{
+    const [modalShow, setModalShow] = useState(false);
     return (
-      <Modal
-        {...props}
+      <>
+        <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
+          Mas info
+        </Button>
+       
+        <Modal
+        show={modalShow}
+        //onHide={() => setModalShow(false)}
+        // meal={props.meal}
+        history={props.history}
+        onDeleteMeal={props.onDeleteMeal}
+        onUpdateCurrentMealInState={props.onUpdateCurrentMealInState}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -30,29 +41,11 @@ export const MyVerticallyCenteredModal=(props)=> {
           }
         </Modal.Body>
         <Modal.Footer>
-          <Button type="button" onClick={props.onHide}>Cerrar</Button>
-          <Button onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}}>Editar</Button>
-          <Button onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)}>Eliminar</Button>
+          <Button type="button" onClick={() =>setModalShow(false)}>Cerrar</Button>
+          <Button type="button" onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}}>Editar</Button>
+          <Button type="button" onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)}>Eliminar</Button>
         </Modal.Footer>
       </Modal>
-    );
-  }
-  
-const MealModal =(props) =>{
-    const [modalShow, setModalShow] = useState(false);
-    return (
-      <>
-        <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
-          Mas info
-        </Button>
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          meal={props.meal}
-          history={props.history}
-          onDeleteMeal={props.onDeleteMeal}
-          onUpdateCurrentMealInState={props.onUpdateCurrentMealInState}
-        />
       </>
     );
   }

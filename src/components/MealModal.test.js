@@ -6,60 +6,36 @@ import Modal from 'react-bootstrap/Modal';
 
 describe('Modal tests', () => {
     const historyMock = { push: jest.fn() };///
-    const mockProps = {mealId: 1,name:'comida1',dateEaten:'12-21-32',FoodList:[]};
-    const mockProps2= { show:false,onHide:() => {},meal:mockProps}
+    const mockProps = {mealId: 1,name:'comida1',dateEaten:'2021-09-09T00:00:00.000Z',FoodList:[]};
+    const mealUpdate = {mealId: 1,name:'comida2',dateEaten:'2021-09-09T00:00:00.000Z',FoodList:[]};
+//const preventDefault =  jest.fn();
+    //const mockProps2= { show:false,onHide:() => {},meal:mockProps}
     let wrapper;
-    let wrapper2;
+    const Delete= {mealId:1, userId:1}
+    //let wrapper2;
     beforeEach(() => {
-        wrapper = shallow(<MealModal {...mockProps} history={historyMock}></MealModal>);
-        wrapper2 = shallow(<MyVerticallyCenteredModal {...mockProps2}  history={historyMock}/>);
+        wrapper = shallow(<MealModal meal={mockProps} onUpdateCurrentMealInState={mealUpdate} onDeleteMeal={Delete} history={historyMock}/>
+            
+        );
+
     })
 
-    it('expect to render MealModal component to render with carouselContainer', () => {
+    it('expect t2', () => {
         expect(wrapper).toMatchSnapshot();
-        // expect(wrapper2.find(Modal)).toHaveLength(1);
-        expect(wrapper.find(MyVerticallyCenteredModal)).toHaveLength(1);
-        //wrapper2.find('[type="button"]').at(0).simulate('click');
-        //expect(wrapper2.instance()).to.be.instanceOf(MyVerticallyCenteredModal);
-    })
-
-    it('expect to change when pressing the button in MealModal and MyVerticallyCenteredModal', () => {
-        wrapper.find('[type="button"]').at(0).simulate('click');
-        wrapper2.find('[type="button"]').at(0).simulate('click');
-        //expect(wrapper.find('[type="button"]').props.onClick).to.have.property('callCount', 1);
-        
-    })
-    it('expect to change hide in MyVerticallyCenteredModal', () => {
-       
-        wrapper2.find('[type="button"]').at(0).simulate('click');
-        expect(mockProps2.onHide).toBeDefined();
-        expect(wrapper.find('MyVerticallyCenteredModal')).toBeDefined();
-        expect(wrapper2.find('Modal').props().onHide).toBeDefined();
-        expect(wrapper.find('MyVerticallyCenteredModal').props().onHide).toBeDefined();
-        //expect(wrapper2.find('Modal').props().onHide).toBeFunction();
-        expect(wrapper.find('MyVerticallyCenteredModal').props().show).toEqual(false);
-      
-    })
-    // it('expect button in MyVerticallyCenteredModal', () => {
-    //     //wrapper.find('[type="button"]').at(0).simulate('click');
-    //     //wrapper2.find('[type="button"]').at(0).simulate('click');
-    //     (wrapper.find('MyVerticallyCenteredModal').props().onHide).simulate('change',{target:{modalShow:false}});
-    //     //input.simulate('change', {target: {value: 'abc'}});
-    // })
-    it('expect footer ', () => {
-        expect(wrapper2.find('.Footer')).toBeDefined();
-       // wrapper2.find('[type="button"]').at(0).simulate('click');
-       expect(wrapper2.find('Modal').children()).toHaveLength(3); 
-        expect(wrapper2.find('.Header.Title').contains('comida1')).toBeDefined();
-        expect(wrapper2.find('.Footer.Button').contains('Edit')).toBeDefined(); 
-        //expect(wrapper).toMatchSnapshot();
-        //aaaaaaaaaaaaaaaaaaaexpect(wrapper2.find('.modal-footer').length).toEqual(2);  
-    })
-   
-
-
-
-
-
     
+    })
+    it('expect to change  onclick buttons', () => {
+       
+        wrapper.find('[type="button"]').at(0).simulate('click');
+        wrapper.find('[type="button"]').at(1).simulate('click');
+        expect(wrapper.find('div')).toBeDefined();
+        expect(wrapper.find('div.p').contains('')).toBeDefined();
+        //wrapper.find('[type="button"]').at(3).simulate('click');
+    })
+//     it('expect to change update meals', async () => {
+//     await wrapper.find('[type="button"]').at(2).simulate('click', preventDefault);
+//    // expect(wrapper.instance().props.onRegister).toHaveBeenCalledTimes(1);
+//     //expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
+//     expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
+//     })
 })
