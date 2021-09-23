@@ -101,7 +101,7 @@ prev.addEventListener('click', () => {
                     //             <MealModal meal={meal} history={props.history} onDeleteMeal={props.onDeleteMeal} onUpdateCurrentMealInState={props.onUpdateCurrentMealInState}/>
                     //         </div>
                     //     </div>
-                    // </div>
+                    // </div>//
                 
             )}
       {/* <div class="card-container">
