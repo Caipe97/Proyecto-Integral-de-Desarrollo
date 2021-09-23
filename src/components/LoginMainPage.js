@@ -75,25 +75,22 @@ class LoginMainPage extends Component {
           </div>
 
           <div className="col2" style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-
-              <br></br>
-              <br></br>
-              <br></br>
-
+          <br></br>
+          <br></br>
               <h1 style={{ left: '30px', color:'#002626', fontFamily: 'Arial'}}>Buscamos</h1>
-
+              
+              <br></br>
               <p>Contribuir al desarrollo integral de los clientes mediante el diseño y la aplicación de un conjunto de servicios que fortalezcan la salud física y mental.</p>
-
+              <br></br>
               <p>Ayudar a nuestros socios a crear y mantener una excelente condición física a través de la nutrición y programas de entrenamiento.</p>
-
+              <br></br>
               <p>Inculcar en niños, jóvenes y adultos, el valor de la salud y el ejercicio.</p>
-
-              <p>Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.</p>
+              <br></br>
+              {/* <p>Mejorar la calidad de vida de las comunidades a través de la filosofía del ejercicio, programas y productos de nutrición.</p> */}
 
               <p>Participar proactivamente en el bienestar de las personas en su entorno social y laboral.</p>
-
+              <br></br>
               <p>Brindar un servicio único y facilitar las herramientas del éxito.</p>
-
             
           </div>
 
