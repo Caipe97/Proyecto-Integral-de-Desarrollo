@@ -12,16 +12,15 @@ class ProfileMainPage extends Component{
     this.props.onGetAllFoods();
   }
   render() {
+    const birthdayString = this.props.birthday.toString().substring(0,10);
     if(this.props.meals[0]){
-      const birthdayString = this.props.birthday.toString().substring(0,10);
       return (
         <div className="contenedorPro">
           <Header {...this.props}/>
           <div className="contenidoPro">
-            <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <div style={{ width: '80%' }}>Search</div>
-              <div style={{ width: '10%', }}>
-                <button  type="button" className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar Alimento</button>
+            <div className="search" style={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#fff'}}>
+              <div>
+                <button  type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px'}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar Alimento</button>
               </div>
             </div>
             <div className="comida"  style={{borderRadius:'18px'}}>
@@ -30,19 +29,20 @@ class ProfileMainPage extends Component{
           </div>
           <div className="sidebarPro">
             <div className="col3" style={{ textAlign: 'center' }}>
-              <h1 className='f1'>Perfil</h1>
+              <h1 className='f1' style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial'}}>Perfil</h1>
             </div>
             <div className="col1" style={{height:'100%'}}>
-              <p>Name: {this.props.name}</p>
-              <p>Surname: {this.props.surname}</p>
+            <p>Nombre: {this.props.name}</p>
+              <p>Apellido: {this.props.surname}</p>
               <p>Email: {this.props.email}</p>
-              <p>Gender: {this.props.gender}</p>
+              <p>Genero: {this.props.gender}</p>
+              
             </div>
             <div className="col2" style={{height:'100%'}}>
-              <p>Birthday: {birthdayString}</p>
-              <p>Weight: {this.props.weight}</p>
-              <p>Height: {this.props.height}</p>
-              <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Reset your password</Link>
+              <p>Fecha de Nacimiento: {birthdayString}</p>
+              <p>Peso: {this.props.weight}</p>
+              <p>Altura: {this.props.height}</p>
+              <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Cambia tu contraseña</Link>
             </div>
           </div>
           <Footer />
@@ -54,10 +54,10 @@ class ProfileMainPage extends Component{
           <Header userId={this.props.userId} onLogout={this.props.onLogout} history={this.props.history} style={{ background: '#0E4749', paddingTop: '10px', paddingBottom: '10px', top: 0 }}/>
 
           <div className="contenidoPro" style={{backgroundColor:'#B6E052'}}>
-            <div className="search" style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <div className="search" style={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#fff' }}>
               <div style={{ width: '80%' }}>Search</div>
               <div style={{ width: '10%', }}>
-                <button type="button" className='btn btn--primary btn--s' style={{ fontSize: '9px', backgroundColor:'white'}} onClick={async () => { this.props.history.push("/meals"); }}>Agregar Alimento</button>
+                <button type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px'}} onClick={async () => { this.props.history.push("/meals"); }}>Agregar Alimento</button>
               </div>
               
             </div>
@@ -66,20 +66,20 @@ class ProfileMainPage extends Component{
           </div>
           <div className="sidebarPro">
             <div className="col3" style={{ textAlign: 'center' }}>
-              <h1 className='f1'>Perfil</h1>
+            <h1 className='f1' style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial'}}>Perfil</h1>
             </div>
             <div className="col1" style={{height:'100%'}}>
-              <p>Name: {this.props.name}</p>
-              <p>Surname: {this.props.surname}</p>
+              <p>Nombre: {this.props.name}</p>
+              <p>Apellido: {this.props.surname}</p>
               <p>Email: {this.props.email}</p>
-              <p>Gender: {this.props.gender}</p>
+              <p>Genero: {this.props.gender}</p>
               
             </div>
             <div className="col2" style={{height:'100%'}}>
-              <p>Birthday: {this.props.birthday}</p>
-              <p>Weight: {this.props.weight}</p>
-              <p>Height: {this.props.height}</p>
-              <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Reset your password</Link>
+              <p>Fecha de Nacimiento: {birthdayString}</p>
+              <p>Peso: {this.props.weight}</p>
+              <p>Altura: {this.props.height}</p>
+              <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Cambia tu contraseña</Link>
             </div>
           </div>
           <Footer />

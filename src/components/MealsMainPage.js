@@ -109,7 +109,7 @@ class MealsMainPage extends Component {
                       <div key={foodAndQuantity.food.foodId} style={{width:'100%'}}>
                         <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex',textAlignLast:'center',marginTop:'10px'}}>
                             <div>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div> 
-                            <div><button style={{backgroundColor:'#EFE7DA'}} className='btn btn--primary btn--s' type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Delete</button>
+                            <div><button style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s' type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Eliminar</button>
                             </div>
                         </li>
                       </div>
@@ -128,7 +128,7 @@ class MealsMainPage extends Component {
                   />
                 </div>
               </div>
-              <button onClick={this.handleSubmitUpdate} className='btn btn--primary btn--s' style={{ boxShadow: '0px 6px 6px black',margin: '10px',backgroundColor:'#E55812' }}>Editar Comida</button>
+              <button onClick={this.handleSubmitUpdate} className='btn btn--primary btn--s' style={{ fontSize: '14px', boxShadow: '0px 4px 4px grey', margin: '10px', backgroundColor:'#E55812', color: 'white' }}>Editar Comida</button>
               <p>{this.state.successMessage}</p>
               <button type="button" onClick={() => this.props.history.push("/profile")} style={{marginTop: '10%'}}>Volver al Perfil</button>
             </div>
@@ -147,7 +147,8 @@ class MealsMainPage extends Component {
       </div>
       <div className="sidebarR" >
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-          <div style={{ marginTop: 45 }}>
+          <img src={"https://cdn.discordapp.com/attachments/776636063673876500/890628675723210782/Dish_free_vector_icons_designed_by_Pause08.png"} alt="meal" style={{width: 200}}/>
+          <div style={{ marginTop: 15 }}>
             <TextField label="Nombre de la comida" name='name' type='name' value={this.state.name} onChange={this.handleChange} required/>
           </div>
           <div className="row">
@@ -155,11 +156,12 @@ class MealsMainPage extends Component {
             <div className="col" style={{ textAlign: 'center' }}>
               <ul style={{ marginBlock: '0em', paddingInlineStart: '1%' }}>
                 {this.props.currentMeal.FoodList.map((foodAndQuantity) =>
-                  <div key={foodAndQuantity.food.foodId} style={{width:'100%'}}>
-                    <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex',textAlignLast:'center',marginTop:'10px'}}>
-                        <div>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div> 
-                        <div><button style={{backgroundColor:'#EFE7DA'}} className='btn btn--primary btn--s' type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Delete</button>
-                        </div>
+                  <div key={foodAndQuantity.food.foodId} style={{width:'100%', backgroundColor: '#b6e052', borderRadius: 10, paddingLeft: 4, paddingRight: 2}}>
+                    <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex', marginTop:'10px'}}>
+                        <div style={{paddingTop: 7}}>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div>
+                        {/* <div><button style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s' type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Eliminar</button></div> */}
+                        <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
+
                     </li>
                   </div>
                 )}
@@ -177,7 +179,7 @@ class MealsMainPage extends Component {
               />
             </div>
           </div>
-          <button onClick={this.handleSubmitCreate} className='btn btn--primary btn--s' style={{ boxShadow: '0px 6px 6px black', margin: '10px', backgroundColor:'#E55812' }}>Cargar Comida</button>
+          <button onClick={this.handleSubmitCreate} className='btn btn--primary btn--s' style={{ fontSize: '14px', boxShadow: '0px 4px 4px grey', margin: '10px', backgroundColor:'#E55812', color: 'white' }}>Cargar Comida</button>
           <p>{this.state.successMessage}</p>
           <button type="button" onClick={() => this.props.history.push("/profile")} style={{marginTop: '10%'}}>Volver al Perfil</button>
         </div>

@@ -7,7 +7,7 @@ const CarouselContainer = (props) => {
         <Carousel fade={true} pause={false} controls={true} touch={true}>
             {props.meals.map((meal) =>
                 <Carousel.Item key={meal.mealId}>
-                    <div className="container" style={{ background: 'lightblue', textAlign: 'center', borderRadius: '10px' }}>
+                    <div className="container" style={{ background: 'lightblue', textAlign: 'center', borderRadius: '10px', backgroundColor: '#CCDDE2' }}>
                         <div className="row">
                             <div className="col-md-4 col-lg-12">
                                 <p>{meal.name}</p>

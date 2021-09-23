@@ -1,145 +1,139 @@
 h1 {
-    font-family: 'SEGA LOGO FONT';
-    font-weight: 150;
-    color: #0ccac4;
-  }
+  font-family: 'SEGA LOGO FONT';
+  font-weight: 150;
+  color: #0ccac4;
+}
+.contenedorPro {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+
+  grid-template-areas:
+    'header header header'
+    'sidebarPro sidebarPro sidebarPro'
+    'contenidoPro contenidoPro contenidoPro'
+    'footer footer footer';
+}
+
+.contenedorPro .sidebarPro {
+  grid-column: sidebarPro;
+  display: grid;
+  min-height: 100px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 20px;
+  grid-template-areas:
+    'col3 col3'
+    'col1 col2'
+    'col1 col2';
+  /* grid-row:span 2; */
+}
+.contenedorPro > div,
+.contenedorPro .contenidoPro,
+.contenedorPro .sidebarPro,
+.contenedorPro .footer {
+  background: #f5f6f7;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+}
+.contenedorPro .sidebarPro .col1 {
+  grid-column: col1;
+  /*     background: #0ccac4; */
+}
+.contenedorPro .sidebarPro .col2 {
+  grid-column: col2;
+
+  /*     background: red; */
+}
+.contenedorPro .sidebarPro .col3 {
+  grid-column: col3;
+  /*     background: yellow; */
+}
+.contenedorPro .contenidoPro .comida {
+  grid-column: comida;
+  background: white;
+}
+.contenedorPro .contenidoPro .search {
+  grid-column: search;
+  background: #efe7da;
+  border-radius: 19px;
+  font-style: oblique;
+}
+.contenedorPro .header {
+  /* background: #12203e; */
+  background: #212529;
+  grid-area: header;
+  align-content: space-between;
+
+  /* grid-column-start:1;
+    grid-column-end: 4; */
+  /* sino podes indicar con end -1 si no sabes las columnas q hiciste en grid */
+}
+
+.contenedorPro .contenidoPro {
+  grid-area: contenidoPro;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  background: #b6e052;
+  grid-template-areas:
+    '. . . search'
+    'comida comida comida comida';
+  /* grid-column:  span 2; */
+}
+
+.contenedorPro .widget1,
+.contenedorPro .widget2 {
+  height: 100px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedorPro .footer {
+  background: #212529;
+  color: #fff;
+  grid-area: footer;
+  /* grid-column: span 3; */
+}
+
+@media (max-width: 768px) {
   .contenedorPro {
-    width: 90%;
-    max-width: 1000px;
-    margin: 20px auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, auto);
-  
     grid-template-areas:
       'header header header'
       'sidebarPro sidebarPro sidebarPro'
       'contenidoPro contenidoPro contenidoPro'
       'footer footer footer';
   }
-  
-  
   .contenedorPro .sidebarPro {
-    grid-column: sidebarPro;
-    display: grid;
-    min-height: 100px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-    grid-gap: 20px;
     grid-template-areas:
-        'col3 col3'
-        'col1 col2'
-        'col1 col2';
-    /* grid-row:span 2; */
-  }
-  .contenedorPro > div,
-  .contenedorPro .contenidoPro,
-  .contenedorPro .sidebarPro,
-  .contenedorPro .footer {
-    background: #F5F6F7;
-    padding: 20px;
-    border-radius: 4px;
-  }
-  
- th, td {
-    border: 1px solid black;
-  }
-  
-  table {
-    width: 100%;
-  }
-  .contenedorPro .sidebarPro .col1{
-    grid-column: col1;
-/*     background: #0ccac4; */
-  }
-  .contenedorPro .sidebarPro .col2{
-    grid-column: col2;
-    
-/*     background: red; */
-  }
-  .contenedorPro .sidebarPro .col3{
-    grid-column: col3;
-/*     background: yellow; */
-  }
-  .contenedorPro .contenidoPro .comida{
-    grid-column: comida;
-    background: white;
-  }
-  .contenedorPro .contenidoPro .search{
-    grid-column:search;
-    background: #EFE7DA;
-    border-radius:19px;
-    font-style: oblique;
-  }
-  .contenedorPro .header {
-    /* background: #12203e; */
-    background:#212529;
-    grid-area: header;
-    align-content: space-between;
-  
-    /* grid-column-start:1;
-    grid-column-end: 4; */
-    /* sino podes indicar con end -1 si no sabes las columnas q hiciste en grid */
-  }
-  
-  .contenedorPro .contenidoPro {
-    grid-area: contenidoPro;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    background: #7BA232;
-    grid-template-areas:
-      'search search search'
-      'comida comida comida'    ;
-    /* grid-column:  span 2; */
-  }
-  
- 
-  
-  .contenedorPro .widget1,
-  .contenedorPro .widget2 {
-    height: 100px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .contenedorPro .footer {
-    background: #212529;
-    color: #fff;
-    grid-area: footer;
-    /* grid-column: span 3; */
-  }
- 
-  
-  @media (max-width: 768px) {
-    .contenedorPro {
-      grid-template-areas:
-        'header header header'
-        'sidebarPro sidebarPro sidebarPro'
-        'contenidoPro contenidoPro contenidoPro'
-        'footer footer footer';
-    }
-    .contenedorPro .sidebarPro{
-      
-    
-      grid-template-areas:
       'col3 col3'
       'col1 col1'
       'col2 col2';
-    }
-    
   }
-  /* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
-  
-  .box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: '100%';
-    height: '100%';
-    /* background: red;
+}
+/* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: '100%';
+  height: '100%';
+  /* background: red;
     color: white; */
-  }
+}

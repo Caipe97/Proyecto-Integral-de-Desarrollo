@@ -82,7 +82,7 @@ class SearchBar extends Component {
   asignarColumnas=()=>{
     const columnas = [
       {
-        cell:(row) => <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#EFE7DA'}} className='btn btn--primary btn--s'>Agregar</button>,
+        cell:(row) => <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Agregar</button>,
         ignoreRowClick: true,
         allowOverflow: true,
         button: true
@@ -93,13 +93,13 @@ class SearchBar extends Component {
         sortable: true
       },
       {
-        name: 'Porcion Recomendada',
+        name: 'Porción Recomendada',
         selector: row => row.recommendedServing,
         sortable: true,
         // grow: 3
       },
       {
-        name: 'Gramos Por Porcion Recomendada',
+        name: 'Calorías Por Porción Recomendada',
         selector: row => row.caloriesPerServing,
         sortable: true,
         // grow: 4
@@ -135,7 +135,7 @@ render(){
       <div className="barraBusqueda" style={{backgroundColor:'#B6E052'}}>
         <input
           type="text"
-          placeholder="Buscar por name"
+          placeholder="Buscar por nombre"
           className="textField"
           name="busqueda"
           value={this.state.busqueda}
