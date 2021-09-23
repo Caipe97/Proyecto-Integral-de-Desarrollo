@@ -106,11 +106,10 @@ class MealsMainPage extends Component {
                 <div className="col" style={{ textAlign: 'center' }}>
                   <ul style={{ marginBlock: '0em', paddingInlineStart: '1%' }}>
                     {this.props.currentMeal.FoodList.map((foodAndQuantity) =>
-                      <div key={foodAndQuantity.food.foodId} style={{width:'100%'}}>
-                        <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex',textAlignLast:'center',marginTop:'10px'}}>
-                            <div>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div> 
-                            <div><button style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s' type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Eliminar</button>
-                            </div>
+                      <div key={foodAndQuantity.food.foodId} style={{width:'100%', backgroundColor: '#b6e052', borderRadius: 10, paddingLeft: 4, paddingRight: 2}}>
+                        <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex', marginTop:'10px'}}>
+                            <div style={{paddingTop: 7}}>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div>
+                            <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
                         </li>
                       </div>
                     )}
@@ -159,9 +158,7 @@ class MealsMainPage extends Component {
                   <div key={foodAndQuantity.food.foodId} style={{width:'100%', backgroundColor: '#b6e052', borderRadius: 10, paddingLeft: 4, paddingRight: 2}}>
                     <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex', marginTop:'10px'}}>
                         <div style={{paddingTop: 7}}>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div>
-                        {/* <div><button style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s' type="button" onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}>Eliminar</button></div> */}
                         <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
-
                     </li>
                   </div>
                 )}

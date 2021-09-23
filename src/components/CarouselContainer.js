@@ -14,7 +14,6 @@ const CarouselContainer = (props) => {
                                 <p>{meal.dateEaten.toString().replace('T',' ').substring(0,16)}</p>
                             </div>
                             <div className="col-md-4 col-lg-12" style={{ position: 'center', width: '30%', textAlign: 'center', margin: 'auto' }}>
-                                <p>Calorias Consumidas</p>
                             </div>
                             <div className="col-md-4 col-lg-12" style={{marginTop:'10px',position:'center',marginBottom:'10px'}}>
                                 <MealModal meal={meal} history={props.history} onDeleteMeal={props.onDeleteMeal} onUpdateCurrentMealInState={props.onUpdateCurrentMealInState}/>

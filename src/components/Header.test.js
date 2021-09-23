@@ -16,7 +16,7 @@ describe('Header tests', () => {
     })
 
     it('expect to logout and go to login when pressing the button', () => {
-        wrapper.find('[type="button"]').at(0).simulate('click');
+        wrapper.find('[name="link"]').at(0).simulate('click');
         expect(wrapper.instance().props.onLogout).toHaveBeenCalledTimes(1);
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
         expect(historyMock.push.mock.calls[0]).toEqual(['/']);

@@ -15,7 +15,7 @@ class Header extends Component {
               ? <div className="collapse navbar-collapse" id="navbarNav" style={{height:'23px'}}>
                 <ul className="navbar-nav ms-auto">
                   <li>
-                    <Link  style={{color: 'white', textDecoration: 'none'}} onClick={() => {
+                    <Link name='link' style={{color: 'white', textDecoration: 'none'}} onClick={() => {
                       this.props.onLogout();
                       this.props.history.push("/");
                     }
