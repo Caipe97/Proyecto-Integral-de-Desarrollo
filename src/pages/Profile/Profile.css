@@ -68,7 +68,6 @@ table {
 }
 .contenedorPro .contenidoPro .search {
   grid-column: search;
-  background: #efe7da;
   border-radius: 19px;
   font-style: oblique;
 }

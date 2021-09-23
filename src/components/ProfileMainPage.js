@@ -18,10 +18,9 @@ class ProfileMainPage extends Component{
         <div className="contenedorPro">
           <Header {...this.props}/>
           <div className="contenidoPro">
-            <div className="search" style={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#fff'}}>
-              <div>
-                <button  type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px'}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar Alimento</button>
-              </div>
+            <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial'}}>Alimentos</h1>
+            <div className="search" style={{ display: 'flex', justifyContent: 'space-around'}}>
+                <button  type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px', height: 30}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar Alimento</button>
             </div>
             <div className="comida"  style={{borderRadius:'18px'}}>
               <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/>
@@ -54,6 +53,7 @@ class ProfileMainPage extends Component{
           <Header userId={this.props.userId} onLogout={this.props.onLogout} history={this.props.history} style={{ background: '#0E4749', paddingTop: '10px', paddingBottom: '10px', top: 0 }}/>
 
           <div className="contenidoPro" style={{backgroundColor:'#B6E052'}}>
+            <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial'}}>Alimentos</h1>
             <div className="search" style={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#fff' }}>
               <div style={{ width: '80%' }}>Search</div>
               <div style={{ width: '10%', }}>

@@ -90,7 +90,6 @@ export const changeCurrentMealNameAndDateEaten = (newName, newDateEaten) => ({
 })
 
 export const updateCurrentMeal = (meal) => (dispatch) => {
-  console.log(meal)
   dispatch({ type: UPDATE_CURRENT_MEAL_PENDING });
   return(
     fetch(`https://jma-test-app.herokuapp.com/api/meals?mealId=${meal.mealId}`, {

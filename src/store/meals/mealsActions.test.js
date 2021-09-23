@@ -18,7 +18,15 @@ import {
 
     ADD_FOOD_TO_CURRENT_MEAL,
     REMOVE_FOOD_FROM_CURRENT_MEAL,
-    RESET_CURRENT_MEAL
+    RESET_CURRENT_MEAL,
+
+    UPDATE_CURRENT_MEAL_IN_STATE,
+  
+    CHANGE_CURRENT_MEAL_NAME_AND_DATE_EATEN,
+  
+    UPDATE_CURRENT_MEAL_PENDING,
+    UPDATE_CURRENT_MEAL_SUCCESS,
+    UPDATE_CURRENT_MEAL_FAILED
    } from './mealsConstants'
 
 const mockStore = configureMockStore([thunkMiddleware]);
@@ -244,4 +252,97 @@ describe("foods on current meal actions", () => {
         };
         expect(actions.resetCurrentMeal()).toEqual(expectedAction);
       });
+})
+
+describe("UPDATE_CURRENT_MEAL_IN_STATE action", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        store.clearActions();
+    });
+
+    it("should handle updateCurrentMealInState", () => {
+        const expectedAction = {
+          type: UPDATE_CURRENT_MEAL_IN_STATE
+        };
+        expect(actions.updateCurrentMealInState()).toEqual(expectedAction);
+      });
+})
+
+describe("CHANGE_CURRENT_MEAL_NAME_AND_DATE_EATEN action", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        store.clearActions();
+    });
+
+    it("should handle updateCurrentMealInState", () => {
+        const expectedAction = {
+          type: CHANGE_CURRENT_MEAL_NAME_AND_DATE_EATEN,
+          payload: {newDateEaten: undefined, newName: undefined}
+        };
+        expect(actions.changeCurrentMealNameAndDateEaten()).toEqual(expectedAction);
+      });
+})
+
+describe("update current meal actions", () => {
+    const exampleMeal = {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
+
+    it("should handle requesting updateCurrentMeal API", () => {
+        const expectedAction = {
+            type: UPDATE_CURRENT_MEAL_PENDING,
+        };
+        store.dispatch(actions.updateCurrentMeal(exampleMeal));
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should create the SUCCESS action after receiving data for updateCurrentMeal", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+        ]));
+
+        const expectedActions = [
+            { type: UPDATE_CURRENT_MEAL_PENDING },
+            { 
+                type: UPDATE_CURRENT_MEAL_SUCCESS,
+                payload: [
+                    {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 22, name: 'carne', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 23, name: 'jamon', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+                ]
+            }
+        ];
+
+        store.dispatch(actions.updateCurrentMeal(exampleMeal))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for updateCurrentMeal", () => {
+        fetch.mockReject(() => Promise.reject("No meal was found with that mealId"));
+    
+        const expectedActions = [
+        { type: UPDATE_CURRENT_MEAL_PENDING },
+        {
+            type: UPDATE_CURRENT_MEAL_FAILED,
+            payload: "No meal was found with that mealId",
+        }
+        ];
+
+        store.dispatch(actions.updateCurrentMeal(exampleMeal))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
 })
