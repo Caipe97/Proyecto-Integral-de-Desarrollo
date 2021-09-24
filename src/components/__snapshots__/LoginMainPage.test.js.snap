@@ -166,7 +166,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
           className="button"
           onClick={[Function]}
         >
-          Iniciar Sesion
+          Iniciar Sesión
         </button>
         <p />
         <p

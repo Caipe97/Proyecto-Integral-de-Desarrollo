@@ -124,9 +124,11 @@ class SearchBar extends Component {
     this.setState({alimentos: search});
   }
 
-  componentDidMount(){
-    this.setState({alimentos: this.props.foods});
-    this.asignarColumnas();
+  async componentDidMount(){
+    await this.props.onGetAllFoods();
+    await this.setState({alimentos: this.props.foods});
+    await this.asignarColumnas();
+    
   }
   
 render(){
@@ -158,7 +160,7 @@ render(){
         noDataComponent={
           <span>No se encontró ningún alimento</span>
         }
-        conditionalRowStyles= {conditionalRowStyles}
+        conditionalRowStyles={conditionalRowStyles}
         customStyles={customStyles}
         pointer
       />

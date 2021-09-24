@@ -10,7 +10,6 @@ class ProfileMainPage extends Component{
   
   componentDidMount(){
     this.props.onGetMealsFromUser(this.props.userId)
-    this.props.onGetAllFoods();
   }
   render() {
     const birthdayString = this.props.birthday.toString().substring(0,10);

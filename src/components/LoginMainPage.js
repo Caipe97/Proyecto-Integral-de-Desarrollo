@@ -33,7 +33,6 @@ class LoginMainPage extends Component {
     if (this.validateAll()) {
       const data = await this.props.onLogin(this.state.email, this.state.password);
       this.setState({ email: '', password: '' });
-      console.log(data)
       if (data.payload.userId) {
         this.props.history.push("/profile");
       } else {
@@ -97,7 +96,7 @@ class LoginMainPage extends Component {
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
               <TextField label="Email" name='email' type='email' value={this.state.email} onChange={this.handleChange} required />
               <TextField label="Password" name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
-              <button onClick={this.handleSubmit} className='button'>Iniciar Sesion</button>
+              <button onClick={this.handleSubmit} className='button'>Iniciar Sesión</button>
               <p>{this.state.errorMessage}</p>
               <p style={{ marginBlock: '0em', marginTop: '4%' }}>Todavia no tenes una cuenta?
                 <Link to="/register" style={{ color: 'black' }}>Registrate</Link>

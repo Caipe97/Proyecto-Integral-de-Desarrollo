@@ -38,7 +38,6 @@ export const mealsReducer = (state=initialStateMeals, action={}) => {
         isPending: true
       }
     case ADD_MEAL_SUCCESS:
-      console.log('LISTA DE TODOS LOS MEALS DEL USUARIO: ', action.payload)
       return {
         ...state,
         meals: action.payload,
@@ -92,8 +91,8 @@ export const mealsReducer = (state=initialStateMeals, action={}) => {
             currentMeal: {...state.currentMeal, FoodList: newCurrentMealFoodListAddFood}
           }
         case REMOVE_FOOD_FROM_CURRENT_MEAL:
-          const foodAndQuantity = action.payload;
-          const newCurrentMealFoodListRemoveFood = getNewCurrentMealFoodListRemoveFood(state.currentMeal.FoodList, foodAndQuantity.food);
+          const FoodList = action.payload;
+          const newCurrentMealFoodListRemoveFood = getNewCurrentMealFoodListRemoveFood(state.currentMeal.FoodList, FoodList.food);
           return {
             ...state,
             currentMeal: {...state.currentMeal, FoodList: newCurrentMealFoodListRemoveFood}
@@ -141,9 +140,9 @@ export const mealsReducer = (state=initialStateMeals, action={}) => {
 const getNewCurrentMealFoodListAddFood = (currentMealFoodList, food) => {
   let flag = 0;
   const copyCurrentMealFoods = currentMealFoodList
-  copyCurrentMealFoods.forEach(foodAndQuantity => {
-    if(food.foodId === foodAndQuantity.food.foodId){
-      foodAndQuantity.quantity++
+  copyCurrentMealFoods.forEach(FoodList => {
+    if(food.foodId === FoodList.food.foodId){
+      FoodList.quantity++
       flag++;
     }
   });
@@ -155,7 +154,7 @@ const getNewCurrentMealFoodListAddFood = (currentMealFoodList, food) => {
 
 const getNewCurrentMealFoodListRemoveFood = (currentMealFoodList, food) => {
   const copyCurrentMealFoods = currentMealFoodList
-  console.log(food)
+  console.log(food, currentMealFoodList)
   for( let i = 0; i < copyCurrentMealFoods.length; i++){
     console.log(copyCurrentMealFoods[i].food.foodId, food.foodId)
     if(copyCurrentMealFoods[i].food.foodId === food.foodId) { 

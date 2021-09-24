@@ -49,6 +49,7 @@ exports[`Header tests expect to render Header component to render with signing i
                   "textDecoration": "none",
                 }
               }
+              to="/"
             >
               Cerrar Sesión
             </Link>

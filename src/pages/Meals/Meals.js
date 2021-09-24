@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMeal, getMealsFromUser, deleteMeal, addFoodToCurrentMeal, removeFoodFromCurrentMeal, resetCurrentMeal, updateCurrentMeal, changeCurrentMealNameAndDateEaten } from '../../store/meals/mealsActions';
+import { getAllFoods } from'../../store/foods/foodsActions';
 import './Meals.css';
 import { logout } from '../../store/userData/userDataActions';
 import MealsMainPage from '../../components/MealsMainPage';
@@ -17,9 +18,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddMeal: (userId, foodName, gramAmount, dateEaten) => dispatch(addMeal(userId, foodName, gramAmount, dateEaten)),
+    onAddMeal: (userId, meal) => dispatch(addMeal(userId, meal)),
     onGetMealsFromUser: (userId) => dispatch(getMealsFromUser(userId)),
     onDeleteMeal: (mealId) => dispatch(deleteMeal(mealId)),
+    onGetAllFoods: () => dispatch(getAllFoods()),
     onAddFoodToCurrentMeal: (food) => dispatch(addFoodToCurrentMeal(food)),
     onRemoveFoodFromCurrentMeal: (food) => dispatch(removeFoodFromCurrentMeal(food)),
     onLogout: () => dispatch(logout()),

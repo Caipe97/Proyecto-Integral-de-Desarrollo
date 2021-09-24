@@ -17,6 +17,7 @@ class MealsMainPage extends Component {
   }
 
   async componentDidMount(){
+    // await this.props.onGetAllFoods();
     if(this.props.history.location.state){
       await this.setState({
         ...this.state,
