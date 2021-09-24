@@ -65,6 +65,10 @@ exports[`Modal tests expect t2 1`] = `
       <p>
         Alimentos consumidos:
       </p>
+      <p>
+        Total de calorias consumidas en la comida: 
+        0
+      </p>
     </ModalBody>
     <ModalFooter>
       <Button

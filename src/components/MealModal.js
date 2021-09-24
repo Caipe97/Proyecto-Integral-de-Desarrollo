@@ -4,6 +4,15 @@ import { Button} from 'react-bootstrap';
 
 const MealModal =(props) =>{
     const [modalShow, setModalShow] = useState(false);
+    let totalCaloriesPerFood = 0;
+    const calculateTotalCaloriesPerMeal = () => {
+      let totalCaloriesPerMeal = 0;
+      for (let i = 0; i < props.meal.FoodList.length; i++) {
+        const element = props.meal.FoodList[i];
+        totalCaloriesPerMeal += element.food.caloriesPerServing * element.quantity;
+      }
+      return totalCaloriesPerMeal;
+    }
     return (
       <>
         <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
@@ -32,13 +41,15 @@ const MealModal =(props) =>{
             Alimentos consumidos:
           </p>
           {props.meal.FoodList.map((FoodListItem) => {
+              totalCaloriesPerFood = FoodListItem.food.caloriesPerServing * FoodListItem.quantity
               return(
                 <div key={FoodListItem.food.foodId} style={{textAlign:'center',top:'3px',background:'#B6E052'}}>
-                  <p>{FoodListItem.quantity} {FoodListItem.food.name}</p>
+                  <p>{FoodListItem.quantity} x {FoodListItem.food.name}: {totalCaloriesPerFood} calorias en total</p>
                 </div>
               );
             })
           }
+          <p>Total de calorias consumidas en la comida: {calculateTotalCaloriesPerMeal()}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button type="button" onClick={() =>setModalShow(false)}>Cerrar</Button>
