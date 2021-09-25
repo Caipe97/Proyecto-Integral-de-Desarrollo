@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests expect to render CarouselContainer component 1`] = `
+<Carousel
+  additionalTransfrom={0}
+  arrows={true}
+  autoPlaySpeed={3000}
+  centerMode={false}
+  className=""
+  containerClass=""
+  dotListClass=""
+  draggable={true}
+  focusOnSelect={false}
+  infinite={false}
+  itemClass=""
+  keyBoardControl={true}
+  minimumTouchDrag={80}
+  pauseOnHover={true}
+  renderArrowsWhenDisabled={false}
+  renderButtonGroupOutside={false}
+  renderDotsOutside={false}
+  responsive={
+    Object {
+      "desktop": Object {
+        "breakpoint": Object {
+          "max": 3000,
+          "min": 1024,
+        },
+        "items": 4,
+      },
+      "mobile": Object {
+        "breakpoint": Object {
+          "max": 464,
+          "min": 0,
+        },
+        "items": 2,
+      },
+      "superLargeDesktop": Object {
+        "breakpoint": Object {
+          "max": 4000,
+          "min": 3000,
+        },
+        "items": 6,
+      },
+      "tablet": Object {
+        "breakpoint": Object {
+          "max": 1024,
+          "min": 464,
+        },
+        "items": 3,
+      },
+    }
+  }
+  showDots={false}
+  sliderClass=""
+  slidesToSlide={1}
+  swipeable={true}
+>
+  <div
+    className="card-container"
+    key="0"
+  >
+    <div
+      style={
+        Object {
+          "background": "#CCDDE2",
+          "borderRadius": 10,
+          "margin": 5,
+          "paddingBottom": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        className="img"
+        style={
+          Object {
+            "fontSize": 24,
+          }
+        }
+      >
+        <p
+          style={
+            Object {
+              "overflow": "hidden",
+              "textOverflow": "ellipsis",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          queso
+        </p>
+      </div>
+      <div>
+        2021-09-09 00:00
+      </div>
+      <div>
+        <MealModal
+          history={
+            Object {
+              "push": [MockFunction],
+            }
+          }
+          meal={
+            Object {
+              "FoodList": Array [
+                Object {
+                  "food": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 1,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 1,
+                },
+              ],
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "mealId": 21,
+              "name": "queso",
+              "userId": 1,
+            }
+          }
+          onDeleteMeal={
+            Object {
+              "mealId": 21,
+              "userId": 1,
+            }
+          }
+          onUpdateCurrentMealInState={
+            Object {
+              "FoodList": Array [
+                Object {
+                  "food": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 1,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 1,
+                },
+              ],
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-container"
+    key="1"
+  >
+    <div
+      style={
+        Object {
+          "background": "#CCDDE2",
+          "borderRadius": 10,
+          "margin": 5,
+          "paddingBottom": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        className="img"
+        style={
+          Object {
+            "fontSize": 24,
+          }
+        }
+      >
+        <p
+          style={
+            Object {
+              "overflow": "hidden",
+              "textOverflow": "ellipsis",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          carne
+        </p>
+      </div>
+      <div>
+        2021-09-09 00:00
+      </div>
+      <div>
+        <MealModal
+          history={
+            Object {
+              "push": [MockFunction],
+            }
+          }
+          meal={
+            Object {
+              "FoodList": Array [
+                Object {
+                  "food": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 2,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 2,
+                },
+              ],
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "mealId": 22,
+              "name": "carne",
+              "userId": 1,
+            }
+          }
+          onDeleteMeal={
+            Object {
+              "mealId": 21,
+              "userId": 1,
+            }
+          }
+          onUpdateCurrentMealInState={
+            Object {
+              "FoodList": Array [
+                Object {
+                  "food": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 1,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 1,
+                },
+              ],
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</Carousel>
+`;

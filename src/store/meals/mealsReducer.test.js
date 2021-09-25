@@ -48,7 +48,12 @@ beforeEach( () => {
     
     exampleStateMeals1 = {
         meals: [
-            {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+            {mealId: 21, name: 'queso', 
+            FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
         ],
         currentMeal: {FoodList: []},
         isPending: false
@@ -56,8 +61,18 @@ beforeEach( () => {
     
     pendingStateMeals2 = {
         meals: [
-            {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-            {mealId: 22, name: 'carne', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 21, name: 'queso', 
+            FoodList: [{quantity: 1, food: 
+                                {foodId: 1, name: 'Milanesa', 
+                                recommendedServing: 85, caloriesPerServing: 198, 
+                                createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', 
+            FoodList: [{quantity: 1, food: 
+                                {foodId: 1, name: 'Milanesa', 
+                                recommendedServing: 85, caloriesPerServing: 198, 
+                                createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
         ],
         currentMeal: {FoodList: []},
         isPending: true
@@ -65,9 +80,24 @@ beforeEach( () => {
     
     exampleStateMeals2 = {
         meals: [
-            {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-            {mealId: 22, name: 'carne', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-            {mealId: 23, name: 'jamon', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+            {mealId: 21, name: 'queso', 
+            FoodList: [{quantity: 1, food: 
+                                {foodId: 1, name: 'Milanesa', 
+                                recommendedServing: 85, caloriesPerServing: 198, 
+                                createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', 
+            FoodList: [{quantity: 1, food: 
+                                {foodId: 1, name: 'Milanesa', 
+                                recommendedServing: 85, caloriesPerServing: 198, 
+                                createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 23, name: 'jamon', 
+            FoodList:[ {quantity: 1, food: 
+                                {foodId: 1, name: 'Milanesa', 
+                                recommendedServing: 85, caloriesPerServing: 198, 
+                                createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
         ],
         currentMeal: {FoodList: []},
         isPending: false
@@ -84,9 +114,11 @@ describe('ADD_MEAL', () => {
         expect(reducers.mealsReducer(pendingStateMeals1, {
             type: ADD_MEAL_SUCCESS, 
             payload: [{
-                mealId: 21,
-                name: "queso",
-                FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}},
+                mealId: 21, name: "queso",
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}],
                 dateEaten: "2021-09-09T00:00:00.000Z",
                 userId: 1
             }]
@@ -97,9 +129,24 @@ describe('ADD_MEAL', () => {
         expect(reducers.mealsReducer(pendingStateMeals2, {
             type: ADD_MEAL_SUCCESS, 
             payload: [
-                {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-                {mealId: 22, name: 'carne', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-                {mealId: 23, name: 'jamon', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+                {mealId: 21, name: 'queso', 
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                {mealId: 22, name: 'carne', 
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                {mealId: 23, name: 'jamon', 
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
             ]
         })).toEqual(exampleStateMeals2);
     })
@@ -120,7 +167,10 @@ describe('GET_MEALS_FROM_USER', () => {
             payload: [{
                 mealId: 21,
                 name: "queso",
-                FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}},
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}],
                 dateEaten: "2021-09-09T00:00:00.000Z",
                 userId: 1
             }]
@@ -131,9 +181,24 @@ describe('GET_MEALS_FROM_USER', () => {
         expect(reducers.mealsReducer(pendingStateMeals2, {
             type: GET_MEALS_FROM_USER_SUCCESS, 
             payload: [
-                {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-                {mealId: 22, name: 'carne', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-                {mealId: 23, name: 'jamon', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
+                {mealId: 21, name: 'queso', 
+                FoodList:  [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198,
+                                     createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                {mealId: 22, name: 'carne', 
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                {mealId: 23, name: 'jamon', 
+                FoodList: [{quantity: 1, food: 
+                                    {foodId: 1, name: 'Milanesa', 
+                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                    createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
             ]
         })).toEqual(exampleStateMeals2);
     })
@@ -155,7 +220,12 @@ describe('DELETE_MEAL', () => {
     it('should handle DELETE_MEAL_SUCCESS action', () => {
         expect(reducers.mealsReducer(pendingStateMeals2, {
             type: DELETE_MEAL_SUCCESS,
-            payload: [{mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}]
+            payload: [{mealId: 21, name: 'queso', 
+                        FoodList: [{quantity: 1, food:
+                                             {foodId: 1, name: 'Milanesa',
+                                              recommendedServing: 85, caloriesPerServing: 198, 
+                                              createdAt: '2021-09-15T19:58:04.486Z'}}], 
+                        dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}]
         })).toEqual(exampleStateMeals1);
     })
 
@@ -168,8 +238,13 @@ describe('ADD_FOOD_TO_CURRENT_MEAL', () => {
     it('should handle ADD_FOOD_TO_CURRENT_MEAL action', () => {
         expect(reducers.mealsReducer(initialStateMeals, {
             type: ADD_FOOD_TO_CURRENT_MEAL,
-            payload: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}
-        })).toEqual({...initialStateMeals, currentMeal: {FoodList: [{quantity: 1, food: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}]}});
+            payload: {foodId: 1, name: 'Milanesa', 
+                      recommendedServing: 85, caloriesPerServing: 198, 
+                      createdAt: '2021-09-15T19:58:04.486Z'}
+        })).toEqual({...initialStateMeals, currentMeal: {FoodList: [{quantity: 1, food: 
+                                                                {foodId: 1, name: 'Milanesa', 
+                                                                recommendedServing: 85, caloriesPerServing: 198, 
+                                                                createdAt: '2021-09-15T19:58:04.486Z'}}]}});
     })
 })
 
@@ -277,8 +352,17 @@ describe('UPDATE_CURRENT_MEAL_IN_STATE', () => {
     it('should handle UPDATE_CURRENT_MEAL_IN_STATE action', () => {
         expect(reducers.mealsReducer(exampleStateMeals2, {
             type: UPDATE_CURRENT_MEAL_IN_STATE,
-            payload: {FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}}
-        })).toEqual({...exampleStateMeals2, currentMeal: {FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}}});
+            payload: {FoodList:[ {quantity: 1, food: 
+                                            {foodId: 1, name: 'Milanesa', 
+                                            recommendedServing: 85, caloriesPerServing: 198, 
+                                            createdAt: '2021-09-15T19:58:04.486Z'}}]
+                     }
+        })).toEqual({...exampleStateMeals2, currentMeal: {FoodList: 
+                                                        [{quantity: 1, food: 
+                                                                    {foodId: 1, name: 'Milanesa', 
+                                                                    recommendedServing: 85, caloriesPerServing: 198, 
+                                                                    createdAt: '2021-09-15T19:58:04.486Z'}}]
+                                                                }});
     })
 })
 
@@ -290,7 +374,7 @@ describe('UPDATE_CURRENT_MEAL', () => {
     it('should handle UPDATE_CURRENT_MEAL_SUCCESS action when initial state is empty', () => {
         expect(reducers.mealsReducer(pendingStateMeals1, {
             type: UPDATE_CURRENT_MEAL_SUCCESS,
-            payload: [{mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}]
+            payload: [{mealId: 21, name: 'queso', FoodList: [{quantity: 1, food: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}], dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}]
         })).toEqual(exampleStateMeals1);
     })
 
@@ -298,12 +382,12 @@ describe('UPDATE_CURRENT_MEAL', () => {
         expect(reducers.mealsReducer(pendingStateMeals2, {
             type: UPDATE_CURRENT_MEAL_SUCCESS,
             payload: [
-                {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-                {mealId: 22, name: 'carne', FoodList: {quantity: 2, foods: {foodId: 2, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                {mealId: 21, name: 'queso', FoodList: [{quantity: 1, food: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}], dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                {mealId: 22, name: 'carne', FoodList: [{quantity: 2, food: {foodId: 2, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}], dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
             ]
         })).toEqual({...pendingStateMeals2, isPending: false, meals: [
-            {mealId: 21, name: 'queso', FoodList: {quantity: 1, foods: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
-            {mealId: 22, name: 'carne', FoodList: {quantity: 2, foods: {foodId: 2, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 21, name: 'queso', FoodList:[ {quantity: 1, food: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}], dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'carne', FoodList: [{quantity: 2, food: {foodId: 2, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}], dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
         ]});
     })
 
