@@ -24,34 +24,7 @@ exports[`Modal tests expect t2 1`] = `
       }
     }
     enforceFocus={true}
-    history={
-      Object {
-        "push": [MockFunction],
-      }
-    }
     keyboard={true}
-    onDeleteMeal={
-      Object {
-        "mealId": 21,
-        "userId": 1,
-      }
-    }
-    onUpdateCurrentMealInState={
-      Object {
-        "FoodList": Array [
-          Object {
-            "food": Object {
-              "caloriesPerServing": 198,
-              "createdAt": "2021-09-15T19:58:04.486Z",
-              "foodId": 1,
-              "name": "Milanesa",
-              "recommendedServing": 85,
-            },
-            "quantity": 1,
-          },
-        ],
-      }
-    }
     restoreFocus={true}
     show={false}
     size="lg"

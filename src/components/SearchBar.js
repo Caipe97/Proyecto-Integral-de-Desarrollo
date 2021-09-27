@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import CustomFoodModal from './CustomFoodModal';
 
 const paginacionOpciones={
   rowsPerPageText: 'Filas por Página',
@@ -69,11 +70,12 @@ class SearchBar extends Component {
     this.state = {
       busqueda: '',
       alimentos: [],
-      columnas:[]
+      columnas:[],
+      cantidadAlimentos: 0
     };
   }
 
-  onChange = async event=>{
+  onChange = async event => {
     event.persist();
     await this.setState({busqueda: event.target.value});
     this.filtrarElementos();
@@ -82,7 +84,22 @@ class SearchBar extends Component {
   asignarColumnas=()=>{
     const columnas = [
       {
-        cell:(row) => <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Agregar</button>,
+        cell:(row) => {
+          if(row.userId){
+            return(
+              <div>
+                <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Agregar</button>
+                <CustomFoodModal edit={true} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood}/>
+                <button onClick={() => this.props.onDeleteCustomFood(row.foodId)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Eliminar</button>
+              </div>
+            )
+          } else {
+            return(
+            <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Agregar</button>
+            )
+          }
+        }
+        ,
         ignoreRowClick: true,
         allowOverflow: true,
         button: true
@@ -126,9 +143,16 @@ class SearchBar extends Component {
 
   async componentDidMount(){
     await this.props.onGetAllFoods();
-    await this.setState({alimentos: this.props.foods});
-    await this.asignarColumnas();
-    
+    this.setState({alimentos: this.props.foods, cantidadAlimentos: this.props.foods.length});
+    this.asignarColumnas();
+  }
+
+  async componentDidUpdate(){
+    if(this.props.foods.length !== this.state.cantidadAlimentos){
+      await this.props.onGetAllFoods();
+      this.setState({alimentos: this.props.foods, cantidadAlimentos: this.props.foods.length});
+      this.asignarColumnas();
+    }
   }
   
 render(){

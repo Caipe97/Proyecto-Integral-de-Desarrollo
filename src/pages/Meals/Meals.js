@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMeal, getMealsFromUser, deleteMeal, addFoodToCurrentMeal, removeFoodFromCurrentMeal, resetCurrentMeal, updateCurrentMeal, changeCurrentMealNameAndDateEaten } from '../../store/meals/mealsActions';
-import { getAllFoods } from'../../store/foods/foodsActions';
+import { getAllFoods, addCustomFood, editCustomFood, deleteCustomFood } from'../../store/foods/foodsActions';
 import './Meals.css';
 import { logout } from '../../store/userData/userDataActions';
 import MealsMainPage from '../../components/MealsMainPage';
@@ -27,7 +27,10 @@ const mapDispatchToProps = (dispatch) => {
     onLogout: () => dispatch(logout()),
     onResetCurrentMeal: () => dispatch(resetCurrentMeal()),
     onUpdateCurrentMeal: (meal) => dispatch(updateCurrentMeal(meal)),
-    onChangeCurrentMealNameAndDateEaten: (newName, newDateEaten) => dispatch(changeCurrentMealNameAndDateEaten(newName, newDateEaten))
+    onChangeCurrentMealNameAndDateEaten: (newName, newDateEaten) => dispatch(changeCurrentMealNameAndDateEaten(newName, newDateEaten)),
+    onAddCustomFood: (name, recommendedServing, caloriesPerServing, userId) => dispatch(addCustomFood(name, recommendedServing, caloriesPerServing, userId)),
+    onEditCustomFood: (foodId, name, recommendedServing, caloriesPerServing) => dispatch(editCustomFood(foodId, name, recommendedServing, caloriesPerServing)),
+    onDeleteCustomFood: (foodId) => dispatch(deleteCustomFood(foodId))
   }
 }
 

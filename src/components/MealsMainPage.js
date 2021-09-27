@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import DatePicker from "react-datepicker";
 import TextField from '@material-ui/core/TextField';
+import CustomFoodModal from './CustomFoodModal';
 
 class MealsMainPage extends Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class MealsMainPage extends Component {
   }
 
   async componentDidMount(){
-    // await this.props.onGetAllFoods();
     if(this.props.history.location.state){
       await this.setState({
         ...this.state,
@@ -95,6 +95,7 @@ class MealsMainPage extends Component {
           <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
             <div className="col2R" >
              <SearchBar {...this.props} meal={this.props.currentMeal}/>
+             <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false}/>
             </div>
           </div>
           <div className="sidebarR" >
@@ -143,6 +144,7 @@ class MealsMainPage extends Component {
       <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
         <div className="col2R" >
          <SearchBar {...this.props} meal={this.props.currentMeal}/>
+         <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} userId={this.props.userId}/>
         </div>
       </div>
       <div className="sidebarR" >
