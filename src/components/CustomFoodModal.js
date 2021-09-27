@@ -17,12 +17,7 @@ const AddCustomFoodModal = (props) =>{
       ...state,
       [event.target.name]: event.target.value
     })
-    console.log(state)
   };
-
-
-
-
 
   if(props.edit){
     const handleSubmitEdit = async (event) => {

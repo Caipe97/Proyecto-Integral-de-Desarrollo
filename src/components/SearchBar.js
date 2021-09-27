@@ -128,11 +128,7 @@ class SearchBar extends Component {
 
   filtrarElementos=()=>{
     let search=this.props.foods.filter(item => {
-      if(item.name.toLowerCase().includes(this.state.busqueda)
-        // item.name.includes(this.state.busqueda) ||
-        // item.recommendedServing.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,"").includes(this.state.busqueda) ||
-        // item.caloriesPerServing.toString().toLowerCase().includes(this.state.busqueda)
-      ){
+      if(item.name.toLowerCase().includes(this.state.busqueda)){
         return item;
       } else {
         return '';

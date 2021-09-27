@@ -21,11 +21,6 @@ const MealModal =(props) =>{
       
       <Modal
         show={modalShow}
-        //onHide={() => setModalShow(false)}
-        // meal={props.meal}
-        // history={props.history}
-        // onDeleteMeal={props.onDeleteMeal}
-        // onUpdateCurrentMealInState={props.onUpdateCurrentMealInState}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered

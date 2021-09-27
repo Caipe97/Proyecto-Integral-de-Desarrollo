@@ -87,6 +87,7 @@ class MealsMainPage extends Component {
     })
   };
 
+  
   render() {
     if(this.props.history.location.state){
       return (
@@ -95,7 +96,7 @@ class MealsMainPage extends Component {
           <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
             <div className="col2R" >
              <SearchBar {...this.props} meal={this.props.currentMeal}/>
-             <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false}/>
+             <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId}/>
             </div>
           </div>
           <div className="sidebarR" >
@@ -143,8 +144,8 @@ class MealsMainPage extends Component {
       <Header {...this.props}/>
       <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
         <div className="col2R" >
-         <SearchBar {...this.props} meal={this.props.currentMeal}/>
-         <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} userId={this.props.userId}/>
+          <SearchBar {...this.props} meal={this.props.currentMeal}/>
+          <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId}/>
         </div>
       </div>
       <div className="sidebarR" >
