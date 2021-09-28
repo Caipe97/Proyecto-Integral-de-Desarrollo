@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../images/logo_small.png';
+import logo from '../../images/logo_small.png';
 import { Link } from "react-router-dom";
 
 class Header extends Component {

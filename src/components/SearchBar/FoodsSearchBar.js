@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import CustomFoodModal from './CustomFoodModal';
+import CustomFoodModal from '../Modal/CustomFoodModal';
 
 const paginacionOpciones={
   rowsPerPageText: 'Filas por Página',
@@ -64,7 +64,7 @@ const conditionalRowStyles = [
   ];
 
 
-class SearchBar extends Component {
+class FoodsSearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -127,7 +127,7 @@ class SearchBar extends Component {
   }
 
   filtrarElementos=()=>{
-    let search=this.props.foods.filter(item => {
+    let search = this.props.foods.filter(item => {
       if(item.name.toLowerCase().includes(this.state.busqueda)){
         return item;
       } else {
@@ -188,4 +188,4 @@ render(){
   );
 }
 }
-export default SearchBar;
+export default FoodsSearchBar;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login, logout } from '../../store/userData/userDataActions';
-import LoginMainPage from '../../components/LoginMainPage';
+import LoginMainPage from '../../components/LoginMainPage/LoginMainPage';
 
 const mapStateToProps = (state) => {
   return {

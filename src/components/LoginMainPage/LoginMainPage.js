@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import '../pages/Login/Login.css';
-import logo2 from '../images/2pages.jpg';
-import Header from './Header';
-import Footer from './Footer';
+import '../../pages/Login/Login.css';
+import logo2 from '../../images/2pages.jpg';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import TextField from '@material-ui/core/TextField';
 
 //const bcrypt = require('bcryptjs');

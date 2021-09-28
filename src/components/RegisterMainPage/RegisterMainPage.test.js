@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import RegisterMainPage from './RegisterMainPage';
-import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
+import { LOGIN_OR_REGISTER_SUCCESS } from '../../store/userData/userDataConstants';
 
 describe('RegisterMainPage tests', () => {
     const historyMock = { push: jest.fn() };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMealsFromUser, deleteMeal, updateCurrentMealInState } from '../../store/meals/mealsActions';
 import { logout } from '../../store/userData/userDataActions';
-import ProfileMainPage from '../../components/ProfileMainPage';
+import ProfileMainPage from '../../components/ProfileMainPage/ProfileMainPage';
 
 const mapStateToProps = (state) => {
   return {

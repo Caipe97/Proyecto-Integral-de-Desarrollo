@@ -1,5 +1,5 @@
 import React from 'react';
-import logo2 from '../images/phone.png';
+import logo2 from '../../images/phone.png';
 
 const Footer = () => (
   <footer className="footer" style={{background:'#0E4749'}}>

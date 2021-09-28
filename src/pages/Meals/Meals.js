@@ -4,7 +4,7 @@ import { addMeal, getMealsFromUser, deleteMeal, addFoodToCurrentMeal, removeFood
 import { getAllFoods, addCustomFood, editCustomFood, deleteCustomFood } from'../../store/foods/foodsActions';
 import './Meals.css';
 import { logout } from '../../store/userData/userDataActions';
-import MealsMainPage from '../../components/MealsMainPage';
+import MealsMainPage from '../../components/MealsMainPage/MealsMainPage';
 
 const mapStateToProps = (state) => {
   return {

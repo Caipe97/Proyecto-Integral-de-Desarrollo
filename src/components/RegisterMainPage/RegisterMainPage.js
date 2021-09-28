@@ -1,13 +1,13 @@
 import React, { Component }  from 'react';
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
-import '../pages/Register/Register.css';
-import logo2 from '../images/2pages.jpg';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import '../../pages/Register/Register.css';
+import logo2 from '../../images/2pages.jpg';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { LOGIN_OR_REGISTER_SUCCESS } from '../store/userData/userDataConstants';
+import { LOGIN_OR_REGISTER_SUCCESS } from '../../store/userData/userDataConstants';
 
 //const bcrypt = require('bcryptjs');
 /* eslint-disable */
@@ -36,7 +36,10 @@ class RegisterMainPage extends Component{
   };
 
   handleChangeBirthday = date => {
-    console.log(date)
+    const today = new Date();
+    if(Date.parse(date) > Date.parse(today)){
+      date = today
+    }
     this.setState({
       ...this.state,
       birthday: date,

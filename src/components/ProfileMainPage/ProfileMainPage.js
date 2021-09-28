@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import '../pages/Profile/Profile.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import CarouselContainer from '../components/CarouselContainer';
-import avatar from '../images/avatar.png';
+import '../../pages/Profile/Profile.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import CarouselContainer from '../CarouselContainer/CarouselContainer';
+import avatar from '../../images/avatar.png';
+import MealsSearchBar from '../SearchBar/MealsSearchBar';
 
 class ProfileMainPage extends Component{
   
@@ -24,6 +25,7 @@ class ProfileMainPage extends Component{
             </div>
             <div className="comida"  style={{borderRadius:'18px'}}>
               <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/>
+              <MealsSearchBar {...this.props}/>
             </div>
           </div>
           <div className="sidebarPro">
@@ -57,7 +59,8 @@ class ProfileMainPage extends Component{
                 <button  type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px', height: 30}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar Comida</button>
             </div>
             <div className="comida"  style={{borderRadius:'18px', textAlign: 'center'}}>
-            <p style={{marginTop: 20}}>Usted no ha cargado ninguna comida</p>
+              <MealsSearchBar {...this.props}/>
+              {/* <p style={{marginTop: 20}}>Usted no ha cargado ninguna comida</p> */}
             </div>
           </div>
           <div className="sidebarPro">

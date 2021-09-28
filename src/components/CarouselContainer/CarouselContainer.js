@@ -1,6 +1,6 @@
 import {React, } from 'react';
 //import Carousel from 'react-bootstrap/Carousel';
-import MealModal from './MealModal';
+import MealModal from '../Modal/MealModal';
 import './CarouselContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from "react-multi-carousel";

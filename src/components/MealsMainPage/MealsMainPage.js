@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../pages/Meals/Meals.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SearchBar from '../components/SearchBar';
+import '../../pages/Meals/Meals.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import FoodsSearchBar from '../SearchBar/FoodsSearchBar';
 import DatePicker from "react-datepicker";
 import TextField from '@material-ui/core/TextField';
-import CustomFoodModal from './CustomFoodModal';
+import CustomFoodModal from '../Modal/CustomFoodModal';
 
 class MealsMainPage extends Component {
   constructor(props) {
@@ -81,6 +81,10 @@ class MealsMainPage extends Component {
   };
 
   handleChangeDateEaten = date => {
+    const today = new Date();
+    if(Date.parse(date) > Date.parse(today)){
+      date = today
+    }
     this.setState({
       ...this.state,
       dateEaten: date
@@ -95,7 +99,7 @@ class MealsMainPage extends Component {
           <Header {...this.props}/>
           <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
             <div className="col2R" >
-             <SearchBar {...this.props} meal={this.props.currentMeal}/>
+             <FoodsSearchBar {...this.props} meal={this.props.currentMeal}/>
              <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId}/>
             </div>
           </div>
@@ -144,7 +148,7 @@ class MealsMainPage extends Component {
       <Header {...this.props}/>
       <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
         <div className="col2R" >
-          <SearchBar {...this.props} meal={this.props.currentMeal}/>
+          <FoodsSearchBar {...this.props} meal={this.props.currentMeal}/>
           <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId}/>
         </div>
       </div>

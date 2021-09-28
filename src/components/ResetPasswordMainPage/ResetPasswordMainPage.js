@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-import '../pages/App/App.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import '../../pages/App/App.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 class ResetPasswordMainPage extends Component {
   constructor(props) {

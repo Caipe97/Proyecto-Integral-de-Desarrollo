@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { resetPassword, logout } from '../../store//userData/userDataActions';
-import ResetPasswordMainPage from '../../components/ResetPasswordMainPage';
+import ResetPasswordMainPage from '../../components/ResetPasswordMainPage/ResetPasswordMainPage';
 
 const mapStateToProps = (state) => {
   return {
