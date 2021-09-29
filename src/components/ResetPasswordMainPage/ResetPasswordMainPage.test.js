@@ -22,7 +22,9 @@ describe('ResetPasswordMainPage tests', () => {
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: 'asd' } });
         wrapper.find('[name="passwordCheck"]').at(0).simulate('change', { target: { name: 'passwordCheck', value: 'asd' } });
     })
-
+    it('expect to render ResetPasswordMainPage component to render with signing in', () => {
+        expect(wrapper).toMatchSnapshot();
+    })
     
     it('renders ResetPasswordMainPage without crashing', () => {
         wrapper.find('[name="password"]').at(0).simulate('change', { target: { name: 'password', value: '' } });
