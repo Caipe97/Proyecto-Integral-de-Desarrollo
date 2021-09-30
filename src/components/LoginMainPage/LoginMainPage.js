@@ -107,7 +107,9 @@ class LoginMainPage extends Component {
             </form>
           </div>
         </div>
+
         <Footer />
+
       </div>
 
     );
@@ -115,3 +117,6 @@ class LoginMainPage extends Component {
 }
 
 export default LoginMainPage
+
+
+

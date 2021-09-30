@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal  from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
+import Combobox from "react-widgets/Combobox";
+import "react-widgets/styles.css";
 
 const AddCustomFoodModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
@@ -56,6 +58,23 @@ const AddCustomFoodModal = (props) =>{
               <button onClick={handleSubmitEdit} className='button'>Finalizar edición</button>
               <p>{state.errorMessage}</p>
             </form>
+            <Combobox
+                data={[
+                  {name: "Ver todos los alimentos", foodCategoryId: 0 ,userId: 0},
+                  {name: "Frutas verdes", foodCategoryId: 2 ,userId: 4},
+                  {name: "Carnes", foodCategoryId: 3 ,userId: 0},
+                  {name: "Carnes de animal terrestre", foodCategoryId: 4 ,userId: 4},
+                  {name: "Carbohidratos", foodCategoryId: 3 ,userId: 0},
+                  {name: "Crear nueva categoría", foodCategoryId: -1 ,userId: -1}
+                ]}
+                textField='name'
+                // onSelect={this.alertWhenSelected}
+                //onChange={alertWhenChanged}
+                groupBy={person => person.userId}
+                renderListGroup={ ({group}) => ( //group es el userId
+                  <span>{group == 0 ? 'Default' : 'Custom'}</span>
+                )}
+              />
           </Modal.Body>
           <Modal.Footer>
             <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
@@ -97,9 +116,27 @@ const AddCustomFoodModal = (props) =>{
               <TextField label="Nombre" name='name' type='name' value={state.name} onChange={handleChange} required />
               <TextField label="Porción Recomendada" name='recommendedServing' type='recommendedServing' value={state.recommendedServing} onChange={handleChange} required />
               <TextField label="Calorias por Porción" name='caloriesPerServing' type='caloriesPerServing' value={state.caloriesPerServing} onChange={handleChange} required />
+              <Combobox
+                data={[
+                  {name: "Ver todos los alimentos", foodCategoryId: 0 ,userId: 0},
+                  {name: "Frutas verdes", foodCategoryId: 2 ,userId: 4},
+                  {name: "Carnes", foodCategoryId: 3 ,userId: 0},
+                  {name: "Carnes de animal terrestre", foodCategoryId: 4 ,userId: 4},
+                  {name: "Carbohidratos", foodCategoryId: 3 ,userId: 0},
+                  {name: "Crear nueva categoría", foodCategoryId: -1 ,userId: -1}
+                ]}
+                textField='name'
+                // onSelect={this.alertWhenSelected}
+                //onChange={alertWhenChanged}
+                groupBy={person => person.userId}
+                renderListGroup={ ({group}) => ( //group es el userId
+                  <span>{group == 0 ? 'Default' : 'Custom'}</span>
+                )}
+              />
               <button onClick={handleSubmitAdd} className='button'>Agregar</button>
               <p>{state.errorMessage}</p>
             </form>
+
           </Modal.Body>
           <Modal.Footer>
             <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>

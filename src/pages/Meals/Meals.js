@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     onAddMeal: (userId, meal) => dispatch(addMeal(userId, meal)),
     onGetMealsFromUser: (userId) => dispatch(getMealsFromUser(userId)),
     onDeleteMeal: (mealId) => dispatch(deleteMeal(mealId)),
-    onGetAllFoods: () => dispatch(getAllFoods()),
+    onGetAllFoods: (userId) => dispatch(getAllFoods(userId)),
     onAddFoodToCurrentMeal: (food) => dispatch(addFoodToCurrentMeal(food)),
     onRemoveFoodFromCurrentMeal: (food) => dispatch(removeFoodFromCurrentMeal(food)),
     onLogout: () => dispatch(logout()),

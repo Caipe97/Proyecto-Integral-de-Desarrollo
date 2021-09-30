@@ -16,10 +16,10 @@ import {
   DELETE_CUSTOM_FOOD_FAILED
  } from './foodsConstants'
 
-export const getAllFoods = () => (dispatch) => {
+export const getAllFoods = (userId) => (dispatch) => {
   dispatch({ type: GET_ALL_FOODS_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/foods`)
+    fetch(`https://jma-test-app.herokuapp.com/api/foods?userId=${userId}`)
   )
   .then(response => response.json())
   .then(foodsData => dispatch({ type: GET_ALL_FOODS_SUCCESS, payload: foodsData }))

@@ -5,6 +5,8 @@ import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CustomFoodModal from '../Modal/CustomFoodModal';
+import Combobox from "react-widgets/Combobox";
+import "react-widgets/styles.css";
 
 const paginacionOpciones={
   rowsPerPageText: 'Filas por Página',
@@ -68,7 +70,8 @@ class FoodsSearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      busqueda: '',
+      busquedaNombre: '',
+      busquedaCategoria: '',
       alimentos: [],
       columnas:[],
       cantidadAlimentos: 0
@@ -77,7 +80,8 @@ class FoodsSearchBar extends Component {
 
   onChange = async event => {
     event.persist();
-    await this.setState({busqueda: event.target.value});
+    await this.setState({busquedaNombre: event.target.value});
+    // this.handleChangeComboBox();
     this.filtrarElementos();
   }
 
@@ -128,7 +132,13 @@ class FoodsSearchBar extends Component {
 
   filtrarElementos=()=>{
     let search = this.props.foods.filter(item => {
-      if(item.name.toLowerCase().includes(this.state.busqueda)){
+      if(this.state.busquedaNombre === '' && this.state.busquedaCategoria === ''){
+        return item;
+      } else if(item.name.toLowerCase().includes(this.state.busquedaNombre) && this.state.busquedaCategoria === ''){
+        return item;
+      } else if (this.state.busquedaNombre === '' && item.recommendedServing.toString().includes(this.state.busquedaCategoria)){
+        return item;
+      } else if(item.name.toLowerCase().includes(this.state.busquedaNombre) && item.recommendedServing.toString().includes(this.state.busquedaCategoria)){
         return item;
       } else {
         return '';
@@ -138,29 +148,50 @@ class FoodsSearchBar extends Component {
   }
 
   async componentDidMount(){
-    await this.props.onGetAllFoods();
+    await this.props.onGetAllFoods(this.props.userId);
     this.setState({alimentos: this.props.foods, cantidadAlimentos: this.props.foods.length});
     this.asignarColumnas();
   }
 
   async componentDidUpdate(){
     if(this.props.foods.length !== this.state.cantidadAlimentos){
-      await this.props.onGetAllFoods();
+      await this.props.onGetAllFoods(this.props.userId);
       this.setState({alimentos: this.props.foods, cantidadAlimentos: this.props.foods.length});
       this.asignarColumnas();
     }
   }
   
+  onChangeComboBox = async event => {
+    await this.setState({...this.state, busquedaCategoria: event.recommendedServing})
+    this.filtrarElementos();
+  }
+
 render(){
   return (
     <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
-      <div className="barraBusqueda" style={{backgroundColor:'#B6E052'}}>
+      <div className="barraBusquedaNombre" style={{backgroundColor:'#B6E052'}}>
+        <Combobox
+          data={[
+            {name: "Ver todos los alimentos", foodId: 0 ,userId: 0, recommendedServing: ''},
+            {name: "Frutas verdes", foodId: 2 ,userId: 4, recommendedServing: '50'},
+            {name: "Carnes", foodId: 3 ,userId: 0, recommendedServing: '123'},
+            {name: "Carnes de animal terrestre", foodId: 4 ,userId: 4, recommendedServing: '10'},
+            {name: "Carbohidratos", foodId: 3 ,userId: 0, recommendedServing: '113'},
+            {name: "Crear nueva categoría", foodId: -1 ,userId: -1, recommendedServing: '2'}
+          ]}
+          textField='recommendedServing'
+          onSelect={this.onChangeComboBox}
+          groupBy={person => person.userId}
+          renderListGroup={ ({group}) => ( //group es el userId
+            <span>{group === 0 ? 'Default' : 'Custom'}</span>
+          )}
+        />
         <input
           type="text"
           placeholder="Buscar por nombre"
           className="textField"
-          name="busqueda"
-          value={this.state.busqueda}
+          name="busquedaNombre"
+          value={this.state.busquedaNombre}
           onChange={this.onChange}
           style={{borderRadius:'13px'}}
         />
