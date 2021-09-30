@@ -7,6 +7,11 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CustomFoodModal from '../Modal/CustomFoodModal';
 import Combobox from "react-widgets/Combobox";
 import "react-widgets/styles.css";
+import AddCategoryModal from '../Modal/AddCategoryModal';
+import DeleteCategoryModal from '../Modal/DeleteCategoryModal';
+import EditCategoryModal from '../Modal/EditCategoryModal';
+import Add from '../../images/add.png';
+import Delete from '../../images/delete.png';
 
 const paginacionOpciones={
   rowsPerPageText: 'Filas por Página',
@@ -73,8 +78,10 @@ class FoodsSearchBar extends Component {
       busquedaNombre: '',
       busquedaCategoria: '',
       alimentos: [],
+      categorias: [],
       columnas:[],
-      cantidadAlimentos: 0
+      cantidadAlimentos: 0,
+      cantidadCategorias: 0
     };
   }
 
@@ -92,14 +99,14 @@ class FoodsSearchBar extends Component {
           if(row.userId){
             return(
               <div>
-                <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Agregar</button>
-                <CustomFoodModal edit={true} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood}/>
-                <button onClick={() => this.props.onDeleteCustomFood(row.foodId)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Eliminar</button>
+                <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
+                <CustomFoodModal edit={true} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood} foodCategories={this.props.foodCategories}/>
+                <img src={Delete} alt='eliminar' onClick={() => this.props.onDeleteCustomFood(row.foodId)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
               </div>
             )
           } else {
             return(
-            <button onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{backgroundColor:'#f5f6f7'}} className='btn btn--primary btn--s'>Agregar</button>
+            <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
             )
           }
         }
@@ -111,6 +118,27 @@ class FoodsSearchBar extends Component {
       {
         name: 'Nombre',
         selector: row => row.name,
+        sortable: true
+      },
+      {
+        name: 'Categoría',
+        selector: row => (
+          <div>
+            {
+              this.props.foodCategories.map((foodCategory) => {
+                if(row.foodCategoryId === foodCategory.foodCategoryId){
+                  return(
+                    <div key={foodCategory.foodCategoryId}>{foodCategory.name}</div>
+                  )
+                } else {
+                  return(
+                    <div key={foodCategory.foodCategoryId}></div>
+                  )
+                }
+              })
+            }
+          </div>
+        ),
         sortable: true
       },
       {
@@ -131,15 +159,15 @@ class FoodsSearchBar extends Component {
   }
 
   filtrarElementos=()=>{
-    let search = this.props.foods.filter(item => {
+    let search = this.props.foods.filter(food => {
       if(this.state.busquedaNombre === '' && this.state.busquedaCategoria === ''){
-        return item;
-      } else if(item.name.toLowerCase().includes(this.state.busquedaNombre) && this.state.busquedaCategoria === ''){
-        return item;
-      } else if (this.state.busquedaNombre === '' && item.recommendedServing.toString().includes(this.state.busquedaCategoria)){
-        return item;
-      } else if(item.name.toLowerCase().includes(this.state.busquedaNombre) && item.recommendedServing.toString().includes(this.state.busquedaCategoria)){
-        return item;
+        return food;
+      } else if(food.name.toLowerCase() === this.state.busquedaNombre && this.state.busquedaCategoria === ''){
+        return food;
+      } else if (this.state.busquedaNombre === '' && food.foodCategoryId.toString() === this.state.busquedaCategoria.toString()){
+        return food;
+      } else if(food.name.toLowerCase() === this.state.busquedaNombre && food.foodCategoryId.toString() === this.state.busquedaCategoria.toString()){
+        return food;
       } else {
         return '';
       }
@@ -149,20 +177,45 @@ class FoodsSearchBar extends Component {
 
   async componentDidMount(){
     await this.props.onGetAllFoods(this.props.userId);
-    this.setState({alimentos: this.props.foods, cantidadAlimentos: this.props.foods.length});
+    await this.props.onGetFoodCategories(this.props.userId);
+    let foodCategoriesCopy = [...this.props.foodCategories];
+    foodCategoriesCopy.unshift({foodCategoryId: 0, name: 'Ver todos los alimentos', userId: null});
+    // foodCategoriesCopy.push({foodCategoryId: -1, name: 'Crear una nueva categoría', userId: this.props.userId});
+    this.setState({
+      alimentos: this.props.foods,
+      cantidadAlimentos: this.props.foods.length,
+      categorias: foodCategoriesCopy,
+      cantidadCategorias: this.props.foodCategories.length
+    });
     this.asignarColumnas();
   }
 
   async componentDidUpdate(){
-    if(this.props.foods.length !== this.state.cantidadAlimentos){
+    if(this.props.foods.length !== this.state.cantidadAlimentos || this.props.foodCategories.length !== this.state.cantidadCategorias){
       await this.props.onGetAllFoods(this.props.userId);
-      this.setState({alimentos: this.props.foods, cantidadAlimentos: this.props.foods.length});
+      await this.props.onGetFoodCategories(this.props.userId);
+      let foodCategoriesCopy = [...this.props.foodCategories];
+      foodCategoriesCopy.unshift({foodCategoryId: 0, name: 'Ver todos los alimentos', userId: null});
+      // foodCategoriesCopy.push({foodCategoryId: -1, name: 'Crear una nueva categoría', userId: this.props.userId});
+      this.setState({
+        alimentos: this.props.foods,
+        cantidadAlimentos: this.props.foods.length,
+        categorias: foodCategoriesCopy,
+        cantidadCategorias: this.props.foodCategories.length
+      });
       this.asignarColumnas();
     }
   }
   
   onChangeComboBox = async event => {
-    await this.setState({...this.state, busquedaCategoria: event.recommendedServing})
+    if(event.foodCategoryId === 0){ //Ver todos los alimentos
+      await this.setState({...this.state, busquedaCategoria: ''});
+    } else if(event.foodCategoryId === -1){ //Crear un nuevo alimento
+      await this.setState({...this.state, busquedaCategoria: ''});
+      console.log('ABRIR MODAL');
+    } else {
+      await this.setState({...this.state, busquedaCategoria: event.foodCategoryId});
+    }
     this.filtrarElementos();
   }
 
@@ -171,21 +224,19 @@ render(){
     <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
       <div className="barraBusquedaNombre" style={{backgroundColor:'#B6E052'}}>
         <Combobox
-          data={[
-            {name: "Ver todos los alimentos", foodId: 0 ,userId: 0, recommendedServing: ''},
-            {name: "Frutas verdes", foodId: 2 ,userId: 4, recommendedServing: '50'},
-            {name: "Carnes", foodId: 3 ,userId: 0, recommendedServing: '123'},
-            {name: "Carnes de animal terrestre", foodId: 4 ,userId: 4, recommendedServing: '10'},
-            {name: "Carbohidratos", foodId: 3 ,userId: 0, recommendedServing: '113'},
-            {name: "Crear nueva categoría", foodId: -1 ,userId: -1, recommendedServing: '2'}
-          ]}
-          textField='recommendedServing'
+          data={this.state.categorias}
+          textField='name'
           onSelect={this.onChangeComboBox}
-          groupBy={person => person.userId}
+          groupBy={category => category.userId}
           renderListGroup={ ({group}) => ( //group es el userId
-            <span>{group === 0 ? 'Default' : 'Custom'}</span>
+            <span>
+              {group === null ? 'Default' : 'Custom'}
+            </span>
           )}
         />
+        <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory}/>
+        <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} categories={this.props.foodCategories}/>
+        <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} categories={this.props.foodCategories}/>
         <input
           type="text"
           placeholder="Buscar por nombre"

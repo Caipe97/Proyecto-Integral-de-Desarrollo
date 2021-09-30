@@ -6,6 +6,8 @@ import FoodsSearchBar from '../SearchBar/FoodsSearchBar';
 import DatePicker from "react-datepicker";
 import TextField from '@material-ui/core/TextField';
 import CustomFoodModal from '../Modal/CustomFoodModal';
+import Delete from '../../images/delete.png'
+import Meal from '../../images/meal.png';
 
 class MealsMainPage extends Component {
   constructor(props) {
@@ -45,8 +47,6 @@ class MealsMainPage extends Component {
   handleSubmitCreate = async event => {
     event.preventDefault();
     const dateEatenString = this.state.dateEaten.toString().substring(4, 24);
-    // this.props.currentMeal.name = this.state.name;
-    // this.props.currentMeal.dateEaten = dateEatenString;
     this.props.onChangeCurrentMealNameAndDateEaten(this.state.name, dateEatenString);
     const data = await this.props.onAddMeal(this.props.userId, this.props.currentMeal);
     if(data.payload.message){
@@ -97,7 +97,7 @@ class MealsMainPage extends Component {
           <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
             <div className="col2R" >
               <FoodsSearchBar {...this.props} meal={this.props.currentMeal}/>
-              <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId}/>
+              <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId} foodCategories={this.props.foodCategories}/>
             </div>
           </div>
           <div className="sidebarR" >
@@ -113,7 +113,7 @@ class MealsMainPage extends Component {
                       <div key={foodAndQuantity.food.foodId} style={{width:'100%', backgroundColor: '#b6e052', borderRadius: 10, paddingLeft: 4, paddingRight: 2}}>
                         <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex', marginTop:'10px'}}>
                             <div style={{paddingTop: 7}}>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div>
-                            <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
+                            <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2, cursor: 'pointer'}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
                         </li>
                       </div>
                     )}
@@ -147,12 +147,12 @@ class MealsMainPage extends Component {
         <div className='contenidoR' style={{backgroundColor:'#B6E052'}}>
           <div className="col2R" >
             <FoodsSearchBar {...this.props} meal={this.props.currentMeal}/>
-            <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId}/>
+            <CustomFoodModal onAddCustomFood={this.props.onAddCustomFood} edit={false} userId={this.props.userId} foodCategories={this.props.foodCategories}/>
           </div>
         </div>
         <div className="sidebarR" >
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <img src={"https://cdn.discordapp.com/attachments/776636063673876500/890628675723210782/Dish_free_vector_icons_designed_by_Pause08.png"} alt="meal" style={{width: 200}}/>
+            <img src={Meal} alt="meal" style={{width: 200}}/>
             <div style={{ marginTop: 15 }}>
               <TextField label="Nombre de la comida" name='name' type='name' value={this.state.name} onChange={this.handleChange} required/>
             </div>
@@ -164,7 +164,7 @@ class MealsMainPage extends Component {
                     <div key={foodAndQuantity.food.foodId} style={{width:'100%', backgroundColor: '#b6e052', borderRadius: 10, paddingLeft: 4, paddingRight: 2}}>
                       <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex', marginTop:'10px'}}>
                           <div style={{paddingTop: 7}}>{foodAndQuantity.quantity} x {foodAndQuantity.food.name}</div>
-                          <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
+                          <div><img src={Delete} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2, cursor: 'pointer'}} onClick={() => this.props.onRemoveFoodFromCurrentMeal(foodAndQuantity)}/></div>
                       </li>
                     </div>
                   )}

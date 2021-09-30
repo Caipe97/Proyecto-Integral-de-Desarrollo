@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
 import Combobox from "react-widgets/Combobox";
 import "react-widgets/styles.css";
+import Edit from '../../images/edit.png';
 
 const AddCustomFoodModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
@@ -11,6 +12,7 @@ const AddCustomFoodModal = (props) =>{
     name: '',
     recommendedServing: '',
     caloriesPerServing: '',
+    foodCategoryId: '',
     errorMessage: ''
   })
 
@@ -21,23 +23,32 @@ const AddCustomFoodModal = (props) =>{
     })
   };
 
+  const handleChangeComboBox = event => {
+    setState({
+      ...state,
+      foodCategoryId: event.foodCategoryId
+    })
+  };
+
   if(props.edit){
     const handleSubmitEdit = async (event) => {
       event.preventDefault();
-      await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing);
+      await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
       setState({
         name: '',
         recommendedServing: '',
         caloriesPerServing: '',
+        foodCategoryId: '',
         errorMessage: ''
       });
     };
 
     return (
       <>
-        <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
-          Editar  
-        </Button>
+      {/* <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
+        Editar Categoría
+      </Button> */}
+      <img src={Edit} alt='editar' style={{width: '20px', height: '20px', cursor: 'pointer'}} onClick={() => setModalShow(true)}/>
         
         <Modal
           show={modalShow}
@@ -55,26 +66,18 @@ const AddCustomFoodModal = (props) =>{
               <TextField label="Nombre" name='name' type='name' value={state.name} onChange={handleChange} required />
               <TextField label="Porción Recomendada" name='recommendedServing' type='recommendedServing' value={state.recommendedServing} onChange={handleChange} required />
               <TextField label="Calorias por Porción" name='caloriesPerServing' type='caloriesPerServing' value={state.caloriesPerServing} onChange={handleChange} required />
+              <Combobox
+                data={props.foodCategories}
+                textField='name'
+                onSelect={handleChangeComboBox}
+                groupBy={category => category.userId}
+                renderListGroup={ ({group}) => ( //group es el userId
+                  <span>{group === null ? 'Default' : 'Custom'}</span>
+                )}
+              />
               <button onClick={handleSubmitEdit} className='button'>Finalizar edición</button>
               <p>{state.errorMessage}</p>
             </form>
-            <Combobox
-                data={[
-                  {name: "Ver todos los alimentos", foodCategoryId: 0 ,userId: 0},
-                  {name: "Frutas verdes", foodCategoryId: 2 ,userId: 4},
-                  {name: "Carnes", foodCategoryId: 3 ,userId: 0},
-                  {name: "Carnes de animal terrestre", foodCategoryId: 4 ,userId: 4},
-                  {name: "Carbohidratos", foodCategoryId: 3 ,userId: 0},
-                  {name: "Crear nueva categoría", foodCategoryId: -1 ,userId: -1}
-                ]}
-                textField='name'
-                // onSelect={this.alertWhenSelected}
-                //onChange={alertWhenChanged}
-                groupBy={person => person.userId}
-                renderListGroup={ ({group}) => ( //group es el userId
-                  <span>{group == 0 ? 'Default' : 'Custom'}</span>
-                )}
-              />
           </Modal.Body>
           <Modal.Footer>
             <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
@@ -85,11 +88,12 @@ const AddCustomFoodModal = (props) =>{
   } else {
     const handleSubmitAdd = async (event) => {
       event.preventDefault();
-      await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, props.userId);
+      await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId, props.userId);
       setState({
         name: '',
         recommendedServing: '',
         caloriesPerServing: '',
+        foodCategoryId: '',
         errorMessage: ''
       });
     };
@@ -117,20 +121,12 @@ const AddCustomFoodModal = (props) =>{
               <TextField label="Porción Recomendada" name='recommendedServing' type='recommendedServing' value={state.recommendedServing} onChange={handleChange} required />
               <TextField label="Calorias por Porción" name='caloriesPerServing' type='caloriesPerServing' value={state.caloriesPerServing} onChange={handleChange} required />
               <Combobox
-                data={[
-                  {name: "Ver todos los alimentos", foodCategoryId: 0 ,userId: 0},
-                  {name: "Frutas verdes", foodCategoryId: 2 ,userId: 4},
-                  {name: "Carnes", foodCategoryId: 3 ,userId: 0},
-                  {name: "Carnes de animal terrestre", foodCategoryId: 4 ,userId: 4},
-                  {name: "Carbohidratos", foodCategoryId: 3 ,userId: 0},
-                  {name: "Crear nueva categoría", foodCategoryId: -1 ,userId: -1}
-                ]}
+                data={props.foodCategories}
                 textField='name'
-                // onSelect={this.alertWhenSelected}
-                //onChange={alertWhenChanged}
-                groupBy={person => person.userId}
+                onSelect={handleChangeComboBox}
+                groupBy={category => category.userId}
                 renderListGroup={ ({group}) => ( //group es el userId
-                  <span>{group == 0 ? 'Default' : 'Custom'}</span>
+                  <span>{group === null ? 'Default' : 'Custom'}</span>
                 )}
               />
               <button onClick={handleSubmitAdd} className='button'>Agregar</button>

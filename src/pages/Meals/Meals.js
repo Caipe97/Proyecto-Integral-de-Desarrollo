@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMeal, getMealsFromUser, deleteMeal, addFoodToCurrentMeal, removeFoodFromCurrentMeal, resetCurrentMeal, updateCurrentMeal, changeCurrentMealNameAndDateEaten } from '../../store/meals/mealsActions';
-import { getAllFoods, addCustomFood, editCustomFood, deleteCustomFood } from'../../store/foods/foodsActions';
+import { getAllFoods, addCustomFood, editCustomFood, deleteCustomFood, getFoodCategories, createCategory, deleteCategory, editCategory } from'../../store/foods/foodsActions';
 import './Meals.css';
 import { logout } from '../../store/userData/userDataActions';
 import MealsMainPage from '../../components/MealsMainPage/MealsMainPage';
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
     meals: state.mealsReducer.meals,
     currentMeal: state.mealsReducer.currentMeal,
     isPending: state.mealsReducer.isPending,
-    foods: state.foodsReducer.foods
+    foods: state.foodsReducer.foods,
+    foodCategories: state.foodsReducer.foodCategories
   }
 }
 
@@ -28,9 +29,13 @@ const mapDispatchToProps = (dispatch) => {
     onResetCurrentMeal: () => dispatch(resetCurrentMeal()),
     onUpdateCurrentMeal: (meal) => dispatch(updateCurrentMeal(meal)),
     onChangeCurrentMealNameAndDateEaten: (newName, newDateEaten) => dispatch(changeCurrentMealNameAndDateEaten(newName, newDateEaten)),
-    onAddCustomFood: (name, recommendedServing, caloriesPerServing, userId) => dispatch(addCustomFood(name, recommendedServing, caloriesPerServing, userId)),
-    onEditCustomFood: (foodId, name, recommendedServing, caloriesPerServing) => dispatch(editCustomFood(foodId, name, recommendedServing, caloriesPerServing)),
-    onDeleteCustomFood: (foodId) => dispatch(deleteCustomFood(foodId))
+    onAddCustomFood: (name, recommendedServing, caloriesPerServing, foodCategoryId, userId) => dispatch(addCustomFood(name, recommendedServing, caloriesPerServing, foodCategoryId, userId)),
+    onEditCustomFood: (foodId, name, recommendedServing, caloriesPerServing, foodCategoryId) => dispatch(editCustomFood(foodId, name, recommendedServing, caloriesPerServing, foodCategoryId)),
+    onDeleteCustomFood: (foodId) => dispatch(deleteCustomFood(foodId)),
+    onGetFoodCategories: (userId) => dispatch(getFoodCategories(userId)),
+    onCreateCategory: (name, userId) => dispatch(createCategory(name, userId)),
+    onDeleteCategory: (foodCategoryId) => dispatch(deleteCategory(foodCategoryId)),
+    onEditCategory: (foodCategoryId, name) => dispatch(editCategory(foodCategoryId, name))
   }
 }
 

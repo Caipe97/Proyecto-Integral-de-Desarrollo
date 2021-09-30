@@ -174,15 +174,11 @@ describe('DELETE_CUSTOM', () => {
         //     ],
         //     isPending: false
         // }
-        expect(reducers.foodsReducer(   exampleStateFoods4
-        , {
+        expect(reducers.foodsReducer(exampleStateFoods4, {
             type: DELETE_CUSTOM_FOOD_SUCCESS, 
-            payload: 
-               
-                    {foodId:1,name: 'Milanes', recommendedServing: 85, caloriesPerServing: 198,
-                
-            }
-        })).toEqual(exampleStateFoods4);
+            payload: [{foodId:1, name: 'Milanes', recommendedServing: 85, caloriesPerServing: 198}]
+        }
+        )).toEqual(exampleStateFoods4);
     })
 
     it('should handle DELETE_CUSTOM_FOOD_FAILED action', () => {

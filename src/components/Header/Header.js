@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 class Header extends Component {
   render() {
-    console.log(this.props)
     return (
       <div className="header" style={{ background: '#0E4749', paddingTop: '10px', paddingBottom: '10px', top: 0 }}>
         <nav className="navbar sticky-top navbar-expand-lg navbar-dark p-3">
