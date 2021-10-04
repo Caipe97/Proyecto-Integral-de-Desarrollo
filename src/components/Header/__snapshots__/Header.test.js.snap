@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Header tests expect to logout and go to login  not exists button 1`] = `
+<div
+  className="header"
+  style={
+    Object {
+      "background": "#0E4749",
+      "paddingBottom": "10px",
+      "paddingTop": "10px",
+      "top": 0,
+    }
+  }
+>
+  <nav
+    className="navbar sticky-top navbar-expand-lg navbar-dark p-3"
+  >
+    <div
+      className="container"
+    >
+      <img
+        alt="imagen tracking"
+        src="logo_small.png"
+        style={
+          Object {
+            "width": 200,
+          }
+        }
+      />
+    </div>
+  </nav>
+</div>
+`;
+
 exports[`Header tests expect to render Header component to render with signing in 1`] = `
 <div
   className="header"
@@ -56,6 +88,38 @@ exports[`Header tests expect to render Header component to render with signing i
           </li>
         </ul>
       </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Header tests expect to render Header component to user not defined 1`] = `
+<div
+  className="header"
+  style={
+    Object {
+      "background": "#0E4749",
+      "paddingBottom": "10px",
+      "paddingTop": "10px",
+      "top": 0,
+    }
+  }
+>
+  <nav
+    className="navbar sticky-top navbar-expand-lg navbar-dark p-3"
+  >
+    <div
+      className="container"
+    >
+      <img
+        alt="imagen tracking"
+        src="logo_small.png"
+        style={
+          Object {
+            "width": 200,
+          }
+        }
+      />
     </div>
   </nav>
 </div>

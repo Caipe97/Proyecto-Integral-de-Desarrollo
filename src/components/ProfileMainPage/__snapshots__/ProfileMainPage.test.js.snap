@@ -1,0 +1,595 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileMainPage tests expect to render ProfileMainPage component to render with signing in con comida 1`] = `
+<div
+  className="contenedorPro"
+>
+  <Header
+    birthday="2010-01-21"
+    email="julianlivrone@gmail.com"
+    gender="masculino"
+    height={170}
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    meals={
+      Array [
+        Object {
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "foodsAndQuantity": Object {
+            "foods": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+          "mealId": 21,
+          "name": "queso",
+          "userId": 1,
+        },
+        Object {
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "foodsAndQuantity": Object {
+            "foods": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+          "mealId": 22,
+          "name": "carne",
+          "userId": 1,
+        },
+        Object {
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "foodsAndQuantity": Object {
+            "foods": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+          "mealId": 23,
+          "name": "jamon",
+          "userId": 1,
+        },
+      ]
+    }
+    name="julian"
+    onGetMealsFromUser={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onLogout={[MockFunction]}
+    password="asd"
+    preventDefault={[MockFunction]}
+    surname="livrone"
+    userId={1}
+    weight={90}
+  />
+  <div
+    className="contenidoPro"
+  >
+    <h1
+      style={
+        Object {
+          "color": "rgb(0, 38, 38)",
+          "fontFamily": "Arial",
+          "fontSize": 30,
+        }
+      }
+    >
+      Comidas
+    </h1>
+    <div
+      className="search"
+      style={
+        Object {
+          "display": "flex",
+          "justifyContent": "space-around",
+        }
+      }
+    >
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#f5f6f7",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "black",
+            "fontSize": "11px",
+            "height": 30,
+          }
+        }
+        type="button"
+      >
+        Agregar Comida
+      </button>
+    </div>
+    <div
+      className="comida"
+      style={
+        Object {
+          "borderRadius": "18px",
+        }
+      }
+    >
+      <CarouselContainer
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+        meals={
+          Array [
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "foods": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 21,
+              "name": "queso",
+              "userId": 1,
+            },
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "foods": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 22,
+              "name": "carne",
+              "userId": 1,
+            },
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "foods": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 23,
+              "name": "jamon",
+              "userId": 1,
+            },
+          ]
+        }
+      />
+      <MealsSearchBar
+        birthday="2010-01-21"
+        email="julianlivrone@gmail.com"
+        gender="masculino"
+        height={170}
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+        meals={
+          Array [
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "foods": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 21,
+              "name": "queso",
+              "userId": 1,
+            },
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "foods": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 22,
+              "name": "carne",
+              "userId": 1,
+            },
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "foods": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 23,
+              "name": "jamon",
+              "userId": 1,
+            },
+          ]
+        }
+        name="julian"
+        onGetMealsFromUser={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                1,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        onLogout={[MockFunction]}
+        password="asd"
+        preventDefault={[MockFunction]}
+        surname="livrone"
+        userId={1}
+        weight={90}
+      />
+    </div>
+  </div>
+  <div
+    className="sidebarPro"
+  >
+    <div
+      className="col3"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <h1
+        className="f1"
+        style={
+          Object {
+            "color": "rgb(0, 38, 38)",
+            "fontFamily": "Arial",
+          }
+        }
+      >
+        Perfil 
+        <img
+          alt="profile"
+          src="avatar.png"
+          style={
+            Object {
+              "width": 50,
+            }
+          }
+        />
+      </h1>
+    </div>
+    <div
+      className="col1"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    >
+      <p>
+        Nombre: 
+        julian
+      </p>
+      <p>
+        Apellido: 
+        livrone
+      </p>
+      <p>
+        Email: 
+        julianlivrone@gmail.com
+      </p>
+      <p>
+        Genero: 
+        masculino
+      </p>
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    >
+      <p>
+        Fecha de Nacimiento: 
+        2010-01-21
+      </p>
+      <p>
+        Peso: 
+        90
+      </p>
+      <p>
+        Altura: 
+        170
+      </p>
+      <Link
+        style={
+          Object {
+            "color": "black",
+            "marginBottom": "5%",
+          }
+        }
+        to="/resetPassword"
+      >
+        Cambia tu contraseña
+      </Link>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`ProfileMainPage tests expect to render ProfileMainPage component to render with signing in sin comida 1`] = `
+<div
+  className="contenedorPro"
+>
+  <Header
+    birthday="2010-01-21"
+    email="julianlivrone@gmail.com"
+    gender="masculino"
+    height={170}
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    meals={Array []}
+    name="julian"
+    onGetMealsFromUser={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onLogout={[MockFunction]}
+    password="asd"
+    preventDefault={[MockFunction]}
+    surname="livrone"
+    userId={1}
+    weight={90}
+  />
+  <div
+    className="contenidoPro"
+  >
+    <h1
+      style={
+        Object {
+          "color": "rgb(0, 38, 38)",
+          "fontFamily": "Arial",
+          "fontSize": 30,
+        }
+      }
+    >
+      Comidas
+    </h1>
+    <div
+      className="search"
+      style={
+        Object {
+          "display": "flex",
+          "justifyContent": "space-around",
+        }
+      }
+    >
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#f5f6f7",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "black",
+            "fontSize": "11px",
+            "height": 30,
+          }
+        }
+        type="button"
+      >
+        Agregar Comida
+      </button>
+    </div>
+    <div
+      className="comida"
+      style={
+        Object {
+          "borderRadius": "18px",
+          "textAlign": "center",
+        }
+      }
+    >
+      <MealsSearchBar
+        birthday="2010-01-21"
+        email="julianlivrone@gmail.com"
+        gender="masculino"
+        height={170}
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+        meals={Array []}
+        name="julian"
+        onGetMealsFromUser={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                1,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        onLogout={[MockFunction]}
+        password="asd"
+        preventDefault={[MockFunction]}
+        surname="livrone"
+        userId={1}
+        weight={90}
+      />
+    </div>
+  </div>
+  <div
+    className="sidebarPro"
+  >
+    <div
+      className="col3"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <h1
+        className="f1"
+        style={
+          Object {
+            "color": "rgb(0, 38, 38)",
+            "fontFamily": "Arial",
+          }
+        }
+      >
+        Perfil 
+        <img
+          alt="profile"
+          src="avatar.png"
+          style={
+            Object {
+              "width": 50,
+            }
+          }
+        />
+      </h1>
+    </div>
+    <div
+      className="col1"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    >
+      <p>
+        Nombre: 
+        julian
+      </p>
+      <p>
+        Apellido: 
+        livrone
+      </p>
+      <p>
+        Email: 
+        julianlivrone@gmail.com
+      </p>
+      <p>
+        Genero: 
+        masculino
+      </p>
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    >
+      <p>
+        Fecha de Nacimiento: 
+        2010-01-21
+      </p>
+      <p>
+        Peso: 
+        90
+      </p>
+      <p>
+        Altura: 
+        170
+      </p>
+      <Link
+        style={
+          Object {
+            "color": "black",
+            "marginBottom": "5%",
+          }
+        }
+        to="/resetPassword"
+      >
+        Cambia tu contraseña
+      </Link>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

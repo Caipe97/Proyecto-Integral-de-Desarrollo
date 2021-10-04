@@ -14,6 +14,22 @@ import {
   DELETE_CUSTOM_FOOD_PENDING,
   DELETE_CUSTOM_FOOD_SUCCESS,
   DELETE_CUSTOM_FOOD_FAILED,
+
+  GET_FOOD_CATEGORIES_PENDING,
+  GET_FOOD_CATEGORIES_SUCCESS,
+  GET_FOOD_CATEGORIES_FAILED,
+
+  CREATE_FOOD_CATEGORY_PENDING,
+  CREATE_FOOD_CATEGORY_SUCCESS,
+  CREATE_FOOD_CATEGORY_FAILED,
+
+  EDIT_FOOD_CATEGORY_PENDING,
+  EDIT_FOOD_CATEGORY_SUCCESS,
+  EDIT_FOOD_CATEGORY_FAILED,
+
+  DELETE_FOOD_CATEGORY_PENDING,
+  DELETE_FOOD_CATEGORY_SUCCESS,
+  DELETE_FOOD_CATEGORY_FAILED
    } from './foodsConstants';
 
 import * as reducers from './foodsReducer';
@@ -22,7 +38,57 @@ const initialStateFoods = {
     foods: [],
     isPending: false
 }
-
+const initialStateFoodCategories={
+    foodCategories:[],
+    isPending:false
+}
+const pendingStateFoodCategories={
+    ...initialStateFoodCategories,
+    isPending:true
+}
+const exampleStateFoodCategories={
+    foodCategories:[
+        {
+          foodCategoryId: 1,
+          name: "Fruta",
+          createdAt: "2021-09-30T14:09:34.756Z",
+          updatedAt: "2021-09-30T14:09:34.756Z",
+          userId: null
+        },
+        {
+          foodCategoryId: 7,
+          name: "Fideos",
+          createdAt: "2021-09-30T18:58:58.542Z",
+          updatedAt: "2021-09-30T18:58:58.542Z",
+          userId: null
+        }
+      ],
+    isPending:true
+}
+const exampleStateFoodCategories2={
+    foodCategories:[
+        {
+          foodCategoryId: 1,
+          name: "Fruta",
+          createdAt: "2021-09-30T14:09:34.756Z",
+          updatedAt: "2021-09-30T14:09:34.756Z",
+          userId: null
+        }
+      ],
+    isPending:true
+}
+const exampleStateFoodCategories2R={
+    foodCategories:[
+        {
+          foodCategoryId: 1,
+          name: "Frutas",
+          createdAt: "2021-09-30T14:09:34.756Z",
+          updatedAt: "2021-09-30T14:09:34.756Z",
+          userId: null
+        }
+      ],
+    isPending:false
+}
 const pendingStateFoods1 = {
     ...initialStateFoods,
     isPending: true
@@ -162,18 +228,7 @@ describe('DELETE_CUSTOM', () => {
    
     
     it('should handle DELETE_CUSTOM_FOOD_SUCCESS action with initial state meals empty', () => {
-        // const exampleStateFoods4 = {
-        //     foods: [
-        //         {foodId:1,name: 'Milanes', recommendedServing: 85, caloriesPerServing: 198,},
-        //     ],
-        //     isPending: false
-        // }
-        // const exampleStateFoods4sin = {
-        //     foods: [
-               
-        //     ],
-        //     isPending: false
-        // }
+  
         expect(reducers.foodsReducer(exampleStateFoods4, {
             type: DELETE_CUSTOM_FOOD_SUCCESS, 
             payload: [{foodId:1, name: 'Milanes', recommendedServing: 85, caloriesPerServing: 198}]
@@ -183,5 +238,155 @@ describe('DELETE_CUSTOM', () => {
 
     it('should handle DELETE_CUSTOM_FOOD_FAILED action', () => {
         expect(reducers.foodsReducer(pendingStateFoods1, {type: DELETE_CUSTOM_FOOD_FAILED, payload: 'Error'})).toEqual({...initialStateFoods, error: 'Error'});
+    })
+})
+
+describe('GET_FOOD_CATEGORIES', () => {
+    it('should return the same state', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {})).toEqual(initialStateFoodCategories);
+    })
+
+    it('should handle GET_FOOD_CATEGORIES_PENDING action', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: GET_FOOD_CATEGORIES_PENDING})).toEqual(pendingStateFoodCategories);
+    })
+    // const initialStateFoodCategories={
+    //     foodCategories:[],
+    //     isPending:false
+    // }
+    // const pendingStateFoodCategories={
+    //     ...initialStateFoodCategories,
+    //     isPending:true
+    // }
+    // const exampleStateFoodCategories={
+    //     foodCategories:[
+    //         {
+    //           foodCategoryId: 1,
+    //           name: "Fruta",
+    //           createdAt: "2021-09-30T14:09:34.756Z",
+    //           updatedAt: "2021-09-30T14:09:34.756Z",
+    //           userId: null
+    //         },
+    //         {
+    //           foodCategoryId: 7,
+    //           name: "Fideos",
+    //           createdAt: "2021-09-30T18:58:58.542Z",
+    //           updatedAt: "2021-09-30T18:58:58.542Z",
+    //           userId: null
+    //         }
+    //       ],
+    //     isPending:true
+    // }
+    it('should handle GET_FOOD_CATEGORIES_SUCCESS action with initial state meals empty', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {
+            type: GET_FOOD_CATEGORIES_SUCCESS, 
+            payload:[
+                {
+                  foodCategoryId: 1,
+                  name: "Fruta",
+                  createdAt: "2021-09-30T14:09:34.756Z",
+                  updatedAt: "2021-09-30T14:09:34.756Z",
+                  userId: null
+                },
+                {
+                  foodCategoryId: 7,
+                  name: "Fideos",
+                  createdAt: "2021-09-30T18:58:58.542Z",
+                  updatedAt: "2021-09-30T18:58:58.542Z",
+                  userId: null
+                },
+              ],
+        })).toEqual({...exampleStateFoodCategories,isPending:false});
+    })
+
+    it('should handle GET_FOOD_CATEGORIES_FAILED action', () => {
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: GET_FOOD_CATEGORIES_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
+    })
+})
+
+describe('CREATE_FOOD_CATEGORY', () => {
+    it('should return the same state', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {})).toEqual(initialStateFoodCategories);
+    })
+
+    it('should handle CREATE_FOOD_CATEGORY_PENDING action', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: CREATE_FOOD_CATEGORY_PENDING})).toEqual(pendingStateFoodCategories);
+    })
+
+    it('should handle CREATE_FOOD_CATEGORY_SUCCESS action with initial state meals empty', () => {
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {
+            type: CREATE_FOOD_CATEGORY_SUCCESS, 
+            payload:[
+                {
+                  foodCategoryId: 1,
+                  name: "Fruta",
+                  createdAt: "2021-09-30T14:09:34.756Z",
+                  updatedAt: "2021-09-30T14:09:34.756Z",
+                  userId: null
+                },
+                {
+                  foodCategoryId: 7,
+                  name: "Fideos",
+                  createdAt: "2021-09-30T18:58:58.542Z",
+                  updatedAt: "2021-09-30T18:58:58.542Z",
+                  userId: null
+                }
+              ],
+        })).toEqual({...exampleStateFoodCategories,isPending:false});
+    })
+
+    it('should handle CREATE_FOOD_CATEGORY_FAILED action', () => {
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: CREATE_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
+    })
+})
+
+/////////////////////////////////////////////////////////////////////////
+describe('EDIT_FOOD_CATEGORY', () => {
+    it('should return the same state', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {})).toEqual(initialStateFoodCategories);
+    })
+
+    it('should handle EDIT_FOOD_CATEGORY_PENDING action', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: EDIT_FOOD_CATEGORY_PENDING})).toEqual(pendingStateFoodCategories);
+    })
+
+    it('should handle EDIT_FOOD_CATEGORY_SUCCESS action with initial state meals empty', () => {
+        expect(reducers.foodsReducer(exampleStateFoodCategories2, {
+            type: EDIT_FOOD_CATEGORY_SUCCESS, 
+            payload:[
+                {
+                  foodCategoryId: 1,
+                  name: "Frutas",
+                  createdAt: "2021-09-30T14:09:34.756Z",
+                  updatedAt: "2021-09-30T14:09:34.756Z",
+                  userId: null
+                }
+              ],
+        })).toEqual(exampleStateFoodCategories2R);
+    })
+
+    it('should handle EDIT_FOOD_CATEGORY_FAILED action', () => {
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: EDIT_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
+    })
+})
+
+describe('DELETE_FOOD_CATEGORY', () => {
+    it('should return the same state', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {})).toEqual(initialStateFoodCategories);
+    })
+
+    it('should handle DELETE_FOOD_CATEGORY_PENDING action', () => {
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: DELETE_FOOD_CATEGORY_PENDING})).toEqual(pendingStateFoodCategories);
+    })
+
+    it('should handle DELETE_FOOD_CATEGORY_SUCCESS action with initial state meals empty', () => {
+        expect(reducers.foodsReducer(exampleStateFoodCategories2, {
+            type: DELETE_FOOD_CATEGORY_SUCCESS, 
+            payload:[
+              ]
+        })).toEqual(initialStateFoodCategories);
+    })
+
+    it('should handle EDIT_FOOD_CATEGORY_FAILED action', () => {
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: DELETE_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
     })
 })

@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomFoodModal tests expect to render CustomFoodModal component to render with signing in sin comida 1`] = `
+<Fragment>
+  <img
+    alt="editar"
+    onClick={[Function]}
+    src="edit.png"
+    style={
+      Object {
+        "cursor": "pointer",
+        "height": "20px",
+        "width": "20px",
+      }
+    }
+  />
+  <Modal
+    animation={true}
+    aria-labelledby="contained-modal-title-vcenter"
+    autoFocus={true}
+    backdrop={true}
+    centered={true}
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={true}
+    restoreFocus={true}
+    show={false}
+    size="lg"
+  >
+    <ModalHeader
+      closeButton={false}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        id="contained-modal-title-vcenter"
+      >
+        Editar Alimento Personalizado
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+      <form
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(TextField))
+          label="Nombre"
+          name="name"
+          onChange={[Function]}
+          required={true}
+          type="name"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Porción Recomendada"
+          name="recommendedServing"
+          onChange={[Function]}
+          required={true}
+          type="recommendedServing"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Calorias por Porción"
+          name="caloriesPerServing"
+          onChange={[Function]}
+          required={true}
+          type="caloriesPerServing"
+          value=""
+        />
+        <Combobox
+          data={
+            Array [
+              Object {
+                "createdAt": "2021-09-30T14:09:34.756Z",
+                "foodCategoryId": 1,
+                "name": "Fruta",
+                "updatedAt": "2021-09-30T14:09:34.756Z",
+                "userId": null,
+              },
+              Object {
+                "createdAt": "2021-09-30T18:58:58.542Z",
+                "foodCategoryId": 7,
+                "name": "Fideos",
+                "updatedAt": "2021-09-30T18:58:58.542Z",
+                "userId": null,
+              },
+            ]
+          }
+          groupBy={[Function]}
+          onSelect={[Function]}
+          renderListGroup={[Function]}
+          textField="name"
+        />
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          Finalizar edición
+        </button>
+        <p />
+      </form>
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Cerrar
+      </Button>
+    </ModalFooter>
+  </Modal>
+</Fragment>
+`;

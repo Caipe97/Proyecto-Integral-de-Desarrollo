@@ -46,9 +46,28 @@ exports[`Modal tests expect t2 1`] = `
       <p>
         Alimentos consumidos:
       </p>
+      <div
+        key="1"
+        style={
+          Object {
+            "background": "#B6E052",
+            "textAlign": "center",
+            "top": "3px",
+          }
+        }
+      >
+        <p>
+          1
+           x 
+          Milanesa
+          : 
+          198
+           calorias en total
+        </p>
+      </div>
       <p>
         Total de calorias consumidas en la comida: 
-        0
+        198
       </p>
     </ModalBody>
     <ModalFooter>

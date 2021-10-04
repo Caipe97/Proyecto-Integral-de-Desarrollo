@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to render with signing in sin comida 1`] = `
+<div
+  className="table-responsive"
+  style={
+    Object {
+      "backgroundColor": "#B6E052",
+    }
+  }
+>
+  <div
+    className="barraBusquedaNombre"
+    style={
+      Object {
+        "backgroundColor": "#B6E052",
+      }
+    }
+  >
+    <Combobox
+      data={Array []}
+      groupBy={[Function]}
+      onSelect={[Function]}
+      renderListGroup={[Function]}
+      textField="name"
+    />
+    <AddCategoryModal
+      onCreateCategory={[MockFunction]}
+    />
+    <DeleteCategoryModal
+      onDeleteCategory={[MockFunction]}
+    />
+    <EditCategoryModal
+      onEditCategory={[MockFunction]}
+    />
+    <input
+      className="textField"
+      name="busquedaNombre"
+      onChange={[Function]}
+      placeholder="Buscar por nombre"
+      style={
+        Object {
+          "borderRadius": "13px",
+        }
+      }
+      type="text"
+      value=""
+    />
+    <button
+      className="btnBuscar"
+      style={
+        Object {
+          "borderRadius": "19px",
+        }
+      }
+      type="button"
+    >
+       
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              512,
+              512,
+              Array [],
+              "f002",
+              "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z",
+            ],
+            "iconName": "search",
+            "prefix": "fas",
+          }
+        }
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        swapOpacity={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </button>
+  </div>
+  <Memo()
+    columns={Array []}
+    conditionalRowStyles={
+      Array [
+        Object {
+          "style": Object {
+            "&:hover": Object {
+              "cursor": "pointer",
+            },
+            "backgroundColor": "#B6E052",
+            "color": "black",
+          },
+          "when": [Function],
+        },
+      ]
+    }
+    customStyles={
+      Object {
+        "headCells": Object {
+          "style": Object {
+            "&:not(:last-of-type)": Object {},
+          },
+        },
+        "headRow": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "header": Object {
+          "style": Object {
+            "background": "#CCDDE2",
+            "borderRadius": "17px",
+            "minHeight": "56px",
+            "textShadow": "1px 1px black",
+          },
+        },
+        "pagination": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "row": Object {
+          "pointer": Object {
+            "backgroundColor": "blue",
+          },
+        },
+      }
+    }
+    data={Array []}
+    fixedHeader={true}
+    fixedHeaderScrollHeight="600px"
+    noDataComponent={
+      <span>
+        No se encontró ningún alimento
+      </span>
+    }
+    pagination={true}
+    paginationComponentOptions={
+      Object {
+        "rangeSeparatorText": "de",
+        "rowsPerPageText": "Filas por Página",
+        "selectAllRowsItem": true,
+        "selectAllRowsItemText": "Todos",
+      }
+    }
+    pointer={true}
+    title="Alimentos"
+  />
+</div>
+`;

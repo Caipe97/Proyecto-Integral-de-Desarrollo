@@ -70,4 +70,10 @@ describe('ResetPasswordMainPage tests', () => {
         expect(setTimeout).toHaveBeenCalledTimes(0);
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(0);
     })
+    it('button 2 click', () => {
+        wrapper.find('[type="button"]').at(0).simulate('click',preventDefault);
+        expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
+        
+        expect(historyMock.push.mock.calls[0]).toEqual(['/profile']);
+    })
 })

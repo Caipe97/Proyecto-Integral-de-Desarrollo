@@ -66,7 +66,11 @@
       "enzyme-to-json/serializer"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{ts,js}"
+      "src/**/*.{ts,js}",
+      "!src/serviceWorker.ts",
+      "!src/index.js",
+      "!src/pages/Login/Login.js",
+      "!src/pages/App/App.js"
     ]
   }
 }

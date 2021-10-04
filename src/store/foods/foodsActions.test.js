@@ -16,6 +16,21 @@ import {
     DELETE_CUSTOM_FOOD_PENDING,
     DELETE_CUSTOM_FOOD_SUCCESS,
     DELETE_CUSTOM_FOOD_FAILED,
+    GET_FOOD_CATEGORIES_PENDING,
+    GET_FOOD_CATEGORIES_SUCCESS,
+    GET_FOOD_CATEGORIES_FAILED,
+  
+    CREATE_FOOD_CATEGORY_PENDING,
+    CREATE_FOOD_CATEGORY_SUCCESS,
+    CREATE_FOOD_CATEGORY_FAILED,
+  
+    EDIT_FOOD_CATEGORY_PENDING,
+    EDIT_FOOD_CATEGORY_SUCCESS,
+    EDIT_FOOD_CATEGORY_FAILED,
+  
+    DELETE_FOOD_CATEGORY_PENDING,
+    DELETE_FOOD_CATEGORY_SUCCESS,
+    DELETE_FOOD_CATEGORY_FAILED
    } from './foodsConstants'
 
 const mockStore = configureMockStore([thunkMiddleware]);
@@ -222,8 +237,8 @@ describe("get all foods actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for deleteCustomFood", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
-    
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); 
+
         const expectedActions = [
         { type: DELETE_CUSTOM_FOOD_PENDING },
         {
@@ -233,6 +248,270 @@ describe("get all foods actions", () => {
         ];
 
         store.dispatch(actions.deleteCustomFood(1))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    it("should handle requesting getFoodCategoriesPending API", () => {
+        const expectedAction = {
+            type: GET_FOOD_CATEGORIES_PENDING,
+        };
+        store.dispatch(actions.getFoodCategories(1));
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should get the SUCCESS action after receiving data for getFoodCategories", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {
+              foodCategoryId: 1,
+              name: "Fruta",
+              createdAt: "2021-09-30T14:09:34.756Z",
+              updatedAt: "2021-09-30T14:09:34.756Z",
+              userId: null
+            },
+        
+          ]))
+
+        const expectedActions = [
+            { type: GET_FOOD_CATEGORIES_PENDING},
+            { 
+                type: GET_FOOD_CATEGORIES_SUCCESS,
+                payload: [
+                    {
+                      foodCategoryId: 1,
+                      name: "Fruta",
+                      createdAt: "2021-09-30T14:09:34.756Z",
+                      updatedAt: "2021-09-30T14:09:34.756Z",
+                      userId: null
+                    },
+                  
+                  ]
+            }
+        ];
+
+        store.dispatch(actions.getFoodCategories(1))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for getFoodCategories", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); 
+    
+        const expectedActions = [
+        { type: GET_FOOD_CATEGORIES_PENDING },
+        {
+            type: GET_FOOD_CATEGORIES_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.getFoodCategories(1))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    it("should handle requesting createCategoryPending API", () => {
+        const expectedAction = {
+            type: CREATE_FOOD_CATEGORY_PENDING,
+        };
+        store.dispatch(actions.createCategory(1));
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should get the SUCCESS action after receiving data for createCategory", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {
+              foodCategoryId: 3,
+              name: "Verduras",
+              createdAt: "2021-09-30T14:09:34.756Z",
+              updatedAt: "2021-09-30T14:09:34.756Z",
+              userId: null
+            },
+        
+          ]))
+
+        const expectedActions = [
+            { type: CREATE_FOOD_CATEGORY_PENDING},
+            { 
+                type: CREATE_FOOD_CATEGORY_SUCCESS,
+                payload: [
+                    {
+                      foodCategoryId: 3,
+                      name: "Verduras",
+                      createdAt: "2021-09-30T14:09:34.756Z",
+                      updatedAt: "2021-09-30T14:09:34.756Z",
+                      userId: null
+                    },
+                  
+                  ]
+            }
+        ];
+
+        store.dispatch(actions.createCategory('Verduras',1))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for createCategory", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
+    
+        const expectedActions = [
+        { type: CREATE_FOOD_CATEGORY_PENDING },
+        {
+            type: CREATE_FOOD_CATEGORY_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.createCategory(1))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    it("should handle requesting editCategoryPending API", () => {
+        const expectedAction = {
+            type: EDIT_FOOD_CATEGORY_PENDING,
+        };
+        store.dispatch(actions.editCategory(1,'Verduras'));
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should get the SUCCESS action after receiving data for editCategory", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {
+              foodCategoryId: 3,
+              name: "Verduras Personales",
+              createdAt: "2021-09-30T14:09:34.756Z",
+              updatedAt: "2021-09-30T14:09:34.756Z",
+              userId: null
+            },
+        
+          ]))
+
+        const expectedActions = [
+            { type: EDIT_FOOD_CATEGORY_PENDING},
+            { 
+                type: EDIT_FOOD_CATEGORY_SUCCESS,
+                payload: [
+                    {
+                      foodCategoryId: 3,
+                      name: "Verduras Personales",
+                      createdAt: "2021-09-30T14:09:34.756Z",
+                      updatedAt: "2021-09-30T14:09:34.756Z",
+                      userId: null
+                    },
+                  
+                  ]
+            }
+        ];
+
+        store.dispatch(actions.editCategory(3,'Verduras Personales'))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for editCategory", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
+    
+        const expectedActions = [
+        { type: EDIT_FOOD_CATEGORY_PENDING },
+        {
+            type: EDIT_FOOD_CATEGORY_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.editCategory(3,'Verduras'))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+    it("should handle requesting deleteCategoryPending API", () => {
+        const expectedAction = {
+            type: DELETE_FOOD_CATEGORY_PENDING,
+        };
+        store.dispatch(actions.deleteCategory(1));
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should get the SUCCESS action after receiving data for deleteCategory", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {
+              foodCategoryId: 3,
+              name: "Verduras Personales",
+              createdAt: "2021-09-30T14:09:34.756Z",
+              updatedAt: "2021-09-30T14:09:34.756Z",
+              userId: null
+            },
+        
+          ]))
+
+        const expectedActions = [
+            { type: DELETE_FOOD_CATEGORY_PENDING},
+            { 
+                type: DELETE_FOOD_CATEGORY_SUCCESS,
+                payload: [
+                    {
+                      foodCategoryId: 3,
+                      name: "Verduras Personales",
+                      createdAt: "2021-09-30T14:09:34.756Z",
+                      updatedAt: "2021-09-30T14:09:34.756Z",
+                      userId: null
+                    },
+                  
+                  ]
+            }
+        ];
+
+        store.dispatch(actions.deleteCategory(3))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for deleteCategory", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
+    
+        const expectedActions = [
+        { type: DELETE_FOOD_CATEGORY_PENDING },
+        {
+            type: DELETE_FOOD_CATEGORY_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.deleteCategory(3))
         .then(() => {
             const actions = store.getActions();
             expect(actions).toEqual(expectedActions);
