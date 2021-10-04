@@ -65,14 +65,14 @@ describe('ModalEditCategoryModal tests', () => {
     //     wrapper.find('foodCategoryId').at(0).simulate('change', { target: { name: 'foodCategoryId', value: 1 } });
 
     // })
-    it('handleChange expect to render EditCategoryModal component to location state not in button push profile', () => {
-        //wrapper1.find('DatePicker').at(0).find('onChange').simulate('click',preventDefault);
-        //wrapper1.find('Textfield').at(0).simulate('click');
+    // it('handleChange expect to render EditCategoryModal component to location state not in button push profile', () => {
+    //     //wrapper1.find('DatePicker').at(0).find('onChange').simulate('click',preventDefault);
+    //     //wrapper1.find('Textfield').at(0).simulate('click');
         
-        wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'tomate' } });
-        //expect(wrapper1.instance().handleChangeDateEaten('12-12-1212 12:12 12')).toHaveBeenCalledTimes(1);
-        //expect( wrapper1.find('DatePicker').at(0).find('onChange')).toHaveBeenCalled();
-     })
+    //     wrapper.find('[type="name"]').at(0).simulate('change', { target: { name: 'name', value: 'tomate' } });
+    //     //expect(wrapper1.instance().handleChangeDateEaten('12-12-1212 12:12 12')).toHaveBeenCalledTimes(1);
+    //     //expect( wrapper1.find('DatePicker').at(0).find('onChange')).toHaveBeenCalled();
+    //  })
      it('changecombobox expect to render EditCategoryModal component to location state not in button push profile', async() => {
         //wrapper1.find('DatePicker').at(0).find('onChange').simulate('click',preventDefault);
         //wrapper1.find('Textfield').at(0).simulate('click');

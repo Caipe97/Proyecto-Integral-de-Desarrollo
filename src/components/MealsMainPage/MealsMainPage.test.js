@@ -82,7 +82,7 @@ describe('MealsMainPage tests', () => {
     it('expect to render MealsMainPage component to location state not ', () => {
       expect(wrapper2).toMatchSnapshot();//else
   })
-  it('expect to render MealsMainPage component to location state not in button push profile', () => {
+  it('expect to render MealsMainPage component to location state not in button push profile',() => {
     //xpect(wrapper2).toMatchSnapshot();//else
     wrapper2.find('[type="button"]').at(0).simulate('click');
     expect(wrapper2.instance().props.history.push).toHaveBeenCalledTimes(1);
@@ -135,12 +135,12 @@ it('expect to render MealsMainPage component to location state in button push pr
   expect(historyMock1.push.mock.calls[0]).toEqual(['/profile']);
 
 })
-it('handleSubmitCreate  expect to render MealsMainPage component to location state not in button push profile', async() => {
+it('handleSubmitCreate  expect to render MealsMainPage component to location state not in button push profile',() => {
   //wrapper1.find('DatePicker').at(0).find('onChange').simulate('click',preventDefault);
   //wrapper1.find('Textfield').at(0).simulate('click');
   //jest.useFakeTimers();
   // wrapper1.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'tomate' } });
-  await wrapper2.find('[className="btn btn--primary btn--s"]').at(0).simulate('click',preventDefault);
+   wrapper2.find('[className="btn btn--primary btn--s"]').at(0).simulate('click',preventDefault);
   expect(wrapper2.instance().props.onChangeCurrentMealNameAndDateEaten).toHaveBeenCalledTimes(1);
   expect(wrapper2.instance().props.onAddMeal).toHaveBeenCalledTimes(1);
   expect(wrapper2.instance().props.onResetCurrentMeal).toHaveBeenCalledTimes(1);
@@ -154,13 +154,13 @@ it('handleSubmitCreate  expect to render MealsMainPage component to location sta
   //   successMessage: 'Contraseña cambiada con exito, sera redirigido a Login en 5 segundos.'
   // });
 })
-it('DatePicker expect to render MealsMainPage component to location state in button push profile', () => {
-  //xpect(wrapper2).toMatchSnapshot();//else
-  expect(wrapper1.find('DatePicker')).toBeDefined();
- // wrapper1.find('DatePicker').simulate('click');
-  //.simulate('DatePicker', { target: {  value: '122143423253252' } });
-  // expect(wrapper1.instance().props.history.push).toHaveBeenCalledTimes(1);
-  // expect(historyMock1.push.mock.calls[0]).toEqual(['/profile']);
+// it('DatePicker expect to render MealsMainPage component to location state in button push profile', () => {
+//   //xpect(wrapper2).toMatchSnapshot();//else
+//   expect(wrapper1.find('DatePicker')).toBeDefined();
+//  // wrapper1.find('DatePicker').simulate('click');
+//   //.simulate('DatePicker', { target: {  value: '122143423253252' } });
+//   // expect(wrapper1.instance().props.history.push).toHaveBeenCalledTimes(1);
+//   // expect(historyMock1.push.mock.calls[0]).toEqual(['/profile']);
 
-})
+// })
 })

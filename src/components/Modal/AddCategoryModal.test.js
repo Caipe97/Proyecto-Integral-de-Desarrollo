@@ -47,10 +47,10 @@ describe('ModalAddCategoryModal tests', () => {
     //         errorMessage: ''
     //     });  
     // })
-    it('handleSubmit expect t11', async() => {
-        jest.useFakeTimers();
+    it('handleSubmit expect t11', () => {
+        ///jest.useFakeTimers();
 
-        await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
+         wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
  //expect(wrapper.instance().props.onCreateCategory).toHaveBeenCalledTimes(1);
         //wrapper.find('button').at(0).simulate('click',jest.fn());
            // await wrapper.find('[type="button"]').at(2).simulate('click');

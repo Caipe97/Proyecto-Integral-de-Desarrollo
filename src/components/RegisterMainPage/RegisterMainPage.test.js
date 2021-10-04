@@ -78,7 +78,7 @@ describe('RegisterMainPage tests', () => {
         });
     })
 
-    it('handleSubmit should update the state to its initial state (empty)', async () => {
+    it('handleSubmit should update the state to its initial state (empty)',async  () => {
         await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
         expect(wrapper.instance().state).toEqual({
             name: '',

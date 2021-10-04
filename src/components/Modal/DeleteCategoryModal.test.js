@@ -52,10 +52,10 @@ describe('ModalDeleteCategoryModal tests', () => {
         wrapper.find('img').at(0).simulate('click');
 
     })
-    it('handleSubmit expect t11', async () => {
+    it('handleSubmit expect t11',  () => {
 
-        jest.useFakeTimers();
-        await wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
+        // jest.useFakeTimers();
+        wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
 
     })
     // it('onChangeCombobox expect t12', async () => {
