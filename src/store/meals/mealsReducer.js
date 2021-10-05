@@ -21,12 +21,17 @@ import {
 
   UPDATE_CURRENT_MEAL_PENDING,
   UPDATE_CURRENT_MEAL_SUCCESS,
-  UPDATE_CURRENT_MEAL_FAILED
+  UPDATE_CURRENT_MEAL_FAILED,
+
+  GET_MEALS_BY_PERIOD_PENDING,
+  GET_MEALS_BY_PERIOD_SUCCESS,
+  GET_MEALS_BY_PERIOD_FAILED
  } from './mealsConstants';
 
 const initialStateMeals = {
   meals: [],
   currentMeal: {FoodList: []},
+  mealsByPeriod: [],
   isPending: false
 }
 
@@ -115,23 +120,40 @@ export const mealsReducer = (state=initialStateMeals, action={}) => {
             ...state,
             currentMeal: action.payload
           }
-          case UPDATE_CURRENT_MEAL_PENDING:
-            return {
-              ...state,
-              isPending: true
-            }
-          case UPDATE_CURRENT_MEAL_SUCCESS:
-            return {
-              ...state,
-              meals: action.payload,
-              isPending: false
-            }
-          case UPDATE_CURRENT_MEAL_FAILED:
-            return {
-              ...state,
-              isPending: false,
-              error: action.payload
-            }
+        case UPDATE_CURRENT_MEAL_PENDING:
+          return {
+            ...state,
+            isPending: true
+          }
+        case UPDATE_CURRENT_MEAL_SUCCESS:
+          return {
+            ...state,
+            meals: action.payload,
+            isPending: false
+          }
+        case UPDATE_CURRENT_MEAL_FAILED:
+          return {
+            ...state,
+            isPending: false,
+            error: action.payload
+          }
+        case GET_MEALS_BY_PERIOD_PENDING:
+          return {
+            ...state,
+            isPending: true
+          }
+        case GET_MEALS_BY_PERIOD_SUCCESS:
+          return {
+            ...state,
+            mealsByPeriod: action.payload,
+            isPending: false
+          }
+        case GET_MEALS_BY_PERIOD_FAILED:
+          return {
+            ...state,
+            isPending: false,
+            error: action.payload
+          }
     default:
       return state
   }

@@ -21,7 +21,11 @@ import {
 
   UPDATE_CURRENT_MEAL_PENDING,
   UPDATE_CURRENT_MEAL_SUCCESS,
-  UPDATE_CURRENT_MEAL_FAILED
+  UPDATE_CURRENT_MEAL_FAILED,
+
+  GET_MEALS_BY_PERIOD_PENDING,
+  GET_MEALS_BY_PERIOD_SUCCESS,
+  GET_MEALS_BY_PERIOD_FAILED
  } from './mealsConstants'
 
 export const addMeal = (userId, meal) => (dispatch) => {
@@ -105,4 +109,14 @@ export const updateCurrentMeal = (meal) => (dispatch) => {
   .then(response => response.json())
   .then(mealsData => dispatch({ type: UPDATE_CURRENT_MEAL_SUCCESS, payload: mealsData }))
   .catch(error => dispatch({ type: UPDATE_CURRENT_MEAL_FAILED, payload: error }))
+}
+
+export const getMealsByPeriod = (userId, dateStart, dateEnd) => (dispatch) => {
+  dispatch({ type: GET_MEALS_BY_PERIOD_PENDING });
+  return(
+    fetch(`https://jma-test-app.herokuapp.com/api/meals?userId=${userId}&dateStart=${dateStart}&dateEnd=${dateEnd}`)
+  )
+  .then(response => response.json())
+  .then(mealsByPeriodData => dispatch({ type: GET_MEALS_BY_PERIOD_SUCCESS, payload: mealsByPeriodData }))
+  .catch(error => dispatch({ type: GET_MEALS_BY_PERIOD_FAILED, payload: error }))
 }
