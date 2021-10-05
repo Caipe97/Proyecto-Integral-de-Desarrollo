@@ -7,6 +7,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
   <Header
     birthday="2010-01-21"
     email="julianlivrone@gmail.com"
+    foodCategories={Array []}
     gender="masculino"
     height={170}
     history={
@@ -67,6 +68,21 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       ]
     }
     name="julian"
+    onGetFoodCategories={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onGetMealsFromUser={
       [MockFunction] {
         "calls": Array [
@@ -199,6 +215,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       <MealsSearchBar
         birthday="2010-01-21"
         email="julianlivrone@gmail.com"
+        foodCategories={Array []}
         gender="masculino"
         height={170}
         history={
@@ -259,6 +276,21 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
           ]
         }
         name="julian"
+        onGetFoodCategories={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                1,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         onGetMealsFromUser={
           [MockFunction] {
             "calls": Array [
@@ -373,6 +405,148 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       </Link>
     </div>
   </div>
+  <div>
+    <form>
+      <r
+        allowSameDay={false}
+        customTimeInput={null}
+        dateFormat="dd-MM-yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        enableTabLoop={true}
+        excludeScrollbar={true}
+        focusSelectedMonth={false}
+        monthsShown={1}
+        name="date"
+        nextMonthButtonLabel="Next Month"
+        nextYearButtonLabel="Next Year"
+        onBlur={[Function]}
+        onCalendarClose={[Function]}
+        onCalendarOpen={[Function]}
+        onChange={[Function]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        placeholderText="Fecha de inicio"
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        previousYearButtonLabel="Previous Year"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected=""
+        shouldCloseOnSelect={true}
+        showFourColumnMonthYearPicker={false}
+        showFullMonthYearPicker={false}
+        showMonthYearPicker={false}
+        showPopperArrow={true}
+        showPreviousMonths={false}
+        showQuarterYearPicker={false}
+        showTimeInput={false}
+        showTimeSelect={true}
+        showTwoColumnMonthYearPicker={false}
+        showYearPicker={false}
+        strictParsing={false}
+        timeCaption="Time"
+        timeInputLabel="Time"
+        timeIntervals={30}
+        withPortal={false}
+        yearItemNumber={12}
+      />
+      <r
+        allowSameDay={false}
+        customTimeInput={null}
+        dateFormat="dd-MM-yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        enableTabLoop={true}
+        excludeScrollbar={true}
+        focusSelectedMonth={false}
+        monthsShown={1}
+        name="date"
+        nextMonthButtonLabel="Next Month"
+        nextYearButtonLabel="Next Year"
+        onBlur={[Function]}
+        onCalendarClose={[Function]}
+        onCalendarOpen={[Function]}
+        onChange={[Function]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        placeholderText="Fecha de finalización"
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        previousYearButtonLabel="Previous Year"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected=""
+        shouldCloseOnSelect={true}
+        showFourColumnMonthYearPicker={false}
+        showFullMonthYearPicker={false}
+        showMonthYearPicker={false}
+        showPopperArrow={true}
+        showPreviousMonths={false}
+        showQuarterYearPicker={false}
+        showTimeInput={false}
+        showTimeSelect={true}
+        showTwoColumnMonthYearPicker={false}
+        showYearPicker={false}
+        strictParsing={false}
+        timeCaption="Time"
+        timeInputLabel="Time"
+        timeIntervals={30}
+        withPortal={false}
+        yearItemNumber={12}
+      />
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Buscar comidas
+      </button>
+      <p />
+    </form>
+    <Chart>
+      <ChartTitle
+        text="Applications status - this month"
+      />
+      <ChartLegend
+        visible={false}
+      />
+      <ChartTooltip
+        render={[Function]}
+        visible={true}
+      />
+      <ChartSeries>
+        <ChartSeriesItem
+          categoryField="status"
+          data={Array []}
+          field="value"
+          type="donut"
+        >
+          <ChartSeriesLabels
+            background="none"
+            color="#fff"
+            content={[Function]}
+            visible={true}
+          />
+        </ChartSeriesItem>
+      </ChartSeries>
+    </Chart>
+  </div>
   <Footer />
 </div>
 `;
@@ -384,6 +558,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
   <Header
     birthday="2010-01-21"
     email="julianlivrone@gmail.com"
+    foodCategories={Array []}
     gender="masculino"
     height={170}
     history={
@@ -393,6 +568,21 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
     }
     meals={Array []}
     name="julian"
+    onGetFoodCategories={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onGetMealsFromUser={
       [MockFunction] {
         "calls": Array [
@@ -467,6 +657,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       <MealsSearchBar
         birthday="2010-01-21"
         email="julianlivrone@gmail.com"
+        foodCategories={Array []}
         gender="masculino"
         height={170}
         history={
@@ -476,6 +667,21 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         }
         meals={Array []}
         name="julian"
+        onGetFoodCategories={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                1,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         onGetMealsFromUser={
           [MockFunction] {
             "calls": Array [
