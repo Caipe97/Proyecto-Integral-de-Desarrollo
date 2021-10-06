@@ -7,7 +7,6 @@ import CarouselContainer from '../CarouselContainer/CarouselContainer';
 import avatar from '../../images/avatar.png';
 import MealsSearchBar from '../SearchBar/MealsSearchBar';
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import {
   Chart,
@@ -19,30 +18,9 @@ import {
   ChartTooltip,
 } from "@progress/kendo-react-charts";
 import "@progress/kendo-theme-material/dist/all.css";
-
-// Graph data
-const applicationsStatusThisMonth = [
-  {
-    status: "Accepted",
-    value: 14,
-    color: 'green',
-  },
-  {
-    status: "Interviewing",
-    value: 14,
-    color: 'yellow',
-  },
-  {
-    status: "Rejected",
-    value: 40,
-    color: 'red',
-  },
-  {
-    status: "Pending",
-    value: 32,
-    color: 'black',
-  },
-];
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // Show category label for each item in the donut graph
 const labelContent = e => e.dataItem.state;
@@ -62,21 +40,33 @@ class ProfileMainPage extends Component{
     this.state = {
       dateStart: '',
       dateEnd: '',
-      foodCategoriesWithQuantities: [],
+      foodCategoriesWithCalories: [],
       filteredFoodCategories: [],
+      checkboxsList: [],
       errorMessage: ''
     };
   }
-
+  // this.setState({ myArray: [...this.state.myArray, 'new value'] })
   async componentDidMount(){
     await this.props.onGetMealsFromUser(this.props.userId);
     await this.props.onGetFoodCategories(this.props.userId);
+    let foodCategoriesWithCaloriesCopy = [...this.state.foodCategoriesWithCalories];
+    let checkboxsListCopy = [...this.state.checkboxsList];
     this.props.foodCategories.forEach(foodCategory => {
-      this.state.foodCategoriesWithQuantities.push({
+      foodCategoriesWithCaloriesCopy.push({
         foodCategoryId: foodCategory.foodCategoryId,
         foodCategoryName: foodCategory.name,
-        quantity: 0
-      })
+        calories: 0
+      });
+      checkboxsListCopy.push({
+        foodCategoryId: foodCategory.foodCategoryId,
+        foodCategoryName: foodCategory.name,
+        checked: true
+      });
+    })
+    this.setState({
+      foodCategoriesWithCalories: foodCategoriesWithCaloriesCopy,
+      checkboxsList: checkboxsListCopy
     })
   }
 
@@ -100,39 +90,78 @@ class ProfileMainPage extends Component{
     })
   };
 
+  handleChangeCheckbox = (foodCategoryId) => {
+    this.setState({
+      checkboxsList: this.state.checkboxsList.map(checkbox => {
+        if(checkbox.foodCategoryId === foodCategoryId){
+          checkbox.checked = !checkbox.checked
+        }
+        return(checkbox);
+      })
+    })
+    this.calculateFoodCategoriesPercentages();
+  }
+
   handleSubmit = async event => {
-    this.state.filteredFoodCategories = [];
-    this.state.foodCategoriesWithQuantities.forEach(foodCategoryWithQuantity => {
-      foodCategoryWithQuantity.quantity = 0
-    });
     event.preventDefault();
     if(this.validateAll()){
       const dateStartString = this.state.dateStart.toString().substring(4, 15);
       const dateEndString = this.state.dateEnd.toString().substring(4, 15);
       await this.props.onGetMealsByPeriod(this.props.userId, dateStartString, dateEndString);
-      this.state.foodCategoriesWithQuantities.forEach(foodCategory => {
-        this.props.mealsByPeriod.forEach(meal => {
-          meal.FoodList.forEach(foodAndQuantity => {
-            if(foodAndQuantity.food.foodCategoryId === foodCategory.foodCategoryId){
-              foodCategory.quantity += foodAndQuantity.quantity;
-            }
-          });
+      this.setState({dateStart: '', dateEnd: ''});
+      this.calculateFoodCategoriesPercentages();
+    }
+  }
+
+  calculateFoodCategoriesPercentages = async () => {
+    //foodCategoriesWithCalories es el arreglo con todas las categorias y sus cantidades
+    //inicializacion de los arreglos que utilizo
+    await this.setState({ 
+      filteredFoodCategories: [] //resultado final con los porcentajes
+    });
+    console.log('Deberia estar vacio: ', this.state.filteredFoodCategories);
+    let foodCategoriesWithCaloriesCopy = []; //arreglo con las categorias y su contenido calorico filtrado segun los checkboxs
+    await this.state.foodCategoriesWithCalories.forEach((foodCategoryWithCalories) => {
+      this.state.checkboxsList.forEach(checkbox => {
+        if(foodCategoryWithCalories.foodCategoryId === checkbox.foodCategoryId){
+          if(checkbox.checked){
+            return foodCategoriesWithCaloriesCopy.push(foodCategoryWithCalories);
+          }
+        }
+      });
+    })
+    await foodCategoriesWithCaloriesCopy.forEach(foodCategoryWithCalories => {
+      foodCategoryWithCalories.calories = 0
+    });
+    //calculo la cantidad de calorias de cada alimento
+    await foodCategoriesWithCaloriesCopy.forEach(foodCategoryWithCalories => {
+      this.props.mealsByPeriod.forEach(meal => {
+        meal.FoodList.forEach(foodAndQuantity => {
+          if(foodAndQuantity.food.foodCategoryId === foodCategoryWithCalories.foodCategoryId){
+            foodCategoryWithCalories.calories += foodAndQuantity.quantity * foodAndQuantity.food.caloriesPerServing;
+          }
         });
       });
-      let totalQuantity = 0;
-      this.state.foodCategoriesWithQuantities.forEach(foodCategory => {
-        totalQuantity += foodCategory.quantity;
+    });
+    //calculo el total de calorias consumidas
+    let totalQuantity = 0;
+    await foodCategoriesWithCaloriesCopy.forEach(foodCategory => {
+      totalQuantity += foodCategory.calories;
+    })
+    //calculo el porcentaje de calorias consumidas para cada foodCategory
+    let filteredFoodCategoriesCopy = [...this.state.filteredFoodCategories];
+    await foodCategoriesWithCaloriesCopy.forEach(foodCategory => {
+      filteredFoodCategoriesCopy.push({
+        state: foodCategory.foodCategoryName,
+        value: foodCategory.calories / totalQuantity * 100
       })
-      this.state.foodCategoriesWithQuantities.forEach(foodCategory => {
-        this.state.filteredFoodCategories.push({
-          state: foodCategory.foodCategoryName,
-          value: foodCategory.quantity / totalQuantity * 100
-        })
-      })
-      console.log(this.state.foodCategoriesWithQuantities);
-      // this.setState({dateStart: '', dateEnd: ''});
-    }
-  }    
+    })
+    await this.setState({
+      filteredFoodCategories: filteredFoodCategoriesCopy
+    })
+    console.log('Final: ',this.state.filteredFoodCategories)
+    console.log(this.state)
+  }
 
   validateAll = () => {
     return this.validateDate(this.state.dateStart) && this.validateDate(this.state.dateEnd);
@@ -218,6 +247,21 @@ class ProfileMainPage extends Component{
                 </ChartSeriesItem>
               </ChartSeries>
             </Chart>
+            <p>Filtros</p>
+            {
+              this.state.checkboxsList.map((checkbox) => {
+                return(
+                  <FormGroup key={checkbox.foodCategoryId}>
+                    <FormControlLabel control={
+                      <Checkbox
+                        checked={checkbox.checked}
+                        onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
+                      />
+                    } label={checkbox.foodCategoryName} />
+                  </FormGroup>
+                )
+              })
+            }
           </div>
           <Footer />
         </div>
@@ -254,6 +298,61 @@ class ProfileMainPage extends Component{
               <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Cambia tu contraseña</Link>
             </div>
           </div>
+            <form>
+              <DatePicker
+                showTimeSelect
+                name='date'
+                selected={this.state.dateStart}
+                onChange={(date) => this.handleChangeDateStart(date)}
+                dateFormat="dd-MM-yyyy"
+                placeholderText='Fecha de inicio'
+              />
+              <DatePicker
+                showTimeSelect
+                name='date'
+                selected={this.state.dateEnd}
+                onChange={(date) => this.handleChangeDateEnd(date)}
+                dateFormat="dd-MM-yyyy"
+                placeholderText='Fecha de finalización'
+              />
+              <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
+              <p>{this.state.errorMessage}</p>
+            </form>
+            <Chart>
+              <ChartTitle text="Applications status - this month"/>
+              <ChartLegend visible={false}/>
+              <ChartTooltip render={renderTooltip} />
+              <ChartSeries>
+                <ChartSeriesItem
+                  type="donut"
+                  data={this.state.filteredFoodCategories}
+                  categoryField="status"
+                  field="value"
+                  
+                >
+                <ChartSeriesLabels
+                  color="#fff"
+                  background="none"
+                  content={labelContent}
+                />
+                </ChartSeriesItem>
+              </ChartSeries>
+            </Chart>
+            <p>Filtros</p>
+            {
+              this.state.checkboxsList.map((checkbox) => {
+                return(
+                  <FormGroup key={checkbox.foodCategoryId}>
+                    <FormControlLabel control={
+                      <Checkbox
+                        checked={checkbox.checked}
+                        onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
+                      />
+                    } label={checkbox.foodCategoryName} />
+                  </FormGroup>
+                )
+              })
+            }
           <Footer />
         </div>
       );
