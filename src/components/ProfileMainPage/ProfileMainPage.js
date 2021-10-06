@@ -8,31 +8,10 @@ import avatar from '../../images/avatar.png';
 import MealsSearchBar from '../SearchBar/MealsSearchBar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {
-  Chart,
-  ChartTitle,
-  ChartLegend,
-  ChartSeries,
-  ChartSeriesItem,
-  ChartSeriesLabels,
-  ChartTooltip,
-} from "@progress/kendo-react-charts";
-import "@progress/kendo-theme-material/dist/all.css";
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-
-// Show category label for each item in the donut graph
-const labelContent = e => e.dataItem.state;
-
-const renderTooltip = context => {
-  const { dataItem, value } = context.point || context;
-  return (
-    <div>
-      {dataItem.state}: {Math.round(value)}%
-    </div>
-  );
-};
+import { Doughnut, Bar } from 'react-chartjs-2';
 
 class ProfileMainPage extends Component{
   constructor(props) {
@@ -43,10 +22,11 @@ class ProfileMainPage extends Component{
       foodCategoriesWithCalories: [],
       filteredFoodCategories: [],
       checkboxsList: [],
+      chartData: {},
       errorMessage: ''
     };
   }
-  // this.setState({ myArray: [...this.state.myArray, 'new value'] })
+
   async componentDidMount(){
     await this.props.onGetMealsFromUser(this.props.userId);
     await this.props.onGetFoodCategories(this.props.userId);
@@ -159,8 +139,41 @@ class ProfileMainPage extends Component{
     await this.setState({
       filteredFoodCategories: filteredFoodCategoriesCopy
     })
-    console.log('Final: ',this.state.filteredFoodCategories)
-    console.log(this.state)
+    let labels = [];
+    let datasetsData = [];
+    this.state.filteredFoodCategories.forEach(element => {
+      labels.push(element.state);
+      datasetsData.push(element.value);
+    });
+    
+    this.setState({
+      chartData: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Calorias por mes',
+            data: datasetsData,
+            backgroundColor: [
+              'rgba(255, 99, 132)',
+              'rgba(54, 162, 235)',
+              'rgba(255, 206, 86)',
+              'rgba(75, 192, 192)',
+              'rgba(153, 102, 255)',
+              'rgba(255, 159, 64)',
+            ],
+            borderColor: [
+              'rgba(255, 99, 132)',
+              'rgba(54, 162, 235)',
+              'rgba(255, 206, 86)',
+              'rgba(75, 192, 192)',
+              'rgba(153, 102, 255)',
+              'rgba(255, 159, 64)',
+            ],
+            borderWidth: 1,
+          },
+        ],
+      }
+    })
   }
 
   validateAll = () => {
@@ -174,6 +187,7 @@ class ProfileMainPage extends Component{
 
   render() {
     const birthdayString = this.props.birthday.toString().substring(0,10);
+    console.log(this.state.data)
     if(this.props.meals[0]){
       return (
         <div className="contenedorPro">
@@ -227,26 +241,8 @@ class ProfileMainPage extends Component{
               <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
               <p>{this.state.errorMessage}</p>
             </form>
-            <Chart>
-              <ChartTitle text="Applications status - this month"/>
-              <ChartLegend visible={false}/>
-              <ChartTooltip render={renderTooltip} />
-              <ChartSeries>
-                <ChartSeriesItem
-                  type="donut"
-                  data={this.state.filteredFoodCategories}
-                  categoryField="status"
-                  field="value"
-                  
-                >
-                  <ChartSeriesLabels
-                    color="#fff"
-                    background="none"
-                    content={labelContent}
-                  />
-                </ChartSeriesItem>
-              </ChartSeries>
-            </Chart>
+            <Doughnut data={this.state.chartData}/>
+            <Bar data={this.state.chartData}/>
             <p>Filtros</p>
             {
               this.state.checkboxsList.map((checkbox) => {
@@ -318,26 +314,8 @@ class ProfileMainPage extends Component{
               <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
               <p>{this.state.errorMessage}</p>
             </form>
-            <Chart>
-              <ChartTitle text="Applications status - this month"/>
-              <ChartLegend visible={false}/>
-              <ChartTooltip render={renderTooltip} />
-              <ChartSeries>
-                <ChartSeriesItem
-                  type="donut"
-                  data={this.state.filteredFoodCategories}
-                  categoryField="status"
-                  field="value"
-                  
-                >
-                <ChartSeriesLabels
-                  color="#fff"
-                  background="none"
-                  content={labelContent}
-                />
-                </ChartSeriesItem>
-              </ChartSeries>
-            </Chart>
+            <Doughnut data={this.state.chartData}/>
+            <Bar data={this.state.chartData}/>
             <p>Filtros</p>
             {
               this.state.checkboxsList.map((checkbox) => {

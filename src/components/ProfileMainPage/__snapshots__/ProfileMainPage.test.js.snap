@@ -519,33 +519,12 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       </button>
       <p />
     </form>
-    <Chart>
-      <ChartTitle
-        text="Applications status - this month"
-      />
-      <ChartLegend
-        visible={false}
-      />
-      <ChartTooltip
-        render={[Function]}
-        visible={true}
-      />
-      <ChartSeries>
-        <ChartSeriesItem
-          categoryField="status"
-          data={Array []}
-          field="value"
-          type="donut"
-        >
-          <ChartSeriesLabels
-            background="none"
-            color="#fff"
-            content={[Function]}
-            visible={true}
-          />
-        </ChartSeriesItem>
-      </ChartSeries>
-    </Chart>
+    <ForwardRef
+      data={Object {}}
+    />
+    <ForwardRef
+      data={Object {}}
+    />
     <p>
       Filtros
     </p>
@@ -912,33 +891,12 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
     </button>
     <p />
   </form>
-  <Chart>
-    <ChartTitle
-      text="Applications status - this month"
-    />
-    <ChartLegend
-      visible={false}
-    />
-    <ChartTooltip
-      render={[Function]}
-      visible={true}
-    />
-    <ChartSeries>
-      <ChartSeriesItem
-        categoryField="status"
-        data={Array []}
-        field="value"
-        type="donut"
-      >
-        <ChartSeriesLabels
-          background="none"
-          color="#fff"
-          content={[Function]}
-          visible={true}
-        />
-      </ChartSeriesItem>
-    </ChartSeries>
-  </Chart>
+  <ForwardRef
+    data={Object {}}
+  />
+  <ForwardRef
+    data={Object {}}
+  />
   <p>
     Filtros
   </p>
