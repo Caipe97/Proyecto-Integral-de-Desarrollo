@@ -46,6 +46,17 @@ export const foodsReducer = (state=initialStateFoods, action={}) => {
         isPending: true
       }
     case GET_ALL_FOODS_SUCCESS:
+      //HACK, CAMBIAR LUEGO
+      console.log("HOLAAAA")
+      console.log("ACTION.PAYLOAD",action.payload)
+      action.payload.forEach(food => {
+        console.log(food.foodCategoryId)
+        if(food.foodCategoryId === null){
+          food.foodCategoryId = -2
+        }
+
+      }
+        )
       return {
         ...state,
         foods: action.payload,
