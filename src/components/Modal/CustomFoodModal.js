@@ -100,7 +100,7 @@ const AddCustomFoodModal = (props) =>{
 
     return (
       <>
-        <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
+        <Button  type="button" variant="primary" onClick={() => setModalShow(true)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>
           Agregar Alimento Personalizado
         </Button>
         

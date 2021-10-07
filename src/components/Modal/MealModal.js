@@ -15,7 +15,7 @@ const MealModal =(props) =>{
   }
   return (
     <>
-      <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
+      <Button  type="button" variant="primary" style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}} onClick={() => setModalShow(true)}>
         Mas info
       </Button>
       
@@ -38,8 +38,8 @@ const MealModal =(props) =>{
           {props.meal.FoodList.map((FoodListItem) => {
               totalCaloriesPerFood = FoodListItem.food.caloriesPerServing * FoodListItem.quantity
               return(
-                <div key={FoodListItem.food.foodId} style={{textAlign:'center',top:'3px',background:'#B6E052'}}>
-                  <p>{FoodListItem.quantity} x {FoodListItem.food.name}: {totalCaloriesPerFood} calorias en total</p>
+                <div key={FoodListItem.food.foodId} style={{textAlign:'center',top:'3px',background:'#B6E052', margin: "5px", padding: 5, borderRadius: 10}}>
+                  <p style={{margin: 0}}>{FoodListItem.quantity} x {FoodListItem.food.name}: {totalCaloriesPerFood} calorias en total</p>
                 </div>
               );
             })
@@ -47,9 +47,9 @@ const MealModal =(props) =>{
           <p>Total de calorias consumidas en la comida: {calculateTotalCaloriesPerMeal()}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
-          <Button type="button" onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}}>Editar</Button>
-          <Button type="button" onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)}>Eliminar</Button>
+          <Button type="button" onClick={() => setModalShow(false)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Cerrar</Button>
+          <Button type="button" onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
+          <Button type="button" onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Eliminar</Button>
         </Modal.Footer>
       </Modal>
     </>

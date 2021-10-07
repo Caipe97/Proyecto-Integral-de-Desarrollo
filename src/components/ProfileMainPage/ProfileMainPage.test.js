@@ -61,15 +61,19 @@ describe('ProfileMainPage tests', () => {
         expect(wrapper2).toMatchSnapshot();
     })
 
-    it('handleSubmit should go to meals', async () => {
-        await wrapper.find('[type="button"]').at(0).simulate('click', preventDefault);
-        expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
-        expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
-    })
-    it('handleSubmit should go to meals', async () => {
-        await wrapper2.find('[type="button"]').at(0).simulate('click', preventDefault);
-        expect(wrapper2.instance().props.history.push).toHaveBeenCalledTimes(1);
-        expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
-    })
+
+    //MIRA ESTO ANDRE Y DAME BOLA
+    //Estos dos tests van a MealsSearchBar, porque el botón agregar está ahí, y no en el perfil
+
+    // it('handleSubmit should go to meals', async () => {
+    //     await wrapper.find('[type="button"]').at(0).simulate('click', preventDefault);
+    //     expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
+    //     expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
+    // })
+    // it('handleSubmit should go to meals', async () => {
+    //     await wrapper2.find('[type="button"]').at(0).simulate('click', preventDefault);
+    //     expect(wrapper2.instance().props.history.push).toHaveBeenCalledTimes(1);
+    //     expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
+    // })
    
 })

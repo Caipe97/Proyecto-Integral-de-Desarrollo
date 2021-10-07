@@ -99,14 +99,14 @@ class FoodsSearchBar extends Component {
           if(row.userId){
             return(
               <div>
-                <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
-                <CustomFoodModal edit={true} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood} foodCategories={this.props.foodCategories}/>
                 <img src={Delete} alt='eliminar' onClick={() => this.props.onDeleteCustomFood(row.foodId)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
+                <CustomFoodModal edit={true} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood} foodCategories={this.props.foodCategories}/>
+                <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
               </div>
             )
           } else {
             return(
-            <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
+            <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer', marginLeft: 40}}/>
             )
           }
         }
@@ -162,7 +162,7 @@ class FoodsSearchBar extends Component {
     let search = this.props.foods.filter(food => {
       if(this.state.busquedaNombre === '' && this.state.busquedaCategoria === ''){
         return food;
-      } else if(food.name.toLowerCase() === this.state.busquedaNombre && this.state.busquedaCategoria === ''){
+      } else if(food.name.toLowerCase().includes(this.state.busquedaNombre)  && this.state.busquedaCategoria === ''){
         return food;
       } else if (this.state.busquedaNombre === '' && food.foodCategoryId.toString() === this.state.busquedaCategoria.toString()){
         return food;
@@ -223,38 +223,50 @@ render(){
   return (
     <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
       <div className="barraBusquedaNombre" style={{backgroundColor:'#B6E052'}}>
-        <Combobox
-          data={this.state.categorias}
-          textField='name'
-          onSelect={this.onChangeComboBox}
-          groupBy={category => category.userId}
-          renderListGroup={ ({group}) => ( //group es el userId
-            <span>
-              {group === null ? 'Default' : 'Custom'}
-            </span>
-          )}
-        />
-        <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory}/>
-        <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} categories={this.props.foodCategories}/>
-        <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} categories={this.props.foodCategories}/>
-        <input
-          type="text"
-          placeholder="Buscar por nombre"
-          className="textField"
-          name="busquedaNombre"
-          value={this.state.busquedaNombre}
-          onChange={this.onChange}
-          style={{borderRadius:'13px'}}
-        />
-        <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}/*onClick={onClear}*/>
-          {" "}
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
+        <div style={{backgroundColor: 'lightblue', borderRadius: 10, display: 'flex',justifyContent: 'space-between', alignContent: 'center', alignItems: 'center', marginBottom: 20}}>
+          <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial', fontSize: 30, alignSelf: 'center', textAlign: 'center', marginTop: 8, marginLeft: 5}}>Alimentos</h1>
+            <div>
+
+            <input
+            type="text"
+            placeholder="Buscar por nombre"
+            className="textField"
+            name="busquedaNombre"
+            value={this.state.busquedaNombre}
+            onChange={this.onChange}
+            style={{borderRadius:'13px'}}
+            />
+            <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}/*onClick={onClear}*/>
+            {" "}
+            <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </div>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <Combobox
+            data={this.state.categorias}
+            textField='name'
+            onSelect={this.onChangeComboBox}
+            groupBy={category => category.userId}
+            placeholder= "Categoría"
+            renderListGroup={ ({group}) => ( //group es el userId
+              <span>
+                {group === null ? 'Default' : 'Custom'}
+              </span>
+            )}
+            style={{width: "80%"}}
+            />
+          <div style={{paddingLeft: 10, width: "20%", justifyContent: 'space-between'}}>
+            <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory}/>
+            <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} categories={this.props.foodCategories}/>
+            <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} categories={this.props.foodCategories}/>
+          </div>
+        </div>
+        
       </div>
       <DataTable 
         columns={this.state.columnas}
         data={this.state.alimentos}
-        title="Alimentos"
         pagination
         paginationComponentOptions={paginacionOpciones}
         fixedHeader

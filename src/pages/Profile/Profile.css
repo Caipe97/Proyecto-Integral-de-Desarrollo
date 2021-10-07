@@ -39,11 +39,12 @@ h1 {
   display: grid;
   min-height: 100px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
   grid-gap: 20px;
   grid-template-areas:
     'col1 col1 col3'
-    'col2 col2 col2';
+    'col2 col2 col2'
+    'col4 col4 col4';
   /* grid-row:span 2; */
 }
 
@@ -79,6 +80,13 @@ table {
 }
 .contenedorPro .dashboardPro .col2 {
   grid-column: col2;
+  border-radius: 20px;
+  border-bottom: 1px;
+
+  /*     background: red; */
+}
+.contenedorPro .dashboardPro .col4 {
+  grid-column: col4;
 
   /*     background: red; */
 }
@@ -87,6 +95,10 @@ table {
   /*     background: yellow; */
 }
 .contenedorPro .contenidoPro .comida {
+  grid-column: comida;
+  background: white;
+}
+.contenedorPro .dashboardPro .comida {
   grid-column: comida;
   background: white;
 }
@@ -110,12 +122,12 @@ table {
   grid-area: contenidoPro;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, auto);
   background: #b6e052;
   grid-template-areas:
-    '. . . search'
-    'comida comida comida comida';
+    'comida comida comida comida'
+;
   /* grid-column:  span 2; */
 }
 
@@ -152,7 +164,8 @@ table {
   .contenedorPro .dashboardPro {
     grid-template-areas:
       'col1 col1 col3'
-      'col2 col2 col2';
+      'col2 col2 col2'
+      'col4 col4 col4';
   }
 }
 

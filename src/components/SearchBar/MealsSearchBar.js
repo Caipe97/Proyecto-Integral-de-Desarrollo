@@ -136,24 +136,28 @@ class MealsSearchBar extends Component {
 render(){
   return (
     <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
-      <div className="barraBusqueda" style={{backgroundColor:'#B6E052'}}>
-        <input
-          type="text"
-          placeholder="Buscar por nombre o fecha"
-          className="textField"
-          name="busqueda"
-          value={this.state.busqueda}
-          onChange={this.onChange}
-          style={{borderRadius:'13px', width: '88%'}}
-        />
-        <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}>
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
+      <div className="barraBusqueda" style={{ display:'flex', width: "100%",  justifyContent: 'space-between'}}>
+        <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial', fontSize: 30}}>Comidas</h1>
+        <div style={{display: 'flex', alignSelf: 'center'}}>
+          <input
+            type="text"
+            placeholder="Buscar por nombre o fecha"
+            className="textField"
+            name="busqueda"
+            value={this.state.busqueda}
+            onChange={this.onChange}
+            style={{borderRadius:'13px', width: '88%'}}
+            />
+          <button type="button" className="btnBuscar" style={{borderRadius:'19px', marginLeft: 5}}>
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+          <button  type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px', height: 30, marginLeft: 10}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar</button>
+        </div>
       </div>
       <DataTable
         columns={this.state.columnas}
         data={this.state.meals}
-        title="Comidas"
+        //title="Comidas"
         pagination
         paginationComponentOptions={paginacionOpciones}
         fixedHeader

@@ -6,6 +6,12 @@ exports[`Modal tests expect t2 1`] = `
     active={false}
     disabled={false}
     onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgb(18, 207, 90)",
+        "borderColor": "rgb(18, 207, 90)",
+      }
+    }
     type="button"
     variant="primary"
   >
@@ -51,12 +57,21 @@ exports[`Modal tests expect t2 1`] = `
         style={
           Object {
             "background": "#B6E052",
+            "borderRadius": 10,
+            "margin": "5px",
+            "padding": 5,
             "textAlign": "center",
             "top": "3px",
           }
         }
       >
-        <p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
           1
            x 
           Milanesa
@@ -75,6 +90,12 @@ exports[`Modal tests expect t2 1`] = `
         active={false}
         disabled={false}
         onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgb(18, 207, 90)",
+            "borderColor": "rgb(18, 207, 90)",
+          }
+        }
         type="button"
         variant="primary"
       >
@@ -84,6 +105,12 @@ exports[`Modal tests expect t2 1`] = `
         active={false}
         disabled={false}
         onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgb(18, 207, 90)",
+            "borderColor": "rgb(18, 207, 90)",
+          }
+        }
         type="button"
         variant="primary"
       >
@@ -93,6 +120,12 @@ exports[`Modal tests expect t2 1`] = `
         active={false}
         disabled={false}
         onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgb(18, 207, 90)",
+            "borderColor": "rgb(18, 207, 90)",
+          }
+        }
         type="button"
         variant="primary"
       >

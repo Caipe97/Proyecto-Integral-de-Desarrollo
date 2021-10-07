@@ -140,110 +140,9 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
   <div
     className="contenidoPro"
   >
-    <h1
-      style={
-        Object {
-          "color": "rgb(0, 38, 38)",
-          "fontFamily": "Arial",
-          "fontSize": 30,
-        }
-      }
-    >
-      Comidas
-    </h1>
-    <div
-      className="search"
-      style={
-        Object {
-          "display": "flex",
-          "justifyContent": "space-around",
-        }
-      }
-    >
-      <button
-        className="btn btn--primary btn--s"
-        onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "#f5f6f7",
-            "boxShadow": "0px 4px 4px grey",
-            "color": "black",
-            "fontSize": "11px",
-            "height": 30,
-          }
-        }
-        type="button"
-      >
-        Agregar Comida
-      </button>
-    </div>
     <div
       className="comida"
-      style={
-        Object {
-          "borderRadius": "18px",
-        }
-      }
     >
-      <CarouselContainer
-        history={
-          Object {
-            "push": [MockFunction],
-          }
-        }
-        meals={
-          Array [
-            Object {
-              "dateEaten": "2021-09-09T00:00:00.000Z",
-              "foodsAndQuantity": Object {
-                "foods": Object {
-                  "caloriesPerServing": 198,
-                  "createdAt": "2021-09-15T19:58:04.486Z",
-                  "foodId": 1,
-                  "name": "Milanesa",
-                  "recommendedServing": 85,
-                },
-                "quantity": 1,
-              },
-              "mealId": 21,
-              "name": "queso",
-              "userId": 1,
-            },
-            Object {
-              "dateEaten": "2021-09-09T00:00:00.000Z",
-              "foodsAndQuantity": Object {
-                "foods": Object {
-                  "caloriesPerServing": 198,
-                  "createdAt": "2021-09-15T19:58:04.486Z",
-                  "foodId": 1,
-                  "name": "Milanesa",
-                  "recommendedServing": 85,
-                },
-                "quantity": 1,
-              },
-              "mealId": 22,
-              "name": "carne",
-              "userId": 1,
-            },
-            Object {
-              "dateEaten": "2021-09-09T00:00:00.000Z",
-              "foodsAndQuantity": Object {
-                "foods": Object {
-                  "caloriesPerServing": 198,
-                  "createdAt": "2021-09-15T19:58:04.486Z",
-                  "foodId": 1,
-                  "name": "Milanesa",
-                  "recommendedServing": 85,
-                },
-                "quantity": 1,
-              },
-              "mealId": 23,
-              "name": "jamon",
-              "userId": 1,
-            },
-          ]
-        }
-      />
       <MealsSearchBar
         birthday="2010-01-21"
         email="julianlivrone@gmail.com"
@@ -592,7 +491,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
           "display": "flex",
           "flexDirection": "column",
           "justifyContent": "center",
-          "minHeight": 500,
+          "minHeight": 400,
           "textAlign": "center",
         }
       }
@@ -624,6 +523,82 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
               },
               "responsive": true,
             }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="col4"
+      style={Object {}}
+    >
+      <div
+        className="comidaa"
+        style={
+          Object {
+            "borderRadius": "18px",
+          }
+        }
+      >
+        <p>
+          Comidas más abundantes
+        </p>
+        <CarouselContainer
+          history={
+            Object {
+              "push": [MockFunction],
+            }
+          }
+          meals={
+            Array [
+              Object {
+                "dateEaten": "2021-09-09T00:00:00.000Z",
+                "foodsAndQuantity": Object {
+                  "foods": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 1,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 1,
+                },
+                "mealId": 21,
+                "name": "queso",
+                "userId": 1,
+              },
+              Object {
+                "dateEaten": "2021-09-09T00:00:00.000Z",
+                "foodsAndQuantity": Object {
+                  "foods": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 1,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 1,
+                },
+                "mealId": 22,
+                "name": "carne",
+                "userId": 1,
+              },
+              Object {
+                "dateEaten": "2021-09-09T00:00:00.000Z",
+                "foodsAndQuantity": Object {
+                  "foods": Object {
+                    "caloriesPerServing": 198,
+                    "createdAt": "2021-09-15T19:58:04.486Z",
+                    "foodId": 1,
+                    "name": "Milanesa",
+                    "recommendedServing": 85,
+                  },
+                  "quantity": 1,
+                },
+                "mealId": 23,
+                "name": "jamon",
+                "userId": 1,
+              },
+            ]
           }
         />
       </div>
@@ -812,50 +787,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
   <div
     className="contenidoPro"
   >
-    <h1
-      style={
-        Object {
-          "color": "rgb(0, 38, 38)",
-          "fontFamily": "Arial",
-          "fontSize": 30,
-        }
-      }
-    >
-      Comidas
-    </h1>
-    <div
-      className="search"
-      style={
-        Object {
-          "display": "flex",
-          "justifyContent": "space-around",
-        }
-      }
-    >
-      <button
-        className="btn btn--primary btn--s"
-        onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "#f5f6f7",
-            "boxShadow": "0px 4px 4px grey",
-            "color": "black",
-            "fontSize": "11px",
-            "height": 30,
-          }
-        }
-        type="button"
-      >
-        Agregar Comida
-      </button>
-    </div>
     <div
       className="comida"
-      style={
-        Object {
-          "borderRadius": "18px",
-        }
-      }
     >
       <MealsSearchBar
         birthday="2010-01-21"
@@ -1154,7 +1087,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
           "display": "flex",
           "flexDirection": "column",
           "justifyContent": "center",
-          "minHeight": 500,
+          "minHeight": 400,
           "textAlign": "center",
         }
       }
@@ -1188,6 +1121,23 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             }
           }
         />
+      </div>
+    </div>
+    <div
+      className="col4"
+      style={Object {}}
+    >
+      <div
+        className="comidaa"
+        style={
+          Object {
+            "borderRadius": "18px",
+          }
+        }
+      >
+        <p>
+          Comidas más abundantes
+        </p>
       </div>
     </div>
   </div>

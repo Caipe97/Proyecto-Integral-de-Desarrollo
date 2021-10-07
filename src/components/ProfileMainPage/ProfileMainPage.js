@@ -198,15 +198,7 @@ class ProfileMainPage extends Component{
         <div className="contenedorPro">
           <Header {...this.props}/>
           <div className="contenidoPro">
-            <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial', fontSize: 30}}>Comidas</h1>
-            <div className="search" style={{ display: 'flex', justifyContent: 'space-around'}}>
-                <button  type="button" className='btn btn--primary btn--s' style={{ boxShadow: '0px 4px 4px grey', backgroundColor:'#f5f6f7', color: 'black', fontSize: '11px', height: 30}}  onClick={async () => {  this.props.history.push("/meals"); }}>Agregar Comida</button>
-            </div>
-            <div className="comida"  style={{borderRadius:'18px'}}>
-              {this.props.meals[0] ? 
-                <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/> 
-                : null
-              }
+            <div className="comida">
               <MealsSearchBar {...this.props}/>
             </div>
           </div>
@@ -214,62 +206,67 @@ class ProfileMainPage extends Component{
             <div className="col1" style={{ display: "flex", flexDirection: "column", textAlign: 'center', alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
               <p>Porcentaje calórico por Categoría</p>
               <div style={{alignSelf: 'center', width: "100%",height: "100%", alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
-
-              
               <Doughnut data={this.state.chartData} options={{plugins: {legend: {display: true}}, labels: {display: false}, responsive: true, maintainAspectRatio: false}} />
               </div>
-            
-
             </div>
             <div className="col3" style={{ textAlign: 'center'}}>
-            <form>
+              <form>
+                <DatePicker
+                  showTimeSelect
+                  name='date'
+                  selected={this.state.dateStart}
+                  onChange={(date) => this.handleChangeDateStart(date)}
+                  dateFormat="dd-MM-yyyy"
+                  placeholderText='Fecha de inicio'
+                  style={{float: 'left'}}
+                />
+                <DatePicker
+                  showTimeSelect
+                  name='date'
+                  selected={this.state.dateEnd}
+                  onChange={(date) => this.handleChangeDateEnd(date)}
+                  dateFormat="dd-MM-yyyy"
+                  placeholderText='Fecha de finalización'
+                  style={{float: 'left'}}
+                />
+                <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
+                <p>{this.state.errorMessage}</p>
 
-              <DatePicker
-                showTimeSelect
-                name='date'
-                selected={this.state.dateStart}
-                onChange={(date) => this.handleChangeDateStart(date)}
-                dateFormat="dd-MM-yyyy"
-                placeholderText='Fecha de inicio'
-                style={{float: 'left'}}
-              />
-              <DatePicker
-                showTimeSelect
-                name='date'
-                selected={this.state.dateEnd}
-                onChange={(date) => this.handleChangeDateEnd(date)}
-                dateFormat="dd-MM-yyyy"
-                placeholderText='Fecha de finalización'
-                style={{float: 'left'}}
-              />
-              <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
-              <p>{this.state.errorMessage}</p>
+              </form>
+              <p>Filtros</p>
+              <FormGroup >
+              {
+                this.state.checkboxsList.map((checkbox) => {
+                  return(
+                      <FormControlLabel control={
+                        <Checkbox
+                          checked={checkbox.checked}
+                          onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
+                        />
+                      } label={checkbox.foodCategoryName} />
 
-            </form>
-            <p>Filtros</p>
-            <FormGroup >
-            {
-              this.state.checkboxsList.map((checkbox) => {
-                return(
-                    <FormControlLabel control={
-                      <Checkbox
-                        checked={checkbox.checked}
-                        onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
-                      />
-                    } label={checkbox.foodCategoryName} />
-
-                )
-              })
-            }
-            </FormGroup>
+                  )
+                })
+              }
+              </FormGroup>
             </div>
-            <div className="col2" style={{minHeight: 500,display: "flex", flexDirection: "column",textAlign: 'center', alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
+            <div className="col2" style={{minHeight: 400,display: "flex", flexDirection: "column",textAlign: 'center', alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
               <p>Consumo calórico mensual</p>
               <div style={{ alignSelf: 'center', width: "90%",minHeight: 300, height: "100%", alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
 
               
               <Bar data={this.props.lastYearsMeals} options={{plugins: {legend: {display: false}}, responsive: true, maintainAspectRatio: false}} />
               </div>
+            </div>
+            <div className="col4" style={{}}>
+            <div className="comidaa"  style={{borderRadius:'18px'}}>
+              <p>Comidas más abundantes</p>
+              {this.props.meals[0] ? 
+                <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/> 
+                : null
+              }
+            </div>
+              
             </div>
           </div>
           <div className="sidebarPro">
