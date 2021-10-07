@@ -97,7 +97,7 @@ export const deleteCustomFood = (foodId) => (dispatch) => {
 export const getFoodCategories = (userId) => (dispatch) => {
   dispatch({ type: GET_FOOD_CATEGORIES_PENDING });
   return(
-    fetch(`http://jma-test-app.herokuapp.com/api/foodCategories?userId=${userId}`)
+    fetch(`https://jma-test-app.herokuapp.com/api/foodCategories?userId=${userId}`)
   )
   .then(response => response.json())
   .then(foodCategoriesData => dispatch({ type: GET_FOOD_CATEGORIES_SUCCESS, payload: foodCategoriesData }))
@@ -107,7 +107,7 @@ export const getFoodCategories = (userId) => (dispatch) => {
 export const createCategory = (name, userId) => (dispatch) => {
   dispatch({ type: CREATE_FOOD_CATEGORY_PENDING });
   return(
-    fetch(`http://jma-test-app.herokuapp.com/api/foodCategories`, {
+    fetch(`https://jma-test-app.herokuapp.com/api/foodCategories`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -125,7 +125,7 @@ export const editCategory = (foodCategoryId, name) => (dispatch) => {
   console.log('ACTION',foodCategoryId, name)
   dispatch({ type: EDIT_FOOD_CATEGORY_PENDING });
   return(
-    fetch(`http://jma-test-app.herokuapp.com/api/foodCategories?foodCategoryId=${foodCategoryId}`, {
+    fetch(`https://jma-test-app.herokuapp.com/api/foodCategories?foodCategoryId=${foodCategoryId}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -141,7 +141,7 @@ export const editCategory = (foodCategoryId, name) => (dispatch) => {
 export const deleteCategory = (foodCategoryId) => (dispatch) => {
   dispatch({ type: DELETE_FOOD_CATEGORY_PENDING });
   return(
-    fetch(`http://jma-test-app.herokuapp.com/api/foodCategories?foodCategoryId=${foodCategoryId}`, {
+    fetch(`https://jma-test-app.herokuapp.com/api/foodCategories?foodCategoryId=${foodCategoryId}`, {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'}
     })

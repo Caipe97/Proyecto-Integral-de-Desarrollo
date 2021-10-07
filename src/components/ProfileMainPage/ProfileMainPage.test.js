@@ -27,6 +27,7 @@ describe('ProfileMainPage tests', () => {
                 onGetMealsFromUser:jest.fn(),
                 onGetFoodCategories: jest.fn(),
                 // onResetPassword: jest.fn(),
+                onGetLastYearsMeals: jest.fn(),
                 onLogout: jest.fn(),
                 preventDefault:  jest.fn()
           };
@@ -44,6 +45,7 @@ describe('ProfileMainPage tests', () => {
             foodCategories: [],
             onGetMealsFromUser:jest.fn(),
             onGetFoodCategories: jest.fn(),
+            onGetLastYearsMeals: jest.fn(),
             onLogout: jest.fn(),
             preventDefault:  jest.fn()
       };
