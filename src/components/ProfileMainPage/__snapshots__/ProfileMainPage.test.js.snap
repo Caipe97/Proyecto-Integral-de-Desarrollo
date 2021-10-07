@@ -98,6 +98,23 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         ],
       }
     }
+    onGetMealsByPeriod={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+            "Nov 07 2020",
+            "Oct 07 2021",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onGetMealsFromUser={
       [MockFunction] {
         "calls": Array [
@@ -321,6 +338,23 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             ],
           }
         }
+        onGetMealsByPeriod={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                1,
+                "Nov 07 2020",
+                "Oct 07 2021",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         onGetMealsFromUser={
           [MockFunction] {
             "calls": Array [
@@ -343,6 +377,256 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         userId={1}
         weight={90}
       />
+    </div>
+  </div>
+  <div
+    className="dashboardPro"
+  >
+    <div
+      className="col1"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "textAlign": "center",
+        }
+      }
+    >
+      <p>
+        Porcentaje calórico por Categoría
+      </p>
+      <div
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "alignSelf": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": "100%",
+          }
+        }
+      >
+        <ForwardRef
+          data={
+            Object {
+              "datasets": Array [
+                Object {
+                  "backgroundColor": Array [
+                    "rgb(255, 99, 132)",
+                    "rgb(54, 162, 235)",
+                    "rgb(255, 206, 86)",
+                    "rgb(75, 192, 192)",
+                    "rgb(153, 102, 255)",
+                    "rgb(255, 159, 64)",
+                  ],
+                  "data": Array [],
+                  "label": "Calorias por mes",
+                },
+              ],
+              "labels": Array [],
+            }
+          }
+          options={
+            Object {
+              "labels": Object {
+                "display": false,
+              },
+              "maintainAspectRatio": false,
+              "plugins": Object {
+                "legend": Object {
+                  "display": true,
+                },
+              },
+              "responsive": true,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="col3"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <form>
+        <r
+          allowSameDay={false}
+          customTimeInput={null}
+          dateFormat="dd-MM-yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          enableTabLoop={true}
+          excludeScrollbar={true}
+          focusSelectedMonth={false}
+          monthsShown={1}
+          name="date"
+          nextMonthButtonLabel="Next Month"
+          nextYearButtonLabel="Next Year"
+          onBlur={[Function]}
+          onCalendarClose={[Function]}
+          onCalendarOpen={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="Fecha de inicio"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          previousYearButtonLabel="Previous Year"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected=""
+          shouldCloseOnSelect={true}
+          showFourColumnMonthYearPicker={false}
+          showFullMonthYearPicker={false}
+          showMonthYearPicker={false}
+          showPopperArrow={true}
+          showPreviousMonths={false}
+          showQuarterYearPicker={false}
+          showTimeInput={false}
+          showTimeSelect={true}
+          showTwoColumnMonthYearPicker={false}
+          showYearPicker={false}
+          strictParsing={false}
+          style={
+            Object {
+              "float": "left",
+            }
+          }
+          timeCaption="Time"
+          timeInputLabel="Time"
+          timeIntervals={30}
+          withPortal={false}
+          yearItemNumber={12}
+        />
+        <r
+          allowSameDay={false}
+          customTimeInput={null}
+          dateFormat="dd-MM-yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          enableTabLoop={true}
+          excludeScrollbar={true}
+          focusSelectedMonth={false}
+          monthsShown={1}
+          name="date"
+          nextMonthButtonLabel="Next Month"
+          nextYearButtonLabel="Next Year"
+          onBlur={[Function]}
+          onCalendarClose={[Function]}
+          onCalendarOpen={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="Fecha de finalización"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          previousYearButtonLabel="Previous Year"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected=""
+          shouldCloseOnSelect={true}
+          showFourColumnMonthYearPicker={false}
+          showFullMonthYearPicker={false}
+          showMonthYearPicker={false}
+          showPopperArrow={true}
+          showPreviousMonths={false}
+          showQuarterYearPicker={false}
+          showTimeInput={false}
+          showTimeSelect={true}
+          showTwoColumnMonthYearPicker={false}
+          showYearPicker={false}
+          strictParsing={false}
+          style={
+            Object {
+              "float": "left",
+            }
+          }
+          timeCaption="Time"
+          timeInputLabel="Time"
+          timeIntervals={30}
+          withPortal={false}
+          yearItemNumber={12}
+        />
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          Buscar comidas
+        </button>
+        <p />
+      </form>
+      <p>
+        Filtros
+      </p>
+      <WithStyles(ForwardRef(FormGroup)) />
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "minHeight": 500,
+          "textAlign": "center",
+        }
+      }
+    >
+      <p>
+        Consumo calórico mensual
+      </p>
+      <div
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "alignSelf": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "minHeight": 300,
+            "width": "90%",
+          }
+        }
+      >
+        <ForwardRef
+          options={
+            Object {
+              "maintainAspectRatio": false,
+              "plugins": Object {
+                "legend": Object {
+                  "display": false,
+                },
+              },
+              "responsive": true,
+            }
+          }
+        />
+      </div>
     </div>
   </div>
   <div
@@ -435,131 +719,6 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       </Link>
     </div>
   </div>
-  <div>
-    <form>
-      <r
-        allowSameDay={false}
-        customTimeInput={null}
-        dateFormat="dd-MM-yyyy"
-        dateFormatCalendar="LLLL yyyy"
-        disabled={false}
-        disabledKeyboardNavigation={false}
-        dropdownMode="scroll"
-        enableTabLoop={true}
-        excludeScrollbar={true}
-        focusSelectedMonth={false}
-        monthsShown={1}
-        name="date"
-        nextMonthButtonLabel="Next Month"
-        nextYearButtonLabel="Next Year"
-        onBlur={[Function]}
-        onCalendarClose={[Function]}
-        onCalendarOpen={[Function]}
-        onChange={[Function]}
-        onClickOutside={[Function]}
-        onFocus={[Function]}
-        onInputClick={[Function]}
-        onInputError={[Function]}
-        onKeyDown={[Function]}
-        onMonthChange={[Function]}
-        onSelect={[Function]}
-        onYearChange={[Function]}
-        placeholderText="Fecha de inicio"
-        preventOpenOnFocus={false}
-        previousMonthButtonLabel="Previous Month"
-        previousYearButtonLabel="Previous Year"
-        readOnly={false}
-        renderDayContents={[Function]}
-        selected=""
-        shouldCloseOnSelect={true}
-        showFourColumnMonthYearPicker={false}
-        showFullMonthYearPicker={false}
-        showMonthYearPicker={false}
-        showPopperArrow={true}
-        showPreviousMonths={false}
-        showQuarterYearPicker={false}
-        showTimeInput={false}
-        showTimeSelect={true}
-        showTwoColumnMonthYearPicker={false}
-        showYearPicker={false}
-        strictParsing={false}
-        timeCaption="Time"
-        timeInputLabel="Time"
-        timeIntervals={30}
-        withPortal={false}
-        yearItemNumber={12}
-      />
-      <r
-        allowSameDay={false}
-        customTimeInput={null}
-        dateFormat="dd-MM-yyyy"
-        dateFormatCalendar="LLLL yyyy"
-        disabled={false}
-        disabledKeyboardNavigation={false}
-        dropdownMode="scroll"
-        enableTabLoop={true}
-        excludeScrollbar={true}
-        focusSelectedMonth={false}
-        monthsShown={1}
-        name="date"
-        nextMonthButtonLabel="Next Month"
-        nextYearButtonLabel="Next Year"
-        onBlur={[Function]}
-        onCalendarClose={[Function]}
-        onCalendarOpen={[Function]}
-        onChange={[Function]}
-        onClickOutside={[Function]}
-        onFocus={[Function]}
-        onInputClick={[Function]}
-        onInputError={[Function]}
-        onKeyDown={[Function]}
-        onMonthChange={[Function]}
-        onSelect={[Function]}
-        onYearChange={[Function]}
-        placeholderText="Fecha de finalización"
-        preventOpenOnFocus={false}
-        previousMonthButtonLabel="Previous Month"
-        previousYearButtonLabel="Previous Year"
-        readOnly={false}
-        renderDayContents={[Function]}
-        selected=""
-        shouldCloseOnSelect={true}
-        showFourColumnMonthYearPicker={false}
-        showFullMonthYearPicker={false}
-        showMonthYearPicker={false}
-        showPopperArrow={true}
-        showPreviousMonths={false}
-        showQuarterYearPicker={false}
-        showTimeInput={false}
-        showTimeSelect={true}
-        showTwoColumnMonthYearPicker={false}
-        showYearPicker={false}
-        strictParsing={false}
-        timeCaption="Time"
-        timeInputLabel="Time"
-        timeIntervals={30}
-        withPortal={false}
-        yearItemNumber={12}
-      />
-      <button
-        className="button"
-        onClick={[Function]}
-      >
-        Buscar comidas
-      </button>
-      <p />
-    </form>
-    <ForwardRef
-      data={Object {}}
-    />
-    <p>
-      Filtros
-    </p>
-    <ForwardRef
-      height={500}
-      width={1000}
-    />
-  </div>
   <Footer />
 </div>
 `;
@@ -601,6 +760,23 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onGetMealsByPeriod={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+            "Nov 07 2020",
+            "Oct 07 2021",
           ],
         ],
         "results": Array [
@@ -724,6 +900,23 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             ],
           }
         }
+        onGetMealsByPeriod={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                1,
+                "Nov 07 2020",
+                "Oct 07 2021",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         onGetMealsFromUser={
           [MockFunction] {
             "calls": Array [
@@ -746,6 +939,256 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         userId={1}
         weight={90}
       />
+    </div>
+  </div>
+  <div
+    className="dashboardPro"
+  >
+    <div
+      className="col1"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "textAlign": "center",
+        }
+      }
+    >
+      <p>
+        Porcentaje calórico por Categoría
+      </p>
+      <div
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "alignSelf": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "width": "100%",
+          }
+        }
+      >
+        <ForwardRef
+          data={
+            Object {
+              "datasets": Array [
+                Object {
+                  "backgroundColor": Array [
+                    "rgb(255, 99, 132)",
+                    "rgb(54, 162, 235)",
+                    "rgb(255, 206, 86)",
+                    "rgb(75, 192, 192)",
+                    "rgb(153, 102, 255)",
+                    "rgb(255, 159, 64)",
+                  ],
+                  "data": Array [],
+                  "label": "Calorias por mes",
+                },
+              ],
+              "labels": Array [],
+            }
+          }
+          options={
+            Object {
+              "labels": Object {
+                "display": false,
+              },
+              "maintainAspectRatio": false,
+              "plugins": Object {
+                "legend": Object {
+                  "display": true,
+                },
+              },
+              "responsive": true,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="col3"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <form>
+        <r
+          allowSameDay={false}
+          customTimeInput={null}
+          dateFormat="dd-MM-yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          enableTabLoop={true}
+          excludeScrollbar={true}
+          focusSelectedMonth={false}
+          monthsShown={1}
+          name="date"
+          nextMonthButtonLabel="Next Month"
+          nextYearButtonLabel="Next Year"
+          onBlur={[Function]}
+          onCalendarClose={[Function]}
+          onCalendarOpen={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="Fecha de inicio"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          previousYearButtonLabel="Previous Year"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected=""
+          shouldCloseOnSelect={true}
+          showFourColumnMonthYearPicker={false}
+          showFullMonthYearPicker={false}
+          showMonthYearPicker={false}
+          showPopperArrow={true}
+          showPreviousMonths={false}
+          showQuarterYearPicker={false}
+          showTimeInput={false}
+          showTimeSelect={true}
+          showTwoColumnMonthYearPicker={false}
+          showYearPicker={false}
+          strictParsing={false}
+          style={
+            Object {
+              "float": "left",
+            }
+          }
+          timeCaption="Time"
+          timeInputLabel="Time"
+          timeIntervals={30}
+          withPortal={false}
+          yearItemNumber={12}
+        />
+        <r
+          allowSameDay={false}
+          customTimeInput={null}
+          dateFormat="dd-MM-yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          enableTabLoop={true}
+          excludeScrollbar={true}
+          focusSelectedMonth={false}
+          monthsShown={1}
+          name="date"
+          nextMonthButtonLabel="Next Month"
+          nextYearButtonLabel="Next Year"
+          onBlur={[Function]}
+          onCalendarClose={[Function]}
+          onCalendarOpen={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          placeholderText="Fecha de finalización"
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          previousYearButtonLabel="Previous Year"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected=""
+          shouldCloseOnSelect={true}
+          showFourColumnMonthYearPicker={false}
+          showFullMonthYearPicker={false}
+          showMonthYearPicker={false}
+          showPopperArrow={true}
+          showPreviousMonths={false}
+          showQuarterYearPicker={false}
+          showTimeInput={false}
+          showTimeSelect={true}
+          showTwoColumnMonthYearPicker={false}
+          showYearPicker={false}
+          strictParsing={false}
+          style={
+            Object {
+              "float": "left",
+            }
+          }
+          timeCaption="Time"
+          timeInputLabel="Time"
+          timeIntervals={30}
+          withPortal={false}
+          yearItemNumber={12}
+        />
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          Buscar comidas
+        </button>
+        <p />
+      </form>
+      <p>
+        Filtros
+      </p>
+      <WithStyles(ForwardRef(FormGroup)) />
+    </div>
+    <div
+      className="col2"
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "minHeight": 500,
+          "textAlign": "center",
+        }
+      }
+    >
+      <p>
+        Consumo calórico mensual
+      </p>
+      <div
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "alignSelf": "center",
+            "height": "100%",
+            "justifyContent": "center",
+            "minHeight": 300,
+            "width": "90%",
+          }
+        }
+      >
+        <ForwardRef
+          options={
+            Object {
+              "maintainAspectRatio": false,
+              "plugins": Object {
+                "legend": Object {
+                  "display": false,
+                },
+              },
+              "responsive": true,
+            }
+          }
+        />
+      </div>
     </div>
   </div>
   <div
@@ -837,131 +1280,6 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         Cambia tu contraseña
       </Link>
     </div>
-  </div>
-  <div>
-    <form>
-      <r
-        allowSameDay={false}
-        customTimeInput={null}
-        dateFormat="dd-MM-yyyy"
-        dateFormatCalendar="LLLL yyyy"
-        disabled={false}
-        disabledKeyboardNavigation={false}
-        dropdownMode="scroll"
-        enableTabLoop={true}
-        excludeScrollbar={true}
-        focusSelectedMonth={false}
-        monthsShown={1}
-        name="date"
-        nextMonthButtonLabel="Next Month"
-        nextYearButtonLabel="Next Year"
-        onBlur={[Function]}
-        onCalendarClose={[Function]}
-        onCalendarOpen={[Function]}
-        onChange={[Function]}
-        onClickOutside={[Function]}
-        onFocus={[Function]}
-        onInputClick={[Function]}
-        onInputError={[Function]}
-        onKeyDown={[Function]}
-        onMonthChange={[Function]}
-        onSelect={[Function]}
-        onYearChange={[Function]}
-        placeholderText="Fecha de inicio"
-        preventOpenOnFocus={false}
-        previousMonthButtonLabel="Previous Month"
-        previousYearButtonLabel="Previous Year"
-        readOnly={false}
-        renderDayContents={[Function]}
-        selected=""
-        shouldCloseOnSelect={true}
-        showFourColumnMonthYearPicker={false}
-        showFullMonthYearPicker={false}
-        showMonthYearPicker={false}
-        showPopperArrow={true}
-        showPreviousMonths={false}
-        showQuarterYearPicker={false}
-        showTimeInput={false}
-        showTimeSelect={true}
-        showTwoColumnMonthYearPicker={false}
-        showYearPicker={false}
-        strictParsing={false}
-        timeCaption="Time"
-        timeInputLabel="Time"
-        timeIntervals={30}
-        withPortal={false}
-        yearItemNumber={12}
-      />
-      <r
-        allowSameDay={false}
-        customTimeInput={null}
-        dateFormat="dd-MM-yyyy"
-        dateFormatCalendar="LLLL yyyy"
-        disabled={false}
-        disabledKeyboardNavigation={false}
-        dropdownMode="scroll"
-        enableTabLoop={true}
-        excludeScrollbar={true}
-        focusSelectedMonth={false}
-        monthsShown={1}
-        name="date"
-        nextMonthButtonLabel="Next Month"
-        nextYearButtonLabel="Next Year"
-        onBlur={[Function]}
-        onCalendarClose={[Function]}
-        onCalendarOpen={[Function]}
-        onChange={[Function]}
-        onClickOutside={[Function]}
-        onFocus={[Function]}
-        onInputClick={[Function]}
-        onInputError={[Function]}
-        onKeyDown={[Function]}
-        onMonthChange={[Function]}
-        onSelect={[Function]}
-        onYearChange={[Function]}
-        placeholderText="Fecha de finalización"
-        preventOpenOnFocus={false}
-        previousMonthButtonLabel="Previous Month"
-        previousYearButtonLabel="Previous Year"
-        readOnly={false}
-        renderDayContents={[Function]}
-        selected=""
-        shouldCloseOnSelect={true}
-        showFourColumnMonthYearPicker={false}
-        showFullMonthYearPicker={false}
-        showMonthYearPicker={false}
-        showPopperArrow={true}
-        showPreviousMonths={false}
-        showQuarterYearPicker={false}
-        showTimeInput={false}
-        showTimeSelect={true}
-        showTwoColumnMonthYearPicker={false}
-        showYearPicker={false}
-        strictParsing={false}
-        timeCaption="Time"
-        timeInputLabel="Time"
-        timeIntervals={30}
-        withPortal={false}
-        yearItemNumber={12}
-      />
-      <button
-        className="button"
-        onClick={[Function]}
-      >
-        Buscar comidas
-      </button>
-      <p />
-    </form>
-    <ForwardRef
-      data={Object {}}
-    />
-    <p>
-      Filtros
-    </p>
-    <ForwardRef
-      height={500}
-      width={1000}
-    />
   </div>
   <Footer />
 </div>

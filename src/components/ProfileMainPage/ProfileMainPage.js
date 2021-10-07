@@ -17,8 +17,8 @@ class ProfileMainPage extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      dateStart: '',
-      dateEnd: '',
+      dateStart: new Date(new Date().setMonth(new Date().getMonth()-11)),
+      dateEnd: new Date(),
       foodCategoriesWithCalories: [],
       filteredFoodCategories: [],
       checkboxsList: [],
@@ -29,6 +29,9 @@ class ProfileMainPage extends Component{
   }
 
   async componentDidMount(){
+
+    console.log(this.state)
+
     await this.props.onGetMealsFromUser(this.props.userId);
     await this.props.onGetFoodCategories(this.props.userId);
     await this.props.onGetLastYearsMeals(this.props.userId);
@@ -51,6 +54,7 @@ class ProfileMainPage extends Component{
       checkboxsList: checkboxsListCopy,
       mealsQuantity: this.props.meals.length
     })
+    this.handleSubmit()
   }
 
   async componentDidUpdate(){
@@ -92,10 +96,14 @@ class ProfileMainPage extends Component{
   }
 
   handleSubmit = async event => {
-    event.preventDefault();
+    if(event){
+      event.preventDefault();
+    }
+    
     if(this.validateAll()){
       const dateStartString = this.state.dateStart.toString().substring(4, 15);
       const dateEndString = this.state.dateEnd.toString().substring(4, 15);
+      console.log(dateStartString, this.state.dateStart);
       await this.props.onGetMealsByPeriod(this.props.userId, dateStartString, dateEndString);
       this.setState({dateStart: '', dateEnd: ''});
       this.calculateFoodCategoriesPercentages();
@@ -202,6 +210,68 @@ class ProfileMainPage extends Component{
               <MealsSearchBar {...this.props}/>
             </div>
           </div>
+          <div className="dashboardPro">
+            <div className="col1" style={{ display: "flex", flexDirection: "column", textAlign: 'center', alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
+              <p>Porcentaje calórico por Categoría</p>
+              <div style={{alignSelf: 'center', width: "100%",height: "100%", alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
+
+              
+              <Doughnut data={this.state.chartData} options={{plugins: {legend: {display: true}}, labels: {display: false}, responsive: true, maintainAspectRatio: false}} />
+              </div>
+            
+
+            </div>
+            <div className="col3" style={{ textAlign: 'center'}}>
+            <form>
+
+              <DatePicker
+                showTimeSelect
+                name='date'
+                selected={this.state.dateStart}
+                onChange={(date) => this.handleChangeDateStart(date)}
+                dateFormat="dd-MM-yyyy"
+                placeholderText='Fecha de inicio'
+                style={{float: 'left'}}
+              />
+              <DatePicker
+                showTimeSelect
+                name='date'
+                selected={this.state.dateEnd}
+                onChange={(date) => this.handleChangeDateEnd(date)}
+                dateFormat="dd-MM-yyyy"
+                placeholderText='Fecha de finalización'
+                style={{float: 'left'}}
+              />
+              <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
+              <p>{this.state.errorMessage}</p>
+
+            </form>
+            <p>Filtros</p>
+            <FormGroup >
+            {
+              this.state.checkboxsList.map((checkbox) => {
+                return(
+                    <FormControlLabel control={
+                      <Checkbox
+                        checked={checkbox.checked}
+                        onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
+                      />
+                    } label={checkbox.foodCategoryName} />
+
+                )
+              })
+            }
+            </FormGroup>
+            </div>
+            <div className="col2" style={{minHeight: 500,display: "flex", flexDirection: "column",textAlign: 'center', alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
+              <p>Consumo calórico mensual</p>
+              <div style={{ alignSelf: 'center', width: "90%",minHeight: 300, height: "100%", alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
+
+              
+              <Bar data={this.props.lastYearsMeals} options={{plugins: {legend: {display: false}}, responsive: true, maintainAspectRatio: false}} />
+              </div>
+            </div>
+          </div>
           <div className="sidebarPro">
             <div className="col3" style={{ textAlign: 'center'}}>
               <h1 className='f1' style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial'}}>Perfil <img alt="profile" src={avatar} style={{width: 50}}/></h1>
@@ -220,45 +290,8 @@ class ProfileMainPage extends Component{
               <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Cambia tu contraseña</Link>
             </div>
           </div>
-          <div>
-            <form>
-              <DatePicker
-                showTimeSelect
-                name='date'
-                selected={this.state.dateStart}
-                onChange={(date) => this.handleChangeDateStart(date)}
-                dateFormat="dd-MM-yyyy"
-                placeholderText='Fecha de inicio'
-              />
-              <DatePicker
-                showTimeSelect
-                name='date'
-                selected={this.state.dateEnd}
-                onChange={(date) => this.handleChangeDateEnd(date)}
-                dateFormat="dd-MM-yyyy"
-                placeholderText='Fecha de finalización'
-              />
-              <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
-              <p>{this.state.errorMessage}</p>
-            </form>
-            <Doughnut data={this.state.chartData}/>
-            <p>Filtros</p>
-            {
-              this.state.checkboxsList.map((checkbox) => {
-                return(
-                  <FormGroup key={checkbox.foodCategoryId}>
-                    <FormControlLabel control={
-                      <Checkbox
-                        checked={checkbox.checked}
-                        onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
-                      />
-                    } label={checkbox.foodCategoryName} />
-                  </FormGroup>
-                )
-              })
-            }
-            <Bar data={this.props.lastYearsMeals} width={1000} height={500}/>
-          </div>
+          
+          
           <Footer />
         </div>
       );

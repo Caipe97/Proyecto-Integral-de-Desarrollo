@@ -4,18 +4,19 @@ h1 {
   color: #0ccac4;
 }
 .contenedorPro {
-  width: 90%;
-  max-width: 1000px;
+  width: 80%;
+  max-width: 1200px;
   margin: 20px auto;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
 
   grid-template-areas:
     'header header header'
-    'sidebarPro sidebarPro sidebarPro'
+    'dashboardPro dashboardPro dashboardPro'
     'contenidoPro contenidoPro contenidoPro'
+    'sidebarPro sidebarPro sidebarPro'
     'footer footer footer';
 }
 
@@ -32,9 +33,24 @@ h1 {
     'col1 col2';
   /* grid-row:span 2; */
 }
+
+.contenedorPro .dashboardPro {
+  grid-column: dashboardPro;
+  display: grid;
+  min-height: 100px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 20px;
+  grid-template-areas:
+    'col1 col1 col3'
+    'col2 col2 col2';
+  /* grid-row:span 2; */
+}
+
 .contenedorPro > div,
 .contenedorPro .contenidoPro,
 .contenedorPro .sidebarPro,
+.contenedorPro .dashboardPro,
 .contenedorPro .footer {
   background: #f5f6f7;
   padding: 20px;
@@ -54,6 +70,14 @@ table {
   /*     background: #0ccac4; */
 }
 .contenedorPro .sidebarPro .col2 {
+  grid-column: col2;
+  /*     background: red; */
+}
+.contenedorPro .dashboardPro .col1 {
+  grid-column: col1;
+  /*     background: #0ccac4; */
+}
+.contenedorPro .dashboardPro .col2 {
   grid-column: col2;
 
   /*     background: red; */
@@ -114,8 +138,9 @@ table {
   .contenedorPro {
     grid-template-areas:
       'header header header'
-      'sidebarPro sidebarPro sidebarPro'
+      'dashboardPro dashboardPro dashboardPro'
       'contenidoPro contenidoPro contenidoPro'
+      'sidebarPro sidebarPro sidebarPro'
       'footer footer footer';
   }
   .contenedorPro .sidebarPro {
@@ -124,7 +149,13 @@ table {
       'col1 col1'
       'col2 col2';
   }
+  .contenedorPro .dashboardPro {
+    grid-template-areas:
+      'col1 col1 col3'
+      'col2 col2 col2';
+  }
 }
+
 /* con grid area tenes que definir cuando baje de 768px Y LUEGO va a funcar */
 
 .box {
