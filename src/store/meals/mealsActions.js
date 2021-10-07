@@ -25,7 +25,11 @@ import {
 
   GET_MEALS_BY_PERIOD_PENDING,
   GET_MEALS_BY_PERIOD_SUCCESS,
-  GET_MEALS_BY_PERIOD_FAILED
+  GET_MEALS_BY_PERIOD_FAILED,
+
+  GET_LAST_YEARS_MEALS_PENDING,
+  GET_LAST_YEARS_MEALS_SUCCESS,
+  GET_LAST_YEARS_MEALS_FAILED
  } from './mealsConstants'
 
 export const addMeal = (userId, meal) => (dispatch) => {
@@ -119,4 +123,14 @@ export const getMealsByPeriod = (userId, dateStart, dateEnd) => (dispatch) => {
   .then(response => response.json())
   .then(mealsByPeriodData => dispatch({ type: GET_MEALS_BY_PERIOD_SUCCESS, payload: mealsByPeriodData }))
   .catch(error => dispatch({ type: GET_MEALS_BY_PERIOD_FAILED, payload: error }))
+}
+
+export const getLastYearsMeals = (userId) => (dispatch) => {
+  dispatch({ type: GET_LAST_YEARS_MEALS_PENDING });
+  return(
+    fetch(`https://jma-test-app.herokuapp.com/api/meals/graphBar?userId=${userId}`)
+  )
+  .then(response => response.json())
+  .then(lastYearsMealsData => dispatch({ type: GET_LAST_YEARS_MEALS_SUCCESS, payload: lastYearsMealsData }))
+  .catch(error => dispatch({ type: GET_LAST_YEARS_MEALS_FAILED, payload: error }))
 }

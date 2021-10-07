@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getMealsFromUser, deleteMeal, updateCurrentMealInState, getMealsByPeriod } from '../../store/meals/mealsActions';
+import { getMealsFromUser, deleteMeal, updateCurrentMealInState, getMealsByPeriod, getLastYearsMeals } from '../../store/meals/mealsActions';
 import { getFoodCategories } from '../../store/foods/foodsActions';
 import { logout } from '../../store/userData/userDataActions';
 import ProfileMainPage from '../../components/ProfileMainPage/ProfileMainPage';
@@ -19,7 +19,8 @@ const mapStateToProps = (state) => {
     isPending: state.userDataReducer.isPending,
     meals: state.mealsReducer.meals,
     mealsByPeriod: state.mealsReducer.mealsByPeriod,
-    foodCategories: state.foodsReducer.foodCategories
+    foodCategories: state.foodsReducer.foodCategories,
+    lastYearsMeals: state.mealsReducer.lastYearsMeals
   }
 }
 
@@ -31,6 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     onLogout: () => dispatch(logout()),
     onGetMealsByPeriod: (userId, dateStart, dateEnd) => dispatch(getMealsByPeriod(userId, dateStart, dateEnd)),
     onGetFoodCategories: (userId) => dispatch(getFoodCategories(userId)),
+    onGetLastYearsMeals: (userId) => dispatch(getLastYearsMeals(userId))
   }
 }
 
