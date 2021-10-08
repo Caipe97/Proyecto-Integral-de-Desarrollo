@@ -354,121 +354,153 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         }
       }
     >
+      <p>
+        Búsqueda por fecha
+      </p>
       <form>
-        <r
-          allowSameDay={false}
-          customTimeInput={null}
-          dateFormat="dd-MM-yyyy"
-          dateFormatCalendar="LLLL yyyy"
-          disabled={false}
-          disabledKeyboardNavigation={false}
-          dropdownMode="scroll"
-          enableTabLoop={true}
-          excludeScrollbar={true}
-          focusSelectedMonth={false}
-          monthsShown={1}
-          name="date"
-          nextMonthButtonLabel="Next Month"
-          nextYearButtonLabel="Next Year"
-          onBlur={[Function]}
-          onCalendarClose={[Function]}
-          onCalendarOpen={[Function]}
-          onChange={[Function]}
-          onClickOutside={[Function]}
-          onFocus={[Function]}
-          onInputClick={[Function]}
-          onInputError={[Function]}
-          onKeyDown={[Function]}
-          onMonthChange={[Function]}
-          onSelect={[Function]}
-          onYearChange={[Function]}
-          placeholderText="Fecha de inicio"
-          preventOpenOnFocus={false}
-          previousMonthButtonLabel="Previous Month"
-          previousYearButtonLabel="Previous Year"
-          readOnly={false}
-          renderDayContents={[Function]}
-          selected=""
-          shouldCloseOnSelect={true}
-          showFourColumnMonthYearPicker={false}
-          showFullMonthYearPicker={false}
-          showMonthYearPicker={false}
-          showPopperArrow={true}
-          showPreviousMonths={false}
-          showQuarterYearPicker={false}
-          showTimeInput={false}
-          showTimeSelect={true}
-          showTwoColumnMonthYearPicker={false}
-          showYearPicker={false}
-          strictParsing={false}
+        <div
           style={
             Object {
-              "float": "left",
+              "alignContent": "center",
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "paddingLeft": "20%",
+              "textAlign": "start",
             }
           }
-          timeCaption="Time"
-          timeInputLabel="Time"
-          timeIntervals={30}
-          withPortal={false}
-          yearItemNumber={12}
-        />
-        <r
-          allowSameDay={false}
-          customTimeInput={null}
-          dateFormat="dd-MM-yyyy"
-          dateFormatCalendar="LLLL yyyy"
-          disabled={false}
-          disabledKeyboardNavigation={false}
-          dropdownMode="scroll"
-          enableTabLoop={true}
-          excludeScrollbar={true}
-          focusSelectedMonth={false}
-          monthsShown={1}
-          name="date"
-          nextMonthButtonLabel="Next Month"
-          nextYearButtonLabel="Next Year"
-          onBlur={[Function]}
-          onCalendarClose={[Function]}
-          onCalendarOpen={[Function]}
-          onChange={[Function]}
-          onClickOutside={[Function]}
-          onFocus={[Function]}
-          onInputClick={[Function]}
-          onInputError={[Function]}
-          onKeyDown={[Function]}
-          onMonthChange={[Function]}
-          onSelect={[Function]}
-          onYearChange={[Function]}
-          placeholderText="Fecha de finalización"
-          preventOpenOnFocus={false}
-          previousMonthButtonLabel="Previous Month"
-          previousYearButtonLabel="Previous Year"
-          readOnly={false}
-          renderDayContents={[Function]}
-          selected=""
-          shouldCloseOnSelect={true}
-          showFourColumnMonthYearPicker={false}
-          showFullMonthYearPicker={false}
-          showMonthYearPicker={false}
-          showPopperArrow={true}
-          showPreviousMonths={false}
-          showQuarterYearPicker={false}
-          showTimeInput={false}
-          showTimeSelect={true}
-          showTwoColumnMonthYearPicker={false}
-          showYearPicker={false}
-          strictParsing={false}
+        >
+          Desde:
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="dd-MM-yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="date"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de inicio"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected={2020-11-07T03:00:00.000Z}
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={false}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={true}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            style={
+              Object {
+                "float": "left",
+              }
+            }
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
+        <div
           style={
             Object {
-              "float": "left",
+              "alignContent": "center",
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "paddingLeft": "21.2%",
+              "textAlign": "start",
             }
           }
-          timeCaption="Time"
-          timeInputLabel="Time"
-          timeIntervals={30}
-          withPortal={false}
-          yearItemNumber={12}
-        />
+        >
+          Hasta:
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="dd-MM-yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="date"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de finalización"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected="Thu Oct 07 "
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={false}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={true}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            style={
+              Object {
+                "float": "left",
+                "marginLeft": "20px",
+              }
+            }
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
         <button
           className="button"
           onClick={[Function]}
@@ -950,121 +982,153 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         }
       }
     >
+      <p>
+        Búsqueda por fecha
+      </p>
       <form>
-        <r
-          allowSameDay={false}
-          customTimeInput={null}
-          dateFormat="dd-MM-yyyy"
-          dateFormatCalendar="LLLL yyyy"
-          disabled={false}
-          disabledKeyboardNavigation={false}
-          dropdownMode="scroll"
-          enableTabLoop={true}
-          excludeScrollbar={true}
-          focusSelectedMonth={false}
-          monthsShown={1}
-          name="date"
-          nextMonthButtonLabel="Next Month"
-          nextYearButtonLabel="Next Year"
-          onBlur={[Function]}
-          onCalendarClose={[Function]}
-          onCalendarOpen={[Function]}
-          onChange={[Function]}
-          onClickOutside={[Function]}
-          onFocus={[Function]}
-          onInputClick={[Function]}
-          onInputError={[Function]}
-          onKeyDown={[Function]}
-          onMonthChange={[Function]}
-          onSelect={[Function]}
-          onYearChange={[Function]}
-          placeholderText="Fecha de inicio"
-          preventOpenOnFocus={false}
-          previousMonthButtonLabel="Previous Month"
-          previousYearButtonLabel="Previous Year"
-          readOnly={false}
-          renderDayContents={[Function]}
-          selected=""
-          shouldCloseOnSelect={true}
-          showFourColumnMonthYearPicker={false}
-          showFullMonthYearPicker={false}
-          showMonthYearPicker={false}
-          showPopperArrow={true}
-          showPreviousMonths={false}
-          showQuarterYearPicker={false}
-          showTimeInput={false}
-          showTimeSelect={true}
-          showTwoColumnMonthYearPicker={false}
-          showYearPicker={false}
-          strictParsing={false}
+        <div
           style={
             Object {
-              "float": "left",
+              "alignContent": "center",
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "paddingLeft": "20%",
+              "textAlign": "start",
             }
           }
-          timeCaption="Time"
-          timeInputLabel="Time"
-          timeIntervals={30}
-          withPortal={false}
-          yearItemNumber={12}
-        />
-        <r
-          allowSameDay={false}
-          customTimeInput={null}
-          dateFormat="dd-MM-yyyy"
-          dateFormatCalendar="LLLL yyyy"
-          disabled={false}
-          disabledKeyboardNavigation={false}
-          dropdownMode="scroll"
-          enableTabLoop={true}
-          excludeScrollbar={true}
-          focusSelectedMonth={false}
-          monthsShown={1}
-          name="date"
-          nextMonthButtonLabel="Next Month"
-          nextYearButtonLabel="Next Year"
-          onBlur={[Function]}
-          onCalendarClose={[Function]}
-          onCalendarOpen={[Function]}
-          onChange={[Function]}
-          onClickOutside={[Function]}
-          onFocus={[Function]}
-          onInputClick={[Function]}
-          onInputError={[Function]}
-          onKeyDown={[Function]}
-          onMonthChange={[Function]}
-          onSelect={[Function]}
-          onYearChange={[Function]}
-          placeholderText="Fecha de finalización"
-          preventOpenOnFocus={false}
-          previousMonthButtonLabel="Previous Month"
-          previousYearButtonLabel="Previous Year"
-          readOnly={false}
-          renderDayContents={[Function]}
-          selected=""
-          shouldCloseOnSelect={true}
-          showFourColumnMonthYearPicker={false}
-          showFullMonthYearPicker={false}
-          showMonthYearPicker={false}
-          showPopperArrow={true}
-          showPreviousMonths={false}
-          showQuarterYearPicker={false}
-          showTimeInput={false}
-          showTimeSelect={true}
-          showTwoColumnMonthYearPicker={false}
-          showYearPicker={false}
-          strictParsing={false}
+        >
+          Desde:
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="dd-MM-yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="date"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de inicio"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected={2020-11-07T03:00:00.000Z}
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={false}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={true}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            style={
+              Object {
+                "float": "left",
+              }
+            }
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
+        <div
           style={
             Object {
-              "float": "left",
+              "alignContent": "center",
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "paddingLeft": "21.2%",
+              "textAlign": "start",
             }
           }
-          timeCaption="Time"
-          timeInputLabel="Time"
-          timeIntervals={30}
-          withPortal={false}
-          yearItemNumber={12}
-        />
+        >
+          Hasta:
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="dd-MM-yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="date"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de finalización"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected="Thu Oct 07 "
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={false}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={true}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            style={
+              Object {
+                "float": "left",
+                "marginLeft": "20px",
+              }
+            }
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
         <button
           className="button"
           onClick={[Function]}

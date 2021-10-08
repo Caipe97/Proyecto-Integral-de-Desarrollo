@@ -17,8 +17,8 @@ class ProfileMainPage extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      dateStart: new Date(new Date().setMonth(new Date().getMonth()-11)),
-      dateEnd: new Date(),
+      dateStart: new Date(new Date(new Date().setMonth(new Date().getMonth()-11)).toDateString()),
+      dateEnd: new Date(new Date().toDateString()),
       foodCategoriesWithCalories: [],
       filteredFoodCategories: [],
       checkboxsList: [],
@@ -105,7 +105,7 @@ class ProfileMainPage extends Component{
       const dateEndString = this.state.dateEnd.toString().substring(4, 15);
       console.log(dateStartString, this.state.dateStart);
       await this.props.onGetMealsByPeriod(this.props.userId, dateStartString, dateEndString);
-      this.setState({dateStart: '', dateEnd: ''});
+      //this.setState({dateStart: '', dateEnd: ''});
       this.calculateFoodCategoriesPercentages();
     }
   }
@@ -210,7 +210,11 @@ class ProfileMainPage extends Component{
               </div>
             </div>
             <div className="col3" style={{ textAlign: 'center'}}>
+            <p>Búsqueda por fecha</p>
+          
               <form>
+              <div style={{paddingLeft: "20%",display: 'flex', justifyContent: 'center', textAlign: 'start', alignItems: 'center', alignContent: 'center'}}>
+                Desde:
                 <DatePicker
                   showTimeSelect
                   name='date'
@@ -219,19 +223,24 @@ class ProfileMainPage extends Component{
                   dateFormat="dd-MM-yyyy"
                   placeholderText='Fecha de inicio'
                   style={{float: 'left'}}
-                />
-                <DatePicker
+                  />
+                </div>
+                <div style={{paddingLeft: "21.2%", display: 'flex', justifyContent: 'center', textAlign: 'start', alignItems: 'center', alignContent: 'center'}}>
+                Hasta:
+                  <DatePicker
                   showTimeSelect
                   name='date'
-                  selected={this.state.dateEnd}
+                  selected={this.state.dateEnd.toString().slice(0,11)}
                   onChange={(date) => this.handleChangeDateEnd(date)}
                   dateFormat="dd-MM-yyyy"
                   placeholderText='Fecha de finalización'
-                  style={{float: 'left'}}
-                />
+                  style={{float: 'left', marginLeft: "20px"}}
+                  />
+                </div>
                 <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
                 <p>{this.state.errorMessage}</p>
 
+                  
               </form>
               <p>Filtros</p>
               <FormGroup >
