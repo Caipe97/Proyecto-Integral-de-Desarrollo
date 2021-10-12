@@ -103,8 +103,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
-            "Nov 07 2020",
-            "Oct 07 2021",
+            "Nov 12 2020",
+            "Oct 12 2021",
           ],
         ],
         "results": Array [
@@ -242,8 +242,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             "calls": Array [
               Array [
                 1,
-                "Nov 07 2020",
-                "Oct 07 2021",
+                "Nov 12 2020",
+                "Oct 12 2021",
               ],
             ],
             "results": Array [
@@ -404,7 +404,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2020-11-07T03:00:00.000Z}
+            selected={2020-11-12T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -475,7 +475,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected="Thu Oct 07 "
+            selected={2021-10-12T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -782,8 +782,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
-            "Nov 07 2020",
-            "Oct 07 2021",
+            "Nov 12 2020",
+            "Oct 12 2021",
           ],
         ],
         "results": Array [
@@ -870,8 +870,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             "calls": Array [
               Array [
                 1,
-                "Nov 07 2020",
-                "Oct 07 2021",
+                "Nov 12 2020",
+                "Oct 12 2021",
               ],
             ],
             "results": Array [
@@ -1032,7 +1032,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2020-11-07T03:00:00.000Z}
+            selected={2020-11-12T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -1103,7 +1103,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected="Thu Oct 07 "
+            selected={2021-10-12T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}

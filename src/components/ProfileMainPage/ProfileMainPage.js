@@ -230,7 +230,7 @@ class ProfileMainPage extends Component{
                   <DatePicker
                   showTimeSelect
                   name='date'
-                  selected={this.state.dateEnd.toString().slice(0,11)}
+                  selected={this.state.dateEnd}
                   onChange={(date) => this.handleChangeDateEnd(date)}
                   dateFormat="dd-MM-yyyy"
                   placeholderText='Fecha de finalización'
