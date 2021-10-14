@@ -29,6 +29,8 @@ const MealModal =(props) =>{
           <Modal.Title id="contained-modal-title-vcenter">
           {props.meal.name}
           </Modal.Title>
+          <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
+
         </Modal.Header>
         <Modal.Body>
           <h4>{props.meal.dateEaten.toString().replace('T',' ').substring(0,16)}</h4>
@@ -47,7 +49,6 @@ const MealModal =(props) =>{
           <p>Total de calorias consumidas en la comida: {calculateTotalCaloriesPerMeal()}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button type="button" onClick={() => setModalShow(false)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Cerrar</Button>
           <Button type="button" onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
           <Button type="button" onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Eliminar</Button>
         </Modal.Footer>

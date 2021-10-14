@@ -44,6 +44,22 @@ exports[`Modal tests expect t2 1`] = `
       >
         comida1
       </ModalTitle>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "color": "black",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        X
+      </Button>
     </ModalHeader>
     <ModalBody>
       <h4>
@@ -86,21 +102,6 @@ exports[`Modal tests expect t2 1`] = `
       </p>
     </ModalBody>
     <ModalFooter>
-      <Button
-        active={false}
-        disabled={false}
-        onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgb(18, 207, 90)",
-            "borderColor": "rgb(18, 207, 90)",
-          }
-        }
-        type="button"
-        variant="primary"
-      >
-        Cerrar
-      </Button>
       <Button
         active={false}
         disabled={false}

@@ -58,6 +58,58 @@ exports[`Header tests expect to render CarouselContainer component 1`] = `
 >
   <div
     className="card-container"
+    key="addMeta"
+  >
+    <div
+      style={
+        Object {
+          "background": "#CCDDE2",
+          "borderRadius": 10,
+          "margin": 5,
+          "paddingBottom": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Button
+        active={false}
+        className="card-container"
+        disabled={false}
+        style={
+          Object {
+            "backgroundColor": "rgb(18, 207, 90)",
+            "borderColor": "rgb(18, 207, 90)",
+            "height": 50,
+            "marginBottom": 14,
+            "width": "100%",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        Nueva Meta
+      </Button>
+      <Button
+        active={false}
+        className="card-container"
+        disabled={false}
+        style={
+          Object {
+            "backgroundColor": "rgb(18, 207, 90)",
+            "borderColor": "rgb(18, 207, 90)",
+            "height": 50,
+            "width": "100%",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        Historial de Metas
+      </Button>
+    </div>
+  </div>
+  <div
+    className="card-container"
     key="0"
   >
     <div

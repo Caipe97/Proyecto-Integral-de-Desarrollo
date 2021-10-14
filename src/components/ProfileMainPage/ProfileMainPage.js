@@ -269,7 +269,7 @@ class ProfileMainPage extends Component{
             </div>
             <div className="col4" style={{}}>
             <div className="comidaa"  style={{borderRadius:'18px'}}>
-              <p>Comidas más abundantes</p>
+              <p>Historial de Metas</p>
               {this.props.meals[0] ? 
                 <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/> 
                 : null
