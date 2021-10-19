@@ -103,8 +103,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
-            "Nov 14 2020",
-            "Oct 14 2021",
+            "Nov 19 2020",
+            "Oct 19 2021",
           ],
         ],
         "results": Array [
@@ -242,8 +242,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             "calls": Array [
               Array [
                 1,
-                "Nov 14 2020",
-                "Oct 14 2021",
+                "Nov 19 2020",
+                "Oct 19 2021",
               ],
             ],
             "results": Array [
@@ -404,7 +404,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2020-11-14T03:00:00.000Z}
+            selected={2020-11-19T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -475,7 +475,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2021-10-14T03:00:00.000Z}
+            selected={2021-10-19T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -724,6 +724,11 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
       >
         Cambia tu contraseña
       </Link>
+      <Link
+        to="/goals"
+      >
+        GOALS
+      </Link>
     </div>
   </div>
   <Footer />
@@ -782,8 +787,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
-            "Nov 14 2020",
-            "Oct 14 2021",
+            "Nov 19 2020",
+            "Oct 19 2021",
           ],
         ],
         "results": Array [
@@ -870,8 +875,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             "calls": Array [
               Array [
                 1,
-                "Nov 14 2020",
-                "Oct 14 2021",
+                "Nov 19 2020",
+                "Oct 19 2021",
               ],
             ],
             "results": Array [
@@ -1032,7 +1037,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2020-11-14T03:00:00.000Z}
+            selected={2020-11-19T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -1103,7 +1108,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2021-10-14T03:00:00.000Z}
+            selected={2021-10-19T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -1292,6 +1297,11 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         to="/resetPassword"
       >
         Cambia tu contraseña
+      </Link>
+      <Link
+        to="/goals"
+      >
+        GOALS
       </Link>
     </div>
   </div>

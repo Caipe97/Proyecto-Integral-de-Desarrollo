@@ -294,6 +294,7 @@ class ProfileMainPage extends Component{
               <p>Peso: {this.props.weight}</p>
               <p>Altura: {this.props.height}</p>
               <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Cambia tu contraseña</Link>
+              <Link to="/goals">GOALS</Link>
             </div>
           </div>
           

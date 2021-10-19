@@ -8,12 +8,13 @@ import App from './pages/App/App';
 import { userDataReducer } from './store/userData/userDataReducer';
 import { mealsReducer } from './store/meals/mealsReducer';
 import { foodsReducer } from './store/foods/foodsReducer';
+import { goalsReducer } from './store/goals/goalsReducer';
 import { BrowserRouter } from "react-router-dom";
 import './index.css';
 
 const logger = createLogger() 
 
-const rootReducers = combineReducers({userDataReducer, mealsReducer, foodsReducer})
+const rootReducers = combineReducers({userDataReducer, mealsReducer, foodsReducer, goalsReducer})
 
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware, logger))
 
