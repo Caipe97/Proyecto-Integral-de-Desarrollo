@@ -50,7 +50,7 @@ const CarouselContainer = (props) => {
                         <p style={{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{goal.name}</p>
                     </div>
                     <div>
-                        {goal.dateStart.toString().replace('T', ' ').substring(0, 16)}
+                        {goal.dateStart.toString().replace('T', ' ').substring(0, 7)}
                     </div>
                     {goal 
                     ?                     

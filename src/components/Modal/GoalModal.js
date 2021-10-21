@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal  from 'react-bootstrap/Modal';
-import { Button } from 'react-bootstrap';
+import { Button, ProgressBar } from 'react-bootstrap';
 
 const GoalModal =(props) =>{
   const [modalShow, setModalShow] = useState(false);
@@ -28,7 +28,7 @@ const GoalModal =(props) =>{
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-          {props.goal.dateStart.toString().replace('T',' ').substring(0,16)}
+          {props.goal.dateStart.toString().replace('T',' ').substring(0,7)}
           </Modal.Title>
           <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
 
@@ -36,13 +36,20 @@ const GoalModal =(props) =>{
         <Modal.Body>
           {/* <h4>{props.goal.dateEaten.toString().replace('T',' ').substring(0,16)}</h4> */}
           <p>
-            Alimentos consumidos:
+            Objetivos:
           </p>
+          {console.log(props.goal.totalCalories)}
+          {props.goal.totalCalories>0 ? <p>TotalCalories</p> : <></>}
           {props.goal.objectives.map(objective => {
               // totalCaloriesPerFood = FoodListItem.food.caloriesPerServing * FoodListItem.quantity
               return(
                 <div key={objective.foodCategoryId} style={{textAlign:'center',top:'3px',background:'#B6E052', margin: "5px", padding: 5, borderRadius: 10}}>
                   <p style={{margin: 0}}>{objective.foodCategory.name}: {objective.currentCalories} de {objective.objectiveCalories}</p>
+                  <ProgressBar animated 
+                    variant={(objective.currentCalories/objective.objectiveCalories)*100 > 65 ? "danger" : "success"}  
+                    now={(objective.currentCalories/objective.objectiveCalories)*100} 
+                    label={`${(objective.currentCalories/objective.objectiveCalories)*100}%`}/>
+                    
                 </div>
               );
             })
