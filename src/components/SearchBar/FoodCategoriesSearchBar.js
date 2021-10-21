@@ -102,14 +102,8 @@ class FoodCategoriesSearchBar extends Component {
             <div>
               <img src={Add} alt='agregar' onClick={() => {
                 let objective = {
-                  goalId: null, 
                   foodCategoryId: row.foodCategoryId,
                   objectiveCalories: parseInt(this.state.quantity, 10),
-                  currentCalories: 0,
-                  foodCategory: {
-                    foodCategoryId: row.foodCategoryId,
-                    foodCategoryName: row.name
-                  }
                 };
                 this.props.onAddObjectiveToCurrentGoal(objective)
                 }} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer', marginLeft: 40}}/>

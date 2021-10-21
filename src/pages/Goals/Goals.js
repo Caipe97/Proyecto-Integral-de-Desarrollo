@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addGoal, deleteGoal, editGoal, getGoalsFromUser, resetCurrentGoal, updateCurrentGoal, changeCurrentGoalNameAndDateEaten } from '../../store/meals/mealsActions';
+import { addGoal, editGoal, resetCurrentGoal, updateCurrentGoal, changeCurrentGoalNameTotalCaloriesAndDateStart } from '../../store/goals/goalsActions';
 import { getAllFoods, getFoodCategories } from'../../store/foods/foodsActions';
 import { addObjectiveToCurrentGoal, removeObjectiveFromCurrentGoal } from'../../store/goals/goalsActions';
 import './Goals.css';
-// import { logout } from '../../store/userData/userDataActions';
+import { logout } from '../../store/userData/userDataActions';
 import GoalsMainPage from '../../components/GoalsMainPage/GoalsMainPage';
 
 const mapStateToProps = (state) => {
@@ -21,17 +21,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddObjectiveToCurrentGoal: (objective) => dispatch(addObjectiveToCurrentGoal(objective)),
-    // onAddGoal: (userId, goal) => dispatch(addGoal(userId, goal)),
-    // onDeleteGoal: (goalId) => dispatch(deleteGoal(goalId)),
+    onAddGoal: (userId, currentGoal) => dispatch(addGoal(userId, currentGoal)),
     // onEditGoal: (goalId) => dispatch(editGoal(goalId)),
-    // onGetGoalsFromUser: (userId) => dispatch(getGoalsFromUser(userId)),
     onGetAllFoods: (userId) => dispatch(getAllFoods(userId)),
-    // onLogout: () => dispatch(logout()),
-    // onResetCurrentGoal: () => dispatch(resetCurrentGoal()),
+    onLogout: () => dispatch(logout()),
+    onResetCurrentGoal: () => dispatch(resetCurrentGoal()),
     // onUpdateCurrentGoal: (goal) => dispatch(updateCurrentGoal(goal)),
-    // onChangeCurrentGoalNameAndDateEaten: (newName, newDateEaten) => dispatch(changeCurrentGoalNameAndDateEaten(newName, newDateEaten)),
+    onChangeCurrentGoalNameTotalCaloriesAndDateStart: (newName, newTotalCalories, newDateStart) => dispatch(changeCurrentGoalNameTotalCaloriesAndDateStart(newName, newTotalCalories, newDateStart)),
     onGetFoodCategories: (userId) => dispatch(getFoodCategories(userId)),
-    // onAddObjectiveToCurrentGoal: (objective) => dispatch(addObjectiveToCurrentGoal(objective)),
     onRemoveObjectiveFromCurrentGoal: (food) => dispatch(removeObjectiveFromCurrentGoal(food)),
   }
 }

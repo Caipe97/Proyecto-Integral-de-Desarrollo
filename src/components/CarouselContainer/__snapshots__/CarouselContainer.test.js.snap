@@ -87,7 +87,11 @@ exports[`Header tests expect to render CarouselContainer component 1`] = `
         type="button"
         variant="primary"
       >
-        Nueva Meta
+        <Link
+          to="/goals"
+        >
+          Nueva Meta
+        </Link>
       </Button>
       <Button
         active={false}
@@ -140,150 +144,35 @@ exports[`Header tests expect to render CarouselContainer component 1`] = `
             }
           }
         >
-          queso
+          myGoal
         </p>
       </div>
       <div>
-        2021-09-09 00:00
+        2021-07
       </div>
       <div>
-        <MealModal
+        <GoalModal
+          goal={
+            Object {
+              "dateStart": "2021-07",
+              "goalId": 1,
+              "name": "myGoal",
+              "objectives": Array [
+                Object {
+                  "foodCategoryId": 1,
+                  "objectiveCalories": 3000,
+                },
+                Object {
+                  "foodCategoryId": 2,
+                  "objectiveCalories": 2000,
+                },
+              ],
+              "totalCalories": 5000,
+            }
+          }
           history={
             Object {
               "push": [MockFunction],
-            }
-          }
-          meal={
-            Object {
-              "FoodList": Array [
-                Object {
-                  "food": Object {
-                    "caloriesPerServing": 198,
-                    "createdAt": "2021-09-15T19:58:04.486Z",
-                    "foodId": 1,
-                    "name": "Milanesa",
-                    "recommendedServing": 85,
-                  },
-                  "quantity": 1,
-                },
-              ],
-              "dateEaten": "2021-09-09T00:00:00.000Z",
-              "mealId": 21,
-              "name": "queso",
-              "userId": 1,
-            }
-          }
-          onDeleteMeal={
-            Object {
-              "mealId": 21,
-              "userId": 1,
-            }
-          }
-          onUpdateCurrentMealInState={
-            Object {
-              "FoodList": Array [
-                Object {
-                  "food": Object {
-                    "caloriesPerServing": 198,
-                    "createdAt": "2021-09-15T19:58:04.486Z",
-                    "foodId": 1,
-                    "name": "Milanesa",
-                    "recommendedServing": 85,
-                  },
-                  "quantity": 1,
-                },
-              ],
-            }
-          }
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    className="card-container"
-    key="1"
-  >
-    <div
-      style={
-        Object {
-          "background": "#CCDDE2",
-          "borderRadius": 10,
-          "margin": 5,
-          "paddingBottom": 5,
-          "textAlign": "center",
-        }
-      }
-    >
-      <div
-        className="img"
-        style={
-          Object {
-            "fontSize": 24,
-          }
-        }
-      >
-        <p
-          style={
-            Object {
-              "overflow": "hidden",
-              "textOverflow": "ellipsis",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          carne
-        </p>
-      </div>
-      <div>
-        2021-09-09 00:00
-      </div>
-      <div>
-        <MealModal
-          history={
-            Object {
-              "push": [MockFunction],
-            }
-          }
-          meal={
-            Object {
-              "FoodList": Array [
-                Object {
-                  "food": Object {
-                    "caloriesPerServing": 198,
-                    "createdAt": "2021-09-15T19:58:04.486Z",
-                    "foodId": 2,
-                    "name": "Milanesa",
-                    "recommendedServing": 85,
-                  },
-                  "quantity": 2,
-                },
-              ],
-              "dateEaten": "2021-09-09T00:00:00.000Z",
-              "mealId": 22,
-              "name": "carne",
-              "userId": 1,
-            }
-          }
-          onDeleteMeal={
-            Object {
-              "mealId": 21,
-              "userId": 1,
-            }
-          }
-          onUpdateCurrentMealInState={
-            Object {
-              "FoodList": Array [
-                Object {
-                  "food": Object {
-                    "caloriesPerServing": 198,
-                    "createdAt": "2021-09-15T19:58:04.486Z",
-                    "foodId": 1,
-                    "name": "Milanesa",
-                    "recommendedServing": 85,
-                  },
-                  "quantity": 1,
-                },
-              ],
             }
           }
         />

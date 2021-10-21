@@ -1,11 +1,12 @@
 import {React, } from 'react';
 //import Carousel from 'react-bootstrap/Carousel';
-import MealModal from '../Modal/MealModal';
+import GoalModal from '../Modal/GoalModal';
 import './CarouselContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -35,25 +36,30 @@ const CarouselContainer = (props) => {
           <div className="card-container" key={'addMeta'}>
               <div style={{ background: '#CCDDE2', textAlign: 'center', margin: 5, borderRadius: 10, paddingBottom: 5}}>
               <Button  className="card-container" type="button" variant="primary" style={{marginBottom: 14, height: 50, width: "100%",backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>
-              Nueva Meta
+              <Link to="/goals">Nueva Meta</Link>
               </Button>
               <Button  className="card-container" type="button" variant="primary" style={{height: 50, width: "100%",backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>
               Historial de Metas
               </Button>
               </div>
           </div>
-        {props.meals.map((meal, index) =>
+        {props.goals.map((goal, index) =>
             <div className="card-container" key={index}>
                 <div style={{ background: '#CCDDE2', textAlign: 'center', margin: 5, borderRadius: 10, paddingBottom: 5}}>
                     <div className="img" style={{fontSize: 24}}>
-                        <p style={{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{meal.name}</p>
+                        <p style={{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{goal.name}</p>
                     </div>
                     <div>
-                        {meal.dateEaten.toString().replace('T', ' ').substring(0, 16)}
+                        {goal.dateStart.toString().replace('T', ' ').substring(0, 16)}
                     </div>
+                    {goal 
+                    ?                     
                     <div>
-                        <MealModal meal={meal} history={props.history} onDeleteMeal={props.onDeleteMeal} onUpdateCurrentMealInState={props.onUpdateCurrentMealInState} />
+                      <GoalModal goal={goal} history={props.history} onDeleteGoal={props.onDeleteGoal} onUpdateCurrentgoalInState={props.onUpdateCurrentgoalInState} />
                     </div>
+                    : null
+                    }
+
                 </div>
             </div>
          )}       

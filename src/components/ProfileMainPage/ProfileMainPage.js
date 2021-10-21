@@ -29,12 +29,10 @@ class ProfileMainPage extends Component{
   }
 
   async componentDidMount(){
-
-    console.log(this.state)
-
     await this.props.onGetMealsFromUser(this.props.userId);
     await this.props.onGetFoodCategories(this.props.userId);
     await this.props.onGetLastYearsMeals(this.props.userId);
+    await this.props.onGetGoalsFromUser(this.props.userId);
     let foodCategoriesWithCaloriesCopy = [...this.state.foodCategoriesWithCalories];
     let checkboxsListCopy = [...this.state.checkboxsList];
     this.props.foodCategories.forEach(foodCategory => {
@@ -270,10 +268,7 @@ class ProfileMainPage extends Component{
             <div className="col4" style={{}}>
             <div className="comidaa"  style={{borderRadius:'18px'}}>
               <p>Historial de Metas</p>
-              {this.props.meals[0] ? 
-                <CarouselContainer meals={this.props.meals} history={this.props.history} onDeleteMeal={this.props.onDeleteMeal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/> 
-                : null
-              }
+                <CarouselContainer goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/> 
             </div>
               
             </div>
@@ -294,7 +289,6 @@ class ProfileMainPage extends Component{
               <p>Peso: {this.props.weight}</p>
               <p>Altura: {this.props.height}</p>
               <Link to="/resetPassword" style={{ color: 'black', marginBottom: '5%' }}>Cambia tu contraseña</Link>
-              <Link to="/goals">GOALS</Link>
             </div>
           </div>
           

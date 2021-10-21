@@ -30,6 +30,7 @@ describe('ProfileMainPage tests', () => {
                 // onResetPassword: jest.fn(),
                 onGetLastYearsMeals: jest.fn(),
                 onLogout: jest.fn(),
+                onGetGoalsFromUser: jest.fn(),
                 preventDefault:  jest.fn()
           };
           let mockProps = {
@@ -49,6 +50,7 @@ describe('ProfileMainPage tests', () => {
             onGetFoodCategories: jest.fn(),
             onGetLastYearsMeals: jest.fn(),
             onLogout: jest.fn(),
+            onGetGoalsFromUser: jest.fn(),
             preventDefault:  jest.fn()
       };
         wrapper = shallow(<ProfileMainPage {...mockProps} history={historyMock}/>);
