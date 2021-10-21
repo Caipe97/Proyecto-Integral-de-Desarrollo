@@ -160,11 +160,10 @@ class RegisterMainPage extends Component{
               </div>
   
               <DatePicker
-                showTimeSelect
                 name='date'
                 selected={this.state.birthday}
                 onChange={(date) => this.handleChangeBirthday(date)}
-                dateFormat="dd-MM-yyyy h:mm aa"
+                dateFormat="dd-MM-yyyy"
                 placeholderText='birthday'
               />
               <TextField label="Weight" name='weight' type='weight' value={this.state.weight} onChange={this.handleChange} required />

@@ -214,7 +214,6 @@ class ProfileMainPage extends Component{
               <div style={{paddingLeft: "20%",display: 'flex', justifyContent: 'center', textAlign: 'start', alignItems: 'center', alignContent: 'center'}}>
                 Desde:
                 <DatePicker
-                  showTimeSelect
                   name='date'
                   selected={this.state.dateStart}
                   onChange={(date) => this.handleChangeDateStart(date)}
@@ -226,7 +225,6 @@ class ProfileMainPage extends Component{
                 <div style={{paddingLeft: "21.2%", display: 'flex', justifyContent: 'center', textAlign: 'start', alignItems: 'center', alignContent: 'center'}}>
                 Hasta:
                   <DatePicker
-                  showTimeSelect
                   name='date'
                   selected={this.state.dateEnd}
                   onChange={(date) => this.handleChangeDateEnd(date)}
@@ -245,7 +243,7 @@ class ProfileMainPage extends Component{
               {
                 this.state.checkboxsList.map((checkbox) => {
                   return(
-                      <FormControlLabel control={
+                      <FormControlLabel key={checkbox.foodCategoryId} control={
                         <Checkbox
                           checked={checkbox.checked}
                           onChange={() => this.handleChangeCheckbox(checkbox.foodCategoryId)}
@@ -268,7 +266,7 @@ class ProfileMainPage extends Component{
             <div className="col4" style={{}}>
             <div className="comidaa"  style={{borderRadius:'18px'}}>
               <p>Historial de Metas</p>
-                <CarouselContainer goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentMealInState={this.props.onUpdateCurrentMealInState}/> 
+                <CarouselContainer goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentGoalInState={this.props.onUpdateCurrentGoalInState}/> 
             </div>
               
             </div>

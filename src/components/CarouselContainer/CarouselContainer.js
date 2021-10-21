@@ -55,7 +55,7 @@ const CarouselContainer = (props) => {
                     {goal 
                     ?                     
                     <div>
-                      <GoalModal goal={goal} history={props.history} onDeleteGoal={props.onDeleteGoal} onUpdateCurrentgoalInState={props.onUpdateCurrentgoalInState} />
+                      <GoalModal goal={goal} history={props.history} onDeleteGoal={props.onDeleteGoal} onUpdateCurrentGoalInState={props.onUpdateCurrentGoalInState} />
                     </div>
                     : null
                     }

@@ -13,7 +13,6 @@ const GoalModal =(props) =>{
   //   }
   //   return totalCaloriesPerMeal;
   // }
-  console.log(props.goal)
   return (
     <>
       <Button  type="button" variant="primary" style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}} onClick={() => setModalShow(true)}>
@@ -28,18 +27,17 @@ const GoalModal =(props) =>{
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-          {props.goal.dateStart.toString().replace('T',' ').substring(0,7)}
+          {props.goal.name} 
           </Modal.Title>
           <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
 
         </Modal.Header>
         <Modal.Body>
-          {/* <h4>{props.goal.dateEaten.toString().replace('T',' ').substring(0,16)}</h4> */}
+          <h4>{props.goal.dateStart.toString().replace('T',' ').substring(0,7)}</h4>
           <p>
             Objetivos:
           </p>
-          {console.log(props.goal.totalCalories)}
-          {props.goal.totalCalories>0 ? <p>TotalCalories</p> : <></>}
+          
           {props.goal.objectives.map(objective => {
               // totalCaloriesPerFood = FoodListItem.food.caloriesPerServing * FoodListItem.quantity
               return(
@@ -54,10 +52,11 @@ const GoalModal =(props) =>{
               );
             })
           }
+          {props.goal.totalCalories>0 ? <p>TotalCalories</p> : <></>}
           {/* <p>Total de calorias consumidas en la comida: {calculateTotalCaloriesPerMeal()}</p> */}
         </Modal.Body>
         <Modal.Footer>
-          {/* <Button type="button" onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button> */}
+          <Button type="button" onClick={() =>  {props.onUpdateCurrentGoalInState(props.goal); props.history.push("/goals", {goal: props.goal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
           <Button type="button" onClick={() =>  props.onDeleteGoal(props.goal.goalId, props.goal.userId)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Eliminar</Button>
         </Modal.Footer>
       </Modal>

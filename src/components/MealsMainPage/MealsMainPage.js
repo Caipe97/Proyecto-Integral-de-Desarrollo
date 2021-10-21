@@ -21,10 +21,12 @@ class MealsMainPage extends Component {
 
   async componentDidMount(){
     if(this.props.history.location.state){
+      let copydateEaten = new Date(this.props.history.location.state.meal.dateEaten);
+      let sumThreeHoursToDateEaten = new Date(copydateEaten.setHours(copydateEaten.getHours() + 3));
       await this.setState({
         ...this.state,
         name: this.props.history.location.state.meal.name,
-        dateEaten: new Date(this.props.history.location.state.meal.dateEaten)
+        dateEaten: sumThreeHoursToDateEaten
       })
     } else {
       await this.setState({
@@ -46,23 +48,29 @@ class MealsMainPage extends Component {
 
   handleSubmitCreate = async event => {
     event.preventDefault();
-    const dateEatenString = this.state.dateEaten.toString().substring(4, 24);
-    this.props.onChangeCurrentMealNameAndDateEaten(this.state.name, dateEatenString);
-    const data = await this.props.onAddMeal(this.props.userId, this.props.currentMeal);
-    if(data.payload.message){
-      this.setState({
-        ...this.state,
-        successMessage: 'Completa todos los campos para cargar una comida'
-      })
+    if(this.props.currentMeal.FoodList[0]){
+      const dateEatenString = this.state.dateEaten.toString().substring(4, 24);
+      this.props.onChangeCurrentMealNameAndDateEaten(this.state.name, dateEatenString);
+      const data = await this.props.onAddMeal(this.props.userId, this.props.currentMeal);
+      if(data.payload.message){
+        this.setState({
+          ...this.state,
+          successMessage: 'Completa todos los campos para cargar una comida'
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          successMessage: 'Comida agregada exitosamente'
+        })
+      }
+      this.setState({name: 'Comida', dateEaten: ''});
+      this.props.onResetCurrentMeal();
     } else {
       this.setState({
         ...this.state,
-        successMessage: 'Comida agregada exitosamente'
+        successMessage: 'La comida debe tener al menos un alimento'
       })
     }
-
-    this.setState({name: 'Comida', dateEaten: ''});
-    this.props.onResetCurrentMeal();
   };
 
   handleSubmitUpdate = event => {
@@ -79,6 +87,7 @@ class MealsMainPage extends Component {
   };
 
   handleChangeDateEaten = date => {
+    date = new Date(date)
     const today = new Date();
     if(Date.parse(date) > Date.parse(today)){
       date = today

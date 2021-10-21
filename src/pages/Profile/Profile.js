@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMealsFromUser, deleteMeal, updateCurrentMealInState, getMealsByPeriod, getLastYearsMeals } from '../../store/meals/mealsActions';
 import { getFoodCategories } from '../../store/foods/foodsActions';
-import { getGoalsFromUser, deleteGoal } from '../../store/goals/goalsActions';
+import { getGoalsFromUser, deleteGoal, updateCurrentGoalInState } from '../../store/goals/goalsActions';
 import { logout } from '../../store/userData/userDataActions';
 import ProfileMainPage from '../../components/ProfileMainPage/ProfileMainPage';
 
@@ -36,7 +36,8 @@ const mapDispatchToProps = (dispatch) => {
     onGetFoodCategories: (userId) => dispatch(getFoodCategories(userId)),
     onGetLastYearsMeals: (userId) => dispatch(getLastYearsMeals(userId)),
     onGetGoalsFromUser: (userId) => dispatch(getGoalsFromUser(userId)),
-    onDeleteGoal: (goalId, userId) => dispatch(deleteGoal(goalId, userId))
+    onDeleteGoal: (goalId, userId) => dispatch(deleteGoal(goalId, userId)),
+    onUpdateCurrentGoalInState: (newCurrentGoal) => dispatch(updateCurrentGoalInState(newCurrentGoal)),
   }
 }
 

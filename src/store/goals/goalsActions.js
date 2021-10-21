@@ -3,6 +3,7 @@ import {
     REMOVE_OBJECTIVE_FROM_CURRENT_GOAL,
     CHANGE_CURRENT_GOAL_NAME_TOTAL_CALORIES_AND_DATE_START,
     RESET_CURRENT_GOAL,
+    UPDATE_CURRENT_GOAL_IN_STATE,
 
     ADD_GOAL_PENDING,
     ADD_GOAL_SUCCESS,
@@ -14,7 +15,11 @@ import {
 
     DELETE_GOAL_PENDING,
     DELETE_GOAL_SUCCESS,
-    DELETE_GOAL_FAILED
+    DELETE_GOAL_FAILED,
+
+    UPDATE_CURRENT_GOAL_PENDING,
+    UPDATE_CURRENT_GOAL_SUCCESS,
+    UPDATE_CURRENT_GOAL_FAILED
 } from './goalsConstants'
 
 export const addObjectiveToCurrentGoal = (objective) => ({ 
@@ -34,6 +39,11 @@ export const changeCurrentGoalNameTotalCaloriesAndDateStart = (newName, newTotal
 
 export const resetCurrentGoal = () => ({
     type: RESET_CURRENT_GOAL
+})
+
+export const updateCurrentGoalInState = (newCurrentGoal) => ({
+  type: UPDATE_CURRENT_GOAL_IN_STATE,
+  payload: newCurrentGoal
 })
 
 export const addGoal = (userId, currentGoal) => (dispatch) => {
@@ -76,4 +86,23 @@ export const deleteGoal = (goalId, userId) => (dispatch) => {
     .then(response => response.json())
     .then(goalsData => dispatch({ type: DELETE_GOAL_SUCCESS, payload: goalsData }))
     .catch(error => dispatch({ type: DELETE_GOAL_FAILED, payload: error }))
+}
+
+export const updateCurrentGoal = (userId, currentGoal) => (dispatch) => {
+  dispatch({ type: UPDATE_CURRENT_GOAL_PENDING });
+  return(
+    fetch(`https://jma-test-app.herokuapp.com/api/goals?goalId=${currentGoal.goalId}&userId=${userId}`, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+          name: currentGoal.name,
+          dateStart: currentGoal.dateStart,
+          totalCalories: currentGoal.totalCalories,
+          objectives: currentGoal.objectives
+      })
+    })
+  )
+  .then(response => response.json())
+  .then(goalsData => dispatch({ type: UPDATE_CURRENT_GOAL_SUCCESS, payload: goalsData }))
+  .catch(error => dispatch({ type: UPDATE_CURRENT_GOAL_FAILED, payload: error }))
 }

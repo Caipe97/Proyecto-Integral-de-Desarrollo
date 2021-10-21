@@ -3,6 +3,7 @@ import {
     REMOVE_OBJECTIVE_FROM_CURRENT_GOAL,
     CHANGE_CURRENT_GOAL_NAME_TOTAL_CALORIES_AND_DATE_START,
     RESET_CURRENT_GOAL,
+    UPDATE_CURRENT_GOAL_IN_STATE,
 
     ADD_GOAL_PENDING,
     ADD_GOAL_SUCCESS,
@@ -14,7 +15,11 @@ import {
 
     DELETE_GOAL_PENDING,
     DELETE_GOAL_SUCCESS,
-    DELETE_GOAL_FAILED
+    DELETE_GOAL_FAILED,
+
+    UPDATE_CURRENT_GOAL_PENDING,
+    UPDATE_CURRENT_GOAL_SUCCESS,
+    UPDATE_CURRENT_GOAL_FAILED
  } from './goalsConstants';
 
 const initialStateGoals = {
@@ -109,6 +114,28 @@ export const goalsReducer = (state=initialStateGoals, action={}) => {
         isPending: false
       }
     case DELETE_GOAL_FAILED:
+      return {
+        ...state,
+        error: action.payload,
+        isPending: false
+      }
+    case UPDATE_CURRENT_GOAL_IN_STATE:
+      return {
+        ...state,
+        currentGoal: action.payload
+      }
+    case UPDATE_CURRENT_GOAL_PENDING:
+      return {
+        ...state,
+        isPending: true
+      }
+    case UPDATE_CURRENT_GOAL_SUCCESS:
+      return {
+        ...state,
+        goals: action.payload,
+        isPending: false
+      }
+    case UPDATE_CURRENT_GOAL_FAILED:
       return {
         ...state,
         error: action.payload,
