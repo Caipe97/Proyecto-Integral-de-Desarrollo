@@ -52,35 +52,55 @@ class GoalsMainPage extends Component {
   };
 
   changeDateStartFormat = date => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    if(month < 10){
-      return (year+'-0'+month);
-    } else {
-      return (year+'-'+month);
+    if(date){
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      if(month < 10){
+        return (year+'-0'+month);
+      } else {
+        return (year+'-'+month);
+      }
     }
-    
+    return '';
+  }
+
+  objectivesSumedCaloriesIsSmallerOrEqualThanGoalTotalCalories = (goal, totalCalories) => {
+    const objectivesTotalCalories = goal.objectives.reduce((totalCalories, objective) => {
+      return totalCalories + objective.objectiveCalories
+    }, 0)
+    if(objectivesTotalCalories > totalCalories){
+      return false;
+    } else{
+      return true;
+    }
   }
 
   handleSubmitCreate = async event => {
     event.preventDefault();
-    let neccesaryDateStartFormat = this.changeDateStartFormat(this.state.dateStart);
-    this.props.onChangeCurrentGoalNameTotalCaloriesAndDateStart(this.state.name, this.state.totalCalories, neccesaryDateStartFormat);
-    const data = await this.props.onAddGoal(this.props.userId, this.props.currentGoal);
-    if(data.payload.message){
+    if(this.objectivesSumedCaloriesIsSmallerOrEqualThanGoalTotalCalories(this.props.currentGoal, this.state.totalCalories)){
+      let neccesaryDateStartFormat = this.changeDateStartFormat(this.state.dateStart);
+      this.props.onChangeCurrentGoalNameTotalCaloriesAndDateStart(this.state.name, this.state.totalCalories, neccesaryDateStartFormat);
+      const data = await this.props.onAddGoal(this.props.userId, this.props.currentGoal);
+      if(data.payload.message){
+        this.setState({
+          ...this.state,
+          successMessage: 'Completa todos los campos para cargar una meta'
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          successMessage: 'Meta agregada exitosamente'
+        })
+      }
+  
+      this.setState({name: '', totalCalories: '', dateStart: ''});
+      this.props.onResetCurrentGoal();
+    } else{
       this.setState({
         ...this.state,
-        successMessage: 'Completa todos los campos para cargar una meta'
-      })
-    } else {
-      this.setState({
-        ...this.state,
-        successMessage: 'Meta agregada exitosamente'
+        successMessage: 'La suma de las calorias de los objetivos no puede superar a las colarias totales del mismo'
       })
     }
-
-    this.setState({name: '', totalCalories: '', dateStart: ''});
-    this.props.onResetCurrentGoal();
   };
 
   handleSubmitUpdate = event => {
