@@ -118,8 +118,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
-            "Nov 21 2020",
-            "Oct 21 2021",
+            "Nov 22 2020",
+            "Oct 22 2021",
           ],
         ],
         "results": Array [
@@ -272,8 +272,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             "calls": Array [
               Array [
                 1,
-                "Nov 21 2020",
-                "Oct 21 2021",
+                "Nov 22 2020",
+                "Oct 22 2021",
               ],
             ],
             "results": Array [
@@ -434,7 +434,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2020-11-21T03:00:00.000Z}
+            selected={2020-11-22T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -443,7 +443,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             showPreviousMonths={false}
             showQuarterYearPicker={false}
             showTimeInput={false}
-            showTimeSelect={true}
+            showTimeSelect={false}
             showTwoColumnMonthYearPicker={false}
             showYearPicker={false}
             strictParsing={false}
@@ -505,7 +505,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2021-10-21T03:00:00.000Z}
+            selected={2021-10-22T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -514,7 +514,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             showPreviousMonths={false}
             showQuarterYearPicker={false}
             showTimeInput={false}
-            showTimeSelect={true}
+            showTimeSelect={false}
             showTwoColumnMonthYearPicker={false}
             showYearPicker={false}
             strictParsing={false}
@@ -775,8 +775,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
         "calls": Array [
           Array [
             1,
-            "Nov 21 2020",
-            "Oct 21 2021",
+            "Nov 22 2020",
+            "Oct 22 2021",
           ],
         ],
         "results": Array [
@@ -878,8 +878,8 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             "calls": Array [
               Array [
                 1,
-                "Nov 21 2020",
-                "Oct 21 2021",
+                "Nov 22 2020",
+                "Oct 22 2021",
               ],
             ],
             "results": Array [
@@ -1040,7 +1040,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2020-11-21T03:00:00.000Z}
+            selected={2020-11-22T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -1049,7 +1049,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             showPreviousMonths={false}
             showQuarterYearPicker={false}
             showTimeInput={false}
-            showTimeSelect={true}
+            showTimeSelect={false}
             showTwoColumnMonthYearPicker={false}
             showYearPicker={false}
             strictParsing={false}
@@ -1111,7 +1111,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             previousYearButtonLabel="Previous Year"
             readOnly={false}
             renderDayContents={[Function]}
-            selected={2021-10-21T03:00:00.000Z}
+            selected={2021-10-22T03:00:00.000Z}
             shouldCloseOnSelect={true}
             showFourColumnMonthYearPicker={false}
             showFullMonthYearPicker={false}
@@ -1120,7 +1120,7 @@ exports[`ProfileMainPage tests expect to render ProfileMainPage component to ren
             showPreviousMonths={false}
             showQuarterYearPicker={false}
             showTimeInput={false}
-            showTimeSelect={true}
+            showTimeSelect={false}
             showTwoColumnMonthYearPicker={false}
             showYearPicker={false}
             strictParsing={false}

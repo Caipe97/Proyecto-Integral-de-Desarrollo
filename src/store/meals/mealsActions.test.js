@@ -26,7 +26,15 @@ import {
   
     UPDATE_CURRENT_MEAL_PENDING,
     UPDATE_CURRENT_MEAL_SUCCESS,
-    UPDATE_CURRENT_MEAL_FAILED
+    UPDATE_CURRENT_MEAL_FAILED,
+
+    GET_MEALS_BY_PERIOD_PENDING,
+    GET_MEALS_BY_PERIOD_SUCCESS,
+    GET_MEALS_BY_PERIOD_FAILED,
+  
+    GET_LAST_YEARS_MEALS_PENDING,
+    GET_LAST_YEARS_MEALS_SUCCESS,
+    GET_LAST_YEARS_MEALS_FAILED
    } from './mealsConstants'
 
 const mockStore = configureMockStore([thunkMiddleware]);
@@ -339,6 +347,136 @@ describe("update current meal actions", () => {
         ];
 
         store.dispatch(actions.updateCurrentMeal(exampleMeal))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+})
+//get meals by period
+describe("get meals by period from user for date start and date end actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
+
+    it("should handle requesting getMealsByPeriod API", () => {
+        const expectedAction = {
+            type: GET_MEALS_BY_PERIOD_PENDING,
+        };
+        store.dispatch(actions.getMealsByPeriod());
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should create the SUCCESS action after receiving data for getMealsByPeriod", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {mealId: 21, name: 'milanesa', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa Carne', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'papas', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Papas con cheddar', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+           
+        ]));
+
+        const expectedActions = [
+            { type: GET_MEALS_BY_PERIOD_PENDING },
+            { 
+                type: GET_MEALS_BY_PERIOD_SUCCESS,
+                payload: [
+                    {mealId: 21, name: 'milanesa', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Milanesa Carne', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                    {mealId: 22, name: 'papas', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Papas con cheddar', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
+                ]
+            }
+        ];
+
+        store.dispatch(actions.getMealsByPeriod())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for getMealsByPeriod", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+    
+        const expectedActions = [
+        { type: GET_MEALS_BY_PERIOD_PENDING },
+        {
+            type: GET_MEALS_BY_PERIOD_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.getMealsByPeriod())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+})
+
+//get last year meals
+describe("get last year meals from user actions", () => {
+    const store = mockStore();
+    beforeEach(() => {
+        fetch.resetMocks();
+        store.clearActions();
+    });
+
+    it("should handle requesting getLastYearsMeals API", () => {
+        const expectedAction = {
+            type: GET_LAST_YEARS_MEALS_PENDING,
+        };
+        store.dispatch(actions.getLastYearsMeals());
+        const action = store.getActions();
+        expect(action[0]).toEqual(expectedAction);
+    });
+
+    it("should create the SUCCESS action after receiving data for getLastYearsMeals", () => {
+        fetch.mockResponseOnce(JSON.stringify([
+            {mealId: 21, name: 'brocoli', foodsAndQuantity: {quantity: 2, foods: {foodId: 1, name: 'brocoli', recommendedServing: 85, caloriesPerServing: 100, createdAt: '2021-01-15T13:58:04.486Z'}}, dateEaten: '2021-01-20T00:00:00.000Z', userId: 1},
+            {mealId: 22, name: 'sopa', foodsAndQuantity: {quantity: 3, foods: {foodId: 1, name: 'sopa', recommendedServing: 85, caloriesPerServing: 139, createdAt: '2021-02-15T23:58:04.486Z'}}, dateEaten: '2021-03-01T00:00:00.000Z', userId: 1},
+            {mealId: 23, name: 'hamburguesa', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'hamburguesa doble', recommendedServing: 120, caloriesPerServing: 240, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-20T00:00:00.000Z', userId: 1},
+            {mealId: 24, name: 'papas', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Papas con cheddar', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-22T00:00:00.000Z', userId: 1},
+           
+        ]));
+
+        const expectedActions = [
+            { type: GET_LAST_YEARS_MEALS_PENDING },
+            { 
+                type: GET_LAST_YEARS_MEALS_SUCCESS,
+                payload: [
+                    {mealId: 21, name: 'brocoli', foodsAndQuantity: {quantity: 2, foods: {foodId: 1, name: 'brocoli', recommendedServing: 85, caloriesPerServing: 100, createdAt: '2021-01-15T13:58:04.486Z'}}, dateEaten: '2021-01-20T00:00:00.000Z', userId: 1},
+                    {mealId: 22, name: 'sopa', foodsAndQuantity: {quantity: 3, foods: {foodId: 1, name: 'sopa', recommendedServing: 85, caloriesPerServing: 139, createdAt: '2021-02-15T23:58:04.486Z'}}, dateEaten: '2021-03-01T00:00:00.000Z', userId: 1},
+                    {mealId: 23, name: 'hamburguesa', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'hamburguesa doble', recommendedServing: 120, caloriesPerServing: 240, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-20T00:00:00.000Z', userId: 1},
+                    {mealId: 24, name: 'papas', foodsAndQuantity: {quantity: 1, foods: {foodId: 1, name: 'Papas con cheddar', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-22T00:00:00.000Z', userId: 1},
+                     
+                ]
+            }
+        ];
+
+        store.dispatch(actions.getLastYearsMeals())
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual(expectedActions);
+        });
+        expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it("should create the FAILED action when receiving an error for getLastYearsMeals", () => {
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+    
+        const expectedActions = [
+        { type: GET_LAST_YEARS_MEALS_PENDING },
+        {
+            type: GET_LAST_YEARS_MEALS_FAILED,
+            payload: "ERROR: could not fetch data",
+        }
+        ];
+
+        store.dispatch(actions.getLastYearsMeals())
         .then(() => {
             const actions = store.getActions();
             expect(actions).toEqual(expectedActions);

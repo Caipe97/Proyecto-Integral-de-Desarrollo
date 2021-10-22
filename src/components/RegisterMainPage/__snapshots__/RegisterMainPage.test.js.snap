@@ -196,7 +196,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
         <r
           allowSameDay={false}
           customTimeInput={null}
-          dateFormat="dd-MM-yyyy h:mm aa"
+          dateFormat="dd-MM-yyyy"
           dateFormatCalendar="LLLL yyyy"
           disabled={false}
           disabledKeyboardNavigation={false}
@@ -235,7 +235,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           showPreviousMonths={false}
           showQuarterYearPicker={false}
           showTimeInput={false}
-          showTimeSelect={true}
+          showTimeSelect={false}
           showTwoColumnMonthYearPicker={false}
           showYearPicker={false}
           strictParsing={false}
