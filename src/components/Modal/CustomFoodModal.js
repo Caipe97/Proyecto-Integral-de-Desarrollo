@@ -6,14 +6,14 @@ import Combobox from "react-widgets/Combobox";
 import "react-widgets/styles.css";
 import Edit from '../../images/edit.png';
 
-const AddCustomFoodModal = (props) =>{
+const CustomFoodModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
   const [state, setState] = useState({
     name: '',
     recommendedServing: '',
     caloriesPerServing: '',
     foodCategoryId: '',
-    errorMessage: ''
+    message: ''
   })
 
   const handleChange = event => {
@@ -31,16 +31,17 @@ const AddCustomFoodModal = (props) =>{
   };
 
   if(props.edit){
+    
     const handleSubmitEdit = async (event) => {
       event.preventDefault();
-      await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
-      setState({
-        name: '',
-        recommendedServing: '',
-        caloriesPerServing: '',
-        foodCategoryId: '',
-        errorMessage: ''
-      });
+      const data = await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
+      console.log(props.row)
+      if(data){
+        setState({
+          ...state,
+          message: 'Alimento editado exitosamente'
+        });
+      }
     };
 
     return (
@@ -48,7 +49,16 @@ const AddCustomFoodModal = (props) =>{
       {/* <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
         Editar Categoría
       </Button> */}
-      <img src={Edit} alt='editar' style={{width: '20px', height: '20px', cursor: 'pointer'}} onClick={() => setModalShow(true)}/>
+      <img src={Edit} alt='editar' style={{width: '20px', height: '20px', cursor: 'pointer'}} onClick={() => {
+        setState({
+          name: props.row.name,
+          recommendedServing: props.row.recommendedServing,
+          caloriesPerServing: props.row.caloriesPerServing,
+          foodCategoryId: props.row.foodCategoryId
+        });
+        setModalShow(true)
+        console.log(state)
+        }}/>
         
         <Modal
           show={modalShow}
@@ -76,7 +86,7 @@ const AddCustomFoodModal = (props) =>{
                 )}
               />
               <button onClick={handleSubmitEdit} className='button'>Finalizar edición</button>
-              <p>{state.errorMessage}</p>
+              <p>{state.message}</p>
             </form>
           </Modal.Body>
           <Modal.Footer>
@@ -88,14 +98,16 @@ const AddCustomFoodModal = (props) =>{
   } else {
     const handleSubmitAdd = async (event) => {
       event.preventDefault();
-      await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId, props.userId);
-      setState({
-        name: '',
-        recommendedServing: '',
-        caloriesPerServing: '',
-        foodCategoryId: '',
-        errorMessage: ''
-      });
+      const data = await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId, props.userId);
+      if(data){
+        setState({
+          name: '',
+          recommendedServing: '',
+          caloriesPerServing: '',
+          foodCategoryId: '',
+          message: 'Alimento agregado exitosamente'
+        });
+      }
     };
 
     return (
@@ -130,7 +142,7 @@ const AddCustomFoodModal = (props) =>{
                 )}
               />
               <button onClick={handleSubmitAdd} className='button'>Agregar</button>
-              <p>{state.errorMessage}</p>
+              <p>{state.message}</p>
             </form>
 
           </Modal.Body>
@@ -144,4 +156,4 @@ const AddCustomFoodModal = (props) =>{
 
 }
   
-  export default AddCustomFoodModal;
+  export default CustomFoodModal;

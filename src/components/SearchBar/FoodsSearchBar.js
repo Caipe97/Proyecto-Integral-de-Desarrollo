@@ -100,7 +100,7 @@ class FoodsSearchBar extends Component {
             return(
               <div>
                 <img src={Delete} alt='eliminar' onClick={() => this.props.onDeleteCustomFood(row.foodId)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
-                <CustomFoodModal edit={true} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood} foodCategories={this.props.foodCategories}/>
+                <CustomFoodModal edit={true} row={row} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood} foodCategories={this.props.foodCategories}/>
                 <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
               </div>
             )

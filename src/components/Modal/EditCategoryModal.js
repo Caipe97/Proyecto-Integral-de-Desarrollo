@@ -12,7 +12,7 @@ const EditCategoryModal = (props) =>{
   const [state, setState] = useState({
     name: '',
     foodCategoryId: '',
-    errorMessage: ''
+    message: ''
   })
 
   const handleChange = event => {
@@ -24,12 +24,14 @@ const EditCategoryModal = (props) =>{
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await props.onEditCategory(state.foodCategoryId, state.name);
-    setState({
-      name: '',
-      foodCategoryId: '',
-      errorMessage: ''
-    });
+    const data = await props.onEditCategory(state.foodCategoryId, state.name);
+    if(data){
+      setState({
+        name: '',
+        foodCategoryId: '',
+        message: 'Categoría editada exitosamente'
+      });
+    }
   };
 
   const onChangeComboBox = async event => {
@@ -67,7 +69,7 @@ const EditCategoryModal = (props) =>{
             />
             <TextField label="Nuevo nombre" name='name' type='name' value={state.name} onChange={handleChange} required />
             <button onClick={handleSubmit} className='button'>Editar</button>
-            <p>{state.errorMessage}</p>
+            <p>{state.message}</p>
           </form>
         </Modal.Body>
         <Modal.Footer>

@@ -12,17 +12,20 @@ const DeleteCategoryModal = (props) =>{
   const [state, setState] = useState({
     name: '',
     foodCategoryId: '',
-    errorMessage: ''
+    message: ''
   })
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await props.onDeleteCategory(state.foodCategoryId);
-    setState({
-      name: '',
-      foodCategoryId: '',
-      errorMessage: ''
-    });
+    const data = await props.onDeleteCategory(state.foodCategoryId);
+    if(data){
+      setState({
+        name: '',
+        foodCategoryId: '',
+        message: 'Categoría eliminada exitosamente'
+      });
+    }
+
   };
 
   const onChangeComboBox = async event => {
@@ -59,7 +62,7 @@ const DeleteCategoryModal = (props) =>{
               )}
             />
             <button onClick={handleSubmit} className='button'>Eliminar</button>
-            <p>{state.errorMessage}</p>
+            <p>{state.message}</p>
           </form>
         </Modal.Body>
         <Modal.Footer>

@@ -8,7 +8,7 @@ const AddCategoryModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
   const [state, setState] = useState({
     name: '',
-    errorMessage: ''
+    message: ''
   })
 
   const handleChange = event => {
@@ -20,11 +20,13 @@ const AddCategoryModal = (props) =>{
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await props.onCreateCategory(state.name, props.userId);
-    setState({
-      name: '',
-      errorMessage: ''
-    });
+    const data = await props.onCreateCategory(state.name, props.userId);
+    if(data){
+      setState({
+        name: '',
+        message: 'Categoría agregada exitosamente'
+      });
+    }
   };
 
   return (
@@ -48,7 +50,7 @@ const AddCategoryModal = (props) =>{
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
             <TextField label="Nombre" name='name' type='name' value={state.name} onChange={handleChange} required />
             <button onClick={handleSubmit} className='button'>Crear</button>
-            <p>{state.errorMessage}</p>
+            <p>{state.message}</p>
           </form>
         </Modal.Body>
         <Modal.Footer>
