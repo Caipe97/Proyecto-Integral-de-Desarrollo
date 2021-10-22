@@ -16,6 +16,7 @@ class GoalsMainPage extends Component {
       name: '',
       totalCalories: '',
       dateStart: new Date(),
+      dateStartOrigin: new Date(),
       successMessage: ''
     };
   }
@@ -28,15 +29,10 @@ class GoalsMainPage extends Component {
         ...this.state,
         name: this.props.history.location.state.goal.name,
         totalCalories: this.props.history.location.state.goal.totalCalories,
-        dateStart: sumThreeHoursToDateStart
+        dateStart: sumThreeHoursToDateStart,
+        dateStartOrigin: new Date(sumThreeHoursToDateStart)
       })
     } else {
-      // await this.setState({
-      //   ...this.state,
-      //   name: '',
-      //   totalCalories: '',
-      //   dateStart: new Date()
-      // });
       this.props.onResetCurrentGoal();
     }  
   }
@@ -50,7 +46,7 @@ class GoalsMainPage extends Component {
   };
 
   changeDateStartFormat = date => {
-    date = new Date(date);
+    date = new Date(date)
     if(date){
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
@@ -86,23 +82,30 @@ class GoalsMainPage extends Component {
       })
     }
     if(this.objectivesSumedCaloriesIsSmallerOrEqualThanGoalTotalCalories(this.props.currentGoal, this.state.totalCalories)){
-      if(this.isValidDate(this.state.dateStart)){
-        let neccesaryDateStartFormat = this.changeDateStartFormat(this.state.dateStart);
-        this.props.onChangeCurrentGoalNameTotalCaloriesAndDateStart(this.state.name, this.state.totalCalories, neccesaryDateStartFormat);
-        const data = await this.props.onAddGoal(this.props.userId, this.props.currentGoal);
-        if(data.payload.message){
-          this.setState({
-            ...this.state,
-            successMessage: 'Completa todos los campos para cargar una meta'
-          })
+      if(this.isValidDate(this.state.dateStart, false)){
+        if(this.state.name !== ''){
+          let neccesaryDateStartFormat = this.changeDateStartFormat(this.state.dateStart);
+          this.props.onChangeCurrentGoalNameTotalCaloriesAndDateStart(this.state.name, this.state.totalCalories, neccesaryDateStartFormat);
+          const data = await this.props.onAddGoal(this.props.userId, this.props.currentGoal);
+          if(data.payload.message){
+            this.setState({
+              ...this.state,
+              successMessage: 'Completa todos los campos para cargar una meta'
+            })
+          } else {
+            this.setState({
+              ...this.state,
+              successMessage: 'Meta agregada exitosamente'
+            })
+          }
+          this.setState({name: '', totalCalories: '', dateStart: '', dateStartOrigin: ''});
+          this.props.onResetCurrentGoal();
         } else {
           this.setState({
             ...this.state,
-            successMessage: 'Meta agregada exitosamente'
+            successMessage: 'La meta debe tener un nombre'
           })
         }
-        this.setState({name: '', totalCalories: '', dateStart: ''});
-        this.props.onResetCurrentGoal();
       } else {
         this.setState({
           ...this.state,
@@ -117,16 +120,26 @@ class GoalsMainPage extends Component {
     }
   };
 
-  isValidDate = date => {
+  isValidDate = (date, isEdit) => {
     let isValidDate = true;
-    date = new Date(date);
     let dateCopy = date.getMonth() + '' + date.getFullYear();
     this.props.goals.forEach(goal => {
-      let goalDateStartCopy = new Date(goal.dateStart).getMonth() + '' + new Date(goal.dateStart).getFullYear();
+      let goalDateStartCopy = new Date(new Date(goal.dateStart).setHours(new Date(goal.dateStart).getHours() + 3))
+      goalDateStartCopy = goalDateStartCopy.getMonth() + '' + goalDateStartCopy.getFullYear();
       console.log(goalDateStartCopy, dateCopy)
       if(goalDateStartCopy === dateCopy){
-        isValidDate = false;
-        return isValidDate;
+        let dateStarCopy = new Date(this.state.dateStartOrigin);
+        dateStarCopy = dateStarCopy.getMonth() + '' + dateStarCopy.getFullYear()
+        if(isEdit){
+          console.log(dateStarCopy)
+          if(goalDateStartCopy !== dateStarCopy){
+            isValidDate = false;
+            return isValidDate;
+          }
+        } else {
+          isValidDate = false;
+          return isValidDate;
+        }
       } 
     })
     return isValidDate
@@ -141,14 +154,14 @@ class GoalsMainPage extends Component {
       })
     }
     if(this.objectivesSumedCaloriesIsSmallerOrEqualThanGoalTotalCalories(this.props.currentGoal, this.state.totalCalories)){
-      if(this.isValidDate(this.state.dateStart)){
+      if(this.isValidDate(new Date(this.state.dateStart), true)){
         let neccesaryDateStartFormat = this.changeDateStartFormat(this.state.dateStart);
         this.props.onChangeCurrentGoalNameTotalCaloriesAndDateStart(this.state.name, this.state.totalCalories, neccesaryDateStartFormat);
         const data = await this.props.onUpdateCurrentGoal(this.props.userId, this.props.currentGoal);
         if(data.payload.message){
           this.setState({
             ...this.state,
-            successMessage: 'Completa todos los campos para cargar una meta'
+            successMessage: 'Completa todos los campos para editar una meta'
           })
         } else {
           this.setState({
@@ -156,7 +169,7 @@ class GoalsMainPage extends Component {
             successMessage: 'Meta editada exitosamente'
           })
         }
-        this.setState({name: '', totalCalories: '', dateStart: ''});
+        this.setState({name: '', totalCalories: '', dateStart: '', dateStartOrigin: ''});
         this.props.onResetCurrentGoal();
       } else {
         this.setState({
@@ -175,7 +188,7 @@ class GoalsMainPage extends Component {
   handleChangeDateStart = date => {
     const today = new Date();
     if(date < today){
-      date = new Date(today);
+      date = today;
     }
     this.setState({
       ...this.state,
