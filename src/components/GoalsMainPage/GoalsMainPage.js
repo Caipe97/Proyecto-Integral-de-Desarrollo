@@ -50,6 +50,7 @@ class GoalsMainPage extends Component {
   };
 
   changeDateStartFormat = date => {
+    date = new Date(date);
     if(date){
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
@@ -97,7 +98,7 @@ class GoalsMainPage extends Component {
         } else {
           this.setState({
             ...this.state,
-            successMessage: 'Meta editada exitosamente'
+            successMessage: 'Meta agregada exitosamente'
           })
         }
         this.setState({name: '', totalCalories: '', dateStart: ''});
@@ -118,6 +119,7 @@ class GoalsMainPage extends Component {
 
   isValidDate = date => {
     let isValidDate = true;
+    date = new Date(date);
     let dateCopy = date.getMonth() + '' + date.getFullYear();
     this.props.goals.forEach(goal => {
       let goalDateStartCopy = new Date(goal.dateStart).getMonth() + '' + new Date(goal.dateStart).getFullYear();
@@ -171,6 +173,10 @@ class GoalsMainPage extends Component {
   };
 
   handleChangeDateStart = date => {
+    const today = new Date();
+    if(date < today){
+      date = new Date(today);
+    }
     this.setState({
       ...this.state,
       dateStart: date

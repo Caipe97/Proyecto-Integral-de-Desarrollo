@@ -4,15 +4,14 @@ import { Button, ProgressBar } from 'react-bootstrap';
 
 const GoalModal =(props) =>{
   const [modalShow, setModalShow] = useState(false);
-  // let totalCaloriesPerFood = 0;
-  // const calculateTotalCaloriesPerMeal = () => {
-  //   let totalCaloriesPerMeal = 0;
-  //   for (let i = 0; i < props.meal.FoodList.length; i++) {
-  //     const element = props.meal.FoodList[i];
-  //     totalCaloriesPerMeal += element.food.caloriesPerServing * element.quantity;
-  //   }
-  //   return totalCaloriesPerMeal;
-  // }
+  const calculateCurrentCaloriesOfGoal = goal => {
+    let currentCaloriesPerObjective = 0;
+    for (let i = 0; i < goal.objectives.length; i++) {
+      const objective = goal.objectives[i];
+      currentCaloriesPerObjective += objective.currentCalories;
+    }
+    return currentCaloriesPerObjective;
+  }
   return (
     <>
       <Button  type="button" variant="primary" style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}} onClick={() => setModalShow(true)}>
@@ -39,21 +38,19 @@ const GoalModal =(props) =>{
           </p>
           
           {props.goal.objectives.map(objective => {
-              // totalCaloriesPerFood = FoodListItem.food.caloriesPerServing * FoodListItem.quantity
-              return(
-                <div key={objective.foodCategoryId} style={{textAlign:'center',top:'3px',background:'#B6E052', margin: "5px", padding: 5, borderRadius: 10}}>
-                  <p style={{margin: 0}}>{objective.foodCategory.name}: {objective.currentCalories} de {objective.objectiveCalories}</p>
-                  <ProgressBar animated 
-                    variant={(objective.currentCalories/objective.objectiveCalories)*100 > 65 ? "danger" : "success"}  
-                    now={(objective.currentCalories/objective.objectiveCalories)*100} 
-                    label={`${(objective.currentCalories/objective.objectiveCalories)*100}%`}/>
-                    
-                </div>
-              );
+            return(
+              <div key={objective.foodCategoryId} style={{textAlign:'center',top:'3px',background:'#B6E052', margin: "5px", padding: 5, borderRadius: 10}}>
+                <p style={{margin: 0}}>{objective.foodCategory.name}: {objective.currentCalories} de {objective.objectiveCalories}</p>
+                <ProgressBar animated 
+                  variant={(objective.currentCalories/objective.objectiveCalories)*100 > 65 ? "danger" : "success"}  
+                  now={(objective.currentCalories/objective.objectiveCalories)*100} 
+                  label={`${(objective.currentCalories/objective.objectiveCalories)*100}%`}/>
+                  
+              </div>
+            );
             })
           }
-          {props.goal.totalCalories>0 ? <p>TotalCalories</p> : <></>}
-          {/* <p>Total de calorias consumidas en la comida: {calculateTotalCaloriesPerMeal()}</p> */}
+          {props.goal.totalCalories > 0 ? <p>Calorias totales consumidas: {calculateCurrentCaloriesOfGoal(props.goal)}</p> : null}
         </Modal.Body>
         <Modal.Footer>
           <Button type="button" onClick={() =>  {props.onUpdateCurrentGoalInState(props.goal); props.history.push("/goals", {goal: props.goal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
