@@ -4,6 +4,7 @@ import { Button, ProgressBar } from 'react-bootstrap';
 
 const GoalModal =(props) =>{
   const [modalShow, setModalShow] = useState(false);
+
   const calculateCurrentCaloriesOfGoal = goal => {
     let currentCaloriesPerObjective = 0;
     for (let i = 0; i < goal.objectives.length; i++) {
@@ -12,6 +13,24 @@ const GoalModal =(props) =>{
     }
     return currentCaloriesPerObjective;
   }
+
+  const isGoalEditable = goal => {
+    let dateStart = new Date(goal.dateStart);
+    dateStart = new Date(dateStart.setHours(dateStart.getHours() + 3));
+    const today = new Date();
+    if(dateStart.getFullYear() > today.getFullYear()){
+      return true;
+    } else if(dateStart.getFullYear() === today.getFullYear()){
+      if(dateStart.getMonth() > today.getMonth()){
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
   return (
     <>
       <Button  type="button" variant="primary" style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}} onClick={() => setModalShow(true)}>
@@ -44,16 +63,31 @@ const GoalModal =(props) =>{
                 <ProgressBar animated 
                   variant={(objective.currentCalories/objective.objectiveCalories)*100 > 65 ? "danger" : "success"}  
                   now={(objective.currentCalories/objective.objectiveCalories)*100} 
-                  label={`${(objective.currentCalories/objective.objectiveCalories)*100}%`}/>
+                  label={`${(objective.currentCalories/objective.objectiveCalories)*100}%`}
+                />
                   
               </div>
             );
             })
           }
-          {props.goal.totalCalories > 0 ? <p>Calorias totales consumidas: {calculateCurrentCaloriesOfGoal(props.goal)}</p> : null}
+          {
+          props.goal.totalCalories > 0 
+          ?  <>
+              <p>Calorias totales consumidas: {calculateCurrentCaloriesOfGoal(props.goal)}/{props.goal.totalCalories}:</p> 
+              <ProgressBar animated 
+                variant={(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100 > 65 ? "danger" : "success"}  
+                now={(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100} 
+                label={`${(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100}%`}
+              />
+            </>
+          : null
+          }
         </Modal.Body>
         <Modal.Footer>
-          <Button type="button" onClick={() =>  {props.onUpdateCurrentGoalInState(props.goal); props.history.push("/goals", {goal: props.goal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
+          { isGoalEditable(props.goal)
+            ? <Button type="button" onClick={() =>  {props.onUpdateCurrentGoalInState(props.goal); props.history.push("/goals", {goal: props.goal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
+            : null
+          }
           <Button type="button" onClick={() =>  props.onDeleteGoal(props.goal.goalId, props.goal.userId)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Eliminar</Button>
         </Modal.Footer>
       </Modal>
