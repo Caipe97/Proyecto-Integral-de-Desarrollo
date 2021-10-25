@@ -87,10 +87,18 @@ class FoodCategoriesSearchBar extends Component {
     this.filtrarElementos();
   }
 
+  validateQuantity = (quantity) => { //cannot be empty and only numbers
+    const expression = /^\d+$/
+    return expression.test(String(quantity).toLowerCase())
+  }
+
   handleChangeInput = async event => {
     event.persist();
-    console.log(event.target.value)
-    await this.setState({quantity: event.target.value})
+    if(this.validateQuantity(event.target.value)){
+      await this.setState({quantity: event.target.value})
+    } else {
+      await this.setState({quantity: ''})
+    }
     this.asignarColumnas();
   }
 
@@ -100,7 +108,13 @@ class FoodCategoriesSearchBar extends Component {
         cell:(row) => {
           return(
             <div>
-              <img src={Add} alt='agregar' onClick={() => {
+              <img src={Add} alt='agregar' onClick={async () => {
+                if(this.state.quantity === ''){
+                  await this.setState({
+                    ...this.state,
+                    quantity: 0
+                  })
+                }
                 let objective = {
                   foodCategoryId: row.foodCategoryId,
                   objectiveCalories: parseInt(this.state.quantity, 10),
