@@ -35,7 +35,6 @@ const CustomFoodModal = (props) =>{
     const handleSubmitEdit = async (event) => {
       event.preventDefault();
       const data = await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
-      console.log(props.row)
       if(data){
         setState({
           ...state,
@@ -46,9 +45,6 @@ const CustomFoodModal = (props) =>{
 
     return (
       <>
-      {/* <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
-        Editar Categoría
-      </Button> */}
       <img src={Edit} alt='editar' style={{width: '20px', height: '20px', cursor: 'pointer'}} onClick={() => {
         setState({
           name: props.row.name,
@@ -57,7 +53,6 @@ const CustomFoodModal = (props) =>{
           foodCategoryId: props.row.foodCategoryId
         });
         setModalShow(true)
-        console.log(state)
         }}/>
         
         <Modal
@@ -70,6 +65,7 @@ const CustomFoodModal = (props) =>{
             <Modal.Title id="contained-modal-title-vcenter">
             {'Editar Alimento Personalizado'}
             </Modal.Title>
+            <Button type="button" onClick={() => {setModalShow(false); setState({...state, message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
@@ -89,9 +85,6 @@ const CustomFoodModal = (props) =>{
               <p>{state.message}</p>
             </form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
-          </Modal.Footer>
         </Modal>
       </>
     );
@@ -126,6 +119,7 @@ const CustomFoodModal = (props) =>{
             <Modal.Title id="contained-modal-title-vcenter">
             {'Agregar Alimento Personalizado'}
             </Modal.Title>
+            <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
@@ -146,9 +140,6 @@ const CustomFoodModal = (props) =>{
             </form>
 
           </Modal.Body>
-          <Modal.Footer>
-            <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
-          </Modal.Footer>
         </Modal>
       </>
     );

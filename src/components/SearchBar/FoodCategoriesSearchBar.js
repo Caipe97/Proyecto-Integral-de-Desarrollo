@@ -121,7 +121,7 @@ class FoodCategoriesSearchBar extends Component {
                 };
                 this.props.onAddObjectiveToCurrentGoal(objective)
                 }} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer', marginLeft: 40}}/>
-              <TextField label="Cantidad" name='quantity' type='quantity' style={{width: '100px'}} value={this.state.quantity} onChange={this.handleChangeInput} required/>
+              <TextField label="Calorias" name='quantity' type='quantity' style={{width: '100px'}} value={this.state.quantity} onChange={this.handleChangeInput} required/>
             </div>
           )
         },

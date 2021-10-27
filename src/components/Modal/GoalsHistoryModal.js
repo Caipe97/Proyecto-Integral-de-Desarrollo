@@ -19,6 +19,7 @@ const GoalsHistoryModal =(props) =>{
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
+            {'Todas las Metas'}
           </Modal.Title>
           <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
         </Modal.Header>

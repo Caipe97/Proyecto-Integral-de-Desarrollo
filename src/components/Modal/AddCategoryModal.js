@@ -45,6 +45,7 @@ const AddCategoryModal = (props) =>{
           <Modal.Title id="contained-modal-title-vcenter">
           {'Crear Categoría'}
           </Modal.Title>
+          <Button type="button" onClick={() => {setModalShow(false); setState({...state, message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
         </Modal.Header>
         <Modal.Body>
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
@@ -53,9 +54,6 @@ const AddCategoryModal = (props) =>{
             <p>{state.message}</p>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

@@ -98,12 +98,18 @@ class LoginMainPage extends Component {
               <TextField label="Password" name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
               <button onClick={this.handleSubmit} className='button'>Iniciar Sesión</button>
               <p>{this.state.errorMessage}</p>
+              {this.props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
               <p style={{ marginBlock: '0em', marginTop: '4%' }}>Todavia no tenes una cuenta?
                 <Link to="/register" style={{ color: 'black' }}>Registrate</Link>
               </p>
               <p style={{ fontSize: '10px', marginTop: '4%' }}>
                 Olvidaste la contrasena?
               </p>
+              
             </form>
           </div>
         </div>

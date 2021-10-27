@@ -40,9 +40,6 @@ const EditCategoryModal = (props) =>{
 
   return (
     <>
-      {/* <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
-        Editar Categoría
-      </Button> */}
       <img src={Edit} alt='editar' style={{width: '30px', height: '30px', cursor: 'pointer'}} onClick={() => setModalShow(true)}/>
       <Modal
         show={modalShow}
@@ -54,6 +51,7 @@ const EditCategoryModal = (props) =>{
           <Modal.Title id="contained-modal-title-vcenter">
           {'Editar Categoría'}
           </Modal.Title>
+          <Button type="button" onClick={() => {setModalShow(false); setState({...state, message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
         </Modal.Header>
         <Modal.Body>
 
@@ -72,9 +70,6 @@ const EditCategoryModal = (props) =>{
             <p>{state.message}</p>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button type="button" onClick={() => setModalShow(false)}>Cerrar</Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

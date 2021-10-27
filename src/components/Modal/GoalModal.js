@@ -63,9 +63,8 @@ const GoalModal =(props) =>{
                 <ProgressBar animated 
                   variant={(objective.currentCalories/objective.objectiveCalories)*100 > 65 ? "danger" : "success"}  
                   now={(objective.currentCalories/objective.objectiveCalories)*100} 
-                  label={`${(objective.currentCalories/objective.objectiveCalories)*100}%`}
+                  label={`${((objective.currentCalories/objective.objectiveCalories)*100).toFixed(2)}%`}
                 />
-                  
               </div>
             );
             })
@@ -77,7 +76,7 @@ const GoalModal =(props) =>{
               <ProgressBar animated 
                 variant={(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100 > 65 ? "danger" : "success"}  
                 now={(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100} 
-                label={`${(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100}%`}
+                label={`${((calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100).toFixed(2)}%`}
               />
             </>
           : null

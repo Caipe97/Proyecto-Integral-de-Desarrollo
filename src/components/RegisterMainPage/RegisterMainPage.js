@@ -170,6 +170,11 @@ class RegisterMainPage extends Component{
               <TextField label="Height" name='height' type='height' value={this.state.height} onChange={this.handleChange} required />
               <button onClick={this.handleSubmit} className='button'>Registrarse</button>
               <p>{this.state.errorMessage}</p>
+              {this.props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
               <p style={{ marginBlock: '0em', marginTop: '10%' }}>Si ya tenes una cuenta?</p>
               <Link to="/" style={{ color: 'black' }}>Login</Link>
             </form>

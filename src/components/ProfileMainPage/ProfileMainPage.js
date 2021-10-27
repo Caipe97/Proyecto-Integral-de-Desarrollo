@@ -58,6 +58,9 @@ class ProfileMainPage extends Component{
   async componentDidUpdate(){
     if(this.props.meals.length !== this.state.mealsQuantity){
       await this.props.onGetLastYearsMeals(this.props.userId);
+      await this.setState({
+        mealsQuantity: this.props.meals.length
+      })
     }
   }
 
@@ -101,7 +104,6 @@ class ProfileMainPage extends Component{
     if(this.validateAll()){
       const dateStartString = this.state.dateStart.toString().substring(4, 15);
       const dateEndString = this.state.dateEnd.toString().substring(4, 15);
-      console.log(dateStartString, this.state.dateStart);
       await this.props.onGetMealsByPeriod(this.props.userId, dateStartString, dateEndString);
       //this.setState({dateStart: '', dateEnd: ''});
       this.calculateFoodCategoriesPercentages();
@@ -267,7 +269,7 @@ class ProfileMainPage extends Component{
             <div className="col4" style={{}}>
             <div className="comidaa"  style={{borderRadius:'18px'}}>
               <p>Historial de Metas</p>
-                <CarouselContainer goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentGoalInState={this.props.onUpdateCurrentGoalInState} onGetGoalsFromUser={this.props.onGetGoalsFromUser}/> 
+                <CarouselContainer userId={this.props.userId} goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentGoalInState={this.props.onUpdateCurrentGoalInState} onGetGoalsFromUser={this.props.onGetGoalsFromUser}/> 
             </div>
               
             </div>

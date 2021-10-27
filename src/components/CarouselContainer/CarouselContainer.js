@@ -33,7 +33,6 @@ const CarouselContainer = (props) => {
   });
   
   return (
-    
       <Carousel responsive={responsive}>
         <div className="card-container" key={'addMeta'}>
             <div style={{ background: '#CCDDE2', textAlign: 'center', margin: 5, borderRadius: 10, paddingBottom: 5}}>

@@ -118,7 +118,7 @@ class GoalsMainPage extends Component {
     } else{
       this.setState({
         ...this.state,
-        successMessage: 'La suma de las calorias de los objetivos no puede superar a las colarias totales de la meta'
+        successMessage: 'La suma de las calorias de los objetivos no puede superar a las calorias totales de la meta'
       })
     }
   };
@@ -133,7 +133,6 @@ class GoalsMainPage extends Component {
         let dateStarCopy = new Date(this.state.dateStartOrigin);
         dateStarCopy = dateStarCopy.getMonth() + '' + dateStarCopy.getFullYear()
         if(isEdit){
-          console.log(dateStarCopy)
           if(goalDateStartCopy !== dateStarCopy){
             isValidDate = false;
             return isValidDate;
