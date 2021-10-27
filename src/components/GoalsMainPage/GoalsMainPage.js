@@ -5,9 +5,8 @@ import Footer from '../Footer/Footer';
 import FoodCategoriesSearchBar from '../SearchBar/FoodCategoriesSearchBar';
 import DatePicker from "react-datepicker";
 import TextField from '@material-ui/core/TextField';
-// import GoalModal from '../Modal/GoalModal';
-// import Delete from '../../images/delete.png'
-// import Meal from '../../images/meal.png';
+import Goal from '../../images/goal.png';
+import Delete from '../../images/delete.png'
 
 class GoalsMainPage extends Component {
   constructor(props) {
@@ -130,7 +129,6 @@ class GoalsMainPage extends Component {
     this.props.goals.forEach(goal => {
       let goalDateStartCopy = new Date(new Date(goal.dateStart).setHours(new Date(goal.dateStart).getHours() + 3))
       goalDateStartCopy = goalDateStartCopy.getMonth() + '' + goalDateStartCopy.getFullYear();
-      console.log(goalDateStartCopy, dateCopy)
       if(goalDateStartCopy === dateCopy){
         let dateStarCopy = new Date(this.state.dateStartOrigin);
         dateStarCopy = dateStarCopy.getMonth() + '' + dateStarCopy.getFullYear()
@@ -221,7 +219,8 @@ class GoalsMainPage extends Component {
         </div>
         <div className="sidebarR" >
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <div style={{ marginTop: 45 }}>
+            <img src={Goal} alt="goal" style={{width: 100}}/>
+            <div style={{ marginTop: 15 }}>
             <TextField label="Nombre de la meta" name='name' type='name' value={this.state.name} onChange={this.handleChange} required/>
             <TextField label="Calorías de la meta" name='totalCalories' type='totalCalories' value={this.state.totalCalories} onChange={this.handleChange} required/>
             </div>
@@ -233,7 +232,7 @@ class GoalsMainPage extends Component {
                     <div key={objective.foodCategoryId} style={{width:'100%', backgroundColor: '#b6e052', borderRadius: 10, paddingLeft: 4, paddingRight: 2}}>
                       <li style={{listStyleType: 'none',justifyContent:'space-between',display:'flex', marginTop:'10px'}}>
                           <div style={{paddingTop: 7}}>Nombre: {this.getFoodCategoryNameOfObjective(objective)} Objetivo:{objective.objectiveCalories}</div>
-                          <div><img src={"https://cdn.discordapp.com/attachments/776636063673876500/890637232275324969/trash_negro.png"} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2, cursor: 'pointer'}} onClick={() => this.props.onRemoveObjectiveFromCurrentGoal(objective)}/></div>
+                          <div><img src={Delete} alt="tacho" style={{width: 18, margin: 10, borderRadius: 2, cursor: 'pointer'}} onClick={() => this.props.onRemoveObjectiveFromCurrentGoal(objective)}/></div>
                       </li>
                     </div>
                   )}
