@@ -69,8 +69,12 @@ class GoalsMainPage extends Component {
       } else{
         return true;
       }
+    } else {
+      if(goal.objectives.length === 0){
+        return false;
+      }
+      return true;
     }
-    return true;
   }
 
   handleSubmitCreate = async event => {

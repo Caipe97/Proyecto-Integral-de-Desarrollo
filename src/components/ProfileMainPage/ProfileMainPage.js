@@ -198,6 +198,7 @@ class ProfileMainPage extends Component{
           <div className="contenidoPro">
             <div className="comida">
               <MealsSearchBar {...this.props}/>
+              {/* <GoalsHistoryModal {...this.props}/> */}
             </div>
           </div>
           <div className="dashboardPro">
@@ -266,7 +267,7 @@ class ProfileMainPage extends Component{
             <div className="col4" style={{}}>
             <div className="comidaa"  style={{borderRadius:'18px'}}>
               <p>Historial de Metas</p>
-                <CarouselContainer goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentGoalInState={this.props.onUpdateCurrentGoalInState}/> 
+                <CarouselContainer goals={this.props.goals} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentGoalInState={this.props.onUpdateCurrentGoalInState} onGetGoalsFromUser={this.props.onGetGoalsFromUser}/> 
             </div>
               
             </div>
