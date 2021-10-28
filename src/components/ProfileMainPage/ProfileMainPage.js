@@ -18,7 +18,7 @@ class ProfileMainPage extends Component{
     super(props);
     this.state = {
       dateStart: new Date(new Date(new Date().setMonth(new Date().getMonth()-11)).toDateString()),
-      dateEnd: new Date(new Date().toDateString()),
+      dateEnd: new Date(new Date().setDate(new Date().getDate() +1)),
       foodCategoriesWithCalories: [],
       filteredFoodCategories: [],
       checkboxsList: [],
