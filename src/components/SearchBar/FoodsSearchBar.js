@@ -272,7 +272,7 @@ render(){
         fixedHeader
         fixedHeaderScrollHeight="600px"
         noDataComponent={
-          <span>No se encontró ningún alimento</span>
+          <span style={{marginTop: 150, marginBottom: 150}}>No se encontró ningún alimento</span>
         }
         conditionalRowStyles={conditionalRowStyles}
         customStyles={customStyles}
