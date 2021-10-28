@@ -44,6 +44,22 @@ exports[`ModalAddCategoryModal tests expect t2 1`] = `
       >
         Agregar Alimento Personalizado
       </ModalTitle>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "color": "black",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        X
+      </Button>
     </ModalHeader>
     <ModalBody>
       <form
@@ -114,17 +130,6 @@ exports[`ModalAddCategoryModal tests expect t2 1`] = `
         <p />
       </form>
     </ModalBody>
-    <ModalFooter>
-      <Button
-        active={false}
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Cerrar
-      </Button>
-    </ModalFooter>
   </Modal>
 </Fragment>
 `;
@@ -170,6 +175,22 @@ exports[`ModalAddCategoryModal tests expect t2 2`] = `
       >
         Editar Alimento Personalizado
       </ModalTitle>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "color": "black",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        X
+      </Button>
     </ModalHeader>
     <ModalBody>
       <form
@@ -240,17 +261,6 @@ exports[`ModalAddCategoryModal tests expect t2 2`] = `
         <p />
       </form>
     </ModalBody>
-    <ModalFooter>
-      <Button
-        active={false}
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Cerrar
-      </Button>
-    </ModalFooter>
   </Modal>
 </Fragment>
 `;

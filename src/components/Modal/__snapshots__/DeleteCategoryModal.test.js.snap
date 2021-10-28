@@ -41,6 +41,22 @@ exports[`ModalDeleteCategoryModal tests expect t2 1`] = `
       >
         Eliminar Categoría
       </ModalTitle>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "color": "black",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        X
+      </Button>
     </ModalHeader>
     <ModalBody>
       <form
@@ -70,17 +86,6 @@ exports[`ModalDeleteCategoryModal tests expect t2 1`] = `
         <p />
       </form>
     </ModalBody>
-    <ModalFooter>
-      <Button
-        active={false}
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Cerrar
-      </Button>
-    </ModalFooter>
   </Modal>
 </Fragment>
 `;
