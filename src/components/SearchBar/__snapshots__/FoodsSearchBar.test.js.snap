@@ -305,7 +305,14 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
     fixedHeader={true}
     fixedHeaderScrollHeight="600px"
     noDataComponent={
-      <span>
+      <span
+        style={
+          Object {
+            "marginBottom": 150,
+            "marginTop": 150,
+          }
+        }
+      >
         No se encontró ningún alimento
       </span>
     }
@@ -628,7 +635,14 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
     fixedHeader={true}
     fixedHeaderScrollHeight="600px"
     noDataComponent={
-      <span>
+      <span
+        style={
+          Object {
+            "marginBottom": 150,
+            "marginTop": 150,
+          }
+        }
+      >
         No se encontró ningún alimento
       </span>
     }
