@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoodCategoriesSearchBar tests expect to render FoodCategoriesSearchBar component to location state  1`] = `
+<div
+  className="table-responsive"
+  style={
+    Object {
+      "backgroundColor": "#B6E052",
+    }
+  }
+>
+  <div
+    className="barraBusquedaNombre"
+    style={
+      Object {
+        "backgroundColor": "#B6E052",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <Combobox
+        data={
+          Array [
+            Object {
+              "foodCategoryId": 0,
+              "name": "Ver todas las categorías",
+              "userId": null,
+            },
+            Object {
+              "createdAt": "2021-09-30T14:09:34.756Z",
+              "foodCategoryId": 1,
+              "name": "Fruta",
+              "updatedAt": "2021-09-30T14:09:34.756Z",
+              "userId": null,
+            },
+            Object {
+              "createdAt": "2021-09-30T18:58:58.542Z",
+              "foodCategoryId": 7,
+              "name": "Fideos",
+              "updatedAt": "2021-09-30T18:58:58.542Z",
+              "userId": null,
+            },
+          ]
+        }
+        groupBy={[Function]}
+        onSelect={[Function]}
+        placeholder="Categoría"
+        renderListGroup={[Function]}
+        style={
+          Object {
+            "width": "80%",
+          }
+        }
+        textField="name"
+      />
+    </div>
+  </div>
+  <Memo()
+    columns={
+      Array [
+        Object {
+          "allowOverflow": true,
+          "button": true,
+          "cell": [Function],
+          "ignoreRowClick": true,
+        },
+        Object {
+          "name": "Categoría",
+          "selector": [Function],
+          "sortable": true,
+        },
+      ]
+    }
+    conditionalRowStyles={
+      Array [
+        Object {
+          "style": Object {
+            "&:hover": Object {
+              "cursor": "pointer",
+            },
+            "backgroundColor": "#B6E052",
+            "color": "black",
+          },
+          "when": [Function],
+        },
+      ]
+    }
+    customStyles={
+      Object {
+        "headCells": Object {
+          "style": Object {
+            "&:not(:last-of-type)": Object {},
+          },
+        },
+        "headRow": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "header": Object {
+          "style": Object {
+            "background": "#CCDDE2",
+            "borderRadius": "17px",
+            "minHeight": "56px",
+            "textShadow": "1px 1px black",
+          },
+        },
+        "pagination": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "row": Object {
+          "pointer": Object {
+            "backgroundColor": "blue",
+          },
+        },
+      }
+    }
+    data={
+      Array [
+        Object {
+          "createdAt": "2021-09-30T14:09:34.756Z",
+          "foodCategoryId": 1,
+          "name": "Fruta",
+          "updatedAt": "2021-09-30T14:09:34.756Z",
+          "userId": null,
+        },
+        Object {
+          "createdAt": "2021-09-30T18:58:58.542Z",
+          "foodCategoryId": 7,
+          "name": "Fideos",
+          "updatedAt": "2021-09-30T18:58:58.542Z",
+          "userId": null,
+        },
+      ]
+    }
+    fixedHeader={true}
+    fixedHeaderScrollHeight="600px"
+    noDataComponent={
+      <span>
+        No se encontró ninguna categoría
+      </span>
+    }
+    pagination={true}
+    paginationComponentOptions={
+      Object {
+        "rangeSeparatorText": "de",
+        "rowsPerPageText": "Filas por Página",
+        "selectAllRowsItem": true,
+        "selectAllRowsItemText": "Todos",
+      }
+    }
+    pointer={true}
+  />
+</div>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header tests expect to render CarouselContainer component 1`] = `
+exports[`CarouselContainer tests expect to render CarouselContainer component 1`] = `
 <Carousel
   additionalTransfrom={0}
   arrows={true}
@@ -178,6 +178,7 @@ exports[`Header tests expect to render CarouselContainer component 1`] = `
             ],
           }
         }
+        preventDefault={[MockFunction]}
       />
     </div>
   </div>

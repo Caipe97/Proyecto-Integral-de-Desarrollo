@@ -1,0 +1,503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoalsMainPage tests expect to render GoalsMainPage component to render 1`] = `
+<div
+  className="contenedorR"
+>
+  <Header
+    currentGoal={
+      Object {
+        "objectives": Array [],
+      }
+    }
+    history={
+      Object {
+        "location": Object {
+          "state": Object {
+            "goal": Object {
+              "dateStart": "2021-07",
+              "goalId": 1,
+              "name": "myGoal",
+              "objectives": Array [
+                Object {
+                  "foodCategoryId": 1,
+                  "objectiveCalories": 3000,
+                },
+                Object {
+                  "foodCategoryId": 2,
+                  "objectiveCalories": 2000,
+                },
+              ],
+              "totalCalories": 5000,
+            },
+          },
+        },
+        "push": [MockFunction],
+      }
+    }
+    onAddGoal={[MockFunction]}
+    onAddObjectiveToCurrentGoal={[MockFunction]}
+    onChangeCurrentGoalNameTotalCaloriesAndDateStart={[MockFunction]}
+    onGetAllFoods={[MockFunction]}
+    onGetFoodCategories={[MockFunction]}
+    onLogout={[MockFunction]}
+    onRemoveObjectiveFromCurrentGoal={[MockFunction]}
+    onResetCurrentGoal={[MockFunction]}
+    onUpdateCurrentGoal={[MockFunction]}
+  />
+  <div
+    className="contenidoR"
+    style={
+      Object {
+        "backgroundColor": "#B6E052",
+      }
+    }
+  >
+    <div
+      className="col2R"
+    >
+      <FoodCategoriesSearchBar
+        currentGoal={
+          Object {
+            "objectives": Array [],
+          }
+        }
+        history={
+          Object {
+            "location": Object {
+              "state": Object {
+                "goal": Object {
+                  "dateStart": "2021-07",
+                  "goalId": 1,
+                  "name": "myGoal",
+                  "objectives": Array [
+                    Object {
+                      "foodCategoryId": 1,
+                      "objectiveCalories": 3000,
+                    },
+                    Object {
+                      "foodCategoryId": 2,
+                      "objectiveCalories": 2000,
+                    },
+                  ],
+                  "totalCalories": 5000,
+                },
+              },
+            },
+            "push": [MockFunction],
+          }
+        }
+        onAddGoal={[MockFunction]}
+        onAddObjectiveToCurrentGoal={[MockFunction]}
+        onChangeCurrentGoalNameTotalCaloriesAndDateStart={[MockFunction]}
+        onGetAllFoods={[MockFunction]}
+        onGetFoodCategories={[MockFunction]}
+        onLogout={[MockFunction]}
+        onRemoveObjectiveFromCurrentGoal={[MockFunction]}
+        onResetCurrentGoal={[MockFunction]}
+        onUpdateCurrentGoal={[MockFunction]}
+      />
+    </div>
+  </div>
+  <div
+    className="sidebarR"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <img
+        alt="goal"
+        src="goal.png"
+        style={
+          Object {
+            "width": 100,
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "marginTop": 15,
+          }
+        }
+      >
+        <WithStyles(ForwardRef(TextField))
+          label="Nombre de la meta"
+          name="name"
+          onChange={[Function]}
+          required={true}
+          type="name"
+          value="myGoal"
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Calorías de la meta"
+          name="totalCalories"
+          onChange={[Function]}
+          required={true}
+          type="totalCalories"
+          value={5000}
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="w-100"
+        />
+        <div
+          className="col"
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          <ul
+            style={
+              Object {
+                "marginBlock": "0em",
+                "paddingInlineStart": "1%",
+              }
+            }
+          />
+        </div>
+        <div
+          className="w-100"
+        />
+        <div
+          className="col"
+          style={
+            Object {
+              "marginTop": "15px",
+              "textAlign": "center",
+            }
+          }
+        >
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="MM-yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="fecha consumo"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de consumo"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected={1625108400000}
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={true}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={false}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
+      </div>
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#E55812",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "white",
+            "fontSize": "14px",
+            "margin": "10px",
+          }
+        }
+      >
+        Editar Meta
+      </button>
+      <p />
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "marginTop": "10%",
+          }
+        }
+        type="button"
+      >
+        Volver al Perfil
+      </button>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`GoalsMainPage tests expect to render GoalsMainPage component to render 2`] = `
+<div
+  className="contenedorR"
+>
+  <Header
+    currentGoal={
+      Object {
+        "objectives": Array [],
+      }
+    }
+    history={
+      Object {
+        "location": Object {
+          "state": Object {
+            "goal": Object {},
+          },
+        },
+        "push": [MockFunction],
+      }
+    }
+    onAddGoal={[MockFunction]}
+    onAddObjectiveToCurrentGoal={[MockFunction]}
+    onChangeCurrentGoalNameTotalCaloriesAndDateStart={[MockFunction]}
+    onGetAllFoods={[MockFunction]}
+    onGetFoodCategories={[MockFunction]}
+    onLogout={[MockFunction]}
+    onRemoveObjectiveFromCurrentGoal={[MockFunction]}
+    onResetCurrentGoal={[MockFunction]}
+    onUpdateCurrentGoal={[MockFunction]}
+  />
+  <div
+    className="contenidoR"
+    style={
+      Object {
+        "backgroundColor": "#B6E052",
+      }
+    }
+  >
+    <div
+      className="col2R"
+    >
+      <FoodCategoriesSearchBar
+        currentGoal={
+          Object {
+            "objectives": Array [],
+          }
+        }
+        history={
+          Object {
+            "location": Object {
+              "state": Object {
+                "goal": Object {},
+              },
+            },
+            "push": [MockFunction],
+          }
+        }
+        onAddGoal={[MockFunction]}
+        onAddObjectiveToCurrentGoal={[MockFunction]}
+        onChangeCurrentGoalNameTotalCaloriesAndDateStart={[MockFunction]}
+        onGetAllFoods={[MockFunction]}
+        onGetFoodCategories={[MockFunction]}
+        onLogout={[MockFunction]}
+        onRemoveObjectiveFromCurrentGoal={[MockFunction]}
+        onResetCurrentGoal={[MockFunction]}
+        onUpdateCurrentGoal={[MockFunction]}
+      />
+    </div>
+  </div>
+  <div
+    className="sidebarR"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <img
+        alt="goal"
+        src="goal.png"
+        style={
+          Object {
+            "width": 100,
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "marginTop": 15,
+          }
+        }
+      >
+        <WithStyles(ForwardRef(TextField))
+          label="Nombre de la meta"
+          name="name"
+          onChange={[Function]}
+          required={true}
+          type="name"
+        />
+        <WithStyles(ForwardRef(TextField))
+          label="Calorías de la meta"
+          name="totalCalories"
+          onChange={[Function]}
+          required={true}
+          type="totalCalories"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="w-100"
+        />
+        <div
+          className="col"
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          <ul
+            style={
+              Object {
+                "marginBlock": "0em",
+                "paddingInlineStart": "1%",
+              }
+            }
+          />
+        </div>
+        <div
+          className="w-100"
+        />
+        <div
+          className="col"
+          style={
+            Object {
+              "marginTop": "15px",
+              "textAlign": "center",
+            }
+          }
+        >
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="MM-yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="fecha consumo"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de consumo"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected={NaN}
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={true}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={false}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
+      </div>
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#E55812",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "white",
+            "fontSize": "14px",
+            "margin": "10px",
+          }
+        }
+      >
+        Editar Meta
+      </button>
+      <p />
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "marginTop": "10%",
+          }
+        }
+        type="button"
+      >
+        Volver al Perfil
+      </button>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

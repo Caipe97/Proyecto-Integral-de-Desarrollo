@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoalsHistoryModal tests expect to render GoalsHistoryModal component to render 1`] = `
+<Fragment>
+  <Button
+    active={false}
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgb(18, 207, 90)",
+        "borderColor": "rgb(18, 207, 90)",
+        "height": 50,
+        "width": "100%",
+      }
+    }
+    type="button"
+    variant="primary"
+  >
+    Ver todas las metas
+  </Button>
+  <Modal
+    animation={true}
+    aria-labelledby="contained-modal-title-vcenter"
+    autoFocus={true}
+    backdrop={true}
+    centered={true}
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={true}
+    restoreFocus={true}
+    show={false}
+    size="lg"
+  >
+    <ModalHeader
+      closeButton={false}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        id="contained-modal-title-vcenter"
+      >
+        Todas las Metas
+      </ModalTitle>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "color": "black",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        X
+      </Button>
+    </ModalHeader>
+    <ModalBody>
+      <GoalsSearchBar
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+        onDeleteGoal={[MockFunction]}
+        onDeleteMeal={[MockFunction]}
+        onGetFoodCategories={[MockFunction]}
+        onGetGoalsFromUser={[MockFunction]}
+        onGetLastYearsMeals={[MockFunction]}
+        onGetMealsByPeriod={[MockFunction]}
+        onGetMealsFromUser={[MockFunction]}
+        onLogout={[MockFunction]}
+        onUpdateCurrentGoalInState={[MockFunction]}
+        onUpdateCurrentMealInState={[MockFunction]}
+        preventDefault={[MockFunction]}
+      />
+    </ModalBody>
+  </Modal>
+</Fragment>
+`;

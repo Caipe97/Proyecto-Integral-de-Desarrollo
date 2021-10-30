@@ -50,7 +50,7 @@ export const foodsReducer = (state=initialStateFoods, action={}) => {
       // console.log("HOLAAAA")
       // console.log("ACTION.PAYLOAD",action.payload)
       action.payload.forEach(food => {
-        console.log(food.foodCategoryId)
+        //console.log(food.foodCategoryId)
         if(food.foodCategoryId === null){
           food.foodCategoryId = -2
         }

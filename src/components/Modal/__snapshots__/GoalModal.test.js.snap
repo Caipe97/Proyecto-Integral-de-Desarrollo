@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoalModal tests expect to render GoalModal component to render 1`] = `
+<Fragment>
+  <Button
+    active={false}
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgb(18, 207, 90)",
+        "borderColor": "rgb(18, 207, 90)",
+      }
+    }
+    type="button"
+    variant="primary"
+  >
+    Mas info
+  </Button>
+  <Modal
+    animation={true}
+    aria-labelledby="contained-modal-title-vcenter"
+    autoFocus={true}
+    backdrop={true}
+    centered={true}
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={true}
+    restoreFocus={true}
+    show={false}
+    size="lg"
+  >
+    <ModalHeader
+      closeButton={false}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        id="contained-modal-title-vcenter"
+      >
+        enero
+      </ModalTitle>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "color": "black",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        X
+      </Button>
+    </ModalHeader>
+    <ModalBody>
+      <h4>
+        2021-09
+      </h4>
+      <p>
+        Objetivos:
+      </p>
+      <p>
+        Calorias totales consumidas: 
+        0
+        /
+        300
+        :
+      </p>
+      <ProgressBar
+        animated={true}
+        isChild={false}
+        label="0.00%"
+        max={100}
+        min={0}
+        now={0}
+        srOnly={false}
+        striped={false}
+        variant="success"
+      />
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgb(18, 207, 90)",
+            "borderColor": "rgb(18, 207, 90)",
+          }
+        }
+        type="button"
+        variant="primary"
+      >
+        Eliminar
+      </Button>
+    </ModalFooter>
+  </Modal>
+</Fragment>
+`;

@@ -122,7 +122,7 @@ export const createCategory = (name, userId) => (dispatch) => {
 }
 
 export const editCategory = (foodCategoryId, name) => (dispatch) => {
-  console.log('ACTION',foodCategoryId, name)
+  //console.log('ACTION',foodCategoryId, name)
   dispatch({ type: EDIT_FOOD_CATEGORY_PENDING });
   return(
     fetch(`https://jma-test-app.herokuapp.com/api/foodCategories?foodCategoryId=${foodCategoryId}`, {

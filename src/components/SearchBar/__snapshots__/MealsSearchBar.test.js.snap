@@ -1,0 +1,483 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealsSearchBar tests expect to render MealsSearchBar component to location state  1`] = `
+<div
+  className="table-responsive"
+  style={
+    Object {
+      "backgroundColor": "#B6E052",
+    }
+  }
+>
+  <div
+    className="barraBusqueda"
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "space-between",
+        "width": "100%",
+      }
+    }
+  >
+    <h1
+      style={
+        Object {
+          "color": "rgb(0, 38, 38)",
+          "fontFamily": "Arial",
+          "fontSize": 30,
+        }
+      }
+    >
+      Comidas
+    </h1>
+    <div
+      style={
+        Object {
+          "alignSelf": "center",
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className="textField"
+        name="busqueda"
+        onChange={[Function]}
+        placeholder="Buscar por nombre o fecha"
+        style={
+          Object {
+            "borderRadius": "13px",
+            "width": "88%",
+          }
+        }
+        type="text"
+        value=""
+      />
+      <button
+        className="btnBuscar"
+        style={
+          Object {
+            "borderRadius": "19px",
+            "marginLeft": 5,
+          }
+        }
+        type="button"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                512,
+                512,
+                Array [],
+                "f002",
+                "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z",
+              ],
+              "iconName": "search",
+              "prefix": "fas",
+            }
+          }
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          swapOpacity={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+      </button>
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#f5f6f7",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "black",
+            "fontSize": "11px",
+            "height": 30,
+            "marginLeft": 10,
+          }
+        }
+        type="button"
+      >
+        Agregar
+      </button>
+    </div>
+  </div>
+  <Memo()
+    columns={
+      Array [
+        Object {
+          "allowOverflow": true,
+          "button": true,
+          "cell": [Function],
+          "ignoreRowClick": true,
+        },
+        Object {
+          "name": "Nombre",
+          "selector": [Function],
+          "sortable": true,
+        },
+        Object {
+          "name": "Fecha de consumo",
+          "selector": [Function],
+          "sortable": true,
+        },
+      ]
+    }
+    conditionalRowStyles={
+      Array [
+        Object {
+          "style": Object {
+            "&:hover": Object {
+              "cursor": "pointer",
+            },
+            "backgroundColor": "#B6E052",
+            "color": "black",
+          },
+          "when": [Function],
+        },
+      ]
+    }
+    customStyles={
+      Object {
+        "headCells": Object {
+          "style": Object {
+            "&:not(:last-of-type)": Object {},
+          },
+        },
+        "headRow": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "header": Object {
+          "style": Object {
+            "background": "#CCDDE2",
+            "borderRadius": "17px",
+            "minHeight": "56px",
+            "textShadow": "1px 1px black",
+          },
+        },
+        "pagination": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "row": Object {
+          "pointer": Object {
+            "backgroundColor": "blue",
+          },
+        },
+      }
+    }
+    data={
+      Array [
+        Object {
+          "FoodList": Array [
+            Object {
+              "food": Object {
+                "caloriesPerServing": 198,
+                "createdAt": "2021-09-15T19:58:04.486Z",
+                "foodId": 1,
+                "name": "Milanesa",
+                "recommendedServing": 85,
+              },
+              "quantity": 1,
+            },
+          ],
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "mealId": 21,
+          "name": "queso",
+          "userId": 1,
+        },
+        Object {
+          "FoodList": Array [
+            Object {
+              "food": Object {
+                "caloriesPerServing": 198,
+                "createdAt": "2021-09-15T19:58:04.486Z",
+                "foodId": 1,
+                "name": "Milanesa",
+                "recommendedServing": 85,
+              },
+              "quantity": 1,
+            },
+          ],
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "mealId": 22,
+          "name": "carne",
+          "userId": 1,
+        },
+      ]
+    }
+    fixedHeader={true}
+    fixedHeaderScrollHeight="600px"
+    noDataComponent={
+      <span>
+        No se encontró ninguna comida
+      </span>
+    }
+    pagination={true}
+    paginationComponentOptions={
+      Object {
+        "rangeSeparatorText": "de",
+        "rowsPerPageText": "Filas por Página",
+        "selectAllRowsItem": true,
+        "selectAllRowsItemText": "Todos",
+      }
+    }
+    pointer={true}
+  />
+</div>
+`;
+
+exports[`MealsSearchBar tests expect to render MealsSearchBar component to location state2  1`] = `
+<div
+  className="table-responsive"
+  style={
+    Object {
+      "backgroundColor": "#B6E052",
+    }
+  }
+>
+  <div
+    className="barraBusqueda"
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "space-between",
+        "width": "100%",
+      }
+    }
+  >
+    <h1
+      style={
+        Object {
+          "color": "rgb(0, 38, 38)",
+          "fontFamily": "Arial",
+          "fontSize": 30,
+        }
+      }
+    >
+      Comidas
+    </h1>
+    <div
+      style={
+        Object {
+          "alignSelf": "center",
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className="textField"
+        name="busqueda"
+        onChange={[Function]}
+        placeholder="Buscar por nombre o fecha"
+        style={
+          Object {
+            "borderRadius": "13px",
+            "width": "88%",
+          }
+        }
+        type="text"
+        value=""
+      />
+      <button
+        className="btnBuscar"
+        style={
+          Object {
+            "borderRadius": "19px",
+            "marginLeft": 5,
+          }
+        }
+        type="button"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                512,
+                512,
+                Array [],
+                "f002",
+                "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z",
+              ],
+              "iconName": "search",
+              "prefix": "fas",
+            }
+          }
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          swapOpacity={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+      </button>
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#f5f6f7",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "black",
+            "fontSize": "11px",
+            "height": 30,
+            "marginLeft": 10,
+          }
+        }
+        type="button"
+      >
+        Agregar
+      </button>
+    </div>
+  </div>
+  <Memo()
+    columns={
+      Array [
+        Object {
+          "allowOverflow": true,
+          "button": true,
+          "cell": [Function],
+          "ignoreRowClick": true,
+        },
+        Object {
+          "name": "Nombre",
+          "selector": [Function],
+          "sortable": true,
+        },
+        Object {
+          "name": "Fecha de consumo",
+          "selector": [Function],
+          "sortable": true,
+        },
+      ]
+    }
+    conditionalRowStyles={
+      Array [
+        Object {
+          "style": Object {
+            "&:hover": Object {
+              "cursor": "pointer",
+            },
+            "backgroundColor": "#B6E052",
+            "color": "black",
+          },
+          "when": [Function],
+        },
+      ]
+    }
+    customStyles={
+      Object {
+        "headCells": Object {
+          "style": Object {
+            "&:not(:last-of-type)": Object {},
+          },
+        },
+        "headRow": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "header": Object {
+          "style": Object {
+            "background": "#CCDDE2",
+            "borderRadius": "17px",
+            "minHeight": "56px",
+            "textShadow": "1px 1px black",
+          },
+        },
+        "pagination": Object {
+          "style": Object {
+            "backgroundColor": "#B6E052",
+          },
+        },
+        "row": Object {
+          "pointer": Object {
+            "backgroundColor": "blue",
+          },
+        },
+      }
+    }
+    data={
+      Array [
+        Object {
+          "FoodList": Array [
+            Object {
+              "food": Object {
+                "caloriesPerServing": 198,
+                "createdAt": "2021-09-15T19:58:04.486Z",
+                "foodId": 1,
+                "name": "Milanesa",
+                "recommendedServing": 85,
+              },
+              "quantity": 1,
+            },
+          ],
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "mealId": 21,
+          "name": "queso",
+          "userId": 1,
+        },
+        Object {
+          "FoodList": Array [
+            Object {
+              "food": Object {
+                "caloriesPerServing": 198,
+                "createdAt": "2021-09-15T19:58:04.486Z",
+                "foodId": 1,
+                "name": "Milanesa",
+                "recommendedServing": 85,
+              },
+              "quantity": 1,
+            },
+          ],
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "mealId": 22,
+          "name": "carne",
+          "userId": 1,
+        },
+      ]
+    }
+    fixedHeader={true}
+    fixedHeaderScrollHeight="600px"
+    noDataComponent={
+      <span>
+        No se encontró ninguna comida
+      </span>
+    }
+    pagination={true}
+    paginationComponentOptions={
+      Object {
+        "rangeSeparatorText": "de",
+        "rowsPerPageText": "Filas por Página",
+        "selectAllRowsItem": true,
+        "selectAllRowsItemText": "Todos",
+      }
+    }
+    pointer={true}
+  />
+</div>
+`;
