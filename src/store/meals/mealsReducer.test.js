@@ -61,7 +61,7 @@ beforeEach(() => {
     }
     initialStateMeals4 = {
         meals: [],
-        lastYearMeals:{datasets:[],backgroundColor:[],data:[],label:''},
+        lastYearsMeals:{},
         isPending: false
     }
     pendingStateMeals1 = {
@@ -78,26 +78,34 @@ beforeEach(() => {
     }
     exampleStateMeals4 = {
         meals: [],
-        lastYearMeals:
-            {datasets:[],
-            backgroundColor:["rgb(255, 99, 132)",
-                  "rgb(54, 162, 235)",
-                 "rgb(255, 206, 86)",
-                  "rgb(75, 192, 192)",
-                 "rgb(153, 102, 255)",
-                 "rgb(255, 159, 64)"],
-                 data:[{
-            mealId: 21, name: 'queso',
-            FoodList: [{
-                quantity: 1, food:
-                {
-                    foodId: 1, name: 'Milanesa',
-                    recommendedServing: 85, caloriesPerServing: 198,
-                    createdAt: '2021-09-15T19:58:04.486Z'
-                }
-            }],
-            dateEaten: '2021-09-09T00:00:00.000Z', userId: 1
-        }],label:"Calorias por mes"},
+        lastYearsMeals:
+        {
+            labels:'hola',   
+            datasets:[{
+                label:"Calorias por mes",
+                data:
+                [{
+                            mealId: 21, name: 'queso',
+                            FoodList: [{
+                                quantity: 1, food:
+                                {
+                                    foodId: 1, name: 'Milanesa',
+                                    recommendedServing: 85, caloriesPerServing: 198,
+                                    createdAt: '2021-09-15T19:58:04.486Z'
+                                }
+                            }],
+                            dateEaten: '2021-09-09T00:00:00.000Z', userId: 1
+                        }]
+                ,
+                backgroundColor:[
+                    "rgb(255, 99, 132)",
+                "rgb(54, 162, 235)",
+               "rgb(255, 206, 86)",
+                "rgb(75, 192, 192)",
+               "rgb(153, 102, 255)",
+               "rgb(255, 159, 64)"],
+              }  ],
+        },
        
         isPending: false
     }
@@ -655,32 +663,31 @@ describe('GET_LAST_YEARS_MEALS', () => {
         expect(reducers.mealsReducer(initialStateMeals, { type: GET_LAST_YEARS_MEALS_PENDING })).toEqual(pendingStateMeals1);
     })
 
-    // it('should handle GET_LAST_YEARS_MEALS_SUCCESS action with initial state', () => {
-    //     expect(reducers.mealsReducer(pendingStateMeals4, {
-    //         type: GET_LAST_YEARS_MEALS_SUCCESS,
-    //         payload: {
-    //             data:[{ mealId: 21, name: 'queso',FoodList: [{quantity: 1, food:   { foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'  }}],
-    //                 dateEaten: '2021-09-09T00:00:00.000Z', userId: 1 }],
-    //             labels:"Calorias por mes"
-    //         }
-    //     })).toEqual({...exampleStateMeals4,isPending: false,lastYearMeals:{labels: "Calorias por mes",
-    //         datasets: [
-    //           {
-    //             label: 'Calorias por mes',
-    //             data:[{ mealId: 21, name: 'queso',FoodList: [{quantity: 1, food:   { foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'  }}],
-    //                 dateEaten: '2021-09-09T00:00:00.000Z', userId: 1 }],
-    //             backgroundColor: [
-    //               'rgb(255, 99, 132)',
-    //               'rgb(54, 162, 235)',
-    //               'rgb(255, 206, 86)',
-    //               'rgb(75, 192, 192)',
-    //               'rgb(153, 102, 255)',
-    //               'rgb(255, 159, 64)',
-    //             ]
-    //           },
-    //         ],}});
-    // })
-
+    it('should handle GET_LAST_YEARS_MEALS_SUCCESS action with initial state', () => {
+        expect(reducers.mealsReducer(pendingStateMeals4, {
+            type: GET_LAST_YEARS_MEALS_SUCCESS,
+            payload: {
+                // data:undefined,
+                // labels:undefined
+                labels:"hola",
+                data:
+                [{
+                            mealId: 21, name: 'queso',
+                            FoodList: [{
+                                quantity: 1, food:
+                                {
+                                    foodId: 1, name: 'Milanesa',
+                                    recommendedServing: 85, caloriesPerServing: 198,
+                                    createdAt: '2021-09-15T19:58:04.486Z'
+                                }
+                            }],
+                            dateEaten: '2021-09-09T00:00:00.000Z', userId: 1
+                        }]
+                ,
+            }
+        })).toEqual(exampleStateMeals4);
+    })
+    
     it('should handle GET_LAST_YEARS_MEALS_FAILED action', () => {
         expect(reducers.mealsReducer(pendingStateMeals1, { type: GET_LAST_YEARS_MEALS_FAILED, payload: 'Error' })).toEqual({ ...initialStateMeals, error: 'Error' });
     })

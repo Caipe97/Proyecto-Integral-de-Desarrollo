@@ -10,7 +10,7 @@ import {
 
    
    } from '../../store/meals/mealsConstants'
-describe('Modal tests', () => {
+describe('MealModal tests', () => {
     const historyMock = { push: jest.fn(), 
         // meal:{
         // mealId:1,name:'comida1',dateEaten:'2021-09-09T00:00:00.000Z',
@@ -55,24 +55,19 @@ describe('Modal tests', () => {
         );
 
     })
-    it('expect t3', () => {
+    it('set modal  expect to change  onclick buttons', () => {
       
      //   expect(wrapper.find('calculateTotalCaloriesPerMeal')).toBeDefined();
         wrapper.find('[type="button"]').at(0).simulate('click');
-       // expect(wrapper.instance().props.onUpdateCurrentMealInState).toHaveBeenCalledTimes(1);
-        //expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
-        //expect(historyMock.push.mock.calls[1]).toEqual(['/meals']);
     })
-    it('expect t2', () => {
+    it('expect to render MealModal component to render', () => {
         expect(wrapper).toMatchSnapshot();
         expect(wrapper.find('calculateTotalCaloriesPerMeal')).toBeDefined();
     })
-    it('expect t22', async() => {
+    it('onUpdateCurrentMealInState onclick button', async() => {
         await wrapper.find('[type="button"]').at(2).simulate('click', preventDefault);
-       // expect(wrapper.instance().props.onUpdateCurrentMealInState()).toHaveBeenCalledTimes(1);
-        //expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
     })
-    it('expect to change  onclick buttons', async () => {
+    it('set modal  expect to change  onclick buttons', async () => {
        
         await wrapper.find('[type="button"]').at(1).simulate('click');
        // await wrapper.find('[type="button"]').at(2).simulate('click');
@@ -80,10 +75,7 @@ describe('Modal tests', () => {
         expect(wrapper.find('div.p').contains('')).toBeDefined();
       
     })
-it('deleteMeal should go', async () => {
+    it('onDeleteMeal onclick button', async () => {
         await wrapper.find('[type="button"]').at(3).simulate('click', preventDefault);
-        //expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(0);
-        //expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
-        //expect(wrapper.instance().props.onDeleteMeal).toHaveBeenCalledTimes(1);
     })
 })

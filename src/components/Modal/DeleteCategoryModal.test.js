@@ -37,32 +37,25 @@ describe('ModalDeleteCategoryModal tests', () => {
      //   wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'abc' } });
 
     })
-    it('expect t2', () => {
+    it('expect to render DeleteCategoryModal component to render when edit is false', () => {
         expect(wrapper).toMatchSnapshot();
     })
-    it('expect to change  onclick buttons', () => {
+    it('Set modal and setstate null message expect to change  onclick buttons', () => {
 
         wrapper.find('[type="button"]').at(0).simulate('click');
         expect(wrapper.find('div')).toBeDefined();
         expect(wrapper.find('div.p').contains('')).toBeDefined();
 
     })
-    it('expect to change  onclick buttons in img', () => {
+    it('expect to change  onclick buttons for set modal', () => {
 
         wrapper.find('img').at(0).simulate('click');
 
     })
-    it('handleSubmit expect t11',  () => {
-
+    it('handleSubmit  expect to change onclick for delete',  () => {
         // jest.useFakeTimers();
         wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
 
     })
-    // it('onChangeCombobox expect t12', async () => {
-    //     jest.useFakeTimers();
-    //    // await wrapper.find('onSelect').instance().toBeDefined();
-    //     wrapper.find('foodCategoryId').at(0).simulate('change', { target: { name: 'foodCategoryId', value: 1 } });
-
-    // })
 
 })

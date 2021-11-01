@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalAddCategoryModal tests expect t2 1`] = `
+exports[`CustomFoodModal tests expect to render AddCategoryModal component to render when edit is false 1`] = `
 <Fragment>
   <Button
     active={false}
@@ -134,7 +134,7 @@ exports[`ModalAddCategoryModal tests expect t2 1`] = `
 </Fragment>
 `;
 
-exports[`ModalAddCategoryModal tests expect t2 2`] = `
+exports[`CustomFoodModal tests expect to render AddCategoryModal component to render when edit is true 1`] = `
 <Fragment>
   <img
     alt="editar"

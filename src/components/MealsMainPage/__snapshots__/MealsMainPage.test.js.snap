@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component to render with signing in sin comida 1`] = `
+exports[`MealsMainPage tests expect to render ProfileMainPage component to render with signing in sin comida 1`] = `
 <div
   className="contenedorR"
 >
@@ -116,9 +116,28 @@ exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component 
     onGetMealsFromUser={[MockFunction]}
     onLogout={[MockFunction]}
     onRemoveFoodFromCurrentMeal={[MockFunction]}
-    onResetCurrentMeal={[MockFunction]}
+    onResetCurrentMeal={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onUpdateCurrentMeal={[MockFunction]}
     preventDefault={[MockFunction]}
+    state={
+      Object {
+        "dateEaten": "2021-09-15T19:58:04.486Z",
+        "name": "comida",
+        "successMessage": "",
+      }
+    }
     userId={1}
   />
   <div
@@ -260,9 +279,28 @@ exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component 
         onGetMealsFromUser={[MockFunction]}
         onLogout={[MockFunction]}
         onRemoveFoodFromCurrentMeal={[MockFunction]}
-        onResetCurrentMeal={[MockFunction]}
+        onResetCurrentMeal={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         onUpdateCurrentMeal={[MockFunction]}
         preventDefault={[MockFunction]}
+        state={
+          Object {
+            "dateEaten": "2021-09-15T19:58:04.486Z",
+            "name": "comida",
+            "successMessage": "",
+          }
+        }
         userId={1}
       />
       <CustomFoodModal
@@ -474,7 +512,7 @@ exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component 
 </div>
 `;
 
-exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component to render with signing in sin comida222 1`] = `
+exports[`MealsMainPage tests expect to render ProfileMainPage component to render with signing in sin comida222 1`] = `
 <div
   className="contenedorR"
 >
@@ -586,9 +624,28 @@ exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component 
     onGetMealsFromUser={[MockFunction]}
     onLogout={[MockFunction]}
     onRemoveFoodFromCurrentMeal={[MockFunction]}
-    onResetCurrentMeal={[MockFunction]}
+    onResetCurrentMeal={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onUpdateCurrentMeal={[MockFunction]}
     preventDefault={[MockFunction]}
+    state={
+      Object {
+        "dateEaten": "2021-09-15T19:58:04.486Z",
+        "name": "comida",
+        "successMessage": "",
+      }
+    }
     userId={1}
   />
   <div
@@ -726,9 +783,28 @@ exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component 
         onGetMealsFromUser={[MockFunction]}
         onLogout={[MockFunction]}
         onRemoveFoodFromCurrentMeal={[MockFunction]}
-        onResetCurrentMeal={[MockFunction]}
+        onResetCurrentMeal={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         onUpdateCurrentMeal={[MockFunction]}
         preventDefault={[MockFunction]}
+        state={
+          Object {
+            "dateEaten": "2021-09-15T19:58:04.486Z",
+            "name": "comida",
+            "successMessage": "",
+          }
+        }
         userId={1}
       />
       <CustomFoodModal
@@ -920,6 +996,511 @@ exports[`ResetPasswordMainPage tests expect to render ProfileMainPage component 
         }
       >
         Editar Comida
+      </button>
+      <p />
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "marginTop": "10%",
+          }
+        }
+        type="button"
+      >
+        Volver al Perfil
+      </button>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`MealsMainPage tests expect to render ProfileMainPage component to render with without food 1`] = `
+<div
+  className="contenedorR"
+>
+  <Header
+    currentMeal={
+      Object {
+        "FoodList": Array [
+          Object {
+            "food": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+        ],
+      }
+    }
+    foods={
+      Array [
+        Object {
+          "caloriesPerServing": 198,
+          "createdAt": "2021-09-15T19:58:04.486Z",
+          "foodId": 1,
+          "name": "Milanesa",
+          "recommendedServing": 85,
+        },
+        Object {
+          "caloriesPerServing": 100,
+          "createdAt": "2021-09-15T20:02:16.490Z",
+          "foodId": 2,
+          "name": "Papa",
+          "recommendedServing": 200,
+        },
+      ]
+    }
+    history={
+      Object {
+        "location": Array [],
+        "push": [MockFunction],
+      }
+    }
+    meals={
+      Array [
+        Object {
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "foodsAndQuantity": Object {
+            "food": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+          "mealId": 21,
+          "name": "queso",
+          "userId": 1,
+        },
+        Object {
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "foodsAndQuantity": Object {
+            "food": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+          "mealId": 22,
+          "name": "carne",
+          "userId": 1,
+        },
+        Object {
+          "dateEaten": "2021-09-09T00:00:00.000Z",
+          "foodsAndQuantity": Object {
+            "food": Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            "quantity": 1,
+          },
+          "mealId": 23,
+          "name": "jamon",
+          "userId": 1,
+        },
+      ]
+    }
+    onAddCustomFood={[MockFunction]}
+    onAddFoodToCurrentMeal={[MockFunction]}
+    onAddMeal={[MockFunction]}
+    onChangeCurrentMealNameAndDateEaten={[MockFunction]}
+    onDeleteCustomFood={[MockFunction]}
+    onDeleteMeal={[MockFunction]}
+    onEditCustomFood={[MockFunction]}
+    onGetAllFoods={[MockFunction]}
+    onGetMealsFromUser={[MockFunction]}
+    onLogout={[MockFunction]}
+    onRemoveFoodFromCurrentMeal={[MockFunction]}
+    onResetCurrentMeal={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onUpdateCurrentMeal={[MockFunction]}
+    preventDefault={[MockFunction]}
+    state={
+      Object {
+        "dateEaten": "2021-09-15T19:58:04.486Z",
+        "name": "comida",
+        "successMessage": "",
+      }
+    }
+    userId={1}
+  />
+  <div
+    className="contenidoR"
+    style={
+      Object {
+        "backgroundColor": "#B6E052",
+      }
+    }
+  >
+    <div
+      className="col2R"
+    >
+      <FoodsSearchBar
+        currentMeal={
+          Object {
+            "FoodList": Array [
+              Object {
+                "food": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+            ],
+          }
+        }
+        foods={
+          Array [
+            Object {
+              "caloriesPerServing": 198,
+              "createdAt": "2021-09-15T19:58:04.486Z",
+              "foodId": 1,
+              "name": "Milanesa",
+              "recommendedServing": 85,
+            },
+            Object {
+              "caloriesPerServing": 100,
+              "createdAt": "2021-09-15T20:02:16.490Z",
+              "foodId": 2,
+              "name": "Papa",
+              "recommendedServing": 200,
+            },
+          ]
+        }
+        history={
+          Object {
+            "location": Array [],
+            "push": [MockFunction],
+          }
+        }
+        meal={
+          Object {
+            "FoodList": Array [
+              Object {
+                "food": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+            ],
+          }
+        }
+        meals={
+          Array [
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "food": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 21,
+              "name": "queso",
+              "userId": 1,
+            },
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "food": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 22,
+              "name": "carne",
+              "userId": 1,
+            },
+            Object {
+              "dateEaten": "2021-09-09T00:00:00.000Z",
+              "foodsAndQuantity": Object {
+                "food": Object {
+                  "caloriesPerServing": 198,
+                  "createdAt": "2021-09-15T19:58:04.486Z",
+                  "foodId": 1,
+                  "name": "Milanesa",
+                  "recommendedServing": 85,
+                },
+                "quantity": 1,
+              },
+              "mealId": 23,
+              "name": "jamon",
+              "userId": 1,
+            },
+          ]
+        }
+        onAddCustomFood={[MockFunction]}
+        onAddFoodToCurrentMeal={[MockFunction]}
+        onAddMeal={[MockFunction]}
+        onChangeCurrentMealNameAndDateEaten={[MockFunction]}
+        onDeleteCustomFood={[MockFunction]}
+        onDeleteMeal={[MockFunction]}
+        onEditCustomFood={[MockFunction]}
+        onGetAllFoods={[MockFunction]}
+        onGetMealsFromUser={[MockFunction]}
+        onLogout={[MockFunction]}
+        onRemoveFoodFromCurrentMeal={[MockFunction]}
+        onResetCurrentMeal={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        onUpdateCurrentMeal={[MockFunction]}
+        preventDefault={[MockFunction]}
+        state={
+          Object {
+            "dateEaten": "2021-09-15T19:58:04.486Z",
+            "name": "comida",
+            "successMessage": "",
+          }
+        }
+        userId={1}
+      />
+      <CustomFoodModal
+        edit={false}
+        onAddCustomFood={[MockFunction]}
+        userId={1}
+      />
+    </div>
+  </div>
+  <div
+    className="sidebarR"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <img
+        alt="meal"
+        src="meal.png"
+        style={
+          Object {
+            "width": 200,
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "marginTop": 15,
+          }
+        }
+      >
+        <WithStyles(ForwardRef(TextField))
+          label="Nombre de la comida"
+          name="name"
+          onChange={[Function]}
+          required={true}
+          type="name"
+          value="Comida"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="w-100"
+        />
+        <div
+          className="col"
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          <ul
+            style={
+              Object {
+                "marginBlock": "0em",
+                "paddingInlineStart": "1%",
+              }
+            }
+          >
+            <div
+              key="1"
+              style={
+                Object {
+                  "backgroundColor": "#b6e052",
+                  "borderRadius": 10,
+                  "paddingLeft": 4,
+                  "paddingRight": 2,
+                  "width": "100%",
+                }
+              }
+            >
+              <li
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "space-between",
+                    "listStyleType": "none",
+                    "marginTop": "10px",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "paddingTop": 7,
+                    }
+                  }
+                >
+                  1
+                   x 
+                  Milanesa
+                </div>
+                <div>
+                  <img
+                    alt="tacho"
+                    onClick={[Function]}
+                    src="delete.png"
+                    style={
+                      Object {
+                        "borderRadius": 2,
+                        "cursor": "pointer",
+                        "margin": 10,
+                        "width": 18,
+                      }
+                    }
+                  />
+                </div>
+              </li>
+            </div>
+          </ul>
+        </div>
+        <div
+          className="w-100"
+        />
+        <div
+          className="col"
+          style={
+            Object {
+              "marginTop": "15px",
+              "textAlign": "center",
+            }
+          }
+        >
+          <r
+            allowSameDay={false}
+            customTimeInput={null}
+            dateFormat="dd-MM-yyyy h:mm aa"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            enableTabLoop={true}
+            excludeScrollbar={true}
+            focusSelectedMonth={false}
+            monthsShown={1}
+            name="fecha consumo"
+            nextMonthButtonLabel="Next Month"
+            nextYearButtonLabel="Next Year"
+            onBlur={[Function]}
+            onCalendarClose={[Function]}
+            onCalendarOpen={[Function]}
+            onChange={[Function]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Fecha de consumo"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            previousYearButtonLabel="Previous Year"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected=""
+            shouldCloseOnSelect={true}
+            showFourColumnMonthYearPicker={false}
+            showFullMonthYearPicker={false}
+            showMonthYearPicker={false}
+            showPopperArrow={true}
+            showPreviousMonths={false}
+            showQuarterYearPicker={false}
+            showTimeInput={false}
+            showTimeSelect={true}
+            showTwoColumnMonthYearPicker={false}
+            showYearPicker={false}
+            strictParsing={false}
+            timeCaption="Time"
+            timeInputLabel="Time"
+            timeIntervals={30}
+            withPortal={false}
+            yearItemNumber={12}
+          />
+        </div>
+      </div>
+      <button
+        className="btn btn--primary btn--s"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#E55812",
+            "boxShadow": "0px 4px 4px grey",
+            "color": "white",
+            "fontSize": "14px",
+            "margin": "10px",
+          }
+        }
+      >
+        Cargar Comida
       </button>
       <p />
       <button

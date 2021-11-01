@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalAddCategoryModal tests expect t2 1`] = `
+exports[`ModalAddCategoryModal tests expect to render AddCategoryModal component to render 1`] = `
 <Fragment>
   <img
     alt="agregar"

@@ -2,12 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CustomFoodModal from './CustomFoodModal';
 
-describe('ModalAddCategoryModal tests', () => {
+describe('CustomFoodModal tests', () => {
     const preventDefault = { preventDefault: jest.fn() }
     let wrapper;
     let wrapper2;
     beforeEach(() => {
         let mockProps = {
+            
             foodCategories: [
                 {
                     foodCategoryId: 1,
@@ -26,10 +27,14 @@ describe('ModalAddCategoryModal tests', () => {
             ],
             preventDefault: jest.fn(),
             onAddCustomFood: jest.fn(),
+            onEditCustomFood:jest.fn(),
             edit: false,
             userId: 1,
         };
         let mockProps2 = {
+            row:{
+                name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, foodCategoryId:1
+            },
             foodCategories: [
                 {
                     foodCategoryId: 1,
@@ -48,6 +53,7 @@ describe('ModalAddCategoryModal tests', () => {
             ],
             preventDefault: jest.fn(),
             onAddCustomFood: jest.fn(),
+            onEditCustomFood:jest.fn(),
             edit: true,
             userId: 1,
         };
@@ -57,12 +63,11 @@ describe('ModalAddCategoryModal tests', () => {
         wrapper2 = shallow(<CustomFoodModal {...mockProps2} />
 
         );
-        //wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'abc' } });
     })
-    it('expect t2', () => {
+    it('expect to render AddCategoryModal component to render when edit is false', () => {
         expect(wrapper).toMatchSnapshot();
     })
-    it('expect t2', () => {
+    it('expect to render AddCategoryModal component to render when edit is true', () => {
         expect(wrapper2).toMatchSnapshot();
     })
     it('handleChange should update the state correctly when writing on the inputs', () => {
@@ -71,27 +76,27 @@ describe('ModalAddCategoryModal tests', () => {
         wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'caloriesPerServing', value: 123 } });
     })
     //else props.edit
-    it('handleSubmit expect t11', () => {
+    it('On click if edit false, setModal for agregaralimentopersonalizado', () => {
         wrapper.find('[type="button"]').at(1).simulate('click', preventDefault);
     })
-    it('handleSubmit expect t11', () => {
+    it('HandleSubmitAdd on click ', () => {
         wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
     })
-    it('handleSubmit expect t11', () => {
+    it('On click if edit false, setModal for agregaralimentopersonalizado', () => {
         wrapper.find('[type="button"]').at(0).simulate('click', preventDefault);
     })
     it('handleSubmit expect t11', () => {
         wrapper2.find('[type="button"]').at(0).simulate('click', preventDefault);
     })
+    it('handleSubmitEdit when edition finish ', async () => {
+        wrapper2.find('button').at(0).simulate('click', preventDefault);
+      
+    })
     //if props.edit
-    // it('expect to change  onclick buttons', () => {
-    //     wrapper2.find('img').simulate('click');
-    // })
-    // it('handleSubmit expect t11',async() => {
-    //      await wrapper2.find('[className="button"]').at(0).simulate('click', preventDefault);
-        
-    // })
-    it('handleSubmit expect t11', () => {
+    it('expect on click when change name,recommendedServing, caloriesPerServing and foodCategoryId',() => {
+        wrapper2.find('[alt="editar"]').simulate('click');
+    })
+    it('HandleSubmitEdit on click', () => {
         wrapper2.find('[type="button"]').at(0).simulate('click', preventDefault);
     })
 })

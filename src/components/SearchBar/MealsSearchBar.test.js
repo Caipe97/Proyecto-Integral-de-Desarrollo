@@ -43,7 +43,16 @@ describe('MealsSearchBar tests', () => {
                 dateEaten: '2021-09-09T00:00:00.000Z', userId: 1
             },
         ],
-        currentMeal: { FoodList: [] },
+        currentMeal: {
+            FoodList: [{
+                quantity: 1, food:
+                {
+                    foodId: 1, name: 'Milanesa',
+                    recommendedServing: 85, caloriesPerServing: 198,
+                    createdAt: '2021-09-15T19:58:04.486Z'
+                }
+            }]
+        },
         onAddMeal: jest.fn(),
         onGetMealsFromUser:jest.fn(),
         onDeleteMeal: jest.fn(),
@@ -80,13 +89,9 @@ describe('MealsSearchBar tests', () => {
     })
     it('OnChange expect t11', async () => {
 
-        // jest.useFakeTimers();
-        await wrapper.find('[type="button"]').at(0).simulate('click',jest.fn);
-        
+        await wrapper.find('[type="button"]').at(0).simulate('click',jest.fn);      
         wrapper.find('[type="button"]').at(0).simulate('click',{ persist: jest.fn()});
-        //
-        
-        //expect(wrapper.find('filtrarElementos').instance()).toHaveBeenCalledTimes(1);
+
     })
     it('expect to change  onclick buttons', async () => {
        
@@ -102,11 +107,20 @@ describe('MealsSearchBar tests', () => {
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
         expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
     })
-    // it('OnChange should because name contains search value',() => {
-    //     wrapper.find('input').at(0).simulate('change', { target: { name: 'busqueda', value: 'enero' } });
-    //     //wrapper.instance().filtrarElementos();
-
-    // expect(wrapper.props.filtrarELementos).toHaveBeenCalledTimes(0);
-    // })
+    it('OnChange should because name contains search value not return meal',async() => {
+        await wrapper.instance().componentDidMount();
+        
+      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
+       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'enero' }});
+       
+    })
+    it('OnChange should because name contains search value return meal',async() => {
+        await wrapper.instance().componentDidMount();
+        
+      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
+       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'queso' }});
+       
+    })
+    
 })
-        //wrapper.find('a').simulate('blur', wrapper.find('a').simulate('blur', { persist: jest.fn()}););
+        

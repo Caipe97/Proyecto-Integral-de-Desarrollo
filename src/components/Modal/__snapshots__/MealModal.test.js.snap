@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal tests expect t2 1`] = `
+exports[`MealModal tests expect to render MealModal component to render 1`] = `
 <Fragment>
   <Button
     active={false}

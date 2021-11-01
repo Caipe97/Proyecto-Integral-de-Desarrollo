@@ -29,11 +29,8 @@ describe('Header tests', () => {
         expect(wrapper2).toMatchSnapshot();
     })
     it('expect to logout and go to login  not exists button', () => {
-        //expert(wrapper2.find('.img')).toEqual(null);
-        //expect(wrapper2.instance().props.userId).toEqual(0);
+
         expect(wrapper2).toMatchSnapshot();
-      //  expect(wrapper.instance().props.onLogout).toHaveBeenCalledTimes(1);
-       // expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
-        //expect(historyMock.push.mock.calls[0]).toEqual(['/']);
+      
     })
 })

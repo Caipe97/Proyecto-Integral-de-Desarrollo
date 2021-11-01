@@ -10,6 +10,10 @@ describe('FoodCategoriesSearchBar tests', () => {
     let wrapper;
     const mockPropsSignIn2 = {
         userId: 0, 
+        row:{
+            name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, foodCategoryId:1
+        },
+
         onLogout: jest.fn(),
         userId: 1,state : {
             busquedaNombre: '',
@@ -18,7 +22,8 @@ describe('FoodCategoriesSearchBar tests', () => {
             categorias: [],
             columnas:[],
             cantidadAlimentos: 0,
-            cantidadCategorias: 0
+            cantidadCategorias: 0,
+            quantity:10,
           },
             meals:[
                 {mealId: 21, name: 'queso', foodsAndQuantity: {quantity: 1, food: {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1},
@@ -82,21 +87,18 @@ describe('FoodCategoriesSearchBar tests', () => {
         expect(wrapper).toMatchSnapshot();//if
         await wrapper.instance().componentDidMount();
     })
-    // it('expect to render FoodCategoriesSearchBar component to location state2 ', async() => {
-    //     expect(wrapper).toMatchSnapshot();//if
-    //     await wrapper.instance().componentDidMount();
-    //     await wrapper.instance().componentDidUpdate();
-    // })
-    // it('OnChange expect t11', async () => {
 
-    //     // jest.useFakeTimers();
-    //     await wrapper.find('[type="button"]').at(0).simulate('click',jest.fn);
-        
-    //     wrapper.find('[type="button"]').at(0).simulate('click',{ persist: jest.fn()});
-    //     //
-        
-    //     //expect(wrapper.find('filtrarElementos').instance()).toHaveBeenCalledTimes(1);
+    it('OnChange should because name contains search value',async() => {
+        wrapper.find('Combobox').at(0).simulate('onSelect');
+        //await wrapper.find('TextField').at(0).simulate('change', { target: { name: 'busquedaNombre', value: 'enero' }});
+       
+    })
+    // it('OnChange should because name contains search value',async() => {
+    //     wrapper.find('img').at(0).simulate('click');
+    //     //await wrapper.find('TextField').at(0).simulate('change', { target: { name: 'busquedaNombre', value: 'enero' }});
+       
     // })
+  
     
 })
-        //wrapper.find('a').simulate('blur', wrapper.find('a').simulate('blur', { persist: jest.fn()}););
+   

@@ -21,7 +21,7 @@ describe('GoalsMainPage tests', () => {
         ]
     }}}};
     const historyMock2 = { push: jest.fn(),location: {state:{goal: {}}}};
-    //const historyMock3 = { push: jest.fn(),location: false}
+    const historyMock3 = { push: jest.fn(),location: []}
     const mockProps = {
         currentGoal: {objectives: []},
         onLogout: jest.fn(),
@@ -34,9 +34,10 @@ describe('GoalsMainPage tests', () => {
         onGetFoodCategories: jest.fn(),
         onRemoveObjectiveFromCurrentGoal:jest.fn(),
         onUpdateCurrentGoal: jest.fn(),
+        preventDefault:  jest.fn(),
     };
     const mockProps2 = {
-        currentGoal: {objectives: []},
+        currentGoal: { name: 'Plan enero',dateStart: "2021-07",totalCalories: 7000,objectives: []},
         onLogout: jest.fn(),
         onAddObjectiveToCurrentGoal:jest.fn(),
         onAddGoal: jest.fn(),
@@ -47,6 +48,7 @@ describe('GoalsMainPage tests', () => {
         onGetFoodCategories: jest.fn(),
         onRemoveObjectiveFromCurrentGoal:jest.fn(),
         onUpdateCurrentGoal: jest.fn(),
+        preventDefault:  jest.fn(),
     };
     let wrapper,wrapper2,wrapper3;
     
@@ -55,7 +57,7 @@ describe('GoalsMainPage tests', () => {
         wrapper = shallow(<GoalsMainPage {...mockProps} history={historyMock}/>);
 
         wrapper2 = shallow(<GoalsMainPage {...mockProps2} history={historyMock2}/>);
-        //wrapper3 = shallow(<GoalsMainPage {...mockProps2} history={historyMock3}/>);
+        wrapper3 = shallow(<GoalsMainPage {...mockProps2} history={historyMock3}/>);
     })
 
     it('expect to render GoalsMainPage component to render', async() => {
@@ -66,20 +68,14 @@ describe('GoalsMainPage tests', () => {
         expect(wrapper2).toMatchSnapshot();//if
         await wrapper2.instance().componentDidMount();
     })
-    // it('expect to render GoalsMainPage component to render when you dont have goals state false for you', async() => {
-    //     expect(wrapper3).toMatchSnapshot();//if
-    //     await wrapper3.instance().componentDidMount();
-    // })
-    // it('expect to logout and go to login when pressing the button', () => {
-    //     wrapper.find('[name="link"]').at(0).simulate('click');
-    //     expect(wrapper.instance().props.onLogout).toHaveBeenCalledTimes(1);
-    //     expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
-    //     expect(historyMock.push.mock.calls[0]).toEqual(['/']);
-    // })
+    it('expect to render GoalsMainPage component to render when you dont have goals state false for you', async() => {
+        expect(wrapper3.debug()).toMatchSnapshot();//if
+        await wrapper3.instance().componentDidMount();
+    })
+
     it('expect to change  onclick buttons', async () => {
        
         await wrapper.find('[type="button"]').at(0).simulate('click');
-       // await wrapper.find('[type="button"]').at(2).simulate('click');
        expect(wrapper.find('div')).toBeDefined();
         expect(wrapper.find('div.p').contains('')).toBeDefined();
       
@@ -87,19 +83,23 @@ describe('GoalsMainPage tests', () => {
     it('handleChange should update the state correctly when writing on the inputs', () => {
         wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'LOGROS ENERO' } });
         wrapper.find('[name="totalCalories"]').at(0).simulate('change', { target: { name: 'totalCalories', value: '123456' } });
-       // expect(wrapper.instance().state).toEqual({email: 'julianlivrone@gmail.com', password: 'asd', errorMessage: ''});
     })
     it('expect to change  onclick buttons',  () => {
        wrapper.find('img').at(0).simulate('click');
-       // await wrapper.find('[type="button"]').at(2).simulate('click');
       
       
     })
-    // it('expect to change  onclick buttons',  () => {
-    //     wrapper.find('[className="btn btn--primary btn--s"]').at(1).simulate('click');
-    //     // await wrapper.find('[type="button"]').at(2).simulate('click');
-       
-       
-    //  })
+    it('HandleSubmitUpdate expect to change  onclick buttons',  () => {
+        wrapper3.find('button').at(0).simulate('click',{preventDefault:jest.fn()});
+        // await wrapper.find('[type="button"]').at(2).simulate('click');
+
+     })
+     it('Go to profile expect to change  onclick buttons',  () => {
+        wrapper3.find('button').at(1).simulate('click',{preventDefault:jest.fn()});
+        // await wrapper.find('[type="button"]').at(2).simulate('click');
+        expect(historyMock3.push.mock.calls[0]).toEqual(['/profile']);
+
+     })
+   
    
 })

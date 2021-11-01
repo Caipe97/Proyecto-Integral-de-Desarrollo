@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalDeleteCategoryModal tests expect t2 1`] = `
+exports[`ModalDeleteCategoryModal tests expect to render DeleteCategoryModal component to render when edit is false 1`] = `
 <Fragment>
   <img
     alt="eliminar"

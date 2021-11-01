@@ -93,5 +93,18 @@ describe('GoalsSearchBar tests', () => {
 
     // expect(wrapper.props.filtrarELementos).toHaveBeenCalledTimes(0);
     // })
+    it('OnChange should because name contains search value not return goal',async() => {
+        await wrapper.instance().componentDidMount();
+        
+      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
+       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'enero' }});
+       
+    })
+    it('OnChange should because name contains search value return goal ',async() => {
+        await wrapper.instance().componentDidMount();
+      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
+       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'Plan febrero' }});
+       
+    })
+
 })
-        //wrapper.find('a').simulate('blur', wrapper.find('a').simulate('blur', { persist: jest.fn()}););

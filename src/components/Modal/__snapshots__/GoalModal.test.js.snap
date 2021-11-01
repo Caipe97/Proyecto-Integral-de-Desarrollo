@@ -68,9 +68,85 @@ exports[`GoalModal tests expect to render GoalModal component to render 1`] = `
       <p>
         Objetivos:
       </p>
+      <div
+        key="1"
+        style={
+          Object {
+            "background": "#B6E052",
+            "borderRadius": 10,
+            "margin": "5px",
+            "padding": 5,
+            "textAlign": "center",
+            "top": "3px",
+          }
+        }
+      >
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          fideos
+          : 
+          3000
+           de 
+          3000
+        </p>
+        <ProgressBar
+          animated={true}
+          isChild={false}
+          label="100.00%"
+          max={100}
+          min={0}
+          now={100}
+          srOnly={false}
+          striped={false}
+          variant="danger"
+        />
+      </div>
+      <div
+        key="2"
+        style={
+          Object {
+            "background": "#B6E052",
+            "borderRadius": 10,
+            "margin": "5px",
+            "padding": 5,
+            "textAlign": "center",
+            "top": "3px",
+          }
+        }
+      >
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          carnes
+          : 
+          3000
+           de 
+          2000
+        </p>
+        <ProgressBar
+          animated={true}
+          isChild={false}
+          label="150.00%"
+          max={100}
+          min={0}
+          now={150}
+          srOnly={false}
+          striped={false}
+          variant="danger"
+        />
+      </div>
       <p>
         Calorias totales consumidas: 
-        0
+        6000
         /
         300
         :
@@ -78,13 +154,13 @@ exports[`GoalModal tests expect to render GoalModal component to render 1`] = `
       <ProgressBar
         animated={true}
         isChild={false}
-        label="0.00%"
+        label="2000.00%"
         max={100}
         min={0}
-        now={0}
+        now={2000}
         srOnly={false}
         striped={false}
-        variant="success"
+        variant="danger"
       />
     </ModalBody>
     <ModalFooter>

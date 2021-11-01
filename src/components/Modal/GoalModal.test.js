@@ -7,7 +7,20 @@ describe('GoalModal tests', () => {
     const historyMock = { push: jest.fn() };
     const preventDefault = { preventDefault: jest.fn() };
     const mockPropsSignIn = {
-        goal: {name:'enero',dateStart:"2021-09-30T14:09:34.756Z",totalCalories:300,objectives:[]}, 
+        goal: {name:'enero',dateStart:"2021-09-30T14:09:34.756Z",totalCalories:300,objectives:[
+            {
+                objectiveCalories: 3000,
+                currentCalories: 3000,
+                foodCategoryId: 1,
+                foodCategory:{name:'fideos'}
+            },
+            {
+                objectiveCalories: 2000,
+                currentCalories: 3000,
+                foodCategoryId: 2,
+                foodCategory:{name:'carnes'}
+            },
+        ]}, 
         onDeleteGoal: jest.fn(),
         onUpdateCurrentGoalInState:jest.fn(),
         preventDefault:jest.fn()
