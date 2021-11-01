@@ -83,7 +83,7 @@ describe("login or register actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for register", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: LOGIN_OR_REGISTER_PENDING },
@@ -143,7 +143,7 @@ describe("login or register actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for login", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: LOGIN_OR_REGISTER_PENDING },
@@ -180,7 +180,7 @@ describe("reset password actions", () => {
     });
 
     it("should create the SUCCESS action after receiving data for resetPassword", () => {
-        fetch.mockResponseOnce(JSON.stringify({userId: 1})); //ver que devuelve esta request
+        fetch.mockResponseOnce(JSON.stringify({userId: 1}));
         const expectedActions = [
             { type: RESET_PASSWORD_PENDING },
             { 
@@ -199,7 +199,7 @@ describe("reset password actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for resetPassword", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: RESET_PASSWORD_PENDING },

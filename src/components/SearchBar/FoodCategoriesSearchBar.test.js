@@ -90,15 +90,6 @@ describe('FoodCategoriesSearchBar tests', () => {
 
     it('OnChange should because name contains search value',async() => {
         wrapper.find('Combobox').at(0).simulate('onSelect');
-        //await wrapper.find('TextField').at(0).simulate('change', { target: { name: 'busquedaNombre', value: 'enero' }});
-       
     })
-    // it('OnChange should because name contains search value',async() => {
-    //     wrapper.find('img').at(0).simulate('click');
-    //     //await wrapper.find('TextField').at(0).simulate('change', { target: { name: 'busquedaNombre', value: 'enero' }});
-       
-    // })
-  
-    
 })
    

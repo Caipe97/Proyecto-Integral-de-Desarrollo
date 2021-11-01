@@ -44,6 +44,5 @@ describe('GoalModal tests', () => {
    })
    it('expect to change  onclick buttons for delete goal',  () => {
     wrapper.find('[type="button"]').at(2).simulate('click',preventDefault);
-    //expect(wrapper.instance().props.onDeleteGoal).toHaveBeenCalledTimes(1);
 })
 })

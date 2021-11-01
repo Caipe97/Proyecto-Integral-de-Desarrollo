@@ -64,45 +64,28 @@ describe('GoalsSearchBar tests', () => {
         await wrapper.instance().componentDidUpdate();
     })
     it('OnChange expect t11', async () => {
-
-        // jest.useFakeTimers();
         await wrapper.find('[type="button"]').at(0).simulate('click',jest.fn);
-        
         wrapper.find('[type="button"]').at(0).simulate('click',{ persist: jest.fn()});
-        //
-        
-        //expect(wrapper.find('filtrarElementos').instance()).toHaveBeenCalledTimes(1);
     })
     it('expect to change  onclick buttons', async () => {
        
         await wrapper.find('button').at(0).simulate('click');
-       // await wrapper.find('[type="button"]').at(2).simulate('click');
-       expect(wrapper.find('div')).toBeDefined();
+        expect(wrapper.find('div')).toBeDefined();
         expect(wrapper.find('div.p').contains('')).toBeDefined();
       
     })
     it('Agregar should push to goals ', async () => {
         await wrapper.find('button').at(1).simulate('click', { push: jest.fn() });
-       // expect(wrapper.instance().props.onRegister).toHaveBeenCalledTimes(1);
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
         expect(historyMock.push.mock.calls[0]).toEqual(['/goals']);
     })
-    // it('OnChange should because name contains search value',() => {
-    //     wrapper.find('input').at(0).simulate('change', { target: { name: 'busqueda', value: 'enero' } });
-    //     //wrapper.instance().filtrarElementos();
-
-    // expect(wrapper.props.filtrarELementos).toHaveBeenCalledTimes(0);
-    // })
     it('OnChange should because name contains search value not return goal',async() => {
         await wrapper.instance().componentDidMount();
-        
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'enero' }});
+        await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'enero' }});
        
     })
     it('OnChange should because name contains search value return goal ',async() => {
         await wrapper.instance().componentDidMount();
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
        await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'Plan febrero' }});
        
     })

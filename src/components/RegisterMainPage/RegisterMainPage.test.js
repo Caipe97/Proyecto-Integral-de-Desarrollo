@@ -240,7 +240,6 @@ describe('RegisterMainPage tests', () => {
                 height: '',
                 isPending: false
             },
-            // onRegister: jest.fn().mockRejectedValueOnce("ERROR: the email is already in use"),
             onRegister: jest.fn().mockResolvedValueOnce("ERROR: the email is already in use"),
             onLogout: jest.fn()
           };

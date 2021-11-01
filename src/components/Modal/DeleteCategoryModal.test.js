@@ -34,7 +34,6 @@ describe('ModalDeleteCategoryModal tests', () => {
         wrapper = shallow(<DeleteCategoryModal {...mockProps} />
 
         );
-     //   wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'abc' } });
 
     })
     it('expect to render DeleteCategoryModal component to render when edit is false', () => {
@@ -53,7 +52,6 @@ describe('ModalDeleteCategoryModal tests', () => {
 
     })
     it('handleSubmit  expect to change onclick for delete',  () => {
-        // jest.useFakeTimers();
         wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
 
     })

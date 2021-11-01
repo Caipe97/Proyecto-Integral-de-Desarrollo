@@ -425,11 +425,6 @@ describe('ADD_FOOD_TO_CURRENT_MEAL', () => {
 })
 
 describe('if linea 144 a 146 inside ADD_FOOD_TO_CURRENT_MEAL', () => {
-    //initialStateMeals = {
-    //meals: [],
-    // currentMeal: {FoodList: []},
-    // isPending: false
-    //}
     it('should handle ADD_FOOD_TO_CURRENT_MEAL action2', () => {
         expect(reducers.mealsReducer({
             ...initialStateMeals,
@@ -445,7 +440,6 @@ describe('if linea 144 a 146 inside ADD_FOOD_TO_CURRENT_MEAL', () => {
             }
         }, {
 
-            //expect(reducers.mealsReducer(initialStateMeals, {
             type: ADD_FOOD_TO_CURRENT_MEAL,
             payload: {
                 foodId: 1, name: 'Milanesa',
@@ -478,16 +472,6 @@ describe('REMOVE_FOOD_FROM_CURRENT_MEAL', () => {
 })
 
 describe('else linea 164 REMOVE_FOOD_FROM_CURRENT_MEAL', () => {
-    //exampleStateMeals1 = {
-    //    meals: [{mealId: 21, name: 'queso', 
-    //FoodList: {quantity: 1, foods: 
-    //                        {foodId: 1, name: 'Milanesa', 
-    //                         recommendedServing: 85, caloriesPerServing: 198, 
-    //                         createdAt: '2021-09-15T19:58:04.486Z'}}, dateEaten: '2021-09-09T00:00:00.000Z', userId: 1}
-    //    ],
-    //    currentMeal: {FoodList: []},
-    //    isPending: false
-    //}
     it('should handle REMOVE_FOOD_FROM_CURRENT_MEAL action', () => {
         expect(reducers.mealsReducer({
             ...exampleStateMeals1,
@@ -667,8 +651,6 @@ describe('GET_LAST_YEARS_MEALS', () => {
         expect(reducers.mealsReducer(pendingStateMeals4, {
             type: GET_LAST_YEARS_MEALS_SUCCESS,
             payload: {
-                // data:undefined,
-                // labels:undefined
                 labels:"hola",
                 data:
                 [{

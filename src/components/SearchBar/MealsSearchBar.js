@@ -24,19 +24,12 @@ const customStyles = {
 	},
 	headRow: {
 		style: {
-      backgroundColor: '#B6E052',
-			// borderTopStyle: 'solid',
-			// borderTopWidth: '1px',
-			// borderTopColor: 'black',
+      backgroundColor: '#B6E052'
 		},
 	},
 	headCells: {
 		style: {
-			'&:not(:last-of-type)': {
-				// borderRightStyle: 'solid',
-				// borderRightWidth: '1px',
-				// borderRightColor: 'black',
-			},
+			'&:not(:last-of-type)': {},
 		},
 	},
   pagination: {
@@ -120,7 +113,6 @@ class MealsSearchBar extends Component {
   }
 
   async componentDidMount(){
-    // await this.props.onGetAllmeals();
     this.setState({meals: this.props.meals});
     this.asignarColumnas();
   }
@@ -157,7 +149,6 @@ render(){
       <DataTable
         columns={this.state.columnas}
         data={this.state.meals}
-        //title="Comidas"
         pagination
         paginationComponentOptions={paginacionOpciones}
         fixedHeader

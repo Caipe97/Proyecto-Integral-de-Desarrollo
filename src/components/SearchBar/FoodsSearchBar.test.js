@@ -138,60 +138,46 @@ describe('FoodsSearchBar tests', () => {
     };
 
     beforeEach(() => {
-        wrapper = shallow(<FoodsSearchBar {...mockProps2} />);
-        wrapper2 = shallow(<FoodsSearchBar {...mockProps1} />);
+      wrapper = shallow(<FoodsSearchBar {...mockProps2} />);
+      wrapper2 = shallow(<FoodsSearchBar {...mockProps1} />);
     })
 
     it('expect to render FoodsSearchBar component to location state ', async() => {
-        expect(wrapper).toMatchSnapshot();//if
-        await wrapper.instance().componentDidMount();
+      expect(wrapper).toMatchSnapshot();//if
+      await wrapper.instance().componentDidMount();
     })
     it('expect to render FoodsSearchBar component to location state2 ', async() => {
-        expect(wrapper2).toMatchSnapshot();//if
-        await wrapper2.instance().componentDidMount();
-        await wrapper2.instance().componentDidUpdate();
+      expect(wrapper2).toMatchSnapshot();//if
+      await wrapper2.instance().componentDidMount();
+      await wrapper2.instance().componentDidUpdate();
     })
     it('OnChange expect t11', async () => {
-
-        // jest.useFakeTimers();
-        await wrapper.find('[type="button"]').at(0).simulate('click',jest.fn);
-        
-        wrapper.find('[type="button"]').at(0).simulate('click',{ persist: jest.fn()});
-        //
-        
-        //expect(wrapper.find('filtrarElementos').instance()).toHaveBeenCalledTimes(1);
+      await wrapper.find('[type="button"]').at(0).simulate('click',jest.fn);
+      wrapper.find('[type="button"]').at(0).simulate('click',{ persist: jest.fn()});
     })
     it('OnChange should because name contains search value not return food and return all foods because busquedaNombre is null',async() => {
-        await wrapper.instance().componentDidMount();
-        
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: '' }});
+      await wrapper.instance().componentDidMount();
+      await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: '' }});
        
     })
     it('OnChange should because name contains search value return null because dont find value ',async() => {
-        await wrapper.instance().componentDidMount();
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: 'Plan febrero' }});
+      await wrapper.instance().componentDidMount();
+      await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: 'Plan febrero' }});
        
     })
     it('OnChange should because name contains search value return food when foodname includes in busquedaNombre',async() => {
-        await wrapper.instance().componentDidMount();
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: 'milanesa' }});
+      await wrapper.instance().componentDidMount();
+      await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: 'milanesa' }});
      
     })
     it('OnChange should because name contains search value not return food and return all foods with categoryID define because busquedaNombre is null ',async() => {
-        await wrapper2.instance().componentDidMount();
-        
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper2.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: 'milanesa' }});
+      await wrapper2.instance().componentDidMount();
+      await wrapper2.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: 'milanesa' }});
        
     })
     it('OnChange should because name contains search value not return food and return all foods with categoryID define because busquedaNombre is null ',async() => {
-        await wrapper2.instance().componentDidMount();
-        
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper2.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: '' }});
+      await wrapper2.instance().componentDidMount();
+      await wrapper2.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busquedaNombre', value: '' }});
        
     })
 })

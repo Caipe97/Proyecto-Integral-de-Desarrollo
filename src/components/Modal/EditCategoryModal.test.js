@@ -35,7 +35,6 @@ describe('ModalEditCategoryModal tests', () => {
         wrapper = shallow(<EditCategoryModal {...mockProps} />
 
         );
-     //   wrapper.find('[name="name"]').at(0).simulate('change', { target: { name: 'name', value: 'abc' } });
 
     })
     it('expect t2', () => {

@@ -215,9 +215,7 @@ const getNewCurrentMealFoodListAddFood = (currentMealFoodList, food) => {
 
 const getNewCurrentMealFoodListRemoveFood = (currentMealFoodList, food) => {
   const copyCurrentMealFoods = currentMealFoodList
- // console.log(food, currentMealFoodList)
   for( let i = 0; i < copyCurrentMealFoods.length; i++){
-    //console.log(copyCurrentMealFoods[i].food.foodId, food.foodId)
     if(copyCurrentMealFoods[i].food.foodId === food.foodId) { 
       if(copyCurrentMealFoods[i].quantity === 1){
         copyCurrentMealFoods.splice(i, 1); 

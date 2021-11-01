@@ -87,7 +87,7 @@ describe("add goal actions", () => {
         expect(fetch.mock.calls.length).toEqual(1);
     });
     it("should create the FAILED action when receiving an error for addGoal", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: ADD_GOAL_PENDING },
@@ -149,7 +149,7 @@ describe("get goals from user actions", () => {
         expect(fetch.mock.calls.length).toEqual(1);
     });
     it("should create the FAILED action when receiving an error for getGoalsFromUser", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: GET_GOALS_FROM_USER_PENDING },

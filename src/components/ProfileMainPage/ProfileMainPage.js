@@ -105,7 +105,6 @@ class ProfileMainPage extends Component{
       const dateStartString = this.state.dateStart.toString().substring(4, 15);
       const dateEndString = this.state.dateEnd.toString().substring(4, 15);
       await this.props.onGetMealsByPeriod(this.props.userId, dateStartString, dateEndString);
-      //this.setState({dateStart: '', dateEnd: ''});
       this.calculateFoodCategoriesPercentages();
     }
   }
@@ -200,7 +199,6 @@ class ProfileMainPage extends Component{
           <div className="contenidoPro">
             <div className="comida">
               <MealsSearchBar {...this.props}/>
-              {/* <GoalsHistoryModal {...this.props}/> */}
             </div>
           </div>
           <div className="dashboardPro">

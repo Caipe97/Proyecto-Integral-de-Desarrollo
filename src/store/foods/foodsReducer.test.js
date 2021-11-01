@@ -192,13 +192,6 @@ describe('EDIT_CUSTOM', () => {
     it('should handle EDIT_CUSTOM_FOOD_PENDING action', () => {
         expect(reducers.foodsReducer(initialStateFoods, {type: EDIT_CUSTOM_FOOD_PENDING})).toEqual(pendingStateFoods1);
     })
-    // const exampleStateFoods3 = {
-    //     foods: [
-    //         {foodId:1,name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198,},
-    //         {foodId:2,name: 'Papas', recommendedServing: 200, caloriesPerServing: 100}
-    //     ],
-    //     isPending: false
-    // }
     
     it('should handle EDIT_CUSTOM_FOOD_SUCCESS action with initial state meals empty', () => {
         expect(reducers.foodsReducer(   exampleStateFoods3ini
@@ -209,7 +202,6 @@ describe('EDIT_CUSTOM', () => {
                 {foodId:2,name: 'Papas', recommendedServing: 200, caloriesPerServing: 100} 
             ]
         })).toEqual(exampleStateFoods3);
-        //exampleStateFoods3
     })
 
     it('should handle ADD_CUSTOM_FOOD_FAILED action', () => {
@@ -249,33 +241,7 @@ describe('GET_FOOD_CATEGORIES', () => {
     it('should handle GET_FOOD_CATEGORIES_PENDING action', () => {
         expect(reducers.foodsReducer(initialStateFoodCategories, {type: GET_FOOD_CATEGORIES_PENDING})).toEqual(pendingStateFoodCategories);
     })
-    // const initialStateFoodCategories={
-    //     foodCategories:[],
-    //     isPending:false
-    // }
-    // const pendingStateFoodCategories={
-    //     ...initialStateFoodCategories,
-    //     isPending:true
-    // }
-    // const exampleStateFoodCategories={
-    //     foodCategories:[
-    //         {
-    //           foodCategoryId: 1,
-    //           name: "Fruta",
-    //           createdAt: "2021-09-30T14:09:34.756Z",
-    //           updatedAt: "2021-09-30T14:09:34.756Z",
-    //           userId: null
-    //         },
-    //         {
-    //           foodCategoryId: 7,
-    //           name: "Fideos",
-    //           createdAt: "2021-09-30T18:58:58.542Z",
-    //           updatedAt: "2021-09-30T18:58:58.542Z",
-    //           userId: null
-    //         }
-    //       ],
-    //     isPending:true
-    // }
+
     it('should handle GET_FOOD_CATEGORIES_SUCCESS action with initial state meals empty', () => {
         expect(reducers.foodsReducer(initialStateFoodCategories, {
             type: GET_FOOD_CATEGORIES_SUCCESS, 

@@ -1,13 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme'; 
 import GoalsHistoryModal from './GoalsHistoryModal';
-//    <GoalsHistoryModal goal={row} history={this.props.history} onDeleteGoal={this.props.onDeleteGoal} onUpdateCurrentGoalInState={this.props.onUpdateCurrentGoalInState} />
-          //props.goal.objectives.map
 describe('GoalsHistoryModal tests', () => {
     const historyMock = { push: jest.fn() };
     const preventDefault = { preventDefault: jest.fn() };
     const mockPropsSignIn = {
-        //goal: {name:'enero',dateStart:"2021-09-30T14:09:34.756Z",totalCalories:300,objectives:[]}, 
         preventDefault:jest.fn(),
         onGetMealsFromUser:jest.fn(),
         onDeleteMeal:jest.fn(),

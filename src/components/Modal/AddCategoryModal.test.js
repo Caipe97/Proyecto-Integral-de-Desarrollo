@@ -1,10 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme'; 
 import AddCategoryModal from './AddCategoryModal';
-//import Combobox from "react-widgets/Combobox";
 describe('ModalAddCategoryModal tests', () => {
-   // const historyMock = { push: jest.fn(), };///
-    //let mockProps;
     const preventDefault = { preventDefault: jest.fn() }
     let wrapper;
     beforeEach(() => {
@@ -24,12 +21,10 @@ describe('ModalAddCategoryModal tests', () => {
     })
     it('expect to render AddCategoryModal component to render', () => {
         expect(wrapper).toMatchSnapshot();
- //       expect(wrapper.find('calculateTotalCaloriesPerMeal')).toBeDefined();
     })
     it('Set modal and setstate null message expect to change  onclick buttons',  () => {
        
     wrapper.find('[type="button"]').at(0).simulate('click');
-       // await wrapper.find('[type="button"]').at(2).simulate('click');
        expect(wrapper.find('div')).toBeDefined();
         expect(wrapper.find('div.p').contains('')).toBeDefined();
 
@@ -42,11 +37,7 @@ describe('ModalAddCategoryModal tests', () => {
     })
 
     it('handleSubmit expect to change onclick for crear', () => {
-        ///jest.useFakeTimers();
-
          wrapper.find('[className="button"]').at(0).simulate('click', preventDefault);
-
-
     })
 
 

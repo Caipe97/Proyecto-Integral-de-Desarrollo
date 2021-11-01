@@ -31,9 +31,6 @@ const AddCategoryModal = (props) =>{
 
   return (
     <>
-      {/* <Button  type="button" variant="primary" onClick={() => setModalShow(true)}>
-        Crear Categoría
-      </Button> */}
       <img src={Add} alt='agregar' style={{width: '30px', height: '30px', cursor: 'pointer'}} onClick={() => setModalShow(true)}/>
       <Modal
         show={modalShow}

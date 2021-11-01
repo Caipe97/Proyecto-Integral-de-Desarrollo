@@ -50,7 +50,6 @@ class RegisterMainPage extends Component{
   handleSubmit = async event => {
     event.preventDefault();
     const birhtdayString = this.state.birthday.toString().substring(4, 24);
-    //const valueCryptoPass=bcrypt.hashSync(this.state.password);
     if(this.validateAll()){
       const data = await this.props.onRegister(this.state.name, this.state.surname, this.state.email, this.state.password, this.state.gender, birhtdayString, this.state.weight, this.state.height);
       this.setState({ name: '', surname: '', email: '', password: '', gender: '', birthday: '', weight: '', height: '' });

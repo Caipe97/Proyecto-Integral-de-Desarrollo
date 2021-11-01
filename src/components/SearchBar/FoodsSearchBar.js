@@ -31,19 +31,12 @@ const customStyles = {
 	},
 	headRow: {
 		style: {
-      backgroundColor: '#B6E052',
-			// borderTopStyle: 'solid',
-			// borderTopWidth: '1px',
-			// borderTopColor: 'black',
+      backgroundColor: '#B6E052'
 		},
 	},
 	headCells: {
 		style: {
-			'&:not(:last-of-type)': {
-				// borderRightStyle: 'solid',
-				// borderRightWidth: '1px',
-				// borderRightColor: 'black',
-			},
+			'&:not(:last-of-type)': {},
 		},
 	},
   pagination: {
@@ -88,7 +81,6 @@ class FoodsSearchBar extends Component {
   onChange = async event => {
     event.persist();
     await this.setState({busquedaNombre: event.target.value});
-    // this.handleChangeComboBox();
     this.filtrarElementos();
   }
 
@@ -144,14 +136,12 @@ class FoodsSearchBar extends Component {
       {
         name: 'Porción Recomendada',
         selector: row => row.recommendedServing,
-        sortable: true,
-        // grow: 3
+        sortable: true
       },
       {
         name: 'Calorías Por Porción Recomendada',
         selector: row => row.caloriesPerServing,
-        sortable: true,
-        // grow: 4
+        sortable: true
       }
     ];
 
@@ -180,7 +170,6 @@ class FoodsSearchBar extends Component {
     await this.props.onGetFoodCategories(this.props.userId);
     let foodCategoriesCopy = [...this.props.foodCategories];
     foodCategoriesCopy.unshift({foodCategoryId: 0, name: 'Ver todos los alimentos', userId: null});
-    // foodCategoriesCopy.push({foodCategoryId: -1, name: 'Crear una nueva categoría', userId: this.props.userId});
     this.setState({
       alimentos: this.props.foods,
       cantidadAlimentos: this.props.foods.length,
@@ -196,7 +185,6 @@ class FoodsSearchBar extends Component {
       await this.props.onGetFoodCategories(this.props.userId);
       let foodCategoriesCopy = [...this.props.foodCategories];
       foodCategoriesCopy.unshift({foodCategoryId: 0, name: 'Ver todos los alimentos', userId: null});
-      // foodCategoriesCopy.push({foodCategoryId: -1, name: 'Crear una nueva categoría', userId: this.props.userId});
       this.setState({
         alimentos: this.props.foods,
         cantidadAlimentos: this.props.foods.length,
@@ -236,7 +224,7 @@ render(){
             onChange={this.onChange}
             style={{borderRadius:'13px'}}
             />
-            <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}/*onClick={onClear}*/>
+            <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}>
             {" "}
             <FontAwesomeIcon icon={faSearch} />
             </button>

@@ -28,8 +28,6 @@ class LoginMainPage extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    //const valueCryptoPass= bcrypt.hashSync(this.state.password,10);
-   // this.setState({password:valueCryptoPass});
     if (this.validateAll()) {
       const data = await this.props.onLogin(this.state.email, this.state.password);
       this.setState({ email: '', password: '' });

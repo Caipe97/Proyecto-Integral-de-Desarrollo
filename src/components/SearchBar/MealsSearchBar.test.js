@@ -94,31 +94,24 @@ describe('MealsSearchBar tests', () => {
 
     })
     it('expect to change  onclick buttons', async () => {
-       
         await wrapper.find('button').at(0).simulate('click');
-       // await wrapper.find('[type="button"]').at(2).simulate('click');
-       expect(wrapper.find('div')).toBeDefined();
+        expect(wrapper.find('div')).toBeDefined();
         expect(wrapper.find('div.p').contains('')).toBeDefined();
       
     })
     it('Agregar should push to goals ', async () => {
         await wrapper.find('button').at(1).simulate('click', { push: jest.fn() });
-       // expect(wrapper.instance().props.onRegister).toHaveBeenCalledTimes(1);
         expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
         expect(historyMock.push.mock.calls[0]).toEqual(['/meals']);
     })
     it('OnChange should because name contains search value not return meal',async() => {
         await wrapper.instance().componentDidMount();
-        
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'enero' }});
+        await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'enero' }});
        
     })
     it('OnChange should because name contains search value return meal',async() => {
         await wrapper.instance().componentDidMount();
-        
-      // wrapper.find('input').at(0).simulate('change',{ persist: jest.fn()});
-       await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'queso' }});
+        await wrapper.find('input').at(0).simulate('change', { persist: jest.fn(),target: { name: 'busqueda', value: 'queso' }});
        
     })
     

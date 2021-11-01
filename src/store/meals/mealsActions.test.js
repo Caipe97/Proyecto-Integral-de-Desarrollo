@@ -89,7 +89,7 @@ describe("add meal actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for addMeal", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: ADD_MEAL_PENDING },
@@ -152,7 +152,7 @@ describe("get meals from user actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for getMealsFromUser", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: GET_MEALS_FROM_USER_PENDING },
@@ -354,7 +354,7 @@ describe("update current meal actions", () => {
         expect(fetch.mock.calls.length).toEqual(1);
     });
 })
-//get meals by period
+
 describe("get meals by period from user for date start and date end actions", () => {
     const store = mockStore();
     beforeEach(() => {
@@ -398,7 +398,7 @@ describe("get meals by period from user for date start and date end actions", ()
     });
 
     it("should create the FAILED action when receiving an error for getMealsByPeriod", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: GET_MEALS_BY_PERIOD_PENDING },
@@ -417,7 +417,7 @@ describe("get meals by period from user for date start and date end actions", ()
     });
 })
 
-//get last year meals
+
 describe("get last year meals from user actions", () => {
     const store = mockStore();
     beforeEach(() => {
@@ -466,7 +466,7 @@ describe("get last year meals from user actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for getLastYearsMeals", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: GET_LAST_YEARS_MEALS_PENDING },

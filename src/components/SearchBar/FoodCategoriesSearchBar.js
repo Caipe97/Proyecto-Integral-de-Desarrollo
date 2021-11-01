@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import './SearchBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DataTable from 'react-data-table-component';
-// import CustomFoodModal from '../Modal/CustomFoodModal';
 import Combobox from "react-widgets/Combobox";
 import "react-widgets/styles.css";
 import Add from '../../images/add.png';
-// import Delete from '../../images/delete.png';
 import TextField from '@material-ui/core/TextField';
 
 const paginacionOpciones={
@@ -27,19 +25,12 @@ const customStyles = {
 	},
 	headRow: {
 		style: {
-      backgroundColor: '#B6E052',
-			// borderTopStyle: 'solid',
-			// borderTopWidth: '1px',
-			// borderTopColor: 'black',
+      backgroundColor: '#B6E052'
 		},
 	},
 	headCells: {
 		style: {
-			'&:not(:last-of-type)': {
-				// borderRightStyle: 'solid',
-				// borderRightWidth: '1px',
-				// borderRightColor: 'black',
-			},
+			'&:not(:last-of-type)': {},
 		},
 	},
   pagination: {
@@ -83,7 +74,6 @@ class FoodCategoriesSearchBar extends Component {
   onChange = async event => {
     event.persist();
     await this.setState({busquedaNombre: event.target.value});
-    // this.handleChangeComboBox();
     this.filtrarElementos();
   }
 
@@ -158,7 +148,6 @@ class FoodCategoriesSearchBar extends Component {
     await this.props.onGetFoodCategories(this.props.userId);
     let foodCategoriesCopy = [...this.props.foodCategories];
     foodCategoriesCopy.unshift({foodCategoryId: 0, name: 'Ver todas las categorías', userId: null});
-    // foodCategoriesCopy.push({foodCategoryId: -1, name: 'Crear una nueva categoría', userId: this.props.userId});
     this.setState({
       alimentos: this.props.foods,
       categorias: foodCategoriesCopy,

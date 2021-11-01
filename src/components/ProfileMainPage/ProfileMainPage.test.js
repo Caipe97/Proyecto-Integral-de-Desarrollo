@@ -36,7 +36,6 @@ describe('ProfileMainPage tests', () => {
                 onGetMealsFromUser:jest.fn(),
                 onGetMealsByPeriod: jest.fn(),
                 onGetFoodCategories: jest.fn(),
-                // onResetPassword: jest.fn(),
                 onGetLastYearsMeals: jest.fn(),
                 onLogout: jest.fn(),
                 preventDefault:  jest.fn(),
@@ -80,10 +79,7 @@ describe('ProfileMainPage tests', () => {
     })
 
     it('handleSubmit expect onclick', async () => {
-
-        // jest.useFakeTimers();
        wrapper.find('[className="button"]').at(0).simulate('click',{ preventDefault: jest.fn()});
-    
     })
     
    

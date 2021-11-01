@@ -24,19 +24,12 @@ const customStyles = {
 	},
 	headRow: {
 		style: {
-      backgroundColor: '#B6E052',
-			// borderTopStyle: 'solid',
-			// borderTopWidth: '1px',
-			// borderTopColor: 'black',
+      backgroundColor: '#B6E052'
 		},
 	},
 	headCells: {
 		style: {
-			'&:not(:last-of-type)': {
-				// borderRightStyle: 'solid',
-				// borderRightWidth: '1px',
-				// borderRightColor: 'black',
-			},
+			'&:not(:last-of-type)': {},
 		},
 	},
   pagination: {
@@ -100,7 +93,6 @@ class GoalsSearchBar extends Component {
       },
       {
         name: 'Fecha',
-        // selector: row => row.dateStart.toString().replace('T',' ').substring(0,16),
         selector: row => row.dateStart.toString().replace('T',' ').substring(0,7),
         sortable: true
       }
@@ -121,7 +113,6 @@ class GoalsSearchBar extends Component {
   }
 
   async componentDidMount(){
-    // await this.props.onGetAllmeals();
     this.setState({goals: this.props.goals});
     this.asignarColumnas();
   }
@@ -158,7 +149,6 @@ render(){
       <DataTable
         columns={this.state.columnas}
         data={this.state.goals}
-        //title="Comidas"
         pagination
         paginationComponentOptions={paginacionOpciones}
         fixedHeader

@@ -23,20 +23,10 @@ import{
    } from './goalsConstants';
 
 import * as reducers from './goalsReducer';
-// { name: 'Plan enero',dateStart: "2021-09-01T00:00:00.000Z",totalCalories: 7000,objectives: []},    
-// { name: 'Plan febrero',dateStart: "2021-09-02T00:00:00.000Z",totalCalories: 3000,objectives: []},      
-// {name: 'Plan marzo',dateStart: "2021-09-03T00:00:00.000Z",totalCalories: 1300,objectives: []}
 let initialStateGoals;
-let initialStateMeals3;
-let initialStateMeals4;
 let pendingStateGoals1;
 let exampleStateGoals1;
-let pendingStateMeals3;
-let exampleStateMeals3;
-let pendingStateMeals4;
-let exampleStateMeals4;
 let pendingStateGoals2;
-let exampleStateMeals2;
 
 beforeEach(() => {
     initialStateGoals = {
@@ -165,7 +155,6 @@ describe('CHANGE_CURRENT_GOAL_NAME_TOTAL_CALORIES_AND_DATE_START', () => {
     })
 })
 
-// ADD_OBJECTIVE_TO_CURRENT_GOAL,
 describe('ADD_OBJECTIVE_TO_CURRENT_GOAL', () => {
     it('should handle ADD_OBJECTIVE_TO_CURRENT_GOAL action', () => {
         expect(reducers.goalsReducer(initialStateGoals, {
@@ -208,12 +197,3 @@ describe('REMOVE_OBJECTIVE_FROM_CURRENT_GOAL', () => {
         });
     })
 })
-
-// describe('REMOVE_FOOD_FROM_CURRENT_MEAL', () => {
-//     it('should handle REMOVE_FOOD_FROM_CURRENT_MEAL action', () => {
-//         expect(reducers.mealsReducer({ ...exampleStateMeals1, isPending: true, currentMeal: { FoodList: [{ quantity: 1, food: { foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z' } }, { quantity: 1, food: { foodId: 132, name: 'papines', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z' } }] } }, {
-//             type: REMOVE_FOOD_FROM_CURRENT_MEAL,
-//             payload: { quantity: 1, food: { foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z' } }
-//         })).toEqual({ ...exampleStateMeals1, isPending: true, currentMeal: { FoodList: [{ quantity: 1, food: { foodId: 132, name: 'papines', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z' } }] } });
-//     })
-// })

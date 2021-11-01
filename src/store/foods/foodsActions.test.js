@@ -52,7 +52,6 @@ describe("get all foods actions", () => {
     });
 
     it("should create the SUCCESS action after receiving data for getAllFoods", () => {
-        // fetch.mockResponseOnce(JSON.stringify({mealId: 31, foodName: 'milas', gramAmount: 100, userId: 2, dateEaten: '2021-09-09T00:00:00.000Z'}));
         fetch.mockResponseOnce(JSON.stringify([
             {foodId: 1, name: 'Milanesa', recommendedServing: 85, caloriesPerServing: 198, createdAt: '2021-09-15T19:58:04.486Z'},
             {foodId: 2, name: 'Papa', recommendedServing: 200, caloriesPerServing: 100, createdAt: '2021-09-15T20:02:16.490Z'}
@@ -78,7 +77,7 @@ describe("get all foods actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for getAllFoods", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: GET_ALL_FOODS_PENDING },
@@ -131,7 +130,7 @@ describe("get all foods actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for addCustomFood", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: ADD_CUSTOM_FOOD_PENDING },
@@ -174,7 +173,6 @@ describe("get all foods actions", () => {
                 ]
             }
         ];
-        ///consultar el edit custom food success
         store.dispatch(actions.editCustomFood(2,'Papas',200, 100))
         .then(() => {
             const actions = store.getActions();
@@ -184,7 +182,7 @@ describe("get all foods actions", () => {
     });
 
     it("should create the FAILED action when receiving an error for editCustomFood", () => {
-        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data")); //preguntar este mensaje de error a manu
+        fetch.mockReject(() => Promise.reject("ERROR: could not fetch data"));
     
         const expectedActions = [
         { type: EDIT_CUSTOM_FOOD_PENDING },
