@@ -136,9 +136,16 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
             },
           ]
         }
+        defaultValue={
+          Object {
+            "foodCategoryId": 0,
+            "name": "Ver todos los alimentos",
+            "userId": null,
+          }
+        }
         groupBy={[Function]}
         onSelect={[Function]}
-        placeholder="Categoría"
+        placeholder="Buscar por categoría"
         renderListGroup={[Function]}
         style={
           Object {
@@ -466,9 +473,16 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
             },
           ]
         }
+        defaultValue={
+          Object {
+            "foodCategoryId": 0,
+            "name": "Ver todos los alimentos",
+            "userId": null,
+          }
+        }
         groupBy={[Function]}
         onSelect={[Function]}
-        placeholder="Categoría"
+        placeholder="Buscar por categoría"
         renderListGroup={[Function]}
         style={
           Object {

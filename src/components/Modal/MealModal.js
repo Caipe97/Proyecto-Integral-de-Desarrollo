@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal  from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 
-const MealModal =(props) =>{
+const MealModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
   let totalCaloriesPerFood = 0;
   const calculateTotalCaloriesPerMeal = () => {
@@ -30,8 +30,8 @@ const MealModal =(props) =>{
           {props.meal.name}
           </Modal.Title>
           <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
-
         </Modal.Header>
+
         <Modal.Body>
           <h4>{props.meal.dateEaten.toString().replace('T',' ').substring(0,16)}</h4>
           <p>
@@ -48,9 +48,17 @@ const MealModal =(props) =>{
           }
           <p>Total de calorias consumidas en la comida: {calculateTotalCaloriesPerMeal()}</p>
         </Modal.Body>
+
         <Modal.Footer>
           <Button type="button" onClick={() =>  {props.onUpdateCurrentMealInState(props.meal); props.history.push("/meals", {meal: props.meal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
-          <Button type="button" onClick={() =>  props.onDeleteMeal(props.meal.mealId, props.meal.userId)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Eliminar</Button>
+          <Button type="button" onClick={async () =>  {
+            const data = await props.onDeleteMeal(props.meal.mealId, props.meal.userId);
+            if(data){
+              setModalShow(false);
+            }
+            }} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>
+              Eliminar
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

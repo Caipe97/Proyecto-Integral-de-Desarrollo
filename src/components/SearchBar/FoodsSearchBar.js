@@ -207,67 +207,67 @@ class FoodsSearchBar extends Component {
     this.filtrarElementos();
   }
 
-render(){
-  return (
-    <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
-      <div className="barraBusquedaNombre" style={{backgroundColor:'#B6E052'}}>
-        <div style={{backgroundColor: 'lightblue', borderRadius: 10, display: 'flex',justifyContent: 'space-between', alignContent: 'center', alignItems: 'center', marginBottom: 20}}>
-          <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial', fontSize: 30, alignSelf: 'center', textAlign: 'center', marginTop: 8, marginLeft: 5}}>Alimentos</h1>
+  render(){
+    return (
+      <div className="table-responsive" style={{backgroundColor:'#B6E052'}}>
+        <div className="barraBusquedaNombre" style={{backgroundColor:'#B6E052'}}>
+          <div style={{backgroundColor: 'lightblue', borderRadius: 10, display: 'flex',justifyContent: 'space-between', alignContent: 'center', alignItems: 'center', marginBottom: 20}}>
+            <h1 style={{color: 'rgb(0, 38, 38)', fontFamily: 'Arial', fontSize: 30, alignSelf: 'center', textAlign: 'center', marginTop: 8, marginLeft: 5}}>Alimentos</h1>
             <div>
-
-            <input
-            type="text"
-            placeholder="Buscar por nombre"
-            className="textField"
-            name="busquedaNombre"
-            value={this.state.busquedaNombre}
-            onChange={this.onChange}
-            style={{borderRadius:'13px'}}
-            />
-            <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}>
-            {" "}
-            <FontAwesomeIcon icon={faSearch} />
-            </button>
+              <input
+              type="text"
+              placeholder="Buscar por nombre"
+              className="textField"
+              name="busquedaNombre"
+              value={this.state.busquedaNombre}
+              onChange={this.onChange}
+              style={{borderRadius:'13px'}}
+              />
+              <button type="button" className="btnBuscar" style={{borderRadius:'19px'}}>
+              {" "}
+              <FontAwesomeIcon icon={faSearch} />
+              </button>
+            </div>
           </div>
-        </div>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <Combobox
-            data={this.state.categorias}
-            textField='name'
-            onSelect={this.onChangeComboBox}
-            groupBy={category => category.userId}
-            placeholder= "Categoría"
-            renderListGroup={ ({group}) => ( //group es el userId
-              <span>
-                {group === null ? 'Default' : 'Custom'}
-              </span>
-            )}
-            style={{width: "80%"}}
-            />
-          <div style={{paddingLeft: 10, width: "20%", justifyContent: 'space-between'}}>
-            <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory}/>
-            <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} categories={this.props.foodCategories}/>
-            <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} categories={this.props.foodCategories}/>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <Combobox
+              data={this.state.categorias}
+              defaultValue={this.state.categorias[0]}
+              textField='name'
+              onSelect={this.onChangeComboBox}
+              groupBy={category => category.userId}
+              placeholder= "Buscar por categoría"
+              renderListGroup={ ({group}) => ( //group es el userId
+                <span>
+                  {group === null ? 'Default' : 'Custom'}
+                </span>
+              )}
+              style={{width: "80%"}}
+              />
+            <div style={{paddingLeft: 10, width: "20%", justifyContent: 'space-between'}}>
+              <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory}/>
+              <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} categories={this.props.foodCategories}/>
+              <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} categories={this.props.foodCategories}/>
+            </div>
           </div>
+          
         </div>
-        
+        <DataTable 
+          columns={this.state.columnas}
+          data={this.state.alimentos}
+          pagination
+          paginationComponentOptions={paginacionOpciones}
+          fixedHeader
+          fixedHeaderScrollHeight="600px"
+          noDataComponent={
+            <span style={{marginTop: 150, marginBottom: 150}}>No se encontró ningún alimento</span>
+          }
+          conditionalRowStyles={conditionalRowStyles}
+          customStyles={customStyles}
+          pointer
+        />
       </div>
-      <DataTable 
-        columns={this.state.columnas}
-        data={this.state.alimentos}
-        pagination
-        paginationComponentOptions={paginacionOpciones}
-        fixedHeader
-        fixedHeaderScrollHeight="600px"
-        noDataComponent={
-          <span style={{marginTop: 150, marginBottom: 150}}>No se encontró ningún alimento</span>
-        }
-        conditionalRowStyles={conditionalRowStyles}
-        customStyles={customStyles}
-        pointer
-      />
-    </div>
-  );
-}
+    );
+  }
 }
 export default FoodsSearchBar;

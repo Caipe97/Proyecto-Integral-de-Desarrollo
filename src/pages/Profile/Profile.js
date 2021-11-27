@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
     birthday: state.userDataReducer.birthday,
     weight: state.userDataReducer.weight,
     height: state.userDataReducer.height,
-    isPending: state.userDataReducer.isPending,
+    isPending: state.mealsReducer.isPending,
     meals: state.mealsReducer.meals,
     mealsByPeriod: state.mealsReducer.mealsByPeriod,
     foodCategories: state.foodsReducer.foodCategories,

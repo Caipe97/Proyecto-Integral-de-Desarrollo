@@ -42,6 +42,14 @@ const CustomFoodModal = (props) =>{
         });
       }
     };
+    
+    const getFoodCategoryName = (foodCategoryId) => {
+      const foodCategoryName = props.foodCategories.find(foodCategory => foodCategory.foodCategoryId === foodCategoryId);
+      if(foodCategoryId === -2){
+        return '';
+      }
+      return foodCategoryName;
+    }
 
     return (
       <>
@@ -74,6 +82,7 @@ const CustomFoodModal = (props) =>{
               <TextField label="Calorias por Porción" name='caloriesPerServing' type='caloriesPerServing' value={state.caloriesPerServing} onChange={handleChange} required />
               <Combobox
                 data={props.foodCategories}
+                defaultValue={getFoodCategoryName(state.foodCategoryId)}
                 textField='name'
                 onSelect={handleChangeComboBox}
                 groupBy={category => category.userId}

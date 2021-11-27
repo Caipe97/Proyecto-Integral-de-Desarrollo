@@ -190,7 +190,6 @@ class ProfileMainPage extends Component{
     const dateCopy = date.toString();
     return dateCopy !== ''
   }
-
   render() {
     const birthdayString = this.props.birthday.toString().substring(0,10);
       return (
@@ -234,9 +233,15 @@ class ProfileMainPage extends Component{
                   style={{float: 'left', marginLeft: "20px"}}
                   />
                 </div>
-                <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
+                <div style={{display: 'flex', flexDirection: 'column',justifyContent: 'center', textAlign: 'start', alignItems: 'center', alignContent: 'center'}}>
+                  <button onClick={this.handleSubmit} className='button'>Buscar comidas</button>
+                  {this.props.isPending
+                  ? <div className="spinner-border" role="status">
+                      <span className="sr-only"></span>
+                    </div>
+                  : null}
+                </div>
                 <p>{this.state.errorMessage}</p>
-
                   
               </form>
               <p>Filtros</p>

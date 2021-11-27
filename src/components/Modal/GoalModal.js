@@ -87,7 +87,14 @@ const GoalModal =(props) =>{
             ? <Button type="button" onClick={() =>  {props.onUpdateCurrentGoalInState(props.goal); props.history.push("/goals", {goal: props.goal})}} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Editar</Button>
             : null
           }
-          <Button type="button" onClick={() =>  props.onDeleteGoal(props.goal.goalId, props.goal.userId)} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>Eliminar</Button>
+          <Button type="button" onClick={async () =>  {
+            const data = await props.onDeleteGoal(props.goal.goalId, props.goal.userId);
+            if(data){
+              setModalShow(false);
+            }
+            }} style={{backgroundColor: 'rgb(18, 207, 90)', borderColor: 'rgb(18, 207, 90)'}}>
+              Eliminar
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
