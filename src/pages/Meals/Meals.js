@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
     currentMeal: state.mealsReducer.currentMeal,
     isPending: state.mealsReducer.isPending,
     foods: state.foodsReducer.foods,
-    foodCategories: state.foodsReducer.foodCategories
+    foodCategories: state.foodsReducer.foodCategories,
+    foodCategoryIsPending: state.foodsReducer.foodCategoryIsPending
   }
 }
 

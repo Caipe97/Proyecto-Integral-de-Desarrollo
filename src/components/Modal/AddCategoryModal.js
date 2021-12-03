@@ -20,12 +20,16 @@ const AddCategoryModal = (props) =>{
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = await props.onCreateCategory(state.name, props.userId);
-    if(data){
-      setState({
-        name: '',
-        message: 'Categoría agregada exitosamente'
-      });
+    if(state.name !== ''){
+      const data = await props.onCreateCategory(state.name, props.userId);
+      if(data){
+        setState({
+          name: '',
+          message: 'Categoría agregada exitosamente'
+        });
+      }
+    } else {
+      setState({...state, message: 'La categoría debe tener un nombre'});
     }
   };
 
@@ -49,6 +53,11 @@ const AddCategoryModal = (props) =>{
             <TextField label="Nombre" name='name' type='name' value={state.name} onChange={handleChange} required />
             <button onClick={handleSubmit} className='button'>Crear</button>
             <p>{state.message}</p>
+            {props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
           </form>
         </Modal.Body>
       </Modal>

@@ -7,29 +7,42 @@ import Delete from '../../images/delete.png';
 
 const DeleteCategoryModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
-  let onlyCustomCategories = props.categories.filter((category) => category.userId !== null);
+  let onlyCustomCategories = props.foodCategories.filter((category) => category.userId !== null);
 
   const [state, setState] = useState({
     name: '',
     foodCategoryId: '',
+    categoryName: '',
     message: ''
   })
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = await props.onDeleteCategory(state.foodCategoryId);
-    if(data){
-      setState({
-        name: '',
-        foodCategoryId: '',
-        message: 'Categoría eliminada exitosamente'
-      });
+    if(state.foodCategoryId !== ''){
+      const data = await props.onDeleteCategory(state.foodCategoryId);
+      if(data){
+        setState({
+          name: '',
+          foodCategoryId: '',
+          categoryName: '',
+          message: 'Categoría eliminada exitosamente'
+        });
+      }
+    } else {
+      setState({...state, message: 'Debe seleccionar alguna categoría para eliminarla'});
     }
-
   };
 
+  const getFoodCategoryName = (foodCategoryId) => {
+    const foodCategoryName = props.foodCategories.find(foodCategory => foodCategory.foodCategoryId === foodCategoryId);
+    if(foodCategoryId === -2){
+      return '';
+    }
+    return foodCategoryName;
+  }
+
   const onChangeComboBox = async event => {
-    await setState({...state, foodCategoryId: event.foodCategoryId});
+    await setState({...state, foodCategoryId: event.foodCategoryId, categoryName: getFoodCategoryName(event.foodCategoryId)});
   }
 
   return (
@@ -52,6 +65,7 @@ const DeleteCategoryModal = (props) =>{
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
             <Combobox
               data={onlyCustomCategories}
+              value={state.categoryName}
               textField='name'
               onSelect={onChangeComboBox}
               groupBy={category => category.userId}
@@ -61,6 +75,11 @@ const DeleteCategoryModal = (props) =>{
             />
             <button onClick={handleSubmit} className='button'>Eliminar</button>
             <p>{state.message}</p>
+            {props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
           </form>
         </Modal.Body>
       </Modal>

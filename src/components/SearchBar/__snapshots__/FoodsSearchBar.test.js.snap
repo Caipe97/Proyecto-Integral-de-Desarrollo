@@ -168,7 +168,7 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
           userId={1}
         />
         <DeleteCategoryModal
-          categories={
+          foodCategories={
             Array [
               Object {
                 "createdAt": "2021-09-30T14:09:34.756Z",
@@ -190,7 +190,7 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
           userId={1}
         />
         <EditCategoryModal
-          categories={
+          foodCategories={
             Array [
               Object {
                 "createdAt": "2021-09-30T14:09:34.756Z",
@@ -505,7 +505,7 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
           userId={1}
         />
         <DeleteCategoryModal
-          categories={
+          foodCategories={
             Array [
               Object {
                 "createdAt": "2021-09-30T14:09:34.756Z",
@@ -527,7 +527,7 @@ exports[`FoodsSearchBar tests expect to render FoodsSearchBar component to locat
           userId={1}
         />
         <EditCategoryModal
-          categories={
+          foodCategories={
             Array [
               Object {
                 "createdAt": "2021-09-30T14:09:34.756Z",

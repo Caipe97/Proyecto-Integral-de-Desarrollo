@@ -8,10 +8,11 @@ import Edit from '../../images/edit.png';
 
 const EditCategoryModal = (props) =>{
   const [modalShow, setModalShow] = useState(false);
-  let onlyCustomCategories = props.categories.filter((category) => category.userId !== null);
+  let onlyCustomCategories = props.foodCategories.filter((category) => category.userId !== null);
   const [state, setState] = useState({
     name: '',
     foodCategoryId: '',
+    categoryName: '',
     message: ''
   })
 
@@ -24,18 +25,30 @@ const EditCategoryModal = (props) =>{
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = await props.onEditCategory(state.foodCategoryId, state.name);
-    if(data){
-      setState({
-        name: '',
-        foodCategoryId: '',
-        message: 'Categoría editada exitosamente'
-      });
+    if(state.name !== '' && state.foodCategoryId !== ''){
+      const data = await props.onEditCategory(state.foodCategoryId, state.name);
+      if(data){
+        setState({
+          name: '',
+          foodCategoryId: '',
+          message: 'Categoría editada exitosamente'
+        });
+      }
+    } else {
+      setState({...state, message: 'Debe seleccionar alguna categoría y elegir un nuevo nombre'});
     }
   };
 
+  const getFoodCategoryName = (foodCategoryId) => {
+    const foodCategoryName = props.foodCategories.find(foodCategory => foodCategory.foodCategoryId === foodCategoryId);
+    if(foodCategoryId === -2){
+      return '';
+    }
+    return foodCategoryName;
+  }
+
   const onChangeComboBox = async event => {
-    await setState({...state, foodCategoryId: event.foodCategoryId});
+    await setState({...state, foodCategoryId: event.foodCategoryId, categoryName: getFoodCategoryName(event.foodCategoryId)});
   }
 
   return (
@@ -58,6 +71,7 @@ const EditCategoryModal = (props) =>{
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
             <Combobox
               data={onlyCustomCategories}
+              value={state.categoryName}
               textField='name'
               onSelect={onChangeComboBox}
               groupBy={category => category.userId}
@@ -68,6 +82,11 @@ const EditCategoryModal = (props) =>{
             <TextField label="Nuevo nombre" name='name' type='name' value={state.name} onChange={handleChange} required />
             <button onClick={handleSubmit} className='button'>Editar</button>
             <p>{state.message}</p>
+            {props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
           </form>
         </Modal.Body>
       </Modal>

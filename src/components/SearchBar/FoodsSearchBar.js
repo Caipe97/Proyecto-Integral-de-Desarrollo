@@ -245,9 +245,9 @@ class FoodsSearchBar extends Component {
               style={{width: "80%"}}
               />
             <div style={{paddingLeft: 10, width: "20%", justifyContent: 'space-between'}}>
-              <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory}/>
-              <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} categories={this.props.foodCategories}/>
-              <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} categories={this.props.foodCategories}/>
+              <AddCategoryModal userId={this.props.userId} onCreateCategory={this.props.onCreateCategory} isPending={this.props.foodCategoryIsPending}/>
+              <DeleteCategoryModal userId={this.props.userId} onDeleteCategory={this.props.onDeleteCategory} foodCategories={this.props.foodCategories} isPending={this.props.foodCategoryIsPending}/>
+              <EditCategoryModal userId={this.props.userId} onEditCategory={this.props.onEditCategory} foodCategories={this.props.foodCategories} isPending={this.props.foodCategoryIsPending}/>
             </div>
           </div>
           

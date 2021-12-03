@@ -35,7 +35,8 @@ import {
 const initialStateFoods = {
   foods: [],
   foodCategories: [],
-  isPending: false
+  isPending: false,
+  foodCategoryIsPending: false
 }
 
 export const foodsReducer = (state=initialStateFoods, action={}) => {
@@ -135,52 +136,52 @@ export const foodsReducer = (state=initialStateFoods, action={}) => {
     case CREATE_FOOD_CATEGORY_PENDING:
       return {
         ...state,
-        isPending: true
+        foodCategoryIsPending: true
       }
     case CREATE_FOOD_CATEGORY_SUCCESS:
       return {
         ...state,
         foodCategories: action.payload,
-        isPending: false
+        foodCategoryIsPending: false
       }
     case CREATE_FOOD_CATEGORY_FAILED:
       return {
         ...state,
-        isPending: false,
+        foodCategoryIsPending: false,
         error: action.payload
       }
     case EDIT_FOOD_CATEGORY_PENDING:
       return {
         ...state,
-        isPending: true
+        foodCategoryIsPending: true
       }
     case EDIT_FOOD_CATEGORY_SUCCESS:
       return {
         ...state,
         foodCategories: action.payload,
-        isPending: false
+        foodCategoryIsPending: false
       }
     case EDIT_FOOD_CATEGORY_FAILED:
       return {
         ...state,
-        isPending: false,
+        foodCategoryIsPending: false,
         error: action.payload
       }
     case DELETE_FOOD_CATEGORY_PENDING:
       return {
         ...state,
-        isPending: true
+        foodCategoryIsPending: true
       }
     case DELETE_FOOD_CATEGORY_SUCCESS:
       return {
         ...state,
         foodCategories: action.payload,
-        isPending: false
+        foodCategoryIsPending: false
       }
     case DELETE_FOOD_CATEGORY_FAILED:
       return {
         ...state,
-        isPending: false,
+        foodCategoryIsPending: false,
         error: action.payload
       }
     default:
