@@ -23,19 +23,30 @@ const EditCategoryModal = (props) =>{
     })
   };
 
+  const validateString = (name) => { //cannot be empty and only letters
+    const expression = /^[a-z ,.'-]+$/i 
+    return expression.test(String(name).toLowerCase())
+  }
+
+  const validateNumber = (weight) => { //cannot be empty and only numbers
+    const expression = /^\d+$/
+    return expression.test(String(weight).toLowerCase())
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(state.name !== '' && state.foodCategoryId !== ''){
+    if(validateString(state.name) && validateNumber(state.foodCategoryId)){
       const data = await props.onEditCategory(state.foodCategoryId, state.name);
       if(data){
         setState({
           name: '',
           foodCategoryId: '',
+          categoryName: '',
           message: 'Categoría editada exitosamente'
         });
       }
     } else {
-      setState({...state, message: 'Debe seleccionar alguna categoría y elegir un nuevo nombre'});
+      setState({...state, message: 'Debe seleccionar alguna categoría y elegir un nuevo nombre(solo letras)'});
     }
   };
 
@@ -64,7 +75,7 @@ const EditCategoryModal = (props) =>{
           <Modal.Title id="contained-modal-title-vcenter">
           {'Editar Categoría'}
           </Modal.Title>
-          <Button type="button" onClick={() => {setModalShow(false); setState({...state, message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
+          <Button type="button" onClick={() => {setModalShow(false); setState({...state, name: '', foodCategoryId: '', message: '', categoryName: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
         </Modal.Header>
         <Modal.Body>
 

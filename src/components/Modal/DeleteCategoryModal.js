@@ -22,7 +22,6 @@ const DeleteCategoryModal = (props) =>{
       const data = await props.onDeleteCategory(state.foodCategoryId);
       if(data){
         setState({
-          name: '',
           foodCategoryId: '',
           categoryName: '',
           message: 'Categoría eliminada exitosamente'
@@ -58,7 +57,11 @@ const DeleteCategoryModal = (props) =>{
           <Modal.Title id="contained-modal-title-vcenter">
           {'Eliminar Categoría'}
           </Modal.Title>
-          <Button type="button" onClick={() => {setModalShow(false); setState({...state, message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
+          <Button type="button" onClick={() => {setModalShow(false); setState({
+          foodCategoryId: '',
+          categoryName: '',
+          message: ''
+        });}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
         </Modal.Header>
         <Modal.Body>
 

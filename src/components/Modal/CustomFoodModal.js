@@ -30,16 +30,37 @@ const CustomFoodModal = (props) =>{
     })
   };
 
+  const validateAll = (name, recommendedServing, caloriesPerServing, foodCategoryId) => {
+    if(validateString(name) && validateNumber(recommendedServing) && validateNumber(caloriesPerServing) && validateNumber(foodCategoryId)){
+      return true;
+    }
+    return false;
+  }
+
+  const validateString = (name) => { //cannot be empty and only letters
+    const expression = /^[a-z ,.'-]+$/i 
+    return expression.test(String(name).toLowerCase())
+  }
+
+  const validateNumber = (weight) => { //cannot be empty and only numbers
+    const expression = /^\d+$/
+    return expression.test(String(weight).toLowerCase())
+  }
+
   if(props.edit){
-    
     const handleSubmitEdit = async (event) => {
       event.preventDefault();
-      const data = await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
-      if(data){
-        setState({
-          ...state,
-          message: 'Alimento editado exitosamente'
-        });
+      await setState({...state, message: ''});
+      if(validateAll(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId)){
+        const data = await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
+        if(data){
+          setState({
+            ...state,
+            message: 'Alimento editado exitosamente'
+          });
+        }
+      } else {
+        setState({...state, message: 'Debe completar todos los campos correctamente'});
       }
     };
     
@@ -92,6 +113,11 @@ const CustomFoodModal = (props) =>{
               />
               <button onClick={handleSubmitEdit} className='button'>Finalizar edición</button>
               <p>{state.message}</p>
+              {props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
             </form>
           </Modal.Body>
         </Modal>
@@ -100,15 +126,22 @@ const CustomFoodModal = (props) =>{
   } else {
     const handleSubmitAdd = async (event) => {
       event.preventDefault();
-      const data = await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId, props.userId);
-      if(data){
-        setState({
-          name: '',
-          recommendedServing: '',
-          caloriesPerServing: '',
-          foodCategoryId: '',
-          message: 'Alimento agregado exitosamente'
-        });
+      setState({...state, message: ''});
+      if(validateAll(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId)){
+        const data = await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId, props.userId);
+        if(data){
+          setState({
+            name: '',
+            recommendedServing: '',
+            caloriesPerServing: '',
+            foodCategoryId: '',
+            message: 'Alimento agregado exitosamente'
+          });
+        }
+      } else {
+        setTimeout(() => {
+          setState({...state, message: 'Debe completar todos los campos correctamente'});
+        }, 0.5 * 1000);
       }
     };
 
@@ -128,7 +161,13 @@ const CustomFoodModal = (props) =>{
             <Modal.Title id="contained-modal-title-vcenter">
             {'Agregar Alimento Personalizado'}
             </Modal.Title>
-            <Button type="button" onClick={() => setModalShow(false)} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
+            <Button type="button" onClick={() => {setModalShow(false); setState({
+              name: '',
+              recommendedServing: '',
+              caloriesPerServing: '',
+              foodCategoryId: '',
+              message: ''
+            });}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>

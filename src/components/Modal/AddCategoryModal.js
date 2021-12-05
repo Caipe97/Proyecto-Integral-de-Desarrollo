@@ -18,9 +18,14 @@ const AddCategoryModal = (props) =>{
     })
   };
 
+  const validateString = (name) => { //cannot be empty and only letters
+    const expression = /^[a-z ,.'-]+$/i 
+    return expression.test(String(name).toLowerCase())
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(state.name !== ''){
+    if(validateString(state.name)){
       const data = await props.onCreateCategory(state.name, props.userId);
       if(data){
         setState({
@@ -29,7 +34,7 @@ const AddCategoryModal = (props) =>{
         });
       }
     } else {
-      setState({...state, message: 'La categoría debe tener un nombre'});
+      setState({...state, message: 'La categoría debe tener un nombre(solo letras)'});
     }
   };
 
@@ -46,7 +51,7 @@ const AddCategoryModal = (props) =>{
           <Modal.Title id="contained-modal-title-vcenter">
           {'Crear Categoría'}
           </Modal.Title>
-          <Button type="button" onClick={() => {setModalShow(false); setState({...state, message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
+          <Button type="button" onClick={() => {setModalShow(false); setState({...state, name: '', message: ''});}} style={{ backgroundColor: 'white', borderColor: 'white', color: "black"}}>X</Button>
         </Modal.Header>
         <Modal.Body>
           <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
