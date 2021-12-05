@@ -76,6 +76,7 @@ exports[`ModalEditCategoryModal tests expect t2 1`] = `
           onSelect={[Function]}
           renderListGroup={[Function]}
           textField="name"
+          value=""
         />
         <WithStyles(ForwardRef(TextField))
           label="Nuevo nombre"

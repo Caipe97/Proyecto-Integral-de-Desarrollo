@@ -12,7 +12,7 @@ describe('ModalDeleteCategoryModal tests', () => {
                 foodCategoryId: '',
                 errorMessage: ''
             },
-            categories:[
+            foodCategories:[
                 {
                   foodCategoryId: 1,
                   name: "Fruta",

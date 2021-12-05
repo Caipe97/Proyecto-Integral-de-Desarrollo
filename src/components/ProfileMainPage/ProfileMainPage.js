@@ -221,7 +221,7 @@ class ProfileMainPage extends Component{
                   dateFormat="dd-MM-yyyy"
                   placeholderText='Fecha de inicio'
                   style={{float: 'left'}}
-                  />
+                />
                 </div>
                 <div style={{paddingLeft: "21.2%", display: 'flex', justifyContent: 'center', textAlign: 'start', alignItems: 'center', alignContent: 'center'}}>
                 Hasta:
@@ -244,7 +244,7 @@ class ProfileMainPage extends Component{
                 </div>
                 {
                   (typeof this.state.chartData.datasets) === 'undefined'
-                  ? console.log('true')
+                  ? null
                   : (Number.isNaN(this.state.chartData.datasets[0].data[0])) === true
                     ? <p>No se encontraron alimentos en ese período</p>
                     : null

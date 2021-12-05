@@ -76,6 +76,7 @@ exports[`ModalDeleteCategoryModal tests expect to render DeleteCategoryModal com
           onSelect={[Function]}
           renderListGroup={[Function]}
           textField="name"
+          value=""
         />
         <button
           className="button"

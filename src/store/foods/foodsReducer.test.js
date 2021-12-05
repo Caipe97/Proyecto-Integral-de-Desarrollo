@@ -40,7 +40,8 @@ const initialStateFoods = {
 }
 const initialStateFoodCategories={
     foodCategories:[],
-    isPending:false
+    isPending:false,
+    foodCategoryIsPending: false,
 }
 const pendingStateFoodCategories={
     ...initialStateFoodCategories,
@@ -261,7 +262,7 @@ describe('GET_FOOD_CATEGORIES', () => {
                   userId: null
                 },
               ],
-        })).toEqual({...exampleStateFoodCategories,isPending:false});
+        })).toEqual({...exampleStateFoodCategories,isPending:false, foodCategoryIsPending: false});
     })
 
     it('should handle GET_FOOD_CATEGORIES_FAILED action', () => {
@@ -275,7 +276,7 @@ describe('CREATE_FOOD_CATEGORY', () => {
     })
 
     it('should handle CREATE_FOOD_CATEGORY_PENDING action', () => {
-        expect(reducers.foodsReducer(initialStateFoodCategories, {type: CREATE_FOOD_CATEGORY_PENDING})).toEqual(pendingStateFoodCategories);
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: CREATE_FOOD_CATEGORY_PENDING})).toEqual({...pendingStateFoodCategories, isPending: false, foodCategoryIsPending: true});
     })
 
     it('should handle CREATE_FOOD_CATEGORY_SUCCESS action with initial state meals empty', () => {
@@ -297,22 +298,21 @@ describe('CREATE_FOOD_CATEGORY', () => {
                   userId: null
                 }
               ],
-        })).toEqual({...exampleStateFoodCategories,isPending:false});
+        })).toEqual({...exampleStateFoodCategories, isPending:true, foodCategoryIsPending: false});
     })
 
     it('should handle CREATE_FOOD_CATEGORY_FAILED action', () => {
-        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: CREATE_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: CREATE_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error', isPending: true});
     })
 })
 
-/////////////////////////////////////////////////////////////////////////
 describe('EDIT_FOOD_CATEGORY', () => {
     it('should return the same state', () => {
         expect(reducers.foodsReducer(initialStateFoodCategories, {})).toEqual(initialStateFoodCategories);
     })
 
     it('should handle EDIT_FOOD_CATEGORY_PENDING action', () => {
-        expect(reducers.foodsReducer(initialStateFoodCategories, {type: EDIT_FOOD_CATEGORY_PENDING})).toEqual(pendingStateFoodCategories);
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: EDIT_FOOD_CATEGORY_PENDING})).toEqual({...pendingStateFoodCategories, foodCategoryIsPending: true, isPending: false});
     })
 
     it('should handle EDIT_FOOD_CATEGORY_SUCCESS action with initial state meals empty', () => {
@@ -327,11 +327,11 @@ describe('EDIT_FOOD_CATEGORY', () => {
                   userId: null
                 }
               ],
-        })).toEqual(exampleStateFoodCategories2R);
+        })).toEqual({...exampleStateFoodCategories2R, foodCategoryIsPending: false, isPending: true});
     })
 
     it('should handle EDIT_FOOD_CATEGORY_FAILED action', () => {
-        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: EDIT_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: EDIT_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error', isPending: true});
     })
 })
 
@@ -341,7 +341,7 @@ describe('DELETE_FOOD_CATEGORY', () => {
     })
 
     it('should handle DELETE_FOOD_CATEGORY_PENDING action', () => {
-        expect(reducers.foodsReducer(initialStateFoodCategories, {type: DELETE_FOOD_CATEGORY_PENDING})).toEqual(pendingStateFoodCategories);
+        expect(reducers.foodsReducer(initialStateFoodCategories, {type: DELETE_FOOD_CATEGORY_PENDING})).toEqual({...pendingStateFoodCategories, foodCategoryIsPending: true, isPending: false});
     })
 
     it('should handle DELETE_FOOD_CATEGORY_SUCCESS action with initial state meals empty', () => {
@@ -349,10 +349,10 @@ describe('DELETE_FOOD_CATEGORY', () => {
             type: DELETE_FOOD_CATEGORY_SUCCESS, 
             payload:[
               ]
-        })).toEqual(initialStateFoodCategories);
+        })).toEqual({...initialStateFoodCategories, isPending: true});
     })
 
-    it('should handle EDIT_FOOD_CATEGORY_FAILED action', () => {
-        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: DELETE_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error'});
+    it('should handle DELETE_FOOD_CATEGORY_FAILED action', () => {
+        expect(reducers.foodsReducer(pendingStateFoodCategories, {type: DELETE_FOOD_CATEGORY_FAILED, payload: 'Error'})).toEqual({...initialStateFoodCategories, error: 'Error', isPending: true});
     })
 })
