@@ -191,6 +191,7 @@ class ProfileMainPage extends Component{
     return dateCopy !== ''
   }
   render() {
+
     const birthdayString = this.props.birthday.toString().substring(0,10);
       return (
         <div className="contenedorPro">
@@ -241,8 +242,13 @@ class ProfileMainPage extends Component{
                     </div>
                   : null}
                 </div>
-                <p>{this.state.errorMessage}</p>
-                  
+                {
+                  (typeof this.state.chartData.datasets) === 'undefined'
+                  ? console.log('true')
+                  : (Number.isNaN(this.state.chartData.datasets[0].data[0])) === true
+                    ? <p>No se encontraron alimentos en ese período</p>
+                    : null
+                }
               </form>
               <p>Filtros</p>
               <FormGroup >

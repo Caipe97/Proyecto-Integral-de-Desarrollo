@@ -52,15 +52,17 @@ const CustomFoodModal = (props) =>{
       event.preventDefault();
       await setState({...state, message: ''});
       if(validateAll(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId)){
+        await setState({...state, message: '', loading: true});
         const data = await props.onEditCustomFood(props.foodId, state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId);
         if(data){
           setState({
             ...state,
-            message: 'Alimento editado exitosamente'
+            message: 'Alimento editado exitosamente',
+            loading: false
           });
         }
       } else {
-        setState({...state, message: 'Debe completar todos los campos correctamente'});
+        setState({...state, message: 'Debe completar todos los campos correctamente', loading: false});
       }
     };
     
@@ -113,7 +115,7 @@ const CustomFoodModal = (props) =>{
               />
               <button onClick={handleSubmitEdit} className='button'>Finalizar edición</button>
               <p>{state.message}</p>
-              {props.isPending
+              {state.loading === true
               ? <div className="spinner-border" role="status">
                   <span className="sr-only"></span>
                 </div>
@@ -128,6 +130,7 @@ const CustomFoodModal = (props) =>{
       event.preventDefault();
       setState({...state, message: ''});
       if(validateAll(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId)){
+        setState({...state, message: '', loading: true});
         const data = await props.onAddCustomFood(state.name, state.recommendedServing, state.caloriesPerServing, state.foodCategoryId, props.userId);
         if(data){
           setState({
@@ -135,13 +138,14 @@ const CustomFoodModal = (props) =>{
             recommendedServing: '',
             caloriesPerServing: '',
             foodCategoryId: '',
-            message: 'Alimento agregado exitosamente'
+            message: 'Alimento agregado exitosamente',
+            loading: false
           });
         }
       } else {
         setTimeout(() => {
-          setState({...state, message: 'Debe completar todos los campos correctamente'});
-        }, 0.5 * 1000);
+          setState({...state, message: 'Debe completar todos los campos correctamente', loading: false});
+        }, 0.1 * 1000);
       }
     };
 
@@ -185,6 +189,11 @@ const CustomFoodModal = (props) =>{
               />
               <button onClick={handleSubmitAdd} className='button'>Agregar</button>
               <p>{state.message}</p>
+              {state.loading === true
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
             </form>
 
           </Modal.Body>
