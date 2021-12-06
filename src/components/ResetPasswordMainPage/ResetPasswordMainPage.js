@@ -13,6 +13,14 @@ class ResetPasswordMainPage extends Component {
       message: ''
     };
   }
+
+  async componentDidMount(){
+    if(this.props.userId === 0){
+      await this.props.onRefreshPage();
+      this.props.history.push("/profile");
+    }
+  }
+  
   handleChange = event => {
     this.setState({
       ...this.state,

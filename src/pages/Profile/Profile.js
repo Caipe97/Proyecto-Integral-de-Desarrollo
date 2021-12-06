@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getMealsFromUser, deleteMeal, updateCurrentMealInState, getMealsByPeriod, getLastYearsMeals } from '../../store/meals/mealsActions';
 import { getFoodCategories } from '../../store/foods/foodsActions';
 import { getGoalsFromUser, deleteGoal, updateCurrentGoalInState } from '../../store/goals/goalsActions';
-import { logout } from '../../store/userData/userDataActions';
+import { logout, refreshPage } from '../../store/userData/userDataActions';
 import ProfileMainPage from '../../components/ProfileMainPage/ProfileMainPage';
 
 const mapStateToProps = (state) => {
@@ -32,6 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     onDeleteMeal: (mealId, userId) => dispatch(deleteMeal(mealId, userId)),
     onUpdateCurrentMealInState: (newCurrentMeal) => dispatch(updateCurrentMealInState(newCurrentMeal)),
     onLogout: () => dispatch(logout()),
+    onRefreshPage: () => dispatch(refreshPage()),
     onGetMealsByPeriod: (userId, dateStart, dateEnd) => dispatch(getMealsByPeriod(userId, dateStart, dateEnd)),
     onGetFoodCategories: (userId) => dispatch(getFoodCategories(userId)),
     onGetLastYearsMeals: (userId) => dispatch(getLastYearsMeals(userId)),

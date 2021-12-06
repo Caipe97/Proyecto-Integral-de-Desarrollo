@@ -21,6 +21,10 @@ class GoalsMainPage extends Component {
   }
 
   async componentDidMount(){
+    if(this.props.userId === 0){
+      await this.props.onRefreshPage();
+      this.props.history.push("/profile");
+    }
     if(this.props.history.location.state){
       let copyDateStart = new Date(this.props.history.location.state.goal.dateStart)
       let sumThreeHoursToDateStart = copyDateStart.setHours(copyDateStart.getHours() + 3)

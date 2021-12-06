@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { resetPassword, logout } from '../../store//userData/userDataActions';
+import { resetPassword, logout, refreshPage } from '../../store//userData/userDataActions';
 import ResetPasswordMainPage from '../../components/ResetPasswordMainPage/ResetPasswordMainPage';
 
 const mapStateToProps = (state) => {
@@ -21,7 +21,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onResetPassword: (userId, password) => dispatch(resetPassword(userId, password)),
-    onLogout: () => dispatch(logout())
+    onLogout: () => dispatch(logout()),
+    onRefreshPage: () => dispatch(refreshPage()),
   }
 }
 

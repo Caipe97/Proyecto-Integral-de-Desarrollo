@@ -79,12 +79,12 @@ class RegisterMainPage extends Component{
   }
 
   validateName = (name) => { //cannot be empty and only letters
-    const expression = /^[a-z ,.'-]+$/i 
+    const expression = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/
     return expression.test(String(name).toLowerCase())
   }
 
   validateSurname = (surname) => { //cannot be empty and only letters
-    const expression = /^[a-z ,.'-]+$/i 
+    const expression = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/
     return expression.test(String(surname).toLowerCase())
   }
 
@@ -99,7 +99,7 @@ class RegisterMainPage extends Component{
   }
 
   validateGender = (gender) => { //cannot be empty and only letters
-    const expression = /^[a-z ,.'-]+$/i 
+    const expression = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/
     return expression.test(String(gender).toLowerCase())
   }
 

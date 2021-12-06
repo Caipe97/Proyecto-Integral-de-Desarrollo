@@ -29,6 +29,9 @@ class ProfileMainPage extends Component{
   }
 
   async componentDidMount(){
+    if(this.props.userId === 0){
+      await this.props.onRefreshPage();
+    }
     await this.props.onGetMealsFromUser(this.props.userId);
     await this.props.onGetFoodCategories(this.props.userId);
     await this.props.onGetLastYearsMeals(this.props.userId);

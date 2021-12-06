@@ -1,5 +1,6 @@
 import {
   LOGOUT,
+  REFRESH_PAGE,
 
   LOGIN_OR_REGISTER_PENDING,
   LOGIN_OR_REGISTER_SUCCESS,
@@ -26,6 +27,7 @@ const initialStateUserData = {
 export const userDataReducer = (state=initialStateUserData, action={}) => {
   switch (action.type) {
     case LOGOUT:
+      localStorage.clear();
       return {
         userId: 0,
         name: '',
@@ -38,12 +40,27 @@ export const userDataReducer = (state=initialStateUserData, action={}) => {
         height: '',
         isPending: false
       }
+    case REFRESH_PAGE:
+      const userData = JSON.parse(localStorage.getItem('userData'))
+      return {
+        userId: userData.userId,
+        name: userData.name,
+        surname: userData.surname,
+        email: userData.email,
+        password: userData.password,
+        gender: userData.gender,
+        birthday: userData.birthday,
+        weight: userData.weight,
+        height: userData.height,
+        isPending: false
+      }
     case LOGIN_OR_REGISTER_PENDING:
       return {
         ...state,
         isPending: true
       }
     case LOGIN_OR_REGISTER_SUCCESS:
+      localStorage.setItem('userData', JSON.stringify(action.payload));
       return {
         ...state,
         userId: action.payload.userId,

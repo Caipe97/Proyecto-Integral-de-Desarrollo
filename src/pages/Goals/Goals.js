@@ -4,7 +4,7 @@ import { addGoal, resetCurrentGoal, updateCurrentGoal, changeCurrentGoalNameTota
 import { getAllFoods, getFoodCategories } from'../../store/foods/foodsActions';
 import { addObjectiveToCurrentGoal, removeObjectiveFromCurrentGoal } from'../../store/goals/goalsActions';
 import './Goals.css';
-import { logout } from '../../store/userData/userDataActions';
+import { logout, refreshPage } from '../../store/userData/userDataActions';
 import GoalsMainPage from '../../components/GoalsMainPage/GoalsMainPage';
 
 const mapStateToProps = (state) => {
@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
     onAddGoal: (userId, currentGoal) => dispatch(addGoal(userId, currentGoal)),
     onGetAllFoods: (userId) => dispatch(getAllFoods(userId)),
     onLogout: () => dispatch(logout()),
+    onRefreshPage: () => dispatch(refreshPage()),
     onResetCurrentGoal: () => dispatch(resetCurrentGoal()),
     onChangeCurrentGoalNameTotalCaloriesAndDateStart: (newName, newTotalCalories, newDateStart) => dispatch(changeCurrentGoalNameTotalCaloriesAndDateStart(newName, newTotalCalories, newDateStart)),
     onGetFoodCategories: (userId) => dispatch(getFoodCategories(userId)),

@@ -1,5 +1,6 @@
 import {
   LOGOUT,
+  REFRESH_PAGE,
 
   LOGIN_OR_REGISTER_PENDING,
   LOGIN_OR_REGISTER_SUCCESS,
@@ -12,6 +13,10 @@ import {
 
 export const logout = () => ({ 
   type: LOGOUT
+})
+
+export const refreshPage = () => ({ 
+  type: REFRESH_PAGE
 })
 
 export const login = (email, password) => (dispatch) => {

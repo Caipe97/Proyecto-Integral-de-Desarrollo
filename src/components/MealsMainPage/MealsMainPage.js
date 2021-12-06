@@ -20,6 +20,10 @@ class MealsMainPage extends Component {
   }
 
   async componentDidMount(){
+    if(this.props.userId === 0){
+      await this.props.onRefreshPage();
+      this.props.history.push("/profile");
+    }
     if(this.props.history.location.state){
       let copydateEaten = new Date(this.props.history.location.state.meal.dateEaten);
       let sumThreeHoursToDateEaten = new Date(copydateEaten.setHours(copydateEaten.getHours() + 3));

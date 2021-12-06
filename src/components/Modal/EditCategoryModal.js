@@ -24,7 +24,7 @@ const EditCategoryModal = (props) =>{
   };
 
   const validateString = (name) => { //cannot be empty and only letters
-    const expression = /^[a-z ,.'-]+$/i 
+    const expression = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/
     return expression.test(String(name).toLowerCase())
   }
 
