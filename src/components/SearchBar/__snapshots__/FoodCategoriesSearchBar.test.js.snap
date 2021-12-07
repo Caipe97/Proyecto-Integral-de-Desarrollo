@@ -62,6 +62,36 @@ exports[`FoodCategoriesSearchBar tests expect to render FoodCategoriesSearchBar 
         textField="name"
       />
     </div>
+    <div
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "width": "80%",
+        }
+      }
+    >
+      <p>
+        Ingrese la cantidad de calorías que desea agregar: 
+      </p>
+      <WithStyles(ForwardRef(TextField))
+        label="Calorias"
+        name="quantity"
+        onChange={[Function]}
+        required={true}
+        style={
+          Object {
+            "width": "100px",
+          }
+        }
+        type="quantity"
+        value=""
+      />
+    </div>
   </div>
   <Memo()
     columns={

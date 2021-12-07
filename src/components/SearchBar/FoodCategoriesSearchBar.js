@@ -99,19 +99,14 @@ class FoodCategoriesSearchBar extends Component {
           return(
             <div>
               <img src={Add} alt='agregar' onClick={async () => {
-                if(this.state.quantity === ''){
-                  await this.setState({
-                    ...this.state,
-                    quantity: 0
-                  })
+                if(this.state.quantity !== '' && this.state.quantity > 0){
+                  let objective = {
+                    foodCategoryId: row.foodCategoryId,
+                    objectiveCalories: parseInt(this.state.quantity, 10),
+                  };
+                  this.props.onAddObjectiveToCurrentGoal(objective)
                 }
-                let objective = {
-                  foodCategoryId: row.foodCategoryId,
-                  objectiveCalories: parseInt(this.state.quantity, 10),
-                };
-                this.props.onAddObjectiveToCurrentGoal(objective)
                 }} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer', marginLeft: 40}}/>
-              <TextField label="Calorias" name='quantity' type='quantity' style={{width: '100px'}} value={this.state.quantity} onChange={this.handleChangeInput} required/>
             </div>
           )
         },
@@ -187,7 +182,10 @@ render(){
             style={{width: "80%"}}
             />
         </div>
-        
+        <div style={{width: '80%', backgroundColor: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
+          <p>Ingrese la cantidad de calorías que desea agregar: </p>
+          <TextField label="Calorias" name='quantity' type='quantity' style={{width: '100px'}} value={this.state.quantity} onChange={this.handleChangeInput} required/>
+        </div>
       </div>
       <DataTable 
         columns={this.state.columnas}

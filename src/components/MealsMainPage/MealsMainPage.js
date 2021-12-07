@@ -146,6 +146,11 @@ class MealsMainPage extends Component {
               </div>
               <button onClick={this.handleSubmitUpdate} className='btn btn--primary btn--s' style={{ fontSize: '14px', boxShadow: '0px 4px 4px grey', margin: '10px', backgroundColor:'#E55812', color: 'white' }}>Editar Comida</button>
               <p>{this.state.successMessage}</p>
+              {this.props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
               <button type="button" onClick={() => this.props.history.push("/profile")} style={{marginTop: '10%'}}>Volver al Perfil</button>
             </div>
           </div>
@@ -197,6 +202,11 @@ class MealsMainPage extends Component {
             </div>
             <button onClick={this.handleSubmitCreate} className='btn btn--primary btn--s' style={{ fontSize: '14px', boxShadow: '0px 4px 4px grey', margin: '10px', backgroundColor:'#E55812', color: 'white' }}>Cargar Comida</button>
             <p>{this.state.successMessage}</p>
+            {this.props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
             <button type="button" onClick={() => this.props.history.push("/profile")} style={{marginTop: '10%'}}>Volver al Perfil</button>
           </div>
         </div>

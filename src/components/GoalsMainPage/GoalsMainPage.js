@@ -258,6 +258,11 @@ class GoalsMainPage extends Component {
             : <button onClick={this.handleSubmitCreate} className='btn btn--primary btn--s' style={{ fontSize: '14px', boxShadow: '0px 4px 4px grey', margin: '10px', backgroundColor:'#E55812', color: 'white' }}>Crear Meta</button>
             }
             <p>{this.state.successMessage}</p>
+            {this.props.isPending
+              ? <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              : null}
             <button type="button" onClick={() => {this.props.history.push("/profile"); this.props.onResetCurrentGoal()}} style={{marginTop: '10%'}}>Volver al Perfil</button>
           </div>
         </div>
