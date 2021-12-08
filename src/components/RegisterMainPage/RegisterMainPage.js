@@ -143,18 +143,18 @@ class RegisterMainPage extends Component{
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
 
             <div style={{ marginTop: 45 }}>
-              <h1 className='f1' style={{color:'#002626', fontFamily: 'Arial'}}>Register</h1>
+              <h1 className='f1' style={{color:'#002626', fontFamily: 'Arial'}}>Registrarse</h1>
             </div>
   
             <form style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column' }}>
-              <TextField label="Name" name='name' type='name' value={this.state.name} onChange={this.handleChange} required />
-              <TextField label="Surname" name='surname' type='surname' value={this.state.surname} onChange={this.handleChange} required />
+              <TextField label="Nombre" name='name' type='name' value={this.state.name} onChange={this.handleChange} required />
+              <TextField label="Apellido" name='surname' type='surname' value={this.state.surname} onChange={this.handleChange} required />
               <TextField label="Email" name='email' type='email' value={this.state.email} onChange={this.handleChange} required />
-              <TextField label="Password" name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
+              <TextField label="Contraseña" name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
               <div style={{margin: 10}}>
-                <input type="radio" id="masculino" name="gender" value="M" onChange={this.handleChange}/>
+                <input type="radio" id="Masculino" name="gender" value="M" onChange={this.handleChange}/>
                 <label>Masculino</label>
-                <input type="radio" id="femenino" name="gender" value="F" onChange={this.handleChange}/>
+                <input type="radio" id="Femenino" name="gender" value="F" onChange={this.handleChange}/>
                 <label>Femenino</label>
               </div>
   
@@ -163,10 +163,10 @@ class RegisterMainPage extends Component{
                 selected={this.state.birthday}
                 onChange={(date) => this.handleChangeBirthday(date)}
                 dateFormat="dd-MM-yyyy"
-                placeholderText='birthday'
+                placeholderText='Fecha de Nacimiento'
               />
-              <TextField label="Weight" name='weight' type='weight' value={this.state.weight} onChange={this.handleChange} required />
-              <TextField label="Height" name='height' type='height' value={this.state.height} onChange={this.handleChange} required />
+              <TextField label="Peso(gramos)" name='weight' type='weight' value={this.state.weight} onChange={this.handleChange} required />
+              <TextField label="Altura(centimetros)" name='height' type='height' value={this.state.height} onChange={this.handleChange} required />
               <button onClick={this.handleSubmit} className='button'>Registrarse</button>
               <p>{this.state.errorMessage}</p>
               {this.props.isPending
@@ -174,8 +174,8 @@ class RegisterMainPage extends Component{
                   <span className="sr-only"></span>
                 </div>
               : null}
-              <p style={{ marginBlock: '0em', marginTop: '10%' }}>Si ya tenes una cuenta?</p>
-              <Link to="/" style={{ color: 'black' }}>Login</Link>
+              <p style={{ marginBlock: '0em', marginTop: '10%' }}>Ya tenes una cuenta?</p>
+              <Link to="/" style={{ color: 'black' }}>Iniciar Sesión</Link>
             </form>
           </div>
         </div>

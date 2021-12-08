@@ -132,7 +132,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
             }
           }
         >
-          Login
+          Iniciar Sesión
         </h1>
       </div>
       <form
@@ -155,7 +155,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
           value=""
         />
         <WithStyles(ForwardRef(TextField))
-          label="Password"
+          label="Contraseña"
           name="password"
           onChange={[Function]}
           required={true}
@@ -177,7 +177,7 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
             }
           }
         >
-          Todavia no tenes una cuenta?
+          Todavía no tenes una cuenta?
           <Link
             style={
               Object {
@@ -188,16 +188,6 @@ exports[`LoginMainPage tests renders LoginMainPage without crashing 1`] = `
           >
             Registrate
           </Link>
-        </p>
-        <p
-          style={
-            Object {
-              "fontSize": "10px",
-              "marginTop": "4%",
-            }
-          }
-        >
-          Olvidaste la contrasena?
         </p>
       </form>
     </div>

@@ -116,7 +116,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
             }
           }
         >
-          Register
+          Registrarse
         </h1>
       </div>
       <form
@@ -131,7 +131,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
         }
       >
         <WithStyles(ForwardRef(TextField))
-          label="Name"
+          label="Nombre"
           name="name"
           onChange={[Function]}
           required={true}
@@ -139,7 +139,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           value=""
         />
         <WithStyles(ForwardRef(TextField))
-          label="Surname"
+          label="Apellido"
           name="surname"
           onChange={[Function]}
           required={true}
@@ -155,7 +155,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           value=""
         />
         <WithStyles(ForwardRef(TextField))
-          label="Password"
+          label="Contraseña"
           name="password"
           onChange={[Function]}
           required={true}
@@ -170,7 +170,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           }
         >
           <input
-            id="masculino"
+            id="Masculino"
             name="gender"
             onChange={[Function]}
             type="radio"
@@ -182,7 +182,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           </label>
             
           <input
-            id="femenino"
+            id="Femenino"
             name="gender"
             onChange={[Function]}
             type="radio"
@@ -220,7 +220,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           onMonthChange={[Function]}
           onSelect={[Function]}
           onYearChange={[Function]}
-          placeholderText="birthday"
+          placeholderText="Fecha de Nacimiento"
           preventOpenOnFocus={false}
           previousMonthButtonLabel="Previous Month"
           previousYearButtonLabel="Previous Year"
@@ -246,7 +246,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           yearItemNumber={12}
         />
         <WithStyles(ForwardRef(TextField))
-          label="Weight"
+          label="Peso(gramos)"
           name="weight"
           onChange={[Function]}
           required={true}
@@ -254,7 +254,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           value=""
         />
         <WithStyles(ForwardRef(TextField))
-          label="Height"
+          label="Altura(centimetros)"
           name="height"
           onChange={[Function]}
           required={true}
@@ -276,7 +276,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
             }
           }
         >
-          Si ya tenes una cuenta?
+          Ya tenes una cuenta?
         </p>
         <Link
           style={
@@ -286,7 +286,7 @@ exports[`RegisterMainPage tests renders RegisterMainPage without crashing 1`] = 
           }
           to="/"
         >
-          Login
+          Iniciar Sesión
         </Link>
       </form>
     </div>

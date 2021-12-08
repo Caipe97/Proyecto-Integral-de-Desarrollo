@@ -91,7 +91,12 @@ class FoodsSearchBar extends Component {
           if(row.userId){
             return(
               <div>
-                <img src={Delete} alt='eliminar' onClick={() => this.props.onDeleteCustomFood(row.foodId)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
+                <img src={Delete} alt='eliminar' onClick={() => {
+                  const answer = window.confirm('Eliminar comida custom?');
+                  if(answer){
+                    this.props.onDeleteCustomFood(row.foodId)
+                  }
+                  }} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
                 <CustomFoodModal edit={true} row={row} foodId={row.foodId} onEditCustomFood={this.props.onEditCustomFood} foodCategories={this.props.foodCategories}/>
                 <img src={Add} alt='agregar' onClick={() => this.props.onAddFoodToCurrentMeal(row)} id={row.foodId} style={{width: '20px', height: '20px', cursor: 'pointer'}}/>
               </div>
