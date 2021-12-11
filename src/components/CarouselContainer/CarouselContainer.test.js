@@ -40,7 +40,6 @@ describe('CarouselContainer tests', () => {
     })
     it('going to the goals when I click on this button', async () => {
         await wrapper.find('[type="button"]').at(0).simulate('click', preventDefault);
-       // expect(wrapper.instance().props.history.push).toHaveBeenCalledTimes(1);
         expect(historyMock.push.mock.calls[0]).toEqual(['/goals']);
     })
   
