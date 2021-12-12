@@ -22,6 +22,8 @@ import {
     UPDATE_CURRENT_GOAL_FAILED
 } from './goalsConstants'
 
+import API_URL from '../../env';
+
 export const addObjectiveToCurrentGoal = (objective) => ({ 
     type: ADD_OBJECTIVE_TO_CURRENT_GOAL,
     payload: objective
@@ -49,7 +51,7 @@ export const updateCurrentGoalInState = (newCurrentGoal) => ({
 export const addGoal = (userId, currentGoal) => (dispatch) => {
     dispatch({ type: ADD_GOAL_PENDING });
     return(
-      fetch(`https://jma-test-app.herokuapp.com/api/goals?userId=${userId}`, {
+      fetch(`${API_URL}/api/goals?userId=${userId}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -68,7 +70,7 @@ export const addGoal = (userId, currentGoal) => (dispatch) => {
 export const getGoalsFromUser = (userId) => (dispatch) => {
     dispatch({ type: GET_GOALS_FROM_USER_PENDING });
     return(
-      fetch(`https://jma-test-app.herokuapp.com/api/goals?userId=${userId}`)
+      fetch(`${API_URL}/api/goals?userId=${userId}`)
     )
     .then(response => response.json())
     .then(goalsData => dispatch({ type: GET_GOALS_FROM_USER_SUCCESS, payload: goalsData }))
@@ -78,7 +80,7 @@ export const getGoalsFromUser = (userId) => (dispatch) => {
 export const deleteGoal = (goalId, userId) => (dispatch) => {
     dispatch({ type: DELETE_GOAL_PENDING });
     return(
-      fetch(`https://jma-test-app.herokuapp.com/api/goals?goalId=${goalId}&userId=${userId}`, {
+      fetch(`${API_URL}/api/goals?goalId=${goalId}&userId=${userId}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
       })
@@ -91,7 +93,7 @@ export const deleteGoal = (goalId, userId) => (dispatch) => {
 export const updateCurrentGoal = (userId, currentGoal) => (dispatch) => {
   dispatch({ type: UPDATE_CURRENT_GOAL_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/goals?goalId=${currentGoal.goalId}&userId=${userId}`, {
+    fetch(`${API_URL}/api/goals?goalId=${currentGoal.goalId}&userId=${userId}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

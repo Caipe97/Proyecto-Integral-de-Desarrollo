@@ -32,10 +32,12 @@ import {
   GET_LAST_YEARS_MEALS_FAILED
  } from './mealsConstants'
 
+import API_URL from '../../env';
+
 export const addMeal = (userId, meal) => (dispatch) => {
   dispatch({ type: ADD_MEAL_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals?userId=${userId}`, {
+    fetch(`${API_URL}/api/meals?userId=${userId}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -53,7 +55,7 @@ export const addMeal = (userId, meal) => (dispatch) => {
 export const getMealsFromUser = (userId) => (dispatch) => {
   dispatch({ type: GET_MEALS_FROM_USER_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals?userId=${userId}`)
+    fetch(`${API_URL}/api/meals?userId=${userId}`)
   )
   .then(response => response.json())
   .then(mealsData => dispatch({ type: GET_MEALS_FROM_USER_SUCCESS, payload: mealsData }))
@@ -63,7 +65,7 @@ export const getMealsFromUser = (userId) => (dispatch) => {
 export const deleteMeal = (mealId, userId) => (dispatch) => {
   dispatch({ type: DELETE_MEAL_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals?mealId=${mealId}&userId=${userId}`, {
+    fetch(`${API_URL}/api/meals?mealId=${mealId}&userId=${userId}`, {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'}
     })
@@ -100,7 +102,7 @@ export const changeCurrentMealNameAndDateEaten = (newName, newDateEaten) => ({
 export const updateCurrentMeal = (meal) => (dispatch) => {
   dispatch({ type: UPDATE_CURRENT_MEAL_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals?mealId=${meal.mealId}`, {
+    fetch(`${API_URL}/api/meals?mealId=${meal.mealId}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -118,7 +120,7 @@ export const updateCurrentMeal = (meal) => (dispatch) => {
 export const getMealsByPeriod = (userId, dateStart, dateEnd) => (dispatch) => {
   dispatch({ type: GET_MEALS_BY_PERIOD_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals?userId=${userId}&dateStart=${dateStart}&dateEnd=${dateEnd}`)
+    fetch(`${API_URL}/api/meals?userId=${userId}&dateStart=${dateStart}&dateEnd=${dateEnd}`)
   )
   .then(response => response.json())
   .then(mealsByPeriodData => dispatch({ type: GET_MEALS_BY_PERIOD_SUCCESS, payload: mealsByPeriodData }))
@@ -128,7 +130,7 @@ export const getMealsByPeriod = (userId, dateStart, dateEnd) => (dispatch) => {
 export const getLastYearsMeals = (userId) => (dispatch) => {
   dispatch({ type: GET_LAST_YEARS_MEALS_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/meals/graphBar?userId=${userId}`)
+    fetch(`${API_URL}/api/meals/graphBar?userId=${userId}`)
   )
   .then(response => response.json())
   .then(lastYearsMealsData => dispatch({ type: GET_LAST_YEARS_MEALS_SUCCESS, payload: lastYearsMealsData }))

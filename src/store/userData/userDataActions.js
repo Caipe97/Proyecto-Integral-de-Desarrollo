@@ -11,6 +11,8 @@ import {
   RESET_PASSWORD_FAILED
  } from './userDataConstants'
 
+import API_URL from '../../env';
+
 export const logout = () => ({ 
   type: LOGOUT
 })
@@ -22,7 +24,7 @@ export const refreshPage = () => ({
 export const login = (email, password) => (dispatch) => {
   dispatch({ type: LOGIN_OR_REGISTER_PENDING })
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/users/login`, {
+    fetch(`${API_URL}/api/users/login`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -39,7 +41,7 @@ export const login = (email, password) => (dispatch) => {
 export const register = (name, surname, email, password, gender, birthday, weight, height) => (dispatch) => {
   dispatch({ type: LOGIN_OR_REGISTER_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/users/register`, {
+    fetch(`${API_URL}/api/users/register`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -62,7 +64,7 @@ export const register = (name, surname, email, password, gender, birthday, weigh
 export const resetPassword = (userId, password) => (dispatch) => {
   dispatch({ type: RESET_PASSWORD_PENDING });
   return(
-    fetch(`https://jma-test-app.herokuapp.com/api/users?userId=${userId}`, {
+    fetch(`${API_URL}/api/users?userId=${userId}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

@@ -15,6 +15,8 @@ import {
     RESET_PASSWORD_FAILED
    } from './userDataConstants'
 
+import API_URL from "../../env";
+
 const mockStore = configureMockStore([thunkMiddleware]);
 
 describe("logout actions", () => {
@@ -79,7 +81,7 @@ describe("login or register actions", () => {
             expect(actions).toEqual(expectedActions);
         });
         expect(fetch.mock.calls.length).toEqual(1);
-        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/register');
+        expect(fetch.mock.calls[0][0]).toEqual(`${API_URL}/api/users/register`);
     });
 
     it("should create the FAILED action when receiving an error for register", () => {
@@ -99,7 +101,7 @@ describe("login or register actions", () => {
             expect(actions).toEqual(expectedActions);
         });
         expect(fetch.mock.calls.length).toEqual(1);
-        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/register');
+        expect(fetch.mock.calls[0][0]).toEqual(`${API_URL}/api/users/register`);
     });
 
     it("should create the SUCCESS action after receiving data for login", () => {
@@ -139,7 +141,7 @@ describe("login or register actions", () => {
             expect(actions).toEqual(expectedActions);
         });
         expect(fetch.mock.calls.length).toEqual(1);
-        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/login');
+        expect(fetch.mock.calls[0][0]).toEqual(`${API_URL}/api/users/login`);
     });
 
     it("should create the FAILED action when receiving an error for login", () => {
@@ -159,7 +161,7 @@ describe("login or register actions", () => {
             expect(actions).toEqual(expectedActions);
         });
         expect(fetch.mock.calls.length).toEqual(1);
-        expect(fetch.mock.calls[0][0]).toEqual('https://jma-test-app.herokuapp.com/api/users/login');
+        expect(fetch.mock.calls[0][0]).toEqual(`${API_URL}/api/users/login`);
     });
 })
 
