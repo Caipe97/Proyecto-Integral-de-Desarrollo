@@ -40,7 +40,7 @@ class GoalsMainPage extends Component {
     }  
   }
 
-  validateQuantity = (quantity) => { //cannot be empty and only numbers
+  validateQuantity = (quantity) => {//cannot be empty and only numbers
     const expression = /^\d+$/
     return (quantity === '' || expression.test(String(quantity).toLowerCase()))
   }
