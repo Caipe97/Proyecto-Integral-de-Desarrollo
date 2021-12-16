@@ -4,15 +4,6 @@ import { Button, ProgressBar } from 'react-bootstrap';
 
 const GoalModal =(props) =>{
   const [modalShow, setModalShow] = useState(false);
-  // const calculateCurrentCaloriesOfGoal = goal => {
-  //   console.log(goal)
-  //   let currentCaloriesPerObjective = 0;
-  //   for (let i = 0; i < goal.objectives.length; i++) {
-  //     const objective = goal.objectives[i];
-  //     currentCaloriesPerObjective += objective.currentCalories;
-  //   }
-  //   return currentCaloriesPerObjective;
-  // }
 
   const isGoalEditable = goal => {
     let dateStart = new Date(goal.dateStart);
