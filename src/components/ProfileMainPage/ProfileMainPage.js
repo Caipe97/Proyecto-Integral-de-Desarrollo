@@ -190,8 +190,7 @@ class ProfileMainPage extends Component{
   }
 
   validateDate = (date) => {
-    const dateCopy = date.toString();
-    return dateCopy !== ''
+    return date !== null
   }
   render() {
 
