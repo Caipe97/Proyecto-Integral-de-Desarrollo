@@ -79,15 +79,22 @@ class MealsMainPage extends Component {
 
   handleSubmitUpdate = event => {
     event.preventDefault();
-    const dateEatenString = this.state.dateEaten.toString().substring(4, 24);
-    this.props.onChangeCurrentMealNameAndDateEaten(this.state.name, dateEatenString);
-    this.props.onUpdateCurrentMeal(this.props.currentMeal);
-    this.setState({
-      ...this.state,
-      successMessage: 'Comida editada exitosamente'
-    })
-    this.setState({name: 'Comida', dateEaten: new Date()});
-    this.props.onResetCurrentMeal();
+    if(this.props.currentMeal.FoodList[0]){
+      const dateEatenString = this.state.dateEaten.toString().substring(4, 24);
+      this.props.onChangeCurrentMealNameAndDateEaten(this.state.name, dateEatenString);
+      this.props.onUpdateCurrentMeal(this.props.currentMeal);
+      this.setState({
+        ...this.state,
+        successMessage: 'Comida editada exitosamente'
+      })
+      this.setState({name: 'Comida', dateEaten: new Date()});
+      this.props.onResetCurrentMeal();
+    } else {
+      this.setState({
+        ...this.state,
+        successMessage: 'La comida debe tener al menos un alimento'
+      })
+    }
   };
 
   handleChangeDateEaten = date => {
