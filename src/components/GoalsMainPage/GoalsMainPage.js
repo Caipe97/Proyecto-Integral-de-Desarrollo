@@ -40,7 +40,7 @@ class GoalsMainPage extends Component {
     }  
   }
 
-  validateQuantity = (quantity) => { //cannot be empty and only numbers
+  validateQuantity = (quantity) => { //cannot be empty and only numbers (cannot be zero)
     const expression = /^\d+$/
     return expression.test(String(quantity).toLowerCase())
   }
@@ -80,7 +80,7 @@ class GoalsMainPage extends Component {
   }
 
   objectivesSumedCaloriesIsSmallerOrEqualThanGoalTotalCalories = (goal, totalCalories) => {
-    if(this.state.totalCalories !== 0){
+    if(this.state.totalCalories !== 0 && this.state.totalCalories !== '0'){
       const objectivesTotalCalories = goal.objectives.reduce((totalCalories, objective) => {
         return totalCalories + objective.objectiveCalories
       }, 0)
