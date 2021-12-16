@@ -58,16 +58,13 @@ describe('MealsMainPage tests', () => {
         wrapper3 = shallow(<MealsMainPage {...mockProps} history={historyMock3}/>);
      })
     it('expect to render ProfileMainPage component to render with signing in sin comida', async() => {
-        // expect(wrapper).toMatchSnapshot();
         await wrapper.instance().componentDidMount();
     })
 
     it('expect to render ProfileMainPage component to render with signing in sin comida222',async () => {
-        // expect(wrapper2).toMatchSnapshot();
         await wrapper2.instance().componentDidMount();
     })
     it('expect to render ProfileMainPage component to render with without food',async () => {
-        // expect(wrapper3).toMatchSnapshot();
         await wrapper3.instance().componentDidMount();
     })
     it('expect to render MealsMainPage component to render with food', () => {
