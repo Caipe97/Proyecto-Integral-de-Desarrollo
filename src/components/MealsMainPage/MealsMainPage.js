@@ -36,7 +36,7 @@ class MealsMainPage extends Component {
       await this.setState({
         ...this.state,
         name: 'Comida',
-        dateEaten: ''
+        dateEaten: new Date()
       });
       this.props.onResetCurrentMeal();
     }   
@@ -67,7 +67,7 @@ class MealsMainPage extends Component {
           successMessage: 'Comida agregada exitosamente'
         })
       }
-      this.setState({name: 'Comida', dateEaten: ''});
+      this.setState({name: 'Comida', dateEaten: new Date()});
       this.props.onResetCurrentMeal();
     } else {
       this.setState({
@@ -86,7 +86,7 @@ class MealsMainPage extends Component {
       ...this.state,
       successMessage: 'Comida editada exitosamente'
     })
-    this.setState({name: 'Comida', dateEaten: ''});
+    this.setState({name: 'Comida', dateEaten: new Date()});
     this.props.onResetCurrentMeal();
   };
 
