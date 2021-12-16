@@ -40,12 +40,29 @@ class GoalsMainPage extends Component {
     }  
   }
 
-  handleChange = event => {
-    this.setState({
+  validateQuantity = (quantity) => { //cannot be empty and only numbers
+    const expression = /^\d+$/
+    return expression.test(String(quantity).toLowerCase())
+  }
+
+  handleChangeName = async event => {
+    await this.setState({
       ...this.state,
       [event.target.name]: event.target.value,
       successMessage: ''
-    })
+    }) 
+  }
+
+  handleChangeCalories = async event => {
+    if(this.validateQuantity(event.target.value)){
+      await this.setState({
+        ...this.state,
+        [event.target.name]: event.target.value,
+        successMessage: ''
+      })
+    } else {
+      await this.setState({quantity: ''})
+    }
   };
 
   changeDateStartFormat = date => {
@@ -224,8 +241,8 @@ class GoalsMainPage extends Component {
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
             <img src={Goal} alt="goal" style={{width: 100}}/>
             <div style={{ marginTop: 15 }}>
-            <TextField label="Nombre de la meta" name='name' type='name' value={this.state.name} onChange={this.handleChange} required/>
-            <TextField label="Calorías de la meta" name='totalCalories' type='totalCalories' value={this.state.totalCalories} onChange={this.handleChange} required/>
+            <TextField label="Nombre de la meta" name='name' type='name' value={this.state.name} onChange={this.handleChangeName} required/>
+            <TextField label="Calorías de la meta" name='totalCalories' type='totalCalories' value={this.state.totalCalories} onChange={this.handleChangeCalories} required/>
             </div>
             <div className="row">
               <div className="w-100"></div>
