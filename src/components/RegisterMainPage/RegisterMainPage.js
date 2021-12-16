@@ -49,8 +49,8 @@ class RegisterMainPage extends Component{
 
   handleSubmit = async event => {
     event.preventDefault();
-    const birhtdayString = this.state.birthday.toString().substring(4, 24);
     if(this.validateAll()){
+      const birhtdayString = this.state.birthday.toString().substring(4, 24);
       const data = await this.props.onRegister(this.state.name, this.state.surname, this.state.email, this.state.password, this.state.gender, birhtdayString, this.state.weight, this.state.height);
       this.setState({ name: '', surname: '', email: '', password: '', gender: '', birthday: '', weight: '', height: '' });
       if(data.type === LOGIN_OR_REGISTER_SUCCESS){
@@ -69,6 +69,7 @@ class RegisterMainPage extends Component{
       this.validateEmail(this.state.email) && 
       this.validatePassword(this.state.password) &&
       this.validateGender(this.state.gender) &&
+      this.validateBirthday(this.state.birthday) &&
       this.validateWeight(this.state.weight) &&
       this.validateHeight(this.state.height)){
         return true;
@@ -101,6 +102,10 @@ class RegisterMainPage extends Component{
   validateGender = (gender) => { //cannot be empty and only letters
     const expression = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/
     return expression.test(String(gender).toLowerCase())
+  }
+
+  validateBirthday = (date) => { //valid date
+    return date !== '';
   }
 
   validateWeight = (weight) => { //cannot be empty and only numbers
