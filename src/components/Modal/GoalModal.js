@@ -4,15 +4,15 @@ import { Button, ProgressBar } from 'react-bootstrap';
 
 const GoalModal =(props) =>{
   const [modalShow, setModalShow] = useState(false);
-
-  const calculateCurrentCaloriesOfGoal = goal => {
-    let currentCaloriesPerObjective = 0;
-    for (let i = 0; i < goal.objectives.length; i++) {
-      const objective = goal.objectives[i];
-      currentCaloriesPerObjective += objective.currentCalories;
-    }
-    return currentCaloriesPerObjective;
-  }
+  // const calculateCurrentCaloriesOfGoal = goal => {
+  //   console.log(goal)
+  //   let currentCaloriesPerObjective = 0;
+  //   for (let i = 0; i < goal.objectives.length; i++) {
+  //     const objective = goal.objectives[i];
+  //     currentCaloriesPerObjective += objective.currentCalories;
+  //   }
+  //   return currentCaloriesPerObjective;
+  // }
 
   const isGoalEditable = goal => {
     let dateStart = new Date(goal.dateStart);
@@ -72,11 +72,11 @@ const GoalModal =(props) =>{
           {
           props.goal.totalCalories > 0 
           ?  <>
-              <p>Calorias totales consumidas: {calculateCurrentCaloriesOfGoal(props.goal)}/{props.goal.totalCalories}:</p> 
+              <p>Calorias totales consumidas: {props.goal.currentTotalCalories}/{props.goal.totalCalories}:</p> 
               <ProgressBar animated 
-                variant={(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100 > 65 ? "danger" : "success"}  
-                now={(calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100} 
-                label={`${((calculateCurrentCaloriesOfGoal(props.goal)/props.goal.totalCalories)*100).toFixed(2)}%`}
+                variant={(props.goal.currentTotalCalories/props.goal.totalCalories)*100 > 65 ? "danger" : "success"}  
+                now={(props.goal.currentTotalCalories/props.goal.totalCalories)*100} 
+                label={`${((props.goal.currentTotalCalories/props.goal.totalCalories)*100).toFixed(2)}%`}
               />
             </>
           : null

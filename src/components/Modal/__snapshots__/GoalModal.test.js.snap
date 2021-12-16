@@ -146,7 +146,6 @@ exports[`GoalModal tests expect to render GoalModal component to render 1`] = `
       </div>
       <p>
         Calorias totales consumidas: 
-        6000
         /
         300
         :
@@ -154,13 +153,13 @@ exports[`GoalModal tests expect to render GoalModal component to render 1`] = `
       <ProgressBar
         animated={true}
         isChild={false}
-        label="2000.00%"
+        label="NaN%"
         max={100}
         min={0}
-        now={2000}
+        now={NaN}
         srOnly={false}
         striped={false}
-        variant="danger"
+        variant="success"
       />
     </ModalBody>
     <ModalFooter>
